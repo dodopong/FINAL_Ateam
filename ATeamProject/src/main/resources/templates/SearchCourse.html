@@ -68,10 +68,12 @@
 	        <ul class="sectionCon sectionCon01" >
 	            <li th:each="course : ${courseList}" class="con">
 	                <a th:href="@{|/course/${course.course_key}|}">
+	                <!-- img 추가해야함 <썸네일> -->
 	                    <div class="conText">
 	                        <div class="conInfo">
+	                        	<!-- img 추가해야함 <썸네일> -->
 	                            <p th:text ="${course.title}"></p>
-	                            <span class="creater"></span>
+	                            <span class="creater"></span> <!-- 타임리프 받아야함 (사용자 닉네임) -->
 	                        </div>
 	                    </div>
 	                </a>
