@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/86c06c2025.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/MainPageStyle.css}">
+    <link rel="stylesheet" th:href="@{/fragment.css}">
+</head>
+
+<body>
+    <!-- ***************************************************** Header_Content 
+     ***************************************************** -->
+    <nav th:replace = "~{navbar :: navbarFragment}"></nav>
+    <!-- ***************************************************** Main_Content 
+    ***************************************************** -->
+    <div class="main">
+        <!--*-*-*-*-*-*-*-*-* banner Slide *-*-*-*-*-*-*-*-*-->
+        <div class="slideContainer">
+            <ul class="slides">
+                <li class="slide slide01"></li>
+                <li class="slide slide02"></li>
+                <li class="slide slide03"></li>
+            </ul>
+            <div class="slideBtn preBtn">
+                <i class="fa-solid fa-chevron-left"></i>
+            </div>
+            <div class="slideBtn nextBtn">
+                <i class="fa-solid fa-chevron-right"></i>
+            </div>
+        </div>
+        <!--*-*-*-*-*-*-*-*-* section01_Contents *-*-*-*-*-*-*-*-*-->
+        <div class="section section01">
+            <div class="text">
+                <a href="#">실시간 인기 강좌</a>
+                <a href="#">show more +</a>
+            </div>
+            <ul class="sectionCon sectionCon01">
+                <li class="con">
+                    <a href="#">
+                        <img src="img/class01.png" alt="">
+                        <p>이민자를 위한 한국어 강좌</p>
+                    </a>
+                </li>
+                <li class="con">
+                    <a href="#">
+                        <img src="img/class02.png" alt="">
+                        <p>스포츠 코칭론</p>
+                    </a>
+                </li>
+                <li class="con">
+                    <a href="#">
+                        <img src="img/class03.png" alt="">
+                        <p>식물 분류학</p>
+                    </a>
+                </li>
+                <li class="con">
+                    <a href="#">
+                        <img src="img/class04.png" alt="">
+                        <p>현대소설론</p>
+                    </a>
+                </li>
+                <li class="con">
+                    <a href="#">
+                        <img src="img/class05.png" alt="">
+                        <p>고급영문감독</p>
+                    </a>
+                </li>
+                <li class="con">
+                    <a href="#">
+                        <img src="img/class06.png" alt="">
+                        <p>현대소설론</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!--*-*-*-*-*-*-*-*-* section02_Contents *-*-*-*-*-*-*-*-*-->
+        <div class="section section02">
+            <div class="text">
+                <a href="#">신규 개설 강좌</a>
+                <a href="#">show more +</a>
+            </div>
+            <ul class="sectionCon sectionCon02">
+                <li class="con">
+                    <a href="#">
+                        <img src="img/class01.png" alt="">
+                        <p>이민자를 위한 한국어 강좌</p>
+                    </a>
+                </li>
+                <li class="con">
+                    <a href="#">
+                        <img src="img/class02.png" alt="">
+                        <p>스포츠 코칭론</p>
+                    </a>
+                </li>
+                <li class="con">
+                    <a href="#">
+                        <img src="img/class03.png" alt="">
+                        <p>식물 분류학</p>
+                    </a>
+                </li>
+                <li class="con">
+                    <a href="#">
+                        <img src="img/class04.png" alt="">
+                        <p>현대소설론</p>
+                    </a>
+                </li>
+                <li class="con">
+                    <a href="#">
+                        <img src="img/class05.png" alt="">
+                        <p>고급영문감독</p>
+                    </a>
+                </li>
+                <li class="con">
+                    <a href="#">
+                        <img src="img/class06.png" alt="">
+                        <p>현대소설론</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!--*-*-*-*-*-*-*-*-* section03_Contents *-*-*-*-*-*-*-*-*-->
+        <div class="section section03">
+            <div class="text">
+                <p>Notice Category</p>
+                <p>Q and A</p>
+            </div>
+            <div class="section03Con">
+                <div class="setion03Con_01 notice">
+                    <div class="board">
+                        <ul>
+                            <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. </a></li>
+                            <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
+                            <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
+                            <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
+                            <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
+                            <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
+                            <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
+                            <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
+                            <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
+                            <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="setion03Con_01 QA">
+                    <div class="board">
+                        <ul>
+                            <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. </a></li>
+                            <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
+                            <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
+                            <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
+                            <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
+                            <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
+                            <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
+                            <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
+                            <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
+                            <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ***************************************************** FOOTER
+     ***************************************************** -->
+        <footer th:replace = "~{footer :: footerFragment}"></footer>
+       <!-- ***************************************************** MODAL
+     ***************************************************** -->
+     <div th:replace = "~{modal :: modalFragment}"></div >
+     
+     
+    <script src="MainPageModul.js"></script>
+    <script src="fragment.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,266 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+/* header */
+/* .header{
+    width: 100vw;
+    border-bottom: 3px solid rgb(127, 161, 195);
+    height: 4.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.course{
+    padding-left: 3rem;
+    font-size: 1.3rem;
+} */
+
+.header {
+    background-color:#0C4876;
+    padding-left: 15rem;
+    padding-right: 15rem;
+    height: 4.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    width: 100vw;
+    transition: .2s;
+}
+
+.down {
+    background-color: #608fb7;
+    height: 2.6rem;
+}
+
+
+/************* headerLogo ************/
+.logo{
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    /* color: rgb(245, 237, 237); */
+    color: white;
+}
+
+
+/************* headerNav ************/
+
+.headerNav {
+    display: flex;
+}
+
+.headerNav>li>a {
+    display: block;
+    width: 100%;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+    color: black;
+    font-size: 1rem;
+    font-weight: 900;
+    color:white;
+    transition: .3s;
+}
+.headerNav>li>a:hover{
+    color: rgb(249, 171, 128);
+    text-shadow: 2px 2px 2px gray;
+}
+
+/************* headerBtn ************/
+.headerbtn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+}
+
+.searchBtn{
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    transition: .3s;
+}
+.searchBtn:hover{
+    color: rgb(249, 171, 128);
+    text-shadow: 3px 3px 2px gray;
+}
+.loginBtn{
+    font-size: 1.1rem;
+    font-weight: 900;
+    height: 2.5rem;
+    padding-left: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .3s;
+}
+.loginBtn:hover{
+    color: rgb(249, 171, 128);
+    text-shadow: 2px 2px 2px gray;
+}
+/* header 끝 */
+
+/* section */
+.section{
+    /* 섹션 크기 잡기 */
+    width: 100vw;
+    /* height: 40rem; */
+    display: flex;
+}
+/* section 왼쪽 */
+.main{
+    /* 좌측 div 크기 잡기 */
+    width: 70vw;
+    /* height: 40rem; */
+    display: flex;
+    flex-direction: column;
+}
+/* 제목 파트 시작 */
+.titlecontainer{
+    padding-top: 1rem;
+    width: 67.5vw;
+    /* height: 5rem; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.title{
+    /* height: 5rem; */
+    width: 55vw;
+    padding: 1rem;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+/* 제목 파트 끝 */
+
+/* 설명 파트 시작 */
+.discontainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 67.5vw;
+    padding-top: 1rem;
+    /* height: 10rem; */
+}
+.discontainer .text{
+    /* height: 8rem; */
+    width: 55vw;
+    padding: 1rem;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+/* 설명 파트 끝 */
+
+/* 영상 파트 시작 */
+.moviecontainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 67.5vw;
+    padding-top: 1rem;
+    /* height: 30rem; */
+}
+.movie{
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    width: 55vw;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    /* height: 25rem; */
+}
+.movie video{
+    width: 50vw;
+    height: 36rem;
+}
+/* 영상 파트 끝 */
+/* section 왼쪽 끝 */
+
+/* section 오른쪽 */
+.side{
+    /* 우측 div 크기 잡기 */
+    width: 30vw;
+    /* height: 40rem; */
+}
+/* 목차 시작 */
+.ahrck{
+    margin-top: 1rem;
+    margin-right: 2.5rem;
+    display: flex;
+    flex-direction: column;
+}
+.ahrckbtn{
+    /* 목차 버튼 크기 잡기 */
+    /* height: 5rem; */
+    width: 15vw;
+}
+.ahrckbtn{
+    /* background-color: #608fb7; */
+    /* color: white; */
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 3rem;
+    width: 10vw;
+    font-size: 1.5rem;
+}
+.ahrckli{
+    overflow: hidden;
+    transition: 0.5s;
+    max-height: 0;
+}
+.ahrckli ul{
+    border: 1px solid black;
+    /* background-color: #aec5d8; */
+    border-radius: 5px;
+}
+.ahrckli img{
+    margin: 0.3rem;
+    width: 2.5vw;
+    height: 2rem;
+}
+.ahrckli ul,img{
+    display: flex;
+    align-items: center;
+}
+/* 목차 끝 */
+/* section 오른쪽 끝 */
+
+/* footer 시작 */
+.footer{
+    width: 100vw;
+    height: 4.2rem;
+    background-color: #0C4876;
+}
+
+a:visited{
+    color: black;
+}
+.text{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 900;
+}

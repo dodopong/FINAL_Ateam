@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>강의 검색</title>
+    <link rel="stylesheet" th:href="@{SearchCourseStyle.css}">
+    <link rel="stylesheet" th:href="@{fragment.css}">
+    <script src="https://kit.fontawesome.com/86c06c2025.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- ***************************************************** Header_Content 
+     ***************************************************** -->
+    <nav th:replace = "~{navbar :: navbarFragment}"></nav>
+    <!-- ***************************************************** Main_Content 
+    ***************************************************** -->
+	<div class="sectionBody">
+	    <div class="section section01">
+	     <!-- ********************검색 필터창 ************* -->
+	        <div class="searchContainer">   
+	            <div class="searchTop">
+	                <select name="searchoption" id="searchoption">
+	                    <option value="title">제목</option>
+	                    <option value="cont">내용</option>
+	                    <option value="inst">작성자</option>
+	                    <option value="gunchim">군침</option>
+	                </select>
+	                <input type="search" placeholder="검색어를 입력해 주세요.">
+	            </div>
+	            <div class="category">
+	                <p>언어 :</p>
+	                <select name="language" id="language">
+	                    <option value="java">자바</option>
+	                    <option value="js">자바스크립트</option>
+	                    <option value="python">파이썬</option>
+	                    <option value="C">C언어</option>
+	                </select>
+	    
+	                <p>난이도 : </p>
+	                <SELect name="difficulty">
+	                    <option value="low">LV.1</option>
+	                    <option value="middle">LV.2</option>
+	                    <option value="high">LV.3</option>
+	                </SELect>
+	                <p>강의 유형 :</p>
+	                <select name="lecture" id="lecture">
+	                    <option value="live">실시간</option>
+	                    <option value="record">녹화</option>
+	                </select>
+	            </div>
+	            <div class="filter">
+	                <ul class="filterul">
+	                    <li><label class="filterselect active">인기 많은 순</label></li>
+	                    <li><label class="filterselect">인기 적은 순</label></li>
+	                    <li><label class="filterselect">최신 순</label></li>
+	                    <li><label class="filterselect">오래된 순</label></li>
+	                    <li><label class="filterselect">군침 도는 순</label></li>
+	                    <!-- 8월 27일 박호선 js 적용을 위해 class filterselect로 변경 -->
+	                </ul>
+	            </div>
+	        </div>
+	
+	        <div class="text">
+	            <a href="#">ㅁㅁ 검색 결과</a>
+	            <a href="#">show more +</a>
+	        </div>
+	
+	        <ul class="sectionCon sectionCon01" >
+	            <li th:each="course : ${courseList}" class="con">
+	                <a th:href="@{|/course/${course.course_key}|}">
+	                    <div class="conText">
+	                        <div class="conInfo">
+	                            <p th:text ="${course.title}"></p>
+	                            <span class="creater"></span>
+	                        </div>
+	                    </div>
+	                </a>
+	            </li>
+	        </ul>
+	    </div>
+	    <div class="section section02">
+	        <div class="text">
+	            <a href="#">실시간 강좌</a>
+	            <a href="#">show more +</a>
+	        </div>
+	        <ul class="sectionCon sectionCon02">
+	            <li class="con">
+	                <a href="#">
+	                    <img src="img/dounerwelcome.jpg" alt="">
+	                    <div class="conText">
+	                        <img src="img/profile_picture/dulliWelcome.jpg" alt="">
+	                        <div class="conInfo">
+	                            <p>도우너 강사 초청 강의</p>
+	                            <span class="creater">초능력내친구둘리</span>
+	                        </div>
+	                    </div>
+	                </a>
+	            </li>
+	            <li class="con">
+	                <a href="#">
+	                    <img src="img/gunchimgang2.jpg" alt="">
+	                    <div class="conText">
+	                        <img src="img/profile_picture/gunchimdoublepistol - 복사본.jpg" alt="">
+	                        <div class="conInfo">
+	                            <p>올림픽 나가서 금메달 딴 썰 푼다 ㅋ</p>
+	                            <span class="creater">하와이피스톨군침</span>
+	                        </div>
+	                    </div>
+	                </a>
+	            </li>
+	            <li class="con">
+	                <a href="#">
+	                    <img src="img/nosangsik.jpg" alt="">
+	                    <div class="conText">
+	                        <img src="img/profile_picture/nosangsik.jpg" alt="">
+	                        <div class="conInfo">
+	                            <p>운명을 믿습니까?</p>
+	                            <span class="creater">노상식</span>
+	                        </div>
+	                    </div>
+	                </a>
+	            </li>
+	            <li class="con">
+	                <a href="#">
+	                    <img src="img/gunchimWhoAreYou.jpg" alt="">
+	                    <div class="conText">
+	                        <img src="img/profile_picture/gunchim.jpg" alt="">
+	                        <div class="conInfo">
+	                            <p>인생철학강의 나는 누구인가?</p>
+	                            <span class="creater">군치미</span>
+	                        </div>
+	                    </div>
+	                </a>
+	            </li>
+	        </ul>
+	    </div>
+	</div>
+     <!-- ***************************************************** FOOTER
+     ***************************************************** -->
+     <footer th:replace = "~{footer :: footerFragment}"></footer>
+     <!-- ***************************************************** MODAL
+     ***************************************************** -->
+     <div th:replace = "~{modal :: modalFragment}"></div >
+     
+     <script src="SearchCourseModul.js"></script>
+     <script src="fragment.js"></script>
+</body>
+</html>

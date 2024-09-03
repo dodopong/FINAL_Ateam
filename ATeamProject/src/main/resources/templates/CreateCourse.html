@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>강좌 등록</title>
+    <link rel="stylesheet" th:href="@{/CreateCourse.css}">
+    <link rel="stylesheet" th:href="@{/fragment.css}">
+    <script src="https://kit.fontawesome.com/86c06c2025.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <!-- ***************************************************** Header_Content 
+     ***************************************************** -->
+   <nav th:replace = "~{navbar :: navbarFragment}"></nav>
+    <!-- ***************************************************** Main_Content 
+    ***************************************************** -->
+    <div class="main">
+        <div class="sectionBody">
+                <div id="write_area">
+                    <form th:action="@{/create}" th:object = "${courseForm}" method="post" enctype="multipart/form-data">
+                    <div th:replace="~{form_errors :: formErrorsFragment}"></div>
+                    <div class="sectionHeader">
+                        <h4>강좌 등록</h4>
+                        <button type="submit">다음</button>
+                    </div>
+                    <div class="section title">
+                        <div class="selectBar">
+                            <div class="title category">
+                                <select th:field="*{category}" id="language">
+                                    <option value="" disabled selected>-- 카테고리 --</option>
+                                    <option value="java">자바</option>
+                                    <option value="js">자바스크립트</option>
+                                    <option value="python">파이썬</option>
+                                    <option value="C">C언어</option>
+                                </select>
+                            </div>
+                            <div class="top level">
+                                <select th:field="*{level}" id="level">
+                                    <option value="" disabled selected>--- 레벨 ---</option>
+                                    <option value="1">LV.1</option>
+                                    <option value="2">LV.2</option>
+                                    <option value="3">LV.3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="inTitle">
+                            <textarea th:field="*{title}" id="title" placeholder="제목을 입력해주세요" maxlength="100" required></textarea>
+                        </div>
+                    </div>
+                        <div class="section banner">
+                            <div class="banner img">
+                                <span>배너 이미지</span>
+                                <input th:field="*{file}"  type="file" name="SelectFile bannerImg" />
+                            </div>
+                            <div class="banner Text">
+                                <textarea th:field="*{banner_text}" id="banner_text"  placeholder="배너에 들어갈 문구를 입력해주세요." required></textarea>
+                            </div>
+                        </div>
+                        <div class="section main">
+                            <textarea th:field="*{main_content}" id="content"  placeholder="강의에 대해 설명해주세요." required></textarea>
+                        </div>
+                        <div class="section objective">
+                            <div id="in_content">
+                                <textarea th:field="*{objective}" id="ucontent"  placeholder="강의 목표를 입력해주세요." required></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ***************************************************** FOOTER
+     ***************************************************** -->
+        <footer th:replace = "~{footer :: footerFragment}"></footer>
+       <!-- ***************************************************** MODAL
+     ***************************************************** -->
+     <div th:replace = "~{modal :: modalFragment}"></div >
+     
+     
+    <script src="CreateCourseModule.js"></script>
+    <script src="fragment.js"></script>
+</body>
+</html>

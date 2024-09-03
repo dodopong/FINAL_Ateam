@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수강신청</title>
+    <link rel="stylesheet" th:href="@{/CourseRegistration.css}">
+    <link rel="stylesheet" th:href="@{/fragment.css}">
+    <script src="https://kit.fontawesome.com/86c06c2025.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- ************** Header_Content********************** -->
+    <nav th:replace = "~{navbar :: navbarFragment}"></nav>
+    <!-- Main banner -->
+    <main class="whole">    
+        <div class="section-body">
+            <section class="promo">
+                <div class="banner-text">
+                    <h1 th:text="${course.banner_text}"></h1>
+                </div>
+            </section>
+
+            <!-- Text Header -->
+            <div class="text-header">
+                <ul class="text-headerNav">
+                    <li><a href="#title1">강의 소개</a></li>
+                    <li><a href="#title2">강사 소개</a></li>
+                    <li><a href="#title3">커리큘럼</a></li>
+                    <li><a href="#title4">수강평</a></li>
+                </ul>
+            </div>
+            
+            <!-- Main description -->
+            <section class="descript">
+                <h2 id="title1" th:text="${course.title}"></h2>
+                <p class="subheading"  th:text="${course.main_content}"></p>
+                <p><img src="image/springjpakim_img_1.png" alt="Spring Introduction" class="center-image"></p>
+                <h3 th:text="${course.main_content}"></h3> 
+                <h3 th:text="${course.main_content}"></h3>
+                <p><img src="image/spring-icon.jpg" alt="Spring Icon" class="center-image"></p>
+
+                <h2>강의 목표</h2>
+                <ul>
+                    <li th:text= "${course.Objective}"></li >
+                </ul>
+
+                <h2 id="title2">강사 소개</h2> 
+                <div>
+                    <img src="image/chefloopy.JPG" alt="loopy icon" class="instructor-img">
+                </div>          
+        
+                <p class="instructor-introduction"><h3>루피</h3></p>
+                <br>
+                <p><strong>[경력사항]</strong></p>
+                <ul>
+                    <li>- 교육자</li>
+                    <li>- 전: 우아한형제들 기술이사, 카카오, SK플래닛</li>
+                    <li>- 저서: 자바 ORM 표준 JPA 프로그래밍</li>
+                </ul>
+                
+                <h2 id="title3">강의 커리큘럼</h2>
+                <ul>
+                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                    <li>Accusamus, quam nostrum maiores maxime perspiciatis veniam sequi dignissimos magni error dolor rerum, explicabo, praesentium ullam quae sint? Minima atque odit quos.</li>
+                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                    <li>Modi a qui laudantium totam ipsam, ex dolorem velit magnam perferendis repellendus, sunt quam recusandae eius impedit autem, rem voluptatum ducimus officiis.</li>
+                </ul>
+
+                <h2 id="title4">수강평</h2>
+                <div class="star-rate">
+                    <div> <strong>평점(5.0)</strong>
+                        <label for="rate1">★</label>
+                        <label for="rate2">★</label>
+                        <label for="rate3">★</label>
+                        <label for="rate4">★</label>
+                        <label for="rate5">★</label>
+                    </div>
+                </div>
+                <ul>
+                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                    <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
+                    <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
+                    <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
+                    <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
+                    <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
+                </ul>
+            </section>
+            
+
+            <!-- Signup Button -->
+            <div class="signup-button">
+                <div class="signBtn"><strong>수강신청 하기</strong></div>
+            </div>
+        </div>    
+    </main>
+    
+
+
+    <!-- ***************************************************** FOOTER
+     ***************************************************** -->
+        <footer th:replace = "~{footer :: footerFragment}"></footer>
+       <!-- ***************************************************** MODAL
+     ***************************************************** -->
+     <div th:replace = "~{modal :: modalFragment}"></div >
+
+    <script src="CourseRegistrationModule.js"></script>
+    <script src="fragment.js"></script>
+</body>
+</html>
