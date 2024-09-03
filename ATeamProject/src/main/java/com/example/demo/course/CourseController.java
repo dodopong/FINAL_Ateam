@@ -74,5 +74,5 @@ public class CourseController {
 	      Course c = this.cs.getCourse(course_key);
 	      model.addAttribute("course", c);
 	      return "CourseRegistration";
-	   }
+	   } // course
 }
