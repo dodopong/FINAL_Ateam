@@ -21,9 +21,8 @@ public class CartController {
 	
 	@GetMapping("/cart")
 	public String cart(
-//			CourseForm courseForm, Model model,
-//			@PathVariable("id")
-//			Integer id
+			CourseForm courseForm, Model model,
+			Integer id
 			) 
 //					throws NotFoundException 
 	{
