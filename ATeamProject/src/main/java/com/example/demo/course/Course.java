@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import com.example.demo.cart.Cart;
+import com.example.demo.courseReview.CourseReview;
 import com.example.demo.file.Files;
 import com.example.demo.lecture.Lecture;
 import com.example.demo.member.Member;
@@ -54,5 +55,8 @@ public class Course {
 	
 	@OneToMany(cascade = CascadeType.REMOVE)
 	private List<Cart> cartList;
+	
+	@OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
+	private List<CourseReview> courseReviewList;
 	
 }

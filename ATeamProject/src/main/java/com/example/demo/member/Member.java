@@ -44,4 +44,8 @@ public class Member {
 	
 	@OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
 	private List<Course> courseList;
+	
+	@OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
+	private List<Course> CourseReviewList;
+	
 }
