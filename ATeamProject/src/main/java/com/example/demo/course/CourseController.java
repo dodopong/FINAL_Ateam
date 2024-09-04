@@ -75,4 +75,4 @@ public class CourseController {
 	      model.addAttribute("course", c);
 	      return "CourseRegistration";
 	   } // course
-}
+} 
