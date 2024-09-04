@@ -33,6 +33,8 @@ public class Cart {
 	
 	private LocalDateTime update_date;
 	
+	private LocalDateTime last_update_date;
+	
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<Course> courseList;
 //	private Course course;
