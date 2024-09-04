@@ -8,6 +8,204 @@
     <link rel="stylesheet" href="CartPage.css">
 </head>
 <body>
-asdfg
+     <!-- ***************************************************** Header_Content 
+     ***************************************************** -->
+     <div class="header ">
+        <!--*-*-*-*-*-*-*-*-* headerUp_Contents *-*-*-*-*-*-*-*-*-->
+        <div class="headerUp">
+            <div class="headerLogo">
+                <a href="#">
+                    <i class="fa-brands fa-blogger-b"></i>
+                </a>
+            </div>
+            <div class="headerSearchBar">
+                <input type="text" class="search" placeholder="찾는 강의를 검색하세요">
+                <div class="searchBtn">
+                    <a href="#">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="headerRightCon">
+                <a href="#" class="cart">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </a>
+                <a href="#" class="loginBtn">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+            </div>
+        </div>
+        <!--*-*-*-*-*-*-*-*-* headerDown_Contents *-*-*-*-*-*-*-*-*-->
+        <div class="headerDown">
+            <ul>
+                <li class="categoryBtn">
+                    <a href="#">
+                        <i class="fa-solid fa-bars"></i> 카테고리
+                    </a>
+                </li>
+                <li>
+                    <a href="#">할인특가</a>
+                </li>
+                <li>
+                    <a href="#">이벤트</a>
+                </li>
+                <li>
+                    <a href="#">고객센터</a>
+                </li>
+                <li>
+                    <a href="#">공지사항</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="categoryContainer">
+        <ul class="category">
+            <li>
+                <p>Html</p>
+                <a href="#">content</a>
+                <a href="#">content</a>
+                <a href="#">content</a>
+                <a href="#">content</a>
+            </li>
+            <li>
+                <p>Css</p>
+                <a href="#">content</a>
+                <a href="#">content</a>
+                <a href="#">content</a>
+                <a href="#">content</a>
+                <a href="#">content</a>
+            </li>
+            <li>
+                <p>Javascript</p>
+                <a href="#">content</a>
+                <a href="#">content</a>
+                <a href="#">content</a>
+                <a href="#">content</a>
+                <a href="#">content</a>
+                <a href="#">content</a>
+                <a href="#">content</a>
+            </li>
+            <li>
+                <p>Java</p>
+                <a href="#">content</a>
+                <a href="#">content</a>
+                <a href="#">content</a>
+                <a href="#">content</a>
+                <a href="#">content</a>
+                <a href="#">content</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 섹션 시작 -->
+    <section>
+        <div class="cartContainer">
+            <div class="cartItem top">
+                <div class="cartCheck"><input type="checkbox" name="selectall" onclick="selectAll(this)"></div>
+                <div class="cartImage">아 여긴 뭐 넣지</div>
+                <div class="cartName">강의 제목</div>
+                <div class="cartInstructor">카테고리</div>
+                <div class="cartPrice">가격</div>
+                <div class="cartNote">난이도</div>
+            </div>
+            <div th:each="course : ${courseList}" class="cartItem">
+                <div class="cartCheck"><input type="checkbox" name="cartbox" onclick="checkSelectAll(this)"></div>
+                <div class="cartImage"><img src="b9343d314206275c1b6d0d0c4fcc2ce71.jpg" alt=""></div>
+                <div th:text="${course.title}" class="cartName"></div>
+                <div th:text="${course.category}" class="cartInstructor"></div>
+                <div class="cartPrice">5000003213421</div>
+                <div th:text="${course.level}" class="cartNote"></div>
+            </div>
+            
+        </div>
+
+        <div class="btn">
+            <button class="keepbtn">쇼핑 계속하기</button>
+            <button class="orderbtn">구매하기</button>
+        </div>
+    </section>
+
+    <!-- ***************************************************** Footer_Content 
+    ***************************************************** -->
+    <div class="footer">
+        <div class="footerTop">
+            <div class="footerLogo">
+                <a href="#">
+                    <i class="fa-brands fa-blogger-b"></i>
+                    <!-- BROWNIE -->
+                </a>
+            </div>
+            <ul class="footerNav">
+                <li>
+                    <a href="#">ABOUT</a>
+                </li>
+                <li>
+                    <a href="#">BLOG</a>
+                </li>
+                <li>
+                    <a href="#">SERVICE</a>
+                </li>
+                <li>
+                    <a href="#">CONTACTS</a>
+                </li>
+            </ul>
+            <ul class="footerSns">
+                <li>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </li>
+            </ul>
+        </div>
+        <div class="footerbottom">
+            <div class="textBox">
+                <p>주식회사 BROWNIE</p>
+                <p>대표 : Julian</p>
+                <p>사업자 등록번호 : 000-00-00000</p>
+                <p>대표전화 : 1234-1234</p>
+                <p>통신판매업신고 : 2024-경기안산-00000</p>
+                <p>Email : abc01@naver.com</p>
+                <p>주소 : 경기 안산시 단원구 145 3층</p>
+            </div>
+        </div>
+    </div>
+    <!-- ***************************************************** Modal_Content 
+    ***************************************************** -->
+    <div class="modal loginModal">
+        <div class="loginContainer">
+            <div class="closeBtn">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            <div class="loginContent loginContent_left">
+                <p>Hello Again</p>
+                <p>email</p>
+                <input type="text" placeholder="email">
+                <p>password</p>
+                <input type="password" placeholder="password">
+                <button>Login</button>
+                <div class="signContainer">
+                    <div class="sign">
+                        <a href="#">
+                            signIN
+                        </a>
+                    </div>
+                    <div class="find">
+                        <a href="#">
+                            Find ID/Password
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="loginContent loginContent_right"></div>
+        </div>
+    </div>
+
+    <script src="CartPage.js">
+    </script>
 </body>
 </html>
