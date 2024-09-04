@@ -1,3 +1,4 @@
+//이메일 선택박스
 // 도메인 직접 입력 or domain option 선택
 const domainListEl = document.querySelector('#domain-list')
 const domainInputEl = document.querySelector('#domain-txt')
@@ -14,3 +15,30 @@ domainListEl.addEventListener('change', (event) => {
     domainInputEl.disabled = false
   }
 });
+////////////////////////////////////////////////////////////////
+//전화번호입력 정규 표현식
+function oninputPhone(target) {
+  target.value = target.value
+      .replace(/[^0-9]/g, '')
+      .replace(/(\..*?)\..*/g, '$1')  //숫자 외 입력방지
+      .replace(/(^02.{0}|^01.{1}|[0-9]{3,4})([0-9]{4})([0-9]{4})/g, "$1-$2-$3"); //자동 하이픈 생성
+}
+
+
+////////////////////////////////////////////////////////////////
+//가입유형-강사를 선택했을 때만 서류제출란이 보이게
+
+let btns = document.querySelector('#instructor');
+let ins = document.querySelector('.instructor');
+
+btns.addEventListener('click', function(){
+        ins.classList.add('on');
+
+})
+
+let btnss = document.querySelector('#student');
+ let isShoww = true;
+btnss.addEventListener('click', function(){
+      ins.classList.remove('on');
+
+})

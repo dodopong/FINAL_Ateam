@@ -39,7 +39,7 @@
 
 /*************************************/
 /* level-2: 정보입력1 메인 */
-form{
+.container.two{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -96,18 +96,18 @@ select {
     border: 0;
     border-radius: 15px;
     outline: none;
-    margin-top: 30px;
-    background-color: rgb(164, 199, 255);
+    margin: 30px 0 30px 0;
+    background-color: #e7c2bf;
 }
 .next-btn:active {
-    width: 460px;
+/*    width: 460px;
     height: 32px;
     font-size: 15px;
     border: 0;
     border-radius: 15px;
-    outline: none;
+    outline: none;*/
     padding-left: 10px;
-    background-color: rgb(61, 135, 255);
+    background-color: rgb(231, 227, 227);
 }
 
 /*************************************/
@@ -117,7 +117,7 @@ select {
     border-style: double;
     margin: 1rem;
     padding: 0.7rem;
-    border : 1px solid rgb(164, 199, 255);
+    border : 1px solid #e7c2bf;
 }
 
 /* 이벤트 */

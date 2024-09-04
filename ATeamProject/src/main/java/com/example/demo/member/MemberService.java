@@ -13,14 +13,17 @@ public class MemberService { //회원정보를 저장
 	private final MemberRepository mr;
 
 	
-	public void create(String member_id, String password, String tel_no, String birth
+	public void create(String email1, String email2, String password, String mname 
+			, String tel_no, String nickname, String birth 
 			, String profile_img, String category, String instructor_yn) {
 		
 		Member m = new Member();
-		m.setMemberId(member_id);
+		m.setMemberId(email1+'@'+email2);
 		m.setPassword(password);
+		m.setMname(mname);
 		m.setTel_no(tel_no);
 		m.setBirth(birth);
+		m.setNickname(nickname);
 		m.setCreate_date(LocalDateTime.now());
 		m.setProfile_img(profile_img);
 		m.setCategory(category);
