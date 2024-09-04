@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>강좌 등록</title>
+    <link rel="stylesheet" th:href="@{/CreateCourseReview.css}">
+    <link rel="stylesheet" th:href="@{/fragment.css}">
+    <script src="https://kit.fontawesome.com/86c06c2025.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <!-- ***************************************************** Header_Content 
+     ***************************************************** -->
+   <nav th:replace = "~{navbar :: navbarFragment}"></nav>
+    <!-- ***************************************************** Main_Content 
+    ***************************************************** -->
+    <div class="main">
+        <div class="sectionBody">
+                <div id="write_area">
+                    <form method="post" enctype="multipart/form-data">
+                   <!--  <div th:replace="~{form_errors :: formErrorsFragment}"></div>-->
+                    <div class="sectionHeader">
+                        <h4>리뷰 등록</h4>
+                        <button type="submit">다음</button>
+                    </div>
+                    <div class="section title">
+                        <div class="selectBar">
+                            <div class="title rate">
+                                <select id="rate">
+                                    <option value="" disabled selected>-- 평점 --</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="inTitle">
+                            <textarea id="title" placeholder="리뷰 제목을 입력해주세요" maxlength="100" required></textarea>
+                        </div>
+                    </div>
+                        <div class="section review">
+                            <div class="review img">
+                                <span>이미지 추가</span>
+                                <input type="file" name="SelectFile reviewImg" />
+                            </div>
+                            <div class="review text">
+                                <textarea id="review_text"  placeholder="내용을 입력해주세요." required></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ***************************************************** FOOTER
+     ***************************************************** -->
+        <footer th:replace = "~{footer :: footerFragment}"></footer>
+       <!-- ***************************************************** MODAL
+     ***************************************************** -->
+     <div th:replace = "~{modal :: modalFragment}"></div >
+     
+     
+    <script src="CreateCourseReviewModule.js"></script>
+    <script src="fragment.js"></script>
+</body>
+</html>

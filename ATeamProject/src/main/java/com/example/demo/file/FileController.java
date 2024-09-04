@@ -30,8 +30,7 @@ public class FileController {
 		String sourceFileNameExtension = FilenameUtils.getExtension(sourceFileName).toLowerCase();
 		File destinationFile;
 		String destinationFileName;
-		String fileUrl = "\\\\192.168.17.96\\504호 공유폴더\\이동관련및 수강생 자료공유 전용 폴더\\A팀 폴더\\Image/";
-			
+		String fileUrl = "C:\\Users\\504호\\git\\FINAL_Ateam\\ATeamProject\\src\\main\\resources\\static\\image\\";
 		do {
 			destinationFileName = RandomStringUtils.randomAlphabetic(32) + "." + sourceFileNameExtension;
 			destinationFile = new File(fileUrl + destinationFileName);

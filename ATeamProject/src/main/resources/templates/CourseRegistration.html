@@ -65,8 +65,13 @@
                     <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
                     <li>Modi a qui laudantium totam ipsam, ex dolorem velit magnam perferendis repellendus, sunt quam recusandae eius impedit autem, rem voluptatum ducimus officiis.</li>
                 </ul>
-
-                <h2 id="title4">수강평</h2>
+				
+				<div>
+				<h2 id="title4">수강평</h2>
+					<a th:href="@{|/course/${course.course_key}/reviewcreate|}">
+                		<button>리뷰 작성</button>
+                	</a>
+				</div>
                 <div class="star-rate">
                     <div> <strong>평점(5.0)</strong>
                         <label for="rate1">★</label>
@@ -76,14 +81,13 @@
                         <label for="rate5">★</label>
                     </div>
                 </div>
-                <ul>
-                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-                    <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
-                    <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
-                    <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
-                    <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
-                    <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
-                </ul>
+                <div class ="reviewContainer">
+                	<div th:each="review : ${course.courseReviewList}">
+                		<p th:text = "${review.title}"></p>
+                		<span th:text = "${review.content}"></span>
+                		<span th:text = "${review.rate}"></span>
+                	</div>
+                </div>
             </section>
             
 
