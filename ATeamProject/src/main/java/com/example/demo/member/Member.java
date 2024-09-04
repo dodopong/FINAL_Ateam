@@ -32,7 +32,11 @@ public class Member {
 	
 	private String birth;
 	
+	private String mname;
+	
 	private LocalDateTime create_date;
+	
+	private String nickname;
 	
 	private String profile_img;
 	
