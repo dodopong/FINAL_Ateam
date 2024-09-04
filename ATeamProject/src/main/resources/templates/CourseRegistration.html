@@ -72,19 +72,6 @@
                         recusandae eius impedit autem, rem voluptatum ducimus officiis.</li>
                 </ul>
 
-                <div class="review-header">
-                    <h2 id="title4">수강평</h2>
-                    <div class="rate-button">
-                        <div class="rate-btn">
-                            <a th:href="@{|/course/${course.course_key}/reviewcreate|}">
-                                리뷰 작성하기
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                
-
                 <div class="star-rate">
                     <div class="point">평점 4.5점</div>
                     <div class="starimg">
@@ -93,6 +80,14 @@
                     </div>
                 </div>
 
+                <div class ="reviewContainer">
+                	<div th:each="review : ${course.courseReviewList}">
+                		<p th:text = "${review.title}"></p>
+                		<span th:text = "${review.content}"></span>
+                		<span th:text = "${review.rate}"></span>
+                	</div>
+
+
                 <div class="reviewContainer">
                     <ul th:each="review : ${course.courseReviewList}">
                         <h3 th:text="${review.title}"></h3>
@@ -100,6 +95,7 @@
                         <li th:text="${review.content}"></li>
 
                     </ul>
+
                 </div>
             </section>
 

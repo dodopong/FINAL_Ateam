@@ -32,7 +32,10 @@ public class CourseController {
 		return "MainPage";
 	}
 //---------------------------------------------------------
-	
+	@GetMapping("/createReview")
+	public String createCoureReview() {
+		return "CreateCourseReview";
+	}
 	
 //-------------------------------------create-------------
 	@GetMapping("/create")
