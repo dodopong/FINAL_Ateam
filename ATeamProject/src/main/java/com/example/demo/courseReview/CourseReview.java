@@ -1,42 +1,42 @@
-package com.example.demo.cart;
+package com.example.demo.courseReview;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 import com.example.demo.course.Course;
 import com.example.demo.member.Member;
 
-import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
 @Entity
-public class Cart {
+public class CourseReview {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer cart_key;
+	private Integer cr_key;
+	
+	@Column(length = 100)
+	private String title;
+	
+	@Column(columnDefinition = "TEXT")
+	private String content;
 	
 	@ManyToOne
-	private Course course_key;
+	private Course course;
 	
 	@ManyToOne
-	private Member member_key;
+	private Member member;
 	
-	private LocalDateTime update_date;
+	private String rate;
 	
 	private LocalDateTime last_update_date;
-	
-	@OneToMany(cascade = CascadeType.ALL)
-	private List<Course> courseList;
-//	private Course course;
 
 }

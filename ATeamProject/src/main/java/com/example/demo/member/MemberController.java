@@ -10,17 +10,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
+@RequiredArgsConstructor //final 혹은 @NotNull이 붙은 필드의 생성자를 자동으로 만들어 줌
 @Controller
 public class MemberController {
 	
 	private final MemberService ms;
 	
 	
-	@GetMapping("/login") //로그인
-	public String login() {
-		return "Mainpage"; //로그인 기능이 메인페이지 모달창으로 되어있어서 어디로 리턴해야 하지..?
-	}
+//	@GetMapping("/login") //로그인
+//	public String login() {
+//		return "Mainpage"; //로그인 기능이 메인페이지 모달창으로 되어있어서 어디로 리턴해야 하지..?
+//	}
 	
 	
 	@GetMapping(value = "/join") //회원가입
@@ -43,9 +43,12 @@ public class MemberController {
 		}
 		
 		try {
-			this.ms.create(memberForm.getMemberId(), 
+			this.ms.create(memberForm.getEmail1(),
+						   memberForm.getEmail2(),
 						   memberForm.getPassword1(),
+						   memberForm.getMname(),
 						   memberForm.getTel_no(),
+						   memberForm.getNickname(),
 						   memberForm.getBirth(),
 						   memberForm.getProfile_img(),
 						   memberForm.getCategory(),
@@ -56,7 +59,7 @@ public class MemberController {
 			return "join"; //에러가 있는경우 반환할 뷰
 		}
 
-		return "redirect:/Mainpage"; //변경필요
+		return "Mainpage"; //변경필요
 	}
 	
 	

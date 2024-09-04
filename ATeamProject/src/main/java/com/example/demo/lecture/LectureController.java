@@ -2,6 +2,7 @@ package com.example.demo.lecture;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import lombok.RequiredArgsConstructor;
 
@@ -12,8 +13,11 @@ import lombok.RequiredArgsConstructor;
 public class LectureController {
 	private final LectureService ls;
 	
-	@GetMapping("/course/lecture")
+	@GetMapping("/create/addLecture")
 	public String viewLecture() {
 		return "LectureView";
-	}	
+	}
+	
+//	@PostMapping("/create/addLecuture")
+	
 }

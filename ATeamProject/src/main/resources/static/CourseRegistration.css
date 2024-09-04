@@ -121,18 +121,69 @@
     
 }
 
-/************** star rate****************/
-.star-rate{
-    display: inline-block;
-    direction: rtl;
-    border:0;
+.review-header{
+	margin:0px;
+	padding: 0px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
 }
 
-.star-rate label{
-    font-size: 2em; /* 이모지 크기 */
-    color: transparent; /* 기존 이모지 컬러 제거 */
-    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99); /* 새 이모지 컬러 부여 */
+/************** star rate****************/
+.star-rate{
+    display: flex;
+    justify-content: start;
 }
+.point{
+    padding-top: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 0.5rem;
+}
+.starimg{
+    position: relative;
+    width: 5rem;
+    padding-top: 0.5rem;
+    color: rgba(250, 208, 0, 0.99);
+    
+}
+.starcolor{
+    position: absolute;
+    padding-top: 0.5rem;
+    top: 0;
+    left: 0;
+    width: 4.5rem;
+    overflow: hidden;
+    color: rgba(250, 208, 0, 0.99);
+}
+
+/************** 리뷰작성 버튼 ***************/
+
+.rate-button{
+	margin-top:10px
+}
+
+.rate-btn{
+	display: inline-block;
+    background-color: #d9bbb8;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.rate-btn>a{
+	 color : white;
+	 font-weight: bold;
+     font-size: 0.8rem;
+	 
+}
+
+.reviewContainer ul {
+	border-top: #e9e1da solid 0.5px;
+    border-bottom: #e9e1da solid 0.5px;
+    margin:0px
+}
+
 
 
 /**************** Signup Button Styles ****************/

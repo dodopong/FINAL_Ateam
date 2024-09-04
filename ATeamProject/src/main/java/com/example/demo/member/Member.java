@@ -32,7 +32,11 @@ public class Member {
 	
 	private String birth;
 	
+	private String mname;
+	
 	private LocalDateTime create_date;
+	
+	private String nickname;
 	
 	private String profile_img;
 	
@@ -44,4 +48,8 @@ public class Member {
 	
 	@OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
 	private List<Course> courseList;
+	
+	@OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
+	private List<Course> CourseReviewList;
+	
 }

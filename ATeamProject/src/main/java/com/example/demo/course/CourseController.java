@@ -32,7 +32,10 @@ public class CourseController {
 		return "MainPage";
 	}
 //---------------------------------------------------------
-	
+	@GetMapping("/createReview")
+	public String createCoureReview() {
+		return "CreateCourseReview";
+	}
 	
 //-------------------------------------create-------------
 	@GetMapping("/create")
@@ -75,4 +78,4 @@ public class CourseController {
 	      model.addAttribute("course", c);
 	      return "CourseRegistration";
 	   } // course
-}
+} 

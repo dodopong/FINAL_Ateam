@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 import com.example.demo.course.Course;
-
+import com.example.demo.course.NotFoundException;
 
 import lombok.RequiredArgsConstructor;
 
@@ -23,10 +23,14 @@ public class CartService {
 		this.car.save(cart);
 	}
 	
-	public Cart getCart(Integer id) {
+	public Cart getCart(Integer id) throws NotFoundException {
 		Optional<Cart> c2 = this.car.findById(id);
+		if(c2.isPresent()) {
 		return c2.get();
-
+		}
+		else {
+			throw new NotFoundException("데이터를 찾을 수 없습니다.");
+		}
 	}
 
 	

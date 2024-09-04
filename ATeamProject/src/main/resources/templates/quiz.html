@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/094d6e4a71.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/86c06c2025.js" crossorigin="anonymous"></script><!--모달-->
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!--구글폰트-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/quiz.css}">
+    <link rel="stylesheet" th:href="@{/fragment.css}"><!--모달-->
+    <title>quiz</title>
+</head>
+<body>
+    <!--메인 네비바 타임리프-->
+	<nav th:replace = "~{navbar :: navbarFragment}"></nav>
+    
+    <!-- 퀴즈 title 시작-->
+    <div class="maintitle">
+        <i class="fa-solid fa-scroll"></i><span>Quiz</span>
+    </div><!-- 퀴즈 title 끝-->
+
+    <!-- 메인영역1 : body_root 시작(강의-문제 선택 스크롤 박스)-->
+    <div class="body-root">
+        <div class="root_container">
+            <!-- 강의-문제 선택 스크롤 박스 -->
+            <div class="option-list-wrap">
+                <!-- 박스 타이틀 -->
+                <div class="option-title-box">
+                    <div class="title">강의</div> 
+                    <div class="title">문제</div>
+                </div>             
+                
+                <div class="option-list-box">
+                    <!-- 강의list 박스 -->
+                    <div class="scroll-wrapper lecture-list">
+                        <ul>
+                            <li class="current"><a href="#"><p>강의1</p></a></li>
+                            <li class=""><a href="#"><p>강의2</p></a></li>
+                            <li class=""><a href="#"><p>강의3</p></a></li>
+                            <li class=""><a href="#"><p>강의4</p></a></li>
+                            <li class=""><a href="#"><p>강의5</p></a></li>
+                            <li class=""><a href="#"><p>강의6</p></a></li>                           
+                        </ul>                    
+                    </div>
+                    
+                    <!-- 문제list 박스 -->
+                    <div class="scroll-wrapper quiz-list">
+                        <ul>
+                            <li class=""><a href="#"><p>문제1</p></a></li>
+                            <li class=""><a href="#"><p>문제2</p></a></li>
+                            <li class=""><a href="#"><p>문제3</p></a></li>
+                            <li class=""><a href="#"><p>문제4</p></a></li>
+                            <li class=""><a href="#"><p>문제5</p></a></li>
+                            <li class=""><a href="#"><p>문제6</p></a></li>    
+                        </ul>                    
+                    </div>                
+                </div>            
+            </div>       
+        </div><!-- 강의-문제 선택 스크롤 박스 끝 -->
+    </div><!-- 메인영역1 :body_root 끝 -->
+    
+    <!-- 메인영역2 : 진도율 시작 -->
+    <div class="body-root2">
+        <div class="root_container2">
+            <div class="subtitle">문제 풀이 활동 기록</div>
+            <div class="progressrate">
+                <div class="rate1">
+                    <i class="fa-solid fa-flag"></i>
+                    <div>도전한 문제</div>
+                    <div>- 개</div>
+                </div>
+                <div class="rate1">
+                    <i class="fa-solid fa-web-awesome"></i>
+                    <div>맞춘 문제</div>
+                    <div>- 개</div>
+                </div>
+                <div class="rate1">
+                    <i class="fa-solid fa-gears"></i>
+                    <div>총 실행 횟수</div>
+                    <div>- 개</div>
+                </div>
+            </div>               
+        </div>
+    </div><!-- 메인영역2 : 진도율 끝 -->
+    
+    <div class="main3">
+        <!-- 메인영역3 : 네비바 시작-->
+        <div class="change-nav">
+            <div class="nav-left" id="tab"> <!--왼쪽-->
+                <div class="nav-left1" data-toggle="tab" role="tab" href="" aria-expanded="true" aria-selected="true">
+                    <a href="#" class="on"><span class="change-title">문제 풀기 / 질문 내역</span></a>
+                </div>
+            </div>
+            <div class="nav-right" id="tab"> <!--오른쪽-->
+                <div class="nav-right1" data-toggle="tab" role="tab" href="" aria-expanded="true" aria-selected="true">
+                    <a href="#" class="on"><span class="change-title">코드 작성 / 질문하기</span></a>
+                </div>              
+            </div>
+        </div><!-- 메인영역3 : 네비바 끝-->
+        
+        <div class="body-root3">
+            <!-- 메인영역3 : 왼쪽_문제풀기 시작 -->
+            <div class="quiz-container-left"> 
+                    <div class="leftbox on">
+                        <div class="content">
+                            <p>문제 설명</p>
+                            <div>강사가 등록한 문제 설명</div>
+                        </div>
+                        <div class="content">
+                            <p>제한사항</p>
+                            <div>강사가 등록한 제한사항</div>
+                        </div>
+                        <div class="content">
+                            <p>입출력 예</p>
+                            <div>강사가 등록한 입출력 예</div>
+                        </div>
+                        <div class="content">
+                            <p>입출력 예 설명</p>
+                            <div>강사가 등록한 입출력 예 설명</div>
+                        </div>
+                    </div>
+                
+                <!-- 메인영역3 : 왼쪽_질문내역 시작 -->
+                    <div class="leftbox"> 
+                        <div class="content">
+                            <!-- 질문 답변이 여러개 등록될 때를 고려 필요 -->
+                            <p>Q.</p>
+                            <div>등록한 질문 내용을 보여줌</div>
+                        </div>
+                        <div class="content">
+                            <p>A.</p>
+                            <div>강사가 답변한 내용을 보여줌</div>
+                        </div>             
+                    </div>
+            </div><!-- 메인영역3 : 왼쪽 끝 -->
+            
+            <!-- 메인영역3 :  오른쪽 시작-->
+            <div class="quiz-container-right">                
+                <div class="rightbox on"> 
+                    <div class="content">
+                        <p>코드 작성</p> 
+                        <div class="codewrite">코드 작성 기능구현<br><br>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum ratione omnis, est temporibus error expedita sint. Consectetur saepe distinctio, perspiciatis, optio rem veniam similique repudiandae soluta, nesciunt suscipit iusto assumenda!
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum ratione omnis, est temporibus error expedita sint. Consectetur saepe distinctio, perspiciatis, optio rem veniam similique repudiandae soluta, nesciunt suscipit iusto assumenda!
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum ratione omnis, est temporibus error expedita sint. Consectetur saepe distinctio, perspiciatis, optio rem veniam similique repudiandae soluta, nesciunt suscipit iusto assumenda!
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum ratione omnis, est temporibus error expedita sint. Consectetur saepe distinctio, perspiciatis, optio rem veniam similique repudiandae soluta, nesciunt suscipit iusto assumenda!
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum ratione omnis, est temporibus error expedita sint. Consectetur saepe distinctio, perspiciatis, optio rem veniam similique repudiandae soluta, nesciunt suscipit iusto assumenda!
+                        </div>
+                        <button class="btn">초기화</button>
+                        <button class="btn">코드 실행</button>
+                        <button class="btn">제출 후 채점하기</button>
+                    </div>
+                    <div class="content">
+                        <p>실행 결과</p>
+                        <div>실행 결과가 여기에 표시됩니다.</div>
+                    </div>
+                </div>
+                
+                <div class="rightbox"> 
+                    <div class="content">
+                        <p>질문 작성</p> 
+                        <div class="codewrite">질문 작성기능 구현<br><br>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum ratione omnis, est temporibus error expedita sint. Consectetur saepe distinctio, perspiciatis, optio rem veniam similique repudiandae soluta, nesciunt suscipit iusto assumenda!
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum ratione omnis, est temporibus error expedita sint. Consectetur saepe distinctio, perspiciatis, optio rem veniam similique repudiandae soluta, nesciunt suscipit iusto assumenda!
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum ratione omnis, est temporibus error expedita sint. Consectetur saepe distinctio, perspiciatis, optio rem veniam similique repudiandae soluta, nesciunt suscipit iusto assumenda!
+                        </div>
+                        <button class="btn">제 출</button>
+                    </div>
+                </div>
+            </div><!-- 메인영역3 : 오른쪽 끝 -->
+                      
+        </div>
+            
+    </div>
+        
+    <!-- 메인 footer 타임리프-->
+    <footer th:replace = "~{footer :: footerFragment}"></footer>
+    <!-- 로그인 모달창 타임리프-->
+    <div th:replace = "~{modal :: modalFragment}"></div >
+
+    <script src="quiz.js"></script>
+    <script src="fragment.js"></script>
+</body>
+</html>
