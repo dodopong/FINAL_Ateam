@@ -19,6 +19,10 @@ public class CourseService {
 		return this.cr.findAll();
 	}
 	
+	public List<Course> search(String keyword){
+		return this.cr.findByTitleContaining(keyword);
+	}
+	
 	public Course getCourse(Integer course_key) throws NotFoundException {
 		Optional<Course> c1 = this.cr.findById(course_key);
 		if(c1.isPresent()) {
@@ -33,12 +37,12 @@ public class CourseService {
 			,String Objective) {
 		Course c = new Course();
 		c.setTitle(title);
-		c.setMain_content(main_content);
-		c.setBanner_text(banner_text);
+		c.setMainContent(main_content);
+		c.setBannerText(banner_text);
 		c.setCategory(category);
 		c.setLevel(level);
 		c.setObjective(Objective);
-		c.setLast_update_date(LocalDateTime.now());
+		c.setLastUpdateDate(LocalDateTime.now());
 		
 		this.cr.save(c);
 		return c;
@@ -48,12 +52,12 @@ public class CourseService {
 			,String Objective) {
 		Course c = new Course();
 		c.setTitle(title);
-		c.setMain_content(main_content);
-		c.setBanner_text(banner_text);
+		c.setMainContent(main_content);
+		c.setBannerText(banner_text);
 		c.setCategory(category);
 		c.setLevel(level);
 		c.setObjective(Objective);
-		c.setLast_update_date(LocalDateTime.now());
+		c.setLastUpdateDate(LocalDateTime.now());
 		
 		this.cr.save(c);
 	}

@@ -23,17 +23,17 @@ public class Cart {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer cart_key;
+	private Integer cartKey;
 	
 	@ManyToOne
-	private Course course_key;
+	private Course courseKey;
 	
 	@ManyToOne
-	private Member member_key;
+	private Member memberKey;
 	
-	private LocalDateTime update_date;
+	private LocalDateTime updateDate;
 	
-	private LocalDateTime last_update_date;
+	private LocalDateTime lastUpdateDate;
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<Course> courseList;

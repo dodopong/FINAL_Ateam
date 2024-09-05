@@ -63,10 +63,10 @@ public class CourseController {
 	}
 //-----------------------------------------------------------------------------------------
 //-------------------------------SearchCourse-----------------------------
-	@GetMapping(value = "/searchcourse")
+	@GetMapping("/searchcourse")
 	
-	public String searchCourse(Model model,CourseForm courForm) throws PpakchimException {
-		List<Course> clist = this.cs.getCourseAll();
+	public String searchCourse(@RequestParam(value ="keyword")String keyword, Model model,CourseForm courForm) throws PpakchimException {
+		List<Course> clist = this.cs.search(keyword);
 		model.addAttribute("courseList", clist);
 		return "SearchCourse";
 	}

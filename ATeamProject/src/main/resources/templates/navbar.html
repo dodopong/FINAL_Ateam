@@ -7,14 +7,14 @@
                     <i class="fa-brands fa-blogger-b"></i>
                 </a>
             </div>
-            <div class="headerSearchBar">
-                <input type="text" class="search" placeholder="찾는 강의를 검색하세요">
+            <form th:action="@{/searchcourse}" method="get" class="headerSearchBar">
+                <input name="keyword" type="text" class="search" placeholder="찾는 강의를 검색하세요">
                 <div class="searchBtn">
-                    <a href="#">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </a>
+                	<button type="submit">
+                		<i class="fa-solid fa-magnifying-glass"></i>
+                	</button>
                 </div>
-            </div>
+            </form>
             <div class="headerRightCon">
                 <a href="#" class="cart">
                     <i class="fa-solid fa-cart-shopping"></i>

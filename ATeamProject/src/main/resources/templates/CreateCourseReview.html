@@ -18,7 +18,7 @@
     <div class="main">
         <div class="sectionBody">
                 <div id="write_area">
-                    <form th:action="@{|/course/${course.course_key}/reviewcreate|}" th:object="${courseReviewForm}" method="post" enctype="multipart/form-data">
+                    <form th:action="@{|/course/${course.courseKey}/reviewcreate|}" th:object="${courseReviewForm}" method="post" enctype="multipart/form-data">
                    <div th:replace="~{form_errors :: formErrorsFragment}"></div>
                     <div class="sectionHeader">
                         <h4>리뷰 등록</h4>

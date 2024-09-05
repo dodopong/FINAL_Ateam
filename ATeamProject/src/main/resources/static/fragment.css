@@ -63,7 +63,7 @@
     height: 65%;
 }
 
-.searchBtn>a {
+.searchBtn>button {
     display: block;
     font-size: 1.3rem;
     padding-left: 0.5rem;
