@@ -17,6 +17,6 @@ public class LectureForm {
 	
 	private String objective;
 	
-	private String video_src;
+	private String videoSrc;
 	
 }

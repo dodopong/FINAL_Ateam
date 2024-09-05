@@ -54,7 +54,7 @@ public class CourseController {
 		        }
 		        return "CreateCourse"; // 에러가 있는 경우 반환할 뷰
 		    }
-	      Course c = this.cs.returnCreate(courseForm.getTitle(),courseForm.getMain_content(),courseForm.getBanner_text()
+	      Course c = this.cs.returnCreate(courseForm.getTitle(),courseForm.getMainContent(),courseForm.getBannerText()
 	    		   ,courseForm.getCategory(),courseForm.getLevel(),courseForm.getObjective());
 	      
 	       

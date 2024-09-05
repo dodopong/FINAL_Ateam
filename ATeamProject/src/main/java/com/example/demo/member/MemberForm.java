@@ -29,7 +29,7 @@ public class MemberForm {
 	private String mname;
 	
 	@NotEmpty(message = "전화번호를 입력해주세요.")
-	private String tel_no;
+	private String telNo;
 	
 	@NotEmpty(message = "생년월일을 입력해주세요.")
 	private String birth;
@@ -38,11 +38,11 @@ public class MemberForm {
 	@NotEmpty(message = "닉네임을 입력해주세요.")
 	private String nickname;
 	
-	private String profile_img;
+	private String profileImg;
 	
 	@NotEmpty(message = "카테고리를 선택해주세요")
 	private String category;
 	
 	@NotEmpty(message = "강사여부를 선택해주세요.")
-	private String instructor_yn;
+	private String instructorYn;
 }
