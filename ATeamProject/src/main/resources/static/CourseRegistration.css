@@ -131,19 +131,21 @@
 
 /************** star rate****************/
 .star-rate{
-    display: flex;
+   display: flex;
     justify-content: start;
+    margin-bottom: 10px;
 }
 .point{
+	font-size: 1rem;
+	font-weight: bold;
     padding-top: 0.5rem;
     padding-left: 1rem;
     padding-right: 0.5rem;
 }
 .starimg{
     position: relative;
-    width: 5rem;
     padding-top: 0.5rem;
-    color: rgba(250, 208, 0, 0.99);
+    color: rgba(211, 211, 211, 0.99);
     
 }
 .starcolor{
@@ -151,10 +153,28 @@
     padding-top: 0.5rem;
     top: 0;
     left: 0;
-    width: 4.5rem;
     overflow: hidden;
     color: rgba(250, 208, 0, 0.99);
 }
+
+.review-rate-container {
+    display: flex;
+    align-items: center;
+}
+
+.review-rate-star {
+    position: relative;
+    width: 5rem; 
+    color: rgba(211, 211, 211, 0.99); 
+}
+
+.review-rate-color {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0; 
+    overflow: hidden;
+    color: rgba(250, 208, 0, 0.99); }
 
 /************** 리뷰작성 버튼 ***************/
 
@@ -181,9 +201,22 @@
 .reviewContainer ul {
 	border-top: #e9e1da solid 0.5px;
     border-bottom: #e9e1da solid 0.5px;
-    margin:0px
+    margin:0px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-direction: column;
 }
 
+.review-el{
+	display: flex;
+    align-items: baseline;
+    flex-direction: column;   
+}
+
+.review-el h3{
+	margin-right: 10px
+}
 
 
 /**************** Signup Button Styles ****************/
@@ -195,7 +228,6 @@
 .signBtn {
     display: inline-block;
     background-color: #c2a2b4;
-    color: white;
     padding: 15px 50px;
     border-radius: 50px;
     cursor: pointer;
@@ -206,6 +238,10 @@
 .signBtn:hover {
     background-color: #608fb7;
     transform: translateY(-3px);
+}
+
+.signBtn a{
+	color:white;
 }
 
 

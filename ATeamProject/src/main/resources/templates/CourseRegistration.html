@@ -71,18 +71,41 @@
                     <li>Modi a qui laudantium totam ipsam, ex dolorem velit magnam perferendis repellendus, sunt quam
                         recusandae eius impedit autem, rem voluptatum ducimus officiis.</li>
                 </ul>
+
+				<div class = "review-header">
+					<h2 id="title4">수강평</h2>
+					<div class="rate-button">
+						<div class="rate-btn">
+							<a th:href="@{|/course/${course.course_key}/reviewcreate|}">
+                				리뷰 작성하기
+                			</a>
+						</div>
+					</div>
+				</div>
+				
+
                 <div class="star-rate">
-                    <div class="point">평점 4.5점</div>
+                    <div class="point"></div>
                     <div class="starimg">
                         ☆☆☆☆☆
                         <div class="starcolor">★★★★★</div>
                     </div>
                 </div>
+
+            
                 <div class="reviewContainer">
                     <ul th:each="review : ${course.courseReviewList}">
-                        <h3 th:text="${review.title}"></h3>
-                        <li th:text="${review.rate}"></li>
-                        <li th:text="${review.content}"></li>
+                    	<div class="review-el">
+                    		<h3 th:text="${review.title}"></h3>
+                    		<div class="review-rate-container">
+                    			 <div class="review-rate-star">
+                    			 	 ☆☆☆☆☆
+                    			 	 <div class="review-rate-color" th:style="'width:' + (${review.rate} / 5 * 100) + '%'">★★★★★</div>
+                                  </div>
+                                  <li class="review-rate" th:text="${review.rate}"></li> <!-- 별점 표시 -->
+                             </div>
+                             <li th:text="${review.content}"></li>
+                       </div>
                     </ul>
                 </div>
             </section>
@@ -103,8 +126,9 @@
      ***************************************************** -->
     <div th:replace="~{modal :: modalFragment}"></div>
 
-    <script src="CourseRegistrationModule.js"></script>
-    <script src="fragment.js"></script>
+    <script src="/CourseRegistrationModule.js"></script>
+    <script src="/CourseRegistartion.js"></script>
+    <script src="/fragment.js"></script>
 </body>
 
 </html>
