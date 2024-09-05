@@ -19,7 +19,7 @@ public class CartService {
 	public void create(Course course) {
 		Cart cart = new Cart();
 //		cart.setCourseList();
-		cart.setUpdate_date(LocalDateTime.now());
+		cart.setUpdateDate(LocalDateTime.now());
 		this.car.save(cart);
 	}
 	

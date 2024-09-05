@@ -37,12 +37,12 @@ public class CourseService {
 			,String Objective) {
 		Course c = new Course();
 		c.setTitle(title);
-		c.setMain_content(main_content);
-		c.setBanner_text(banner_text);
+		c.setMainContent(main_content);
+		c.setBannerText(banner_text);
 		c.setCategory(category);
 		c.setLevel(level);
 		c.setObjective(Objective);
-		c.setLast_update_date(LocalDateTime.now());
+		c.setLastUpdateDate(LocalDateTime.now());
 		
 		this.cr.save(c);
 		return c;
@@ -52,12 +52,12 @@ public class CourseService {
 			,String Objective) {
 		Course c = new Course();
 		c.setTitle(title);
-		c.setMain_content(main_content);
-		c.setBanner_text(banner_text);
+		c.setMainContent(main_content);
+		c.setBannerText(banner_text);
 		c.setCategory(category);
 		c.setLevel(level);
 		c.setObjective(Objective);
-		c.setLast_update_date(LocalDateTime.now());
+		c.setLastUpdateDate(LocalDateTime.now());
 		
 		this.cr.save(c);
 	}

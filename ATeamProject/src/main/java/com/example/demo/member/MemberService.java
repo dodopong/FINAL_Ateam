@@ -21,14 +21,14 @@ public class MemberService { //회원정보를 저장
 		m.setMemberId(email1+'@'+email2);
 		m.setPassword(password);
 		m.setMname(mname);
-		m.setTel_no(tel_no);
+		m.setTelNo(tel_no);
 		m.setBirth(birth);
 		m.setNickname(nickname);
-		m.setCreate_date(LocalDateTime.now());
-		m.setProfile_img(profile_img);
+		m.setCreateDate(LocalDateTime.now());
+		m.setProfileImg(profile_img);
 		m.setCategory(category);
-		m.setInstructor_yn(instructor_yn);
-		m.setLast_update_date(LocalDateTime.now());
+		m.setInstructorYn(instructor_yn);
+		m.setLastUpdateDate(LocalDateTime.now());
 		
 		this.mr.save(m);
 	}

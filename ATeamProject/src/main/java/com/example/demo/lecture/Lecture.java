@@ -18,7 +18,7 @@ import lombok.Setter;
 public class Lecture {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long lecture_key;
+	private long lectureKey;
 	
 	@Column(length = 200)
 	private String title;
@@ -28,9 +28,9 @@ public class Lecture {
 	@Column(columnDefinition = "TEXT")
 	private String objective;
 	
-	private String video_src;
+	private String videoSrc;
 	
-	private LocalDateTime last_update_date;
+	private LocalDateTime lastUpdateDate;
 	
 	@ManyToOne
 	private Course course;

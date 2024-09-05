@@ -16,8 +16,8 @@ public class LectureService {
 		l.setTitle(title);
 		l.setLectureTurn(lectureTurn);
 		l.setObjective(objective);
-		l.setVideo_src(video_src);
-		l.setLast_update_date(LocalDateTime.now());
+		l.setVideoSrc(video_src);
+		l.setLastUpdateDate(LocalDateTime.now());
 		this.lr.save(l);
 	}
 

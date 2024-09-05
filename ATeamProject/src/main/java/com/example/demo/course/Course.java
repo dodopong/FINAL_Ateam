@@ -28,15 +28,15 @@ public class Course {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer course_key;
+	private Integer courseKey;
 	@Column(length = 200)
 	private String title;
 	
 	@Column(columnDefinition = "TEXT")
-	private String main_content;
+	private String mainContent;
 	
 	@Column(columnDefinition = "TEXT")
-	private String banner_text;
+	private String bannerText;
 	
 	private String category;
 	private String level;
@@ -44,7 +44,7 @@ public class Course {
 	@Column(columnDefinition = "TEXT")
 	private String Objective;
 	
-	private LocalDateTime last_update_date;
+	private LocalDateTime lastUpdateDate;
 	
 	@OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
 	private List<Lecture> lectureList;

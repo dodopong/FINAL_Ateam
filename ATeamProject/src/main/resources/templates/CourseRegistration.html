@@ -35,10 +35,10 @@
             <!-- Main description -->
             <section class="descript">
                 <h2 id="title1" th:text="${course.title}"></h2>
-                <p class="subheading" th:text="${course.main_content}"></p>
+                <p class="subheading" th:text="${course.mainContent}"></p>
                 <p><img src="image/springjpakim_img_1.png" alt="Spring Introduction" class="center-image"></p>
-                <h3 th:text="${course.main_content}"></h3>
-                <h3 th:text="${course.main_content}"></h3>
+                <h3 th:text="${course.mainContent}"></h3>
+                <h3 th:text="${course.mainContent}"></h3>
                 <p><img src="image/spring-icon.jpg" alt="Spring Icon" class="center-image"></p>
 
                 <h2>강의 목표</h2>
@@ -76,7 +76,7 @@
 					<h2 id="title4">수강평</h2>
 					<div class="rate-button">
 						<div class="rate-btn">
-							<a th:href="@{|/course/${course.course_key}/reviewcreate|}">
+							<a th:href="@{|/course/${course.courseKey}/reviewcreate|}">
                 				리뷰 작성하기
                 			</a>
 						</div>

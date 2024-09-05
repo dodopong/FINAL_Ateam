@@ -21,30 +21,30 @@ import lombok.Setter;
 public class Member {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long member_key;
+	private Long memberKey;
 
 	@Column(unique = true)
 	private String memberId; //기존 member_id에서 memberId로 변경(09.02이민지)
 	
 	private String password;
 	
-	private String tel_no;
+	private String telNo;
 	
 	private String birth;
 	
 	private String mname;
 	
-	private LocalDateTime create_date;
+	private LocalDateTime createDate;
 	
 	private String nickname;
 	
-	private String profile_img;
+	private String profileImg;
 	
 	private String category;
 	
-	private String instructor_yn;
+	private String instructorYn;
 	
-	private LocalDateTime last_update_date;
+	private LocalDateTime lastUpdateDate;
 	
 	@OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
 	private List<Course> courseList;
