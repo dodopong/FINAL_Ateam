@@ -24,14 +24,16 @@ public class CartService {
 	}
 	
 	public Cart getCart(Integer id) throws NotFoundException {
-		Optional<Cart> c2 = this.car.findById(id);
-		if(c2.isPresent()) {
-		return c2.get();
+		Optional<Cart> c = this.car.findById(id);
+		if(c.isPresent()) {
+		return c.get();
 		}
 		else {
 			throw new NotFoundException("데이터를 찾을 수 없습니다.");
 		}
 	}
+	
+	
 
 	
 }

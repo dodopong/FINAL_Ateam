@@ -3,6 +3,7 @@ package com.example.demo.cart;
 
 import java.util.List;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,20 +22,20 @@ public class CartController {
 	private final CartService cas;
 	private final CourseService cos;
 	
-	
+//	@PreAuthorize("isAuthenticated()")
+//	시큐리티에 로그인 페이지 지정시 넣기
 	@GetMapping("/cart")
-	public String cart(CourseForm courseForm, Model model) throws NotFoundException {
+	public String cart(Model model) throws NotFoundException {
 //		Cart ca = this.cas.getCart(1);
-//		Course co = this.cos.getCourse(1);
 		List<Course> coList = this.cos.getCourseAll();
-//		나중에 Cart랑 Member id도 연관되게 만들어야 함
-		
-		
-		
 		
 		model.addAttribute("courseList", coList);
 		return "cart";
 	}
+	
+//	public String createCart() {
+//		
+//	}
 	
 	
 }
