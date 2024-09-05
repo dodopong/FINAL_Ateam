@@ -24,6 +24,8 @@ import lombok.Setter;
 @Setter
 @Entity
 public class Course {
+	@Getter
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer course_key;
