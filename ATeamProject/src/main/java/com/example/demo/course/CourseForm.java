@@ -19,9 +19,9 @@ public class CourseForm {
 	private String title;	
 	
 	@NotEmpty(message = "내용이 없으면 안돼요")
-	private String main_content;
+	private String mainContent;
 	
-	private String banner_text;
+	private String bannerText;
 	@NotEmpty(message = "카테고리를 선택해주세요")
 	private String category;
 	@NotEmpty(message = "레벨을 선택해주세요")

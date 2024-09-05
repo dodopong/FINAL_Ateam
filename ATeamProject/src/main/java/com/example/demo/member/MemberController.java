@@ -47,12 +47,12 @@ public class MemberController {
 						   memberForm.getEmail2(),
 						   memberForm.getPassword1(),
 						   memberForm.getMname(),
-						   memberForm.getTel_no(),
+						   memberForm.getTelNo(),
 						   memberForm.getNickname(),
 						   memberForm.getBirth(),
-						   memberForm.getProfile_img(),
+						   memberForm.getProfileImg(),
 						   memberForm.getCategory(),
-						   memberForm.getInstructor_yn());
+						   memberForm.getInstructorYn());
 		} catch (DataIntegrityViolationException e) {
 			e.printStackTrace();
 			bindingResult.reject("signupFailed", "이미 등록된 사용자입니다.");
