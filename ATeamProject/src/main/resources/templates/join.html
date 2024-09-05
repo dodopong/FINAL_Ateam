@@ -59,7 +59,7 @@
 
             <div class="article">전화번호*</div>
             <!-- 숫자외에 입력 불가 -->
-            <input th:field="*{tel_no}" type="text" class="text" oninput="oninputPhone(this)" maxlength="11" />
+            <input th:field="*{telNo}" type="text" class="text" oninput="oninputPhone(this)" maxlength="11" />
 
             <div class="article">생년월일*</div>
             <input th:field="*{birth}" type="date" class="text">
@@ -79,7 +79,7 @@
             <input th:field="*{nickname}" type="text" class="text">
 
             <div class="article">프로필 사진(선택)</div>
-            <div><input th:field="*{profile_img}" type="file" name="myprofile"></div>
+            <div><input th:field="*{profileImg}" type="file" name="myprofile"></div>
         </div>
         
         <!-- level-3 : 강사만-->

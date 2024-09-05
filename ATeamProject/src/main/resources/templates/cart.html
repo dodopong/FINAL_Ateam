@@ -104,17 +104,17 @@
                 <div class="cartCheck"><input type="checkbox" name="selectall" onclick="selectAll(this)"></div>
                 <div class="cartImage">아 여긴 뭐 넣지</div>
                 <div class="cartName">강의 제목</div>
-                <div class="cartInstructor">카테고리</div>
+                <div class="cartCategory">카테고리</div>
                 <div class="cartPrice">가격</div>
-                <div class="cartNote">난이도</div>
+                <div class="cartLevel">난이도</div>
             </div>
             <div th:each="course : ${courseList}" class="cartItem">
                 <div class="cartCheck"><input type="checkbox" name="cartbox" onclick="checkSelectAll(this)"></div>
                 <div class="cartImage"><img src="b9343d314206275c1b6d0d0c4fcc2ce71.jpg" alt=""></div>
                 <div th:text="${course.title}" class="cartName"></div>
-                <div th:text="${course.category}" class="cartInstructor"></div>
+                <div th:text="${course.category}" class="cartCategory"></div>
                 <div class="cartPrice">5000003213421</div>
-                <div th:text="${course.level}" class="cartNote"></div>
+                <div th:text="${course.level}" class="cartLevel"></div>
             </div>
             
         </div>
