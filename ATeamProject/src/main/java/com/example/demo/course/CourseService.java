@@ -19,6 +19,10 @@ public class CourseService {
 		return this.cr.findAll();
 	}
 	
+	public List<Course> search(String keyword){
+		return this.cr.findByTitleContaining(keyword);
+	}
+	
 	public Course getCourse(Integer course_key) throws NotFoundException {
 		Optional<Course> c1 = this.cr.findById(course_key);
 		if(c1.isPresent()) {
