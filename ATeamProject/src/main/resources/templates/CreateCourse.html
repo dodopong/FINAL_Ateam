@@ -17,8 +17,8 @@
     ***************************************************** -->
     <div class="main">
         <div class="sectionBody">
-                <div id="write_area">
-                    <form th:action="@{/create}" th:object = "${courseForm}" method="post" enctype="multipart/form-data">
+        	<div id="write_area">
+            	<form th:action="@{/create}" th:object = "${courseForm}" method="post" enctype="multipart/form-data">
                     <div th:replace="~{form_errors :: formErrorsFragment}"></div>
                     <div class="sectionHeader">
                         <h4>강좌 등록</h4>
@@ -44,31 +44,38 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="inTitle">
-                            <textarea th:field="*{title}" id="title" placeholder="제목을 입력해주세요" maxlength="100" required></textarea>
+                        <div class="banner img">
+                        	<span>썸네일 이미지</span>
+                            <input th:field="*{file1}"  type="file" name="thumbnail" />
+                        </div>
+                       	<div class="inTitle">
+                            	<textarea th:field="*{title}" id="title" placeholder="제목을 입력해주세요" maxlength="100" required></textarea>
                         </div>
                     </div>
-                        <div class="section banner">
-                            <div class="banner img">
-                                <span>배너 이미지</span>
-                                <input th:field="*{file}"  type="file" name="SelectFile bannerImg" />
-                            </div>
-                            <div class="banner Text">
-                                <textarea th:field="*{bannerText}" id="banner_text"  placeholder="배너에 들어갈 문구를 입력해주세요." required></textarea>
-                            </div>
+                    <div>
+                    
+                    </div>
+                    <div class="section banner">
+                    	<div class="banner img">
+                        	<span>배너 이미지</span>
+                            <input th:field="*{file2}"  type="file" name="bannerimg" />
                         </div>
-                        <div class="section main">
-                            <textarea th:field="*{mainContent}" id="content"  placeholder="강의에 대해 설명해주세요." required></textarea>
+                        <div class="banner Text">
+                            <textarea th:field="*{bannerText}" id="banner_text"  placeholder="배너에 들어갈 문구를 입력해주세요." required></textarea>
                         </div>
-                        <div class="section objective">
-                            <div id="in_content">
-                                <textarea th:field="*{objective}" id="ucontent"  placeholder="강의 목표를 입력해주세요." required></textarea>
-                            </div>
+                    </div>
+                    <div class="section main">
+                        <textarea th:field="*{mainContent}" id="content"  placeholder="강의에 대해 설명해주세요." required></textarea>
+                    </div>
+                    <div class="section objective">
+                        <div id="in_content">
+                            <textarea th:field="*{objective}" id="ucontent"  placeholder="강의 목표를 입력해주세요." required></textarea>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
         </div>
+    </div>
         
         <!-- ***************************************************** FOOTER
      ***************************************************** -->
