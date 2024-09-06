@@ -4,6 +4,7 @@ const header = document.querySelector(".header");
 const headerDownHeight = headerDown.querySelector("ul").offsetHeight;
 let isScrolling = false;
 
+
 headerDown.style.height = `${headerDownHeight}px`;
 
 // header Scroll event
@@ -47,12 +48,22 @@ document.addEventListener('scroll', () => {
 // 장바구니 버튼
 
 let keepbtn = document.querySelector('.keepbtn');
-        let orderbtn = document.querySelector('.orderbtn');
-        
+let orderbtn = document.querySelector('.orderbtn');
         keepbtn.addEventListener('click', ()=>{
             alert("쇼핑 계속하기 누름");
         });
 
+// 구매하기 버튼 누르면 체크한 항목 courseKey 가져와서 저장
+
         orderbtn.addEventListener('click', ()=>{
-            alert("구매하기 누름");
+          const checkedbox = document.querySelectorAll('input[name="cartbox"]:checked');
+          const keyarr = new Array;
+
+          checkedbox.forEach((checkedbox1) => {
+            keyarr.push(checkedbox1.value);
+          })
+          document.getElementById('jsonData').value = JSON.stringify(keyarr);
+          // cart.html 구매하기 버튼 위의 hidden input의 밸류를 keyarr로
+          // JSON.stringify : JavaScript 값이나 객체를 JSON 문자열로 변환
+
         });

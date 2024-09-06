@@ -29,5 +29,7 @@ public class CourseForm {
 	
 	private String Objective;
 	
-	private MultipartFile file;
+	private MultipartFile file1;
+	
+	private MultipartFile file2;
 }

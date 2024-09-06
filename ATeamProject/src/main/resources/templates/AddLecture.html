@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>강의 영상 추가</title>
+     <link rel="stylesheet" th:href="@{/AddLecture.css}">
+    <link rel="stylesheet" th:href="@{/fragment.css}">
     <script src="https://kit.fontawesome.com/86c06c2025.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="CartPage.css">
+
 </head>
 <body>
-     <!-- ***************************************************** Header_Content 
+    <body>
+    <!-- ***************************************************** Header_Content 
      ***************************************************** -->
-     <div class="header ">
+    <div class="header ">
         <!--*-*-*-*-*-*-*-*-* headerUp_Contents *-*-*-*-*-*-*-*-*-->
         <div class="headerUp">
             <div class="headerLogo">
@@ -96,92 +99,9 @@
             </li>
         </ul>
     </div>
-
-    <!-- 섹션 시작 -->
-    <section>
-        <div class="cartContainer">
-            <div class="cartItem top">
-                <div class="cartAllCheck"><input type="checkbox" name="selectall" onclick="selectAll(this)"></div>
-                <div class="cartImage"></div>
-                <div class="cartName">강의 제목</div>
-                <div class="cartCategory">카테고리</div>
-                <div class="cartPrice">가격</div>
-                <div class="cartLevel">난이도</div>
-            </div>
-            <div th:each="course : ${courseList}" class="cartItem">
-                <div class="cartCheck"><input type="checkbox" name="cartbox" onclick="checkSelectAll(this)" th:value="${course.courseKey}"></div>
-                <div class="cartImage">
-                    <img th:each="file : ${course.fileList}" th:if ="${#strings.contains(file.fileurl,'Thumbnail')}" th:src="@{|/image/Thumbnail/${file.filename}|}">
-                    <img th:each="file : ${course.fileList}" th:if ="${#strings.isEmpty(file.fileOriName)}" src="/image/noimage.png">
-                </div>
-                <div th:text="${course.title}" class="cartName"></div>
-                <div th:text="${course.category}" class="cartCategory"></div>
-                <div class="cartPrice">5000003213421</div>
-                <div th:text="${course.level}" class="cartLevel"></div>
-            </div>
-            
-        </div>
-
-        <div class="btn">
-            <button class="keepbtn">쇼핑 계속하기</button>
-            <form id="myForm" action="/dlatl" method="post">
-             <input type="hidden" th:name="_csrf" th:value="${_csrf.token}"/>
-                <input type="hidden" name="data" id="jsonData">
-                <button type="submit" class="orderbtn">구매하기</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- ***************************************************** Footer_Content 
+<!-- ****************************** login_modal
     ***************************************************** -->
-    <div class="footer">
-        <div class="footerTop">
-            <div class="footerLogo">
-                <a href="#">
-                    <i class="fa-brands fa-blogger-b"></i>
-                    <!-- BROWNIE -->
-                </a>
-            </div>
-            <ul class="footerNav">
-                <li>
-                    <a href="#">ABOUT</a>
-                </li>
-                <li>
-                    <a href="#">BLOG</a>
-                </li>
-                <li>
-                    <a href="#">SERVICE</a>
-                </li>
-                <li>
-                    <a href="#">CONTACTS</a>
-                </li>
-            </ul>
-            <ul class="footerSns">
-                <li>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                </li>
-            </ul>
-        </div>
-        <div class="footerbottom">
-            <div class="textBox">
-                <p>주식회사 BROWNIE</p>
-                <p>대표 : Julian</p>
-                <p>사업자 등록번호 : 000-00-00000</p>
-                <p>대표전화 : 1234-1234</p>
-                <p>통신판매업신고 : 2024-경기안산-00000</p>
-                <p>Email : abc01@naver.com</p>
-                <p>주소 : 경기 안산시 단원구 145 3층</p>
-            </div>
-        </div>
-    </div>
-    <!-- ***************************************************** Modal_Content 
-    ***************************************************** -->
+
     <div class="modal loginModal">
         <div class="loginContainer">
             <div class="closeBtn">
@@ -208,11 +128,47 @@
                     </div>
                 </div>
             </div>
-            <div class="loginContent loginContent_right"></div>
+            <div class="loginContent loginContent_right">
+
+
+
+            </div>
         </div>
     </div>
 
-    <script src="CartPage.js">
-    </script>
+
+    <!-- ***************************************************** Main_Content 
+    ***************************************************** -->
+    <div class="main">
+        <div class="sectionBody">
+                <div id="write_area">
+                    <form th:action="@{|/course/${course.courseKey}/addlecture|}" th:object = "${lectureForm}" method="post" enctype="multipart/form-data">
+                    <div class="sectionHeader">
+                        <h4>강의 영상 추가하기</h4>
+                        <div class="btns">
+                            <button><a href=#>이전</a></button>
+                            <button type="submit">완료</button>
+                        </div>
+                    </div>
+                    <div class="section title">
+                        <div class="inTitle">
+                            <textarea th:field="*{title}" name="title" id="utitle" placeholder="제목을 입력해주세요" maxlength="100" required></textarea>
+                        </div>
+                    </div>
+                        <div class="section lecture">
+                            <div class="lecture objective">
+                                <textarea th:field="*{objective}" id="banner_text"  placeholder="학습목표를 입력해주세요." required></textarea>
+                                <div class="lecture src">
+                                    <span>영상 업로드</span>
+                                    <input th:field="*{file}" type="file" name="SelectFile lectureSrc" />
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <script src="AddLectureModule.js"></script>
+    <script src="fragment.js"></script>
 </body>
 </html>
