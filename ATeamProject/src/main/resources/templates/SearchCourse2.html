@@ -61,11 +61,12 @@
 	        </div>
 	
 	        <div class="text">
-	            <p th:text="|${kw} 검색결과|"></p>
+	            <a href="#">ㅁㅁ 검색 결과</a>
+	            <a href="#">show more +</a>
 	        </div>
 	
 	        <ul class="sectionCon sectionCon01" >
-	            <li th:if ="${courseList != null}" th:each="course : ${courseList}" class="con">
+	            <li th:each="course : ${courseList}" class="con">
 	                <a th:href="@{|/course/${course.courseKey}|}">
 	               		<!--<img th:if ="${#strings.contains(file.fileurl,'Thumbnail')}" src="/image/noimage.png">-->
 	                	<img th:each="file : ${course.fileList}" th:if ="${#strings.contains(file.fileurl,'Thumbnail')}" th:src="@{|/image/Thumbnail/${file.filename}|}">
@@ -77,8 +78,6 @@
 	                        </div>
 	                    </div>
 	                </a>
-	            </li>
-	            <li th:if = "${#arrays.isEmpty(courseList)}"  th:text = "|${kw} 검색결과가 없습니다..ㅜ|">
 	            </li>
 	        </ul>
 	    </div>

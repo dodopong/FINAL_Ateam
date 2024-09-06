@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import lombok.RequiredArgsConstructor;
 
@@ -14,28 +15,30 @@ public class MemberService { //회원정보를 저장
 
 	
 	public void create(String email1, String email2, String password, String mname 
-			, String tel_no, String nickname, String birth 
-			, String profile_img, String category, String instructor_yn) {
+			, String telno, String nickname, String birth 
+			, String profileimg, String category
+			, String instructoryn) {
+		//System.out.println("??????????????????" + instructoryn);
 		
 		Member m = new Member();
 		m.setMemberId(email1+'@'+email2);
 		m.setPassword(password);
 		m.setMname(mname);
-		m.setTelNo(tel_no);
+		m.setTelNo(telno);
 		m.setBirth(birth);
 		m.setNickname(nickname);
 		m.setCreateDate(LocalDateTime.now());
-		m.setProfileImg(profile_img);
+		m.setProfileImg(profileimg);
 		m.setCategory(category);
-		m.setInstructorYn(instructor_yn);
+		m.setInstructorYn(instructoryn);
 		m.setLastUpdateDate(LocalDateTime.now());
 		
 		this.mr.save(m);
 	}
 	
 	//예외처리 : 존재하지 않는 유저
-	public Member getUser(String member_id) throws nosignException {
-		Optional<Member> member = this.mr.findByMemberId(member_id);
+	public Member getUser(String memberid) throws nosignException {
+		Optional<Member> member = this.mr.findByMemberId(memberid);
 		if(member.isPresent()) {
 			return member.get();
 		}

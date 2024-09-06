@@ -1,5 +1,7 @@
 package com.example.demo.lecture;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
@@ -13,10 +15,11 @@ public class LectureForm {
 	@Size(max=50)
 	private String title;
 	
-	private Integer lectureTurn;
 	
 	private String objective;
 	
-	private String videoSrc;
+	private MultipartFile file;
+	
+	//private String videoSrc;
 	
 }

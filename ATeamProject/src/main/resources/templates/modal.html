@@ -5,25 +5,34 @@
                 <i class="fa-solid fa-xmark"></i>
             </div>
             <div class="loginContent loginContent_left">
-                <p>Hello Again</p>
-                <p>email</p>
-                <input type="text" placeholder="email">
-                <p>password</p>
-                <input type="password" placeholder="password">
-                <button>Login</button>
-                <div class="signContainer">
-                    <div class="sign">
-                    	<a th:href="@{/join}">
-                            signIN
-                        </a>
-                    </div>
-                    <div class="find">
-                        <a href="#">
-                            Find ID/Password
-                        </a>
+                    <p>Hello Again</p>
+                    <p>email</p>
+                    <form action="@{/user/login}" method="post">
+                        <div th:if="${param.error}">
+                            <div class="alert alert-danger">
+                                사용자ID 또는 비밀번호를 확인해 주세요.
+                            </div>
+                        </div>
 
+                        <input name="memberId" id="memberId" type="text" placeholder="email">
+                        <p>password</p>
+                        <input name="password" id="password" type="password" placeholder="password">
+                        <button>Login</button>
+                    </form>
+
+                    <div class="signContainer">
+                        <div class="sign">
+                            <a th:href="@{/user/join}">
+                                signIN
+                            </a>
+                        </div>
+                        <div class="find">
+                            <a href="#">
+                                Find ID/Password
+                            </a>
+    
+                        </div>
                     </div>
-                </div>
             </div>
             <div class="loginContent loginContent_right"></div>
         </div>

@@ -21,7 +21,7 @@ public class CourseReview {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer cr_key;
+	private Integer crKey;
 	
 	@Column(length = 100)
 	private String title;
@@ -37,6 +37,6 @@ public class CourseReview {
 	
 	private String rate;
 	
-	private LocalDateTime last_update_date;
+	private LocalDateTime lastUpdateDate;
 
 }

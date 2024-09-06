@@ -45,7 +45,8 @@ public class CourseController {
 	
 	@PostMapping("/create")
 	public String createCoure(CourseForm courseForm, BindingResult bindingResult,
-			HttpServletRequest request, @RequestParam(value = "file") MultipartFile file) throws Exception{
+			HttpServletRequest request, @RequestParam(value = "file1") MultipartFile file1,
+			@RequestParam(value = "file2") MultipartFile file2) throws Exception{
 		 if (bindingResult.hasErrors()) {
 		        for (FieldError error : bindingResult.getFieldErrors()) {
 		            System.out.println("Field: " + error.getField());
@@ -58,9 +59,11 @@ public class CourseController {
 	    		   ,courseForm.getCategory(),courseForm.getLevel(),courseForm.getObjective());
 	      
 	       
-	       fc.fileInsert(request, file, c);
+	       fc.thumbfileInsert(request, file1, c);
+	       fc.bannerfileInsert(request, file2, c);
 	       return "redirect:/create";
 	}
+
 //-----------------------------------------------------------------------------------------
 //-------------------------------SearchCourse-----------------------------
 	@GetMapping("/searchcourse")
@@ -68,6 +71,8 @@ public class CourseController {
 	public String searchCourse(@RequestParam(value ="keyword")String keyword, Model model,CourseForm courForm) throws PpakchimException {
 		List<Course> clist = this.cs.search(keyword);
 		model.addAttribute("courseList", clist);
+		keyword = "\' "+keyword+" \'";
+		model.addAttribute("kw",keyword);
 		return "SearchCourse";
 	}
 	
@@ -77,5 +82,5 @@ public class CourseController {
 	      Course c = this.cs.getCourse(course_key);
 	      model.addAttribute("course", c);
 	      return "CourseRegistration";
-	   } // course
+	   }
 } 
