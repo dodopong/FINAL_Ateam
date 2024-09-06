@@ -1,4 +1,31 @@
-//이메일 선택박스
+/////////////////////////////////////////////////////////////////
+//약관동의 하지 않을 시 회원가입 불가능
+// const promise = () => {
+//   $('form').submit((ev) => {
+//     if(!$('agree').is(':checked')){
+//       alert('필수 약관에 동의하세요.');
+//       ev.preventDefault();
+//       return;
+//     }
+//   })
+// }
+
+// function AlertCheckbox(){
+//   const checkPart = document.querySelector('.checkbox-part');
+//   const checkboxes = checkPart.querySelectorAll('input');
+
+//   for( let i = 0; i < checkboxes.length; i ++){
+//       if(checkboxes[i].checked === true) return;	
+//       // 체크박스 돌다가 checked가 있으면 바로 return!!
+//   }
+//   alert('검색할 파일 형태를 선택하세요.'); 
+//   // 체크없으면 바로 return해서 alert 띄우기!
+// }
+
+
+
+/////////////////////////////////////////////////////////////////
+//이메일-도메인 선택박스
 // 도메인 직접 입력 or domain option 선택
 const domainListEl = document.querySelector('#domain-list')
 const domainInputEl = document.querySelector('#domain-txt')

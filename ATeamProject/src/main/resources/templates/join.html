@@ -17,7 +17,7 @@
 
     <!-- level-1 -->
     <!--문자데이터와 사진파일을 같이 넘기므로 enctype="multipart/form-data-->
-    <form th:action="@{/join}" th:object = "${memberForm}" method="post" enctype="multipart/form-data">
+    <form th:action="@{/user/join}" th:object = "${memberForm}" method="post" enctype="multipart/form-data">
     <div th:replace="~{form_errors :: formErrorsFragment}"></div> 
     <!--정보 잘못 입력했을 때 뜨는 에러박스-->
         <div>
@@ -26,7 +26,7 @@
                 <div class="promise">귀하의 개인정보를 소중하게 여깁니다<br>
                     당사는 개인정보 보호 규정을 준수하여 귀하의 데이터를 처리합니다
                 </div>
-                <div><input type="checkbox" name="" value=""> 약관동의</div>
+                <div><input class="agree" type="checkbox" name="" value=""> 약관동의*</div>
             </div>
         </div>
 
@@ -66,20 +66,22 @@
 
             <div class="article">가입유형*</div>
             <!-- 부트스트랩 체크박스 토글버튼 사용 -->
+            <!-- instructoryn을 받아서 수강생을 n로 강사는y로 바꿔야함  -->
             <div class="checkbox-container">
-                <input type="radio" class="btn-check" name="options" id="student">
+                <input th:field="*{instructorYn}" value="N" type="radio" class="btn-check" name="options" id="student">
                 <label class="btn btn-secondary" for="student">수강생</label>
 
-				<!--  -->
-                <input type="radio" class="btn-check" name="options" id="instructor">
-                <label class="btn btn-secondary" for="instructor">강 사</label>
+                <input th:field="*{instructorYn}" value="Y" type="radio" class="btn-check" name="options" id="instructor">
+                <label class="btn btn-secondary" for="instructor">강 사</label> 
             </div>
 
             <div class="article">닉네임*</div>
             <input th:field="*{nickname}" type="text" class="text">
 
             <div class="article">프로필 사진(선택)</div>
-            <div><input th:field="*{profileImg}" type="file" name="myprofile"></div>
+            <!-- 파일쪽 추후 수정 필요
+            <div><input th:field="*{profileImg}" type="file" name="myprofile"></div>           
+            -->
         </div>
         
         <!-- level-3 : 강사만-->
@@ -91,37 +93,32 @@
                 프리랜서 사업자 등록증 제출<br><br>
                 가입 승인 시 가입하신 이메일로 승인 완료 메일을 발송 드립니다
             </div>
+            <!-- 파일쪽 추후 수정 필요
             <div><input type="file" name="confirm"></div>
-            <!-- 파일쪽 추후 수정 필요-->
+            -->
         </div>
         
         <!-- level-3 : 수강생/강사 모두-->
         <div class="container">
             <div class="title">03. 관심 분야 선택</div>
             <div>선택하신 카테고리를 바탕으로 추천 강의를 구성해드립니다</div>
+            <!-- 
             <div class="like-container">
-                <input type="checkbox" class="btn-check" id="btn-check-1">
-                <label class="btn" for="btn-check-1">분야1</label>
+                <input th:field="*{category}" value="java" type="checkbox" class="btn-check" id="java">
                 
-                <input type="checkbox" class="btn-check" id="btn-check-2">
-                <label class="btn" for="btn-check-2">분야2</label>
+                <label th:for="${#ids.prev('java')}" class="btn" for="btn-check-1">자바</label>
                 
-                <input type="checkbox" class="btn-check" id="btn-check-3">
-                <label class="btn" for="btn-check-3">분야3</label>
+                <input th:field="*{category}" value="js" type="checkbox" class="btn-check" id="js">
+                <label th:for="${#ids.prev('js')}" class="btn" for="btn-check-2">자바스크립트</label>
                 
-                <input type="checkbox" class="btn-check" id="btn-check-4">
-                <label class="btn" for="btn-check-4">분야4</label>
+                <input th:field="*{category}" value="python" type="checkbox" class="btn-check" id="python">
+                <label th:for="${#ids.prev('python')}" class="btn" for="btn-check-3">파이썬</label>
                 
-                <input type="checkbox" class="btn-check" id="btn-check-5">
-                <label class="btn" for="btn-check-5">분야5</label>
+                <input th:field="*{category}" value="C" type="checkbox" class="btn-check" id="C">
+                <label th:for="${#ids.prev('C')}" class="btn" for="btn-check-4">C언어</label>
                 
-                <input type="checkbox" class="btn-check" id="btn-check-6">
-                <label class="btn" for="btn-check-6">분야6</label>
-                
-                <input type="checkbox" class="btn-check" id="btn-check-7">
-                <label class="btn" for="btn-check-7">분야7</label>
             </div>
-            <div></div>
+            <div></div> -->
             
             <!-- 다음버튼 -->
             <input type="submit" value="회원가입 완료" class="next-btn">
