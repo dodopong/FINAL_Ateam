@@ -42,20 +42,16 @@
         <div class="main">
             <div class="titlecontainer">
                 <div class="title">
-                    <p class="text">군침이 싹 도는 경제 강의 - 강의 제목</p>
+                    <p th:text="${lecture.title}" class="text"></p>
                 </div>
             </div>
             <div class="discontainer">
-                <p class="text">학습 목표 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus animi odio, accusamus quidem, dolorum provident nemo vitae eligendi officia sequi voluptatum sunt repellendus nisi. Harum ullam laudantium quaerat pariatur totam!
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, iusto. Est quasi natus inventore, non minima quos ratione ipsa nulla sapiente maxime quae veritatis eveniet tempore suscipit veniam, excepturi quam.
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi dicta nemo amet modi molestias dolores error ipsam mollitia vitae, voluptatum corrupti officiis earum, nobis minus. In dolor est nesciunt adipisci?
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae quasi fugit, sed aliquam ut error id, officia modi, accusamus nisi soluta adipisci amet. Accusamus in aperiam nostrum, deleniti unde voluptate?
-                </p>
+                <p th:text="${lecture.objective}" class="text"></p>
             </div>
             <div class="moviecontainer">
                 <div class="movie">
                     <p class="text">강의 감상</p>
-                    <video src="민지호선님페이지영상.mp4" controls></video>
+                    <video th:text="${lecture.videoSrc}" src="민지호선님페이지영상.mp4" controls></video>
                 </div>
             </div>
         </div>

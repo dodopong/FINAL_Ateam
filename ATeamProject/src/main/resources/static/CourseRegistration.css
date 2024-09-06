@@ -116,7 +116,7 @@
 } 
 
 .descript ul li {
-    margin: 10px 0;
+    margin: 10px 10px;
 }
 
 .descript .instructor-img{
@@ -135,6 +135,36 @@
     display: flex;
     align-items: baseline;
     justify-content: space-between;
+}
+
+/************** 강의추가 버튼 ***************/
+
+.curriculum{
+	margin:0px;
+	padding: 0px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.cur-button{
+	margin-top:10px
+}
+
+.cur-btn{
+	display: inline-block;
+    background-color: #d9bbb8;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.cur-btn>a{
+	 color : white;
+	 font-weight: bold;
+     font-size: 0.8rem;
+	 
 }
 
 /************** star rate****************/
@@ -165,6 +195,7 @@
     color: rgba(250, 208, 0, 0.99);
 }
 
+/*****************수강평*****************/
 .review-rate-container {
     display: flex;
     align-items: center;
@@ -227,15 +258,18 @@
 }
 
 
-/**************** Signup Button Styles ****************/
-.signup-button {
+/**************** Button Styles ****************/
+.button {
     text-align: center;
-    margin-top: 50px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .signBtn {
     display: inline-block;
     background-color: #c2a2b4;
+    color:white;
     padding: 15px 50px;
     border-radius: 50px;
     cursor: pointer;
@@ -248,8 +282,21 @@
     transform: translateY(-3px);
 }
 
-.signBtn a{
-	color:white;
+
+
+.lecBtn {
+    display: inline-block;
+    background-color: #c2a2b4;
+    color:white;
+    padding: 15px 50px;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-bottom: 25px;
+    transition: 0.3s;
 }
 
+.lecBtn:hover {
+    background-color: #608fb7;
+    transform: translateY(-3px);
+}
 

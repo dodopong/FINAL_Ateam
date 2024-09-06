@@ -31,7 +31,7 @@ public class CourseReviewService {
 		rev.setTitle(title);
 		rev.setContent(content);
 		rev.setRate(rate);
-		rev.setLast_update_date(LocalDateTime.now());
+		rev.setLastUpdateDate(LocalDateTime.now());
 		rev.setCourse(course);
 		
 		this.cv.save(rev);
