@@ -285,7 +285,7 @@ section{
     white-space: normal;
     overflow: hidden;
 }
-.cartCheck{
+.cartCheck, .cartAllCheck{
     flex-basis: 4rem;
 }
 
