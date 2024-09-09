@@ -1,12 +1,15 @@
 package com.example.demo.course;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-
-import com.example.demo.PpakchimException;
 
 import lombok.RequiredArgsConstructor;
 
@@ -15,12 +18,23 @@ import lombok.RequiredArgsConstructor;
 public class CourseService {
 	private final CourseRepository cr;
 	
+	public Page<Course> getCourseAll(int page){
+		List<Sort.Order> sorts = new ArrayList<>();
+		sorts.add(Sort.Order.desc("lastUpdateDate"));
+		Pageable pageable = PageRequest.of(page,10,Sort.by(sorts));
+		return this.cr.findAll(pageable);
+	}
+	
 	public List<Course> getCourseAll(){
 		return this.cr.findAll();
 	}
 	
+//	public List<Course> search(String keyword){
+//		return this.cr.findByTitleContaining(keyword);
+//	}
+	
 	public List<Course> search(String keyword){
-		return this.cr.findByTitleContaining(keyword);
+		return this.cr.findAllByKeyword(keyword);
 	}
 
 	public List<Course> getListCourse(List<String> coursekeyList){
