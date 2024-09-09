@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>강좌 등록</title>
-    <link rel="stylesheet" href="CreateQuiz.css">
+    <link rel="stylesheet" th:href="@{/fragment.css}">
+    <link rel="stylesheet" th:href="@{/CreateQuiz.css}">
     <script src="https://kit.fontawesome.com/86c06c2025.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
-    <body>
-        <!-- 메인 네비바 타임리프 -->
+    <!-- 메인 네비바 타임리프 -->
+    <nav th:replace = "~{navbar :: navbarFragment}"></nav>
 
 
     <!--  Main_Content 시작-->
@@ -31,15 +32,6 @@
                                         <option value="js">등록한 강의2</option>
                                         <option value="python">등록한 강의3</option>
                                         <option value="C">등록한 강의4</option>
-                                    </select>
-                                </div>
-                                <!-- 내용 수정필요... 선택할게 또 필요한가? -->
-                                <div class="top level">
-                                    <select name="level" id="level">
-                                        <option value="">--- 수정 ---</option>
-                                        <option value="1">수정내용1</option>
-                                        <option value="2">수정내용2</option>
-                                        <option value="3">수정내용3</option>
                                     </select>
                                 </div>
                             </div>
@@ -99,9 +91,12 @@
             </div>
         </div>
 
-    <!-- 메인 footer 타임리프 -->
+    <!-- 메인 footer, modal 타임리프 -->
+    <footer th:replace = "~{footer :: footerFragment}"></footer>
+    <div th:replace = "~{modal :: modalFragment}"></div >
 
 
-    <script src="CreateQuiz.js"></script>
+    <script th:src="@{/fragment.js}"></script>
+    <script th:src="@{/CreateQuiz.js}"></script>
 </body>
 </html>

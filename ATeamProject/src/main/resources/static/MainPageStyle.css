@@ -40,15 +40,15 @@
 }
 
 .slide01 {
-    background: url(img/banner01.jpg) center center/cover no-repeat;
+    background-color: red;
 }
 
 .slide02 {
-    background: url(img/banner02.jpg) center center/cover no-repeat;
+    background-color: blue;
 }
 
 .slide03 {
-    background: url(img/banner03.jpg) center center/cover no-repeat;
+    background-color: green;
 }
 
 .slideBtn {
@@ -88,148 +88,74 @@
 
 .section {
     width: 100vw;
-    height: 45rem;
-    background-color: #e9e1da;
     padding-left: 10vw;
     padding-right: 10vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-bottom: 3px solid white;
+    background-color: #e9e1da;
+    padding-top: 2rem;
+    padding-bottom: 5rem;
+    border-bottom: 2px solid white;
 }
 
-.section01 {
-    border-top: 3px solid white;
-}
-
-.text {
-    width: 100%;
+.sectionText {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     padding-top: 1rem;
     padding-bottom: 1rem;
-    font-size: 1.1rem;
-    font-weight: 900;
 }
 
-.text>a {
-    display: block;
-    height: 100%;
+.sectionText>p {
+    font-weight: 900;
+    font-size: 1rem;
     color: rgb(63, 63, 63);
 }
 
-.sectionCon {
+.sectionText>a {
+    display: b;
+    font-weight: 900;
+    font-size: 0.8rem;
+    color: rgb(63, 63, 63);
+}
+
+.sectionContainer {
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    box-shadow: 0px 0px 10px rgb(190, 190, 190);
+}
+
+.sectionSlides {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.sectionSlides>li {
+    padding: 2rem;
+}
+
+.sectionSlideContent {
+    display: block;
+    height: 40vh;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background-color: rgb(216, 216, 216);
+    box-shadow: 1px 1px 2px gray;
+}
+
+.sectionSlideContent>img {
     width: 100%;
     height: 70%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
 }
 
-.sectionCon>.con {
-    width: 26%;
-    height: 45%;
-    border-radius: 0.3rem;
-    overflow: hidden;
-    box-shadow: 1px 1px 3px rgb(178, 178, 178);
-    transition: .3s;
+.sectionContainer>.preBtn {
+    left: 3rem;
 }
 
-.con>a {
-    display: block;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+.sectionContainer>.nextBtn {
+    right: 3rem;
 }
-
-.con>a>img {
-    width: 100%;
-    height: 80%;
-}
-
-.con>a>p {
-    width: 100%;
-    height: 20%;
-    /* background-color: rgb(255, 243, 227); */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: rgb(126, 126, 126);
-    font-weight: 400;
-    font-size: 0.9rem;
-    border-top: 1px solid rgb(100, 130, 173);
-}
-
-
-/* section03 style  */
-
-.section03>.text {
-    width: 100%;
-}
-
-.section03>.text>p {
-    width: 37rem;
-    display: block;
-    height: 100%;
-    color: rgb(63, 63, 63);
-}
-
-.section03Con {
-    width: 100%;
-    height: 60%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.setion03Con_01 {
-    width: 37rem;
-    height: 100%;
-    background-color: rgba(153, 188, 224, 0.358);
-    ;
-    border-bottom-right-radius: 3rem;
-    box-shadow: 2px 2px 4px rgb(174, 174, 174);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.board {
-    width: 95%;
-    height: 95%;
-    border: 1px dashed white;
-    border-bottom-right-radius: 2.5rem;
-}
-
-.board>ul {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 1rem;
-}
-
-.board>ul>li {
-    width: 95%;
-    height: 2rem;
-    overflow: hidden;
-    /* text-overflow: ellipsis;
-    white-space: nowrap; */
-}
-
-.board>ul>li>a {
-    display: block;
-    width: 100%;
-    height: 100%;
-    color: rgb(86, 86, 86);
-    border-bottom: 1px dashed rgb(114, 114, 114);
-}
-
 
 /* ***************************************************** Footer_Style 
 ***************************************************** */

@@ -36,6 +36,7 @@ public class PaymentController {
     public String receiveData(@RequestParam(value="data") String data, Model model)
     		throws JsonMappingException, JsonProcessingException, NotFoundException {
         List<String> coursekeyList = new ObjectMapper().readValue(data, new TypeReference<List<String>>() {});
+        System.out.println(coursekeyList);
         List<Course> selectedCourses = cos.getListCourse(coursekeyList);
         model.addAttribute("selectedCourses", selectedCourses);
 

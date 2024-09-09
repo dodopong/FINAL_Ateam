@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+  <interceptors>
+  
+    <interceptor> <!-- 로그인 한사람만 접근 가능한 페이지 주소 -->
+      <mapping path="/create"/>
+      <mapping path="/createquiz"/>
+      <mapping path="/quiz"/>
+      <mapping path="/user/mypage"/> <!--마이페이지 아직 안 만듦-->
+      <mapping path="/cart"/>
+      <mapping path="/createReview"/>
+      <mapping path="/course/{course_key}/reviewcreate"/>
+      <mapping path="/createReview"/>
+      <mapping path="/course/{courseKey}/view/{lectureKey}"/>
+      <mapping path="/course/{course_key}/addLecture"/>
+      <mapping path="/payment"/>
+      <beans:bean class="com.gdu.myhome.intercept.RequiredLoginInterceptor" />
+    </interceptor>
+    
+    <interceptor> <!-- 로그인 안 한사람만 접근 가능한 페이지 주소 -->
+      <mapping path="/user/join"/>
+      <beans:bean class="com.example.demo.intercept.ShouldNotLoginInterceptor" />
+    </interceptor>
+ <!-- 
+ RequiredLoginInterceptor를 bean으로 불러오고 언제 동작할지 매핑시킬 주소들을 적어줌
+ 예를 들어 <mapping path="/user/mypage.form"/>은 mypage로 넘어갈 때 동작한다는 뜻
+  -->   
+  </interceptors>

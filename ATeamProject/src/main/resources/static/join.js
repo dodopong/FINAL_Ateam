@@ -4,8 +4,8 @@
 function AlertCheckbox(){
    
 	const checkboxes = document.querySelectorAll('.agree');
-	alert("으하하하");
-	if(checkboxes.unchecked == true){ // 조건문 안먹음 checkboxes 벨류?
+	const arr = [0]; //체크한 데이터를 담을 배열 선언
+	if(checkboxes[0].checked == false){ //약관동의 하지 않을 시 얼럿창 표시
 		alert('약관 동의는 필수입니다.');
 	return false;	
 	}		
@@ -14,19 +14,12 @@ function AlertCheckbox(){
 let nBtns = document.querySelector(".next-btn");
 nBtns.addEventListener("click", function(e){
 	e.preventDefault();
-	AlertCheckbox();
-	//document.(폼name).submit();
-})
-    
-//문제 : 
-/*	const checkboxes = document.querySelectorAll('.agree');
-
-	if(checkboxes.checked === true){
-		return;	
-       //checked가 있으면 바로 return!!
+	
+	const test = AlertCheckbox();
+	if(test != false){ //약관동의 했을 때만 submit
+		document.joinform.submit();
 	}
-	// 체크없으면 바로 return해서 alert 띄우기
-	alert('약관 동의는 필수입니다.');  */
+})
 
 
 /////////////////////////////////////////////////////////////////
@@ -34,20 +27,16 @@ nBtns.addEventListener("click", function(e){
 // 도메인 직접 입력 or domain option 선택
 const domainListEl = document.querySelector('#domain-list')
 const domainInputEl = document.querySelector('#domain-txt')
-// select 옵션 변경 시
-domainListEl.addEventListener('change', (event) => {
-  // option에 있는 도메인 선택 시
-  if(event.target.value !== "type") {
-    // 선택한 도메인을 input에 입력하고 disabled
-    console.log(event.target.value)
-    domainInputEl.value = event.target.value
-    //domainInputEl.disabled = true
-  } else { // 직접 입력 시
-    // input 내용 초기화 & 입력 가능하도록 변경
-    domainInputEl.value = ""
-    //domainInputEl.disabled = false
+
+domainListEl.addEventListener('change', (event) => {// select 옵션 변경 시
+  
+  if(event.target.value !== "type") {        		// option에 있는 도메인 선택 시
+    domainInputEl.value = event.target.value 		// 선택한 도메인을 input에 입력
+  } else {                                   		// 직접 입력 시
+    domainInputEl.value = ""                 		// input 내용 초기화 & 입력 가능하도록 변경
   }
 });
+
 ////////////////////////////////////////////////////////////////
 //전화번호입력 정규 표현식
 function oninputPhone(target) {
