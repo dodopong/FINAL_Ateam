@@ -18,7 +18,7 @@ import lombok.Setter;
 public class Lecture {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long lectureKey;
+	private Long lectureKey;
 	
 	@Column(length = 200)
 	private String title;
@@ -27,6 +27,7 @@ public class Lecture {
 	
 	@Column(columnDefinition = "TEXT")
 	private String objective;
+	
 	
 	private String videoSrc;
 	

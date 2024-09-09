@@ -27,11 +27,14 @@ public class LectureController {
 	private final CourseService cs;
 	private final FileController fc;
 	
+	
 	@GetMapping("/course/{courseKey}/view/{lectureKey}")
 	public String viewLecture(Model model, @PathVariable("courseKey")Integer coursekey, 
-			@PathVariable("lectureKey") long lectureKey, LectureForm lectureForm) throws SsakException {
+			@PathVariable("lectureKey") long lectureKey, LectureForm lectureForm) throws SsakException, NotFoundException{
 		Lecture l = this.ls.getLecture(lectureKey);
+		Course c = this.cs.getCourse(coursekey); // 강의 목차 불러올때 courseKey 값 필요하므로 선언
 		model.addAttribute("lecture", l);
+		model.addAttribute("course", c);
 		return "LectureView";
 	}
 	

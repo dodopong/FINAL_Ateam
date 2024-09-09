@@ -59,34 +59,20 @@
             <div class="ahrck">
                     <button class="ahrckbtn">목차</button>
                 <div class="ahrckli">
-
-                    <li>
-                        <ul><img src="b9343d314206275c1b6d0d0c4fcc2ce71.jpg" alt=""><a href="" class="text">1번 강의 깔끔하고 군침도는 수학강의</a></ul>
-                        <ul><img src="b9343d314206275c1b6d0d0c4fcc2ce71.jpg" alt=""><a href="" class="text">2번 강의</a></ul>
-                        <ul><img src="b9343d314206275c1b6d0d0c4fcc2ce71.jpg" alt=""><a href="" class="text">3번 강의</a></ul>
-                        <ul><img src="b9343d314206275c1b6d0d0c4fcc2ce71.jpg" alt=""><a href="" class="text">4번 강의</a></ul>
-                        <ul><img src="b9343d314206275c1b6d0d0c4fcc2ce71.jpg" alt=""><a href="" class="text">5번 강의</a></ul>
-                        <ul><img src="b9343d314206275c1b6d0d0c4fcc2ce71.jpg" alt=""><a href="" class="text">6번 강의</a></ul>
-                        <ul><img src="b9343d314206275c1b6d0d0c4fcc2ce71.jpg" alt=""><a href="" class="text">7번 강의</a></ul>
-                        <ul><img src="b9343d314206275c1b6d0d0c4fcc2ce71.jpg" alt=""><a href="" class="text">8번 강의</a></ul>
-                        <ul><img src="b9343d314206275c1b6d0d0c4fcc2ce71.jpg" alt=""><a href="" class="text">9번 강의</a></ul>
-                        <ul><img src="b9343d314206275c1b6d0d0c4fcc2ce71.jpg" alt=""><a href="" class="text">10번 강의</a></ul>
-                        <ul><img src="b9343d314206275c1b6d0d0c4fcc2ce71.jpg" alt=""><a href="" class="text">11번 강의</a></ul>
-                        <ul><img src="b9343d314206275c1b6d0d0c4fcc2ce71.jpg" alt=""><a href="" class="text">12번 강의</a></ul>
-                        <ul><img src="b9343d314206275c1b6d0d0c4fcc2ce71.jpg" alt=""><a href="" class="text">13번 강의</a></ul>
-                        <ul><img src="b9343d314206275c1b6d0d0c4fcc2ce71.jpg" alt=""><a href="" class="text">14번 강의</a></ul>
-                        <ul><img src="b9343d314206275c1b6d0d0c4fcc2ce71.jpg" alt=""><a href="" class="text">15번 강의</a></ul>
-
-                        
-                    </li>
-                    </div>
+                    <ul  th:each="course : ${course.lectureList}"> <!-- 강의 목차리스트 반복기능  사용-->
+                        <li> 
+                        	<a th:href="@{|/course/${courseKey}/view/${course.lectureKey}|}" class="text" th:text ="${course.title}"></a>
+                        </li>
+                    </ul >
                 </div>
             </div>
         </div>
+    </div>
+
         <!-- ***************************************************** FOOTER
      ***************************************************** -->
         <footer th:replace = "~{footer :: footerFragment}"></footer>
-
-    <script src="LectureView.js"></script>
+	
+    <script th:src="@{/LectureView.js}"></script>
 </body>
 </html>
