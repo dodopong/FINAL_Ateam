@@ -23,6 +23,12 @@ public class CourseService {
 		return this.cr.findByTitleContaining(keyword);
 	}
 	
+	public List<Course> getListCourse(List<String> coursekeyList){
+		
+		return this.cr.findByCourseKeyIn(coursekeyList);
+	}
+//	9월 9일 박호선 결제페이지 정보 출력 목적으로 추가
+	
 	
 	public Course getCourse(Integer course_key) throws NotFoundException {
 		Optional<Course> c1 = this.cr.findById(course_key);

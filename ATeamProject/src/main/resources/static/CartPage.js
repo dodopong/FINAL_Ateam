@@ -4,7 +4,6 @@ const header = document.querySelector(".header");
 const headerDownHeight = headerDown.querySelector("ul").offsetHeight;
 let isScrolling = false;
 
-
 headerDown.style.height = `${headerDownHeight}px`;
 
 // header Scroll event
@@ -58,10 +57,10 @@ let orderbtn = document.querySelector('.orderbtn');
         orderbtn.addEventListener('click', ()=>{
           const checkedbox = document.querySelectorAll('input[name="cartbox"]:checked');
           const keyarr = new Array;
-
           checkedbox.forEach((checkedbox1) => {
             keyarr.push(checkedbox1.value);
           })
+          console.log(keyarr);
           document.getElementById('jsonData').value = JSON.stringify(keyarr);
           // cart.html 구매하기 버튼 위의 hidden input의 밸류를 keyarr로
           // JSON.stringify : JavaScript 값이나 객체를 JSON 문자열로 변환
