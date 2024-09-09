@@ -4,15 +4,13 @@
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
-    font-family: "Noto Sans KR", sans-serif;
     color: inherit;
 
 }
-
-/* 메인 네이바 */
-
-
-
+/*폰트 설정*/
+.maintitle, div[class*="body-root"], .main3{
+    font-family: "Noto Sans KR", sans-serif;
+}
 /* 퀴즈 title******************************************* */
 .maintitle{
     height: 80px;
