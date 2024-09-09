@@ -34,18 +34,6 @@ public class CartService {
 		}
 	}
 	
-	public Cart create(Integer id, List<String> coursekey) throws NotFoundException {
-		Optional<Cart> c = this.car.findById(id);
-//		다른 곳으로 옮겨질 코드이고 옮겨질 때 Cart 파라미터나 타입은 전부 변경
-		if(c.isPresent()) {
-		return c.get();
-		}
-		else {
-			throw new NotFoundException("데이터를 찾을 수 없습니다.");
-		}
-	}
-	
-	
 
 	
 }
