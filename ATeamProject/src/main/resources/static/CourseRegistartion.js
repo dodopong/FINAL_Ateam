@@ -3,7 +3,7 @@
 function fillReviewStar(rateElement, reviewRate) {
 	// starColor 요소에 적용할 ".review-rate-color"의 요소값 선택
     const starColorElement = rateElement.previousElementSibling.querySelector('.review-rate-color');
-    if (starColorElement && reviewRate > 0) { // starColor 요소와 reviewRate가 0 이상이면
+    if (starColorElement && reviewRate > 0) {  // starColor 요소와 reviewRate가 0 이상이면
         const starWidth = (reviewRate / 5) * 100;  // starColor의 너비(색상)는 reviewRate %값으로 환산 
         starColorElement.style.width = `${starWidth}%`; // reviewRate 평균값을 starWidth에 백분율로 변환.
     } else { // starColor 요소와 reviewRate가 0이면
