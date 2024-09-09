@@ -461,6 +461,9 @@
     color: #aa5e7a;
     text-shadow: 1px 1px 2px white;
 }
+.fa-user{
+	cursor:pointer;
+}
 
 .loginContent_right {
     background: url(img/loginBanner.jpg) center/cover no-repeat;
