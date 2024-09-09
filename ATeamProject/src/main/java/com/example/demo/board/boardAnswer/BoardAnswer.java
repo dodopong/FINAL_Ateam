@@ -3,6 +3,7 @@ package com.example.demo.board.boardAnswer;
 import java.time.LocalDateTime;
 
 import com.example.demo.board.boardQuestion.BoardQuestion;
+import com.example.demo.member.Member;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -29,6 +30,14 @@ public class BoardAnswer {
 	
 	@ManyToOne
 	private BoardQuestion boardQuestion;
+	
+	
+	
+	
+	@ManyToOne
+	private Member nickname;
+	
+	
 	
 	
 }

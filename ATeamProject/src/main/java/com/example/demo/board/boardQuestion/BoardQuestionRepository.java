@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface BoardQuestionRepository extends JpaRepository<BoardQuestion, Integer>{
@@ -12,4 +13,5 @@ public interface BoardQuestionRepository extends JpaRepository<BoardQuestion, In
 	BoardQuestion findByBoardQuestionSubjectAndBoardQuestionContent(String boardQuestionSubject,String boardQuestionContent);
 	List<BoardQuestion> findByBoardQuestionSubjectLike(String boardQuestionSubject);
 	Page<BoardQuestion> findAll(Pageable pageable);
+	Page<BoardQuestion> findAll(Specification<BoardQuestion> spec, Pageable pageable);
 }
