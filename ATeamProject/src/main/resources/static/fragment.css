@@ -1,7 +1,11 @@
 /* ***************************************************** Header_Style ***************************************************** */
 
-.header {
+.stopScrolling {
+    height: 100vh;
+    overflow: hidden;
+}
 
+.header {
     width: 100vw;
     padding-left: 10vw;
     padding-right: 10vw;
@@ -153,7 +157,6 @@
 .categoryContainer.on {
     z-index: 50;
     opacity: 1;
-
 }
 
 .categoryContainer>.category {
@@ -164,13 +167,15 @@
     padding-top: 1rem;
     background-color: #d9bbb8f2;
 }
-.category>li{
+
+.category>li {
     height: 90%;
     padding-right: 2rem;
     list-style-type: square;
     color: rgb(89, 89, 89);
     font-weight: 900;
 }
+
 .category>li>a {
     display: block;
     padding-right: 4rem;
@@ -212,6 +217,7 @@
     color: #608fb7;
     text-shadow: 2px 2px 2px white;
 }
+
 
 /* ***************************************************** Footer_Style 
 ***************************************************** */
@@ -308,8 +314,13 @@
     font-weight: 900;
 }
 
+
 /* ***************************************************** Modal_Style 
 ***************************************************** */
+
+.modal {
+    border: 3px solid red;
+}
 
 .modal {
     position: absolute;

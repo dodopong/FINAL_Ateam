@@ -20,7 +20,7 @@ import lombok.Setter;
 @Setter
 @Entity
 public class Cart {
-	
+	//실험좀 하자
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer cartKey;
