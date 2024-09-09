@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>결제창</title>
+    <link rel="stylesheet" href="PaymentWindow.css">
+    <script src="https://kit.fontawesome.com/86c06c2025.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- ************** Header_Content********************** -->
+    <div class="header ">
+        <!--*-*-*-*-*-*-*-*-* headerUp_Contents *-*-*-*-*-*-*-*-*-->
+        <div class="headerUp">
+            <div class="headerLogo">
+                <a href="#">
+                    <i class="fa-brands fa-blogger-b"></i>
+                </a>
+            </div>
+            <div class="headerSearchBar">
+                <input type="text" class="search" placeholder="찾는 강의를 검색하세요">
+                <div class="searchBtn">
+                    <a href="#">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="headerRightCon">
+                <a href="#" class="cart">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </a>
+                <a href="#" class="loginBtn">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+            </div>
+        </div>
+        <!--*-*-*-*-*-*-*-*-* headerDown_Contents *-*-*-*-*-*-*-*-*-->
+        <div class="headerDown">
+            <ul>
+                <li class="categoryBtn">
+                    <a href="#">
+                        <i class="fa-solid fa-bars"></i> 카테고리
+                    </a>
+                </li>
+                <li>
+                    <a href="#">할인특가</a>
+                </li>
+                <li>
+                    <a href="#">이벤트</a>
+                </li>
+                <li>
+                    <a href="#">고객센터</a>
+                </li>
+                <li>
+                    <a href="#">공지사항</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="categoryContainer">
+        <ul class="category">
+            <li>
+                <p>Html</p>
+                <a href="#">content</a>
+                <a href="#">content</a>
+                <a href="#">content</a>
+                <a href="#">content</a>
+            </li>
+            <li>
+                <p>Css</p>
+                <a href="#">content</a>
+                <a href="#">content</a>
+                <a href="#">content</a>
+                <a href="#">content</a>
+                <a href="#">content</a>
+            </li>
+            <li>
+                <p>Javascript</p>
+                <a href="#">content</a>
+                <a href="#">content</a>
+                <a href="#">content</a>
+                <a href="#">content</a>
+                <a href="#">content</a>
+                <a href="#">content</a>
+                <a href="#">content</a>
+            </li>
+            <li>
+                <p>Java</p>
+                <a href="#">content</a>
+                <a href="#">content</a>
+                <a href="#">content</a>
+                <a href="#">content</a>
+                <a href="#">content</a>
+                <a href="#">content</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 메인창 -->
+    <main class="whole">
+        <!--수강 바구니 -->
+        <section class="order-information">
+            <div> <h1>주문 정보</h1>
+                <div th:each="course : ${selectedCourses}" class="option">
+                수강 옵션 | <span th:text="${course.title}"></span>
+                <p>가격 : <strong th:text="${course.level}" class="price"></strong>원</p>
+            </div>
+
+            <div>
+                총 가격 : <span class="totalPrice"></span>원
+            </div>
+        </section>
+        
+        <!--카드사 결제 할인  -->
+        <section class="discount"><h1>카드 결제 할인</h1>
+            <select name="card" id="card-select">
+                <option value="card-type">카드 할인을 선택해주세요</option>
+                <option value="KB">국민은행 5% 할인</option>
+                <option value="Woori">우리은행 3% 할인</option>
+                <option value="NH">농협은행 3% 할인</option>
+          </select>
+        </section>
+
+        <!-- 결제 수단 -->
+         <section class="pay"><h1>결제 수단</h1>
+            <input type="radio" name="payment" value="account" checked> 계좌 간편결제<br>
+            <input type="radio" name="payment" value="Easy card" checked> 카드 간편결제<br>
+            <input type="radio" name="payment" value="General" checked> 일반 결제<br>
+            <select name="card" id="card-select">
+                <option value="card-type">카드를 선택해주세요</option>
+                <option value="KB">국민은행</option>
+                <option value="Woori">우리은행</option>
+                <option value="NH">농협은행</option>
+                <option value="SH">신한은행</option>
+            </select>
+         </section>
+
+        <!-- 현금영수증 -->
+        <section class="receipt">
+            <div class="receipt-header">
+                <span class="receipt-title">
+                    <h1>현금영수증</h1>
+                </span>
+                <div class="status">
+                    <label>
+                        <input type="radio" name="status" id="apply" value="신청" checked> 신청
+                    </label>
+                    <label>
+                        <input type="radio" name="status" id="not-apply" value="미신청"> 미신청
+                    </label>
+                </div>
+            </div>
+        
+            <div id="form-section" class="form-content">
+                <div class="form-section">
+                    <label>
+                        <input type="radio" name="type" value="personal" checked> 개인소득공제용
+                    </label>
+                    <label>
+                        <input type="radio" name="type" value="business"> 사업자증빙용(세금계산서)
+                    </label>
+                </div>
+        
+                <div class="phone-section">
+                    <label for="phone">휴대폰 번호</label>
+                    <div class="phone-inputs">
+                        <!-- 입력란 최대 문자길이 설정 -->
+                        <input type="text" id="phone1" maxlength="3">
+                        <span>-</span>
+                        <input type="text" id="phone2" maxlength="4">
+                        <span>-</span>
+                        <input type="text" id="phone3" maxlength="4">
+                    </div>
+                </div>
+        
+                <div class="checkbox-section">
+                    <label>
+                        <input type="checkbox" id="use-next-time" checked> 다음에도 사용할게요
+                    </label>
+                </div>
+            </div>
+        </section>
+
+         <section class="payment-button">
+         <div class="paybtn">결제하기</div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <div class="footer">
+
+        <!-- <script src="modul.js"></script> -->
+
+        <script th:src="@{/PaymentWindow.js}">
+    </script>
+</body>
+</html>

@@ -1,5 +1,7 @@
 package com.example.demo.member;
 
+import org.hibernate.validator.constraints.Length;
+
 import jakarta.persistence.Convert;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
@@ -14,10 +16,9 @@ public class MemberForm {
 //	private String memberId;
 	
 	@NotEmpty(message = "이메일(ID)를 입력해주세요.")
-	@Size(max = 15, min = 1)
 	private String email1; //
 	
-	@NotEmpty(message = "아이디를 입력해주세요.")
+	@NotEmpty(message = "이메일(ID) 도메인주소를 입력해주세요.")
 	private String email2; //도메인
 	
 	@NotEmpty(message = "비밀번호를 입력해주세요.")
@@ -29,13 +30,14 @@ public class MemberForm {
 	@NotEmpty(message = "이름을 입력해주세요.")
 	private String mname;
 	
-	@NotEmpty(message = "전화번호를 입력해주세요.")
+	@Length(min = 11, message = "전화번호 11자리를 입력해주세요.")
+	@NotEmpty(message = "")
 	private String telNo;
 	
 	@NotEmpty(message = "생년월일을 입력해주세요.")
 	private String birth;
 	
-	@Size(max = 10)
+	//@Size(max = 10) html에서 maxlength = 10 설정해서 필요없을듯?
 	@NotEmpty(message = "닉네임을 입력해주세요.")
 	private String nickname;
 	

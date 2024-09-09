@@ -21,16 +21,18 @@ public class MembersecurityService implements UserDetailsService{
 	private final MemberRepository memberRepository;
 	
 	@Override
-	public UserDetails loadUserByUsername(String member_id) throws UsernameNotFoundException {
-		// 
-		Optional<Member> _member = this.memberRepository.findByMemberId(member_id);
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+	 
+		
+		Optional<Member> _member = this.memberRepository.findByMemberId(username);
 		if(_member.isEmpty()) { //사용자(member_id)를 찾을 수 없을 때
 			throw new UsernameNotFoundException("사용자가 없어요");
 		}
 		
 		Member member = _member.get();
+		
 		List<GrantedAuthority> auth = new ArrayList<>();
-		if("admin".equals(member_id)) {
+		if("admin".equals(username)) {
 			auth.add(new SimpleGrantedAuthority(MemberRole.ADMIN.getValue()));
 		}else {
 			auth.add(new SimpleGrantedAuthority(MemberRole.USER.getValue()));

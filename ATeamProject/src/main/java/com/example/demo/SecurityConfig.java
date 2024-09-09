@@ -19,14 +19,15 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableWebSecurity
 @EnableMethodSecurity(prePostEnabled = true)
 public class SecurityConfig {
-	
+	//실험
 	   @Bean
 	   SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
-	      // 인증되지 않은 모든 페이지의 요청을 허락한다.
+	      // �씤利앸릺吏� �븡�� 紐⑤뱺 �럹�씠吏��쓽 �슂泥��쓣 �뿀�씫�븳�떎.
 	      http
 	      .authorizeHttpRequests(
 	            (authorizeHttpRequests) -> authorizeHttpRequests
-	           .requestMatchers(new AntPathRequestMatcher("/**")).permitAll())
+	           .requestMatchers(new AntPathRequestMatcher("/**")).permitAll()
+	      	   .requestMatchers("/main").authenticated()) 
 	        .csrf((csrf) -> csrf
 	                .ignoringRequestMatchers(new AntPathRequestMatcher("/h2-console/**")))
 	        .headers((headers) -> headers
@@ -42,7 +43,7 @@ public class SecurityConfig {
 	      ;
 	      return http.build();
 	   }
-	// 이 파일은 프로젝트의 시큐리티 설정을 담당할 예정
+	// �씠 �뙆�씪�� �봽濡쒖젥�듃�쓽 �떆�걧由ы떚 �꽕�젙�쓣 �떞�떦�븷 �삁�젙
 	
 	@Bean
 	PasswordEncoder passwordEncoder() {

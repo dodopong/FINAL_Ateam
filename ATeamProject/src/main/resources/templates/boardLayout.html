@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- board reset CSS -->
+    <link rel="stylesheet" type="text/css" th:href="@{/boardResetStyle.css}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" th:href="@{/bootstrap/bootstrap.min.css}">
+    <!-- header CSS -->
+    <link rel="stylesheet" type="text/css" th:href="@{/fragment.css}">
+    <!-- board list style CSS -->
+    <link rel="stylesheet" type="text/css" th:href="@{/boardListStyle.css}">
+    <title>Hello, sbb!</title>
+</head>
+
+<body>
+    <!-- 기본 템플릿 안에 삽입될 내용 Start -->
+
+    <!--  HEADER   -->
+    <nav th:replace="~{navbar :: navbarFragment}"></nav>
+    <!--  Main   -->
+    <th:block layout:fragment="content"></th:block>
+    <!--  FOOTER   -->
+    <footer th:replace="~{footer :: footerFragment}"></footer>
+    <!--   MODAL   -->
+    <!-- <div th:replace="~{modal :: modalFragment}"></div> -->
+
+
+    <div th:fragment="modalFragment" class="modal loginModal">
+        <div class="loginContainer">
+            <div class="closeBtn">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            <div class="loginContent loginContent_left">
+                <p>Hello Again</p>
+                <p>email</p>
+                <form action="@{/user/login}" method="post">
+                    <div th:if="${param.error}">
+                        <div class="alert alert-danger">
+                            사용자ID 또는 비밀번호를 확인해 주세요.
+                        </div>
+                    </div>
+
+                    <input name="memberId" id="memberId" type="text" placeholder="email">
+                    <p>password</p>
+                    <input name="password" id="password" type="password" placeholder="password">
+                    <button>Login</button>
+                </form>
+
+                <div class="signContainer">
+                    <div class="sign">
+                        <a th:href="@{/user/join}">
+                                signIN
+                            </a>
+                    </div>
+                    <div class="find">
+                        <a href="#">
+                                Find ID/Password
+                            </a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="loginContent loginContent_right"></div>
+        </div>
+    </div>
+
+
+    <!-- 기본 템플릿 안에 삽입될 내용 End -->
+    <script src="https://kit.fontawesome.com/86c06c2025.js" crossorigin="anonymous"></script>
+    <script th:src="@{/fragment.js}"></script>
+</body>
+
+</html>
