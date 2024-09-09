@@ -42,10 +42,6 @@
                         </div>
                     </div>
                         <div class="section review">
-                            <div class="review img">
-                                <span>이미지 추가</span>
-                                <input type="file" name="SelectFile reviewImg" />
-                            </div>
                             <div class="review text">
                                 <textarea id="review_text"   th:field="*{content}" placeholder="내용을 입력해주세요." required></textarea>
                             </div>
@@ -63,7 +59,7 @@
      <div th:replace = "~{modal :: modalFragment}"></div >
      
      
-    <script src="CreateCourseReviewModule.js"></script>
-    <script src="fragment.js"></script>
+    <script th:src="@{/CreateCourseReviewModule.js}"></script>
+    <script th:src="@{/fragment.js}"></script>
 </body>
 </html>

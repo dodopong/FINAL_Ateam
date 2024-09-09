@@ -227,20 +227,12 @@
     transition: 0.5s;
     max-height: 0;
 }
-.ahrckli ul{
+.ahrckli li{
     border: 1px solid black;
     /* background-color: #aec5d8; */
     border-radius: 5px;
 }
-.ahrckli img{
-    margin: 0.3rem;
-    width: 2.5vw;
-    height: 2rem;
-}
-.ahrckli ul,img{
-    display: flex;
-    align-items: center;
-}
+
 /* 목차 끝 */
 /* section 오른쪽 끝 */
 

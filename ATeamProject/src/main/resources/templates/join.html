@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>join</title> 
     <link rel="stylesheet" th:href="@{/join.css}">
-    <link rel="stylesheet" th:href="@{./bootstrap/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/bootstrap/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/custom.css}">
     <link rel="stylesheet" th:href="@{/fragment.css}">
     <script src="https://kit.fontawesome.com/86c06c2025.js" crossorigin="anonymous"></script>
@@ -76,7 +76,7 @@
             </div>
 
             <div class="article">닉네임*</div>
-            <input th:field="*{nickname}" type="text" class="text">
+            <input th:field="*{nickname}" type="text" class="text" maxlength="10">
 
             <div class="article">프로필 사진(선택)</div>
             <!-- 파일쪽 추후 수정 필요
@@ -132,8 +132,8 @@
             
             
     
-    <script src="join.js"></script>
-    <script src="fragment.js"></script>
+    <script th:src="@{/join.js}"></script>
+    <script th:src="@{/fragment.js}"></script>
     
 </body>
 </html>
