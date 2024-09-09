@@ -16,7 +16,7 @@
     <nav th:replace = "~{navbar :: navbarFragment}"></nav>
     <!-- ***************************************************** Main_Content 
     ***************************************************** -->
-    <div class="main">
+	<div class="main">
         <!--*-*-*-*-*-*-*-*-* banner Slide *-*-*-*-*-*-*-*-*-->
         <div class="slideContainer">
             <ul class="slides">
@@ -33,134 +33,109 @@
         </div>
         <!--*-*-*-*-*-*-*-*-* section01_Contents *-*-*-*-*-*-*-*-*-->
         <div class="section section01">
-            <div class="text">
-                <a href="#">실시간 인기 강좌</a>
+            <div class="sectionText">
+                <p>현재 인기 강좌</p>
                 <a href="#">show more +</a>
             </div>
-            <ul class="sectionCon sectionCon01">
-                <li class="con">
-                    <a href="#">
-                        <img src="img/class01.png" alt="">
-                        <p>이민자를 위한 한국어 강좌</p>
-                    </a>
-                </li>
-                <li class="con">
-                    <a href="#">
-                        <img src="img/class02.png" alt="">
-                        <p>스포츠 코칭론</p>
-                    </a>
-                </li>
-                <li class="con">
-                    <a href="#">
-                        <img src="img/class03.png" alt="">
-                        <p>식물 분류학</p>
-                    </a>
-                </li>
-                <li class="con">
-                    <a href="#">
-                        <img src="img/class04.png" alt="">
-                        <p>현대소설론</p>
-                    </a>
-                </li>
-                <li class="con">
-                    <a href="#">
-                        <img src="img/class05.png" alt="">
-                        <p>고급영문감독</p>
-                    </a>
-                </li>
-                <li class="con">
-                    <a href="#">
-                        <img src="img/class06.png" alt="">
-                        <p>현대소설론</p>
-                    </a>
-                </li>
-            </ul>
+            <div class="sectionContainer">
+                <ul class="sectionSlides">
+                    <li class="sectionSlide">
+                        <a href="#" class="sectionSlideContent">
+                            <img src="img/sectioncon01.jpg" alt="">
+                        </a>
+                    </li>
+                    <li class="sectionSlide">
+                        <a href="#" class="sectionSlideContent">
+                            <img src="img/sectioncon02.jpg" alt="">
+                        </a>
+                    </li>
+                    <li class="sectionSlide">
+                        <a href="#" class="sectionSlideContent">
+                            <img src="img/sectioncon03.jpg" alt="">
+                        </a>
+                    </li>
+                    <li class="sectionSlide">
+                        <a href="#" class="sectionSlideContent">
+                            <img src="img/sectioncon04.jpg" alt="">
+                        </a>
+                    </li>
+                    <li class="sectionSlide">
+                        <a href="#" class="sectionSlideContent">
+                            <img src="img/sectioncon05.jpg" alt="">
+                        </a>
+                    </li>
+                    <li class="sectionSlide">
+                        <a href="#" class="sectionSlideContent">
+                            <img src="img/sectioncon04.jpg" alt="">
+                        </a>
+                    </li>
+                    <li class="sectionSlide">
+                        <a href="#" class="sectionSlideContent">
+                            <img src="img/sectioncon03.jpg" alt="">
+                        </a>
+                    </li>
+                </ul>
+                <div class="slideBtn preBtn">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </div>
+                <div class="slideBtn nextBtn">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+            </div>
+
         </div>
-        <!--*-*-*-*-*-*-*-*-* section02_Contents *-*-*-*-*-*-*-*-*-->
+        <!-- section02  -->
         <div class="section section02">
-            <div class="text">
-                <a href="#">신규 개설 강좌</a>
+            <div class="sectionText">
+                <p>현재 인기 강좌</p>
                 <a href="#">show more +</a>
             </div>
-            <ul class="sectionCon sectionCon02">
-                <li class="con">
-                    <a href="#">
-                        <img src="img/class01.png" alt="">
-                        <p>이민자를 위한 한국어 강좌</p>
-                    </a>
-                </li>
-                <li class="con">
-                    <a href="#">
-                        <img src="img/class02.png" alt="">
-                        <p>스포츠 코칭론</p>
-                    </a>
-                </li>
-                <li class="con">
-                    <a href="#">
-                        <img src="img/class03.png" alt="">
-                        <p>식물 분류학</p>
-                    </a>
-                </li>
-                <li class="con">
-                    <a href="#">
-                        <img src="img/class04.png" alt="">
-                        <p>현대소설론</p>
-                    </a>
-                </li>
-                <li class="con">
-                    <a href="#">
-                        <img src="img/class05.png" alt="">
-                        <p>고급영문감독</p>
-                    </a>
-                </li>
-                <li class="con">
-                    <a href="#">
-                        <img src="img/class06.png" alt="">
-                        <p>현대소설론</p>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <!--*-*-*-*-*-*-*-*-* section03_Contents *-*-*-*-*-*-*-*-*-->
-        <div class="section section03">
-            <div class="text">
-                <p>Notice Category</p>
-                <p>Q and A</p>
-            </div>
-            <div class="section03Con">
-                <div class="setion03Con_01 notice">
-                    <div class="board">
-                        <ul>
-                            <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. </a></li>
-                            <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
-                            <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
-                            <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
-                            <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
-                            <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
-                            <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
-                            <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
-                            <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
-                            <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
-                        </ul>
-                    </div>
+            <div class="sectionContainer">
+                <ul class="sectionSlides">
+                    <li class="sectionSlide">
+                        <a href="#" class="sectionSlideContent">
+                            <img src="img/sectioncon01.jpg" alt="">
+                        </a>
+                    </li>
+                    <li class="sectionSlide">
+                        <a href="#" class="sectionSlideContent">
+                            <img src="img/sectioncon02.jpg" alt="">
+                        </a>
+                    </li>
+                    <li class="sectionSlide">
+                        <a href="#" class="sectionSlideContent">
+                            <img src="img/sectioncon03.jpg" alt="">
+                        </a>
+                    </li>
+                    <li class="sectionSlide">
+                        <a href="#" class="sectionSlideContent">
+                            <img src="img/sectioncon04.jpg" alt="">
+                        </a>
+                    </li>
+                    <li class="sectionSlide">
+                        <a href="#" class="sectionSlideContent">
+                            <img src="img/sectioncon05.jpg" alt="">
+                        </a>
+                    </li>
+                    <li class="sectionSlide">
+                        <a href="#" class="sectionSlideContent">
+                            <img src="img/sectioncon04.jpg" alt="">
+                        </a>
+                    </li>
+                    <li class="sectionSlide">
+                        <a href="#" class="sectionSlideContent">
+                            <img src="img/sectioncon03.jpg" alt="">
+                        </a>
+                    </li>
+                </ul>
+                <div class="slideBtn preBtn">
+                    <i class="fa-solid fa-chevron-left"></i>
                 </div>
-                <div class="setion03Con_01 QA">
-                    <div class="board">
-                        <ul>
-                            <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. </a></li>
-                            <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
-                            <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
-                            <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
-                            <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
-                            <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
-                            <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
-                            <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
-                            <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
-                            <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
-                        </ul>
-                    </div>
+                <div class="slideBtn nextBtn">
+                    <i class="fa-solid fa-chevron-right"></i>
                 </div>
             </div>
+
         </div>
     </div>
     <!-- ***************************************************** FOOTER

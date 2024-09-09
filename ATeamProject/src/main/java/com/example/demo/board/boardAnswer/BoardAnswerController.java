@@ -1,5 +1,7 @@
 package com.example.demo.board.boardAnswer;
 
+import java.security.Principal;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,7 +26,7 @@ public class BoardAnswerController {
 	
 	
 	@PostMapping("/create/{id}")
-	public String createBoardAnswer(Model model,@PathVariable("id") Integer id , @Valid BoardAnswerForm boardAnswerForm,BindingResult bindingResult) {
+	public String createBoardAnswer(Model model,@PathVariable("id") Integer id , @Valid BoardAnswerForm boardAnswerForm,BindingResult bindingResult,Principal principal) {
 		BoardQuestion boardQuestion = this.boardQuestionService.getBoardQuestion(id);
 	
 		

@@ -38,24 +38,15 @@ categoryBtn.addEventListener('click', function() {
     if (categoryOn === false) {
         categoryContainer.classList.add('on');
         categoryContainer.style.height = "100vh";
-        document.querySelector('body').classList.add("stopScrolling");
+        document.querySelector('body').classList.add("stopScolling");
         categoryOn = true;
     } else {
         categoryContainer.classList.remove('on');
         categoryContainer.style.height = "0px";
-        document.querySelector('body').classList.remove("stopScrolling");
+        document.querySelector('body').classList.remove("stopScolling");
         categoryOn = false;
     }
 });
-// 화면 사이즈 변화 처리
-// window.addEventListener('resize', () => {
-//     windowHeight = window.innerHeight;
-//     headerHeight = header.offsetHeight;
-//     categoryContainerHeight = windowHeight - headerHeight;
-
-//     categoryContainer.style.height = categoryContainerHeight + "px";
-// });
-
 //*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* Modal 이벤트 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 
 
@@ -67,13 +58,13 @@ const closeBtn = document.querySelector(".closeBtn");
 //*-*-*-*-*-*-*-*-* Modal 실행 *-*-*-*-*-*-*-*-*
 modalBtn.addEventListener('click', function() {
     modal.classList.add('on');
-    document.querySelector('body').classList.add("stopScrolling");
+    document.querySelector('body').classList.add("stopScolling");
 });
 
 
 closeBtn.addEventListener('click', function() {
     modal.classList.remove('on');
     if (!categoryContainer.classList.contains('on')) {
-        document.querySelector('body').classList.remove("stopScrolling");
+        document.querySelector('body').classList.remove("stopScolling");
     }
 });
