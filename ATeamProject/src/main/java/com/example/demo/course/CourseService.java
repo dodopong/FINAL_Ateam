@@ -23,6 +23,10 @@ public class CourseService {
 		return this.cr.findByTitleContaining(keyword);
 	}
 	
+	public List<Course> getDesc(){
+		return this.cr.findAllByOrderByLastUpdateDateDesc();
+	}
+	
 	
 	public Course getCourse(Integer course_key) throws NotFoundException {
 		Optional<Course> c1 = this.cr.findById(course_key);

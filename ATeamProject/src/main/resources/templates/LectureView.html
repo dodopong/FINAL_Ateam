@@ -51,7 +51,9 @@
             <div class="moviecontainer">
                 <div class="movie">
                     <p class="text">강의 감상</p>
-                    <video th:text="${lecture.videoSrc}" src="민지호선님페이지영상.mp4" controls></video>
+                    <video controls autoplay preload="metadata">
+                    <source th:src="@{|/video/${lecture.file.filename}|}" type="video/mp4">
+                    </video>
                 </div>
             </div>
         </div>
@@ -86,7 +88,9 @@
         <!-- ***************************************************** FOOTER
      ***************************************************** -->
         <footer th:replace = "~{footer :: footerFragment}"></footer>
-
-    <script src="LectureView.js"></script>
+	<link href="https://vjs.zencdn.net/7.18.1/video-js.css" rel="stylesheet" />
+	<script src="https://vjs.zencdn.net/7.18.1/video.min.js"></script>
+    <script th:src="LectureView.js"></script>
+    <script th:src="@{/fragment.js}"></script>
 </body>
 </html>

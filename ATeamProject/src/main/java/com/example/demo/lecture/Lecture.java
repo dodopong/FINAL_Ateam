@@ -1,13 +1,21 @@
 package com.example.demo.lecture;
 import com.example.demo.course.Course;
-import java.time.LocalDateTime;
+import com.example.demo.file.Files;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
+import org.springframework.web.multipart.MultipartFile;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -34,4 +42,7 @@ public class Lecture {
 	
 	@ManyToOne
 	private Course course;
+	
+	@OneToOne(mappedBy = "lecture", cascade = CascadeType.ALL)
+	private Files file;
 }
