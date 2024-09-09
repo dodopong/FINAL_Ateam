@@ -12,6 +12,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.header.writers.frameoptions.XFrameOptionsHeaderWriter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @EnableWebSecurity
@@ -51,5 +53,15 @@ public class SecurityConfig {
 	AuthenticationManager authenticationManager(
 			AuthenticationConfiguration authenticationConfiguration) throws Exception {
 		return authenticationConfiguration.getAuthenticationManager();
+	}
+	@Bean
+	public WebMvcConfigurer webMvcConfigurer() {
+	    return new WebMvcConfigurer() {
+	        @Override
+	        public void addResourceHandlers(ResourceHandlerRegistry registry) {
+	            registry.addResourceHandler("/videos/**")
+	                    .addResourceLocations("classpath:/static/videos/");
+	        }
+	    };
 	}
 }
