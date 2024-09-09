@@ -76,6 +76,12 @@ public class CourseController {
 		return "SearchCourse";
 	}
 	
+	@GetMapping("/search")
+	public String search(Model model,CourseForm courForm) {
+		
+		
+		return "SearchCourse";
+	}
 //---------------------------------CourseRegistration------------------
 	@GetMapping(value = "/course/{course_key}")
 	   public String detail(Model model, @PathVariable("course_key") Integer course_key, CourseForm courseForm) throws NotFoundException {

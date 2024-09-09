@@ -7,6 +7,8 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 import com.example.demo.course.Course;
 import com.example.demo.course.NotFoundException;
+import com.example.demo.member.Member;
+import com.example.demo.member.nosignException;
 
 import lombok.RequiredArgsConstructor;
 
@@ -15,6 +17,10 @@ import lombok.RequiredArgsConstructor;
 public class CartService {
 	
 	private final CartRepository car;
+	
+//	public List<Cart> checkCart(Member id) {
+//		return car.findByMemberKey(id);
+//	}
 	
 	
 	public void create(Course course) {
@@ -33,6 +39,8 @@ public class CartService {
 			throw new NotFoundException("데이터를 찾을 수 없습니다.");
 		}
 	}
+	
+	
 	
 
 	
