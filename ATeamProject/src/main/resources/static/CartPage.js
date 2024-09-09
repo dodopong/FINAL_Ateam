@@ -60,7 +60,6 @@ let orderbtn = document.querySelector('.orderbtn');
           checkedbox.forEach((checkedbox1) => {
             keyarr.push(checkedbox1.value);
           })
-          console.log(keyarr);
           document.getElementById('jsonData').value = JSON.stringify(keyarr);
           // cart.html 구매하기 버튼 위의 hidden input의 밸류를 keyarr로
           // JSON.stringify : JavaScript 값이나 객체를 JSON 문자열로 변환
