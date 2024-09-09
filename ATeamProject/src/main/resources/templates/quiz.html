@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/094d6e4a71.js" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/86c06c2025.js" crossorigin="anonymous"></script><!--모달-->
+    <script src="https://kit.fontawesome.com/86c06c2025.js" crossorigin="anonymous"></script><!--네비바,모달-->
     <link rel="preconnect" href="https://fonts.googleapis.com"> <!--구글폰트-->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/fragment.css}"><!--네비바,모달-->
     <link rel="stylesheet" th:href="@{/quiz.css}">
-    <link rel="stylesheet" th:href="@{/fragment.css}"><!--모달-->
     <title>quiz</title>
 </head>
 <body>
@@ -180,7 +180,7 @@
     <!-- 로그인 모달창 타임리프-->
     <div th:replace = "~{modal :: modalFragment}"></div >
 
-    <script src="quiz.js"></script>
-    <script src="fragment.js"></script>
+    <script th:src="@{/quiz.js}"></script>
+    <script th:src="@{/fragment.js}"></script>
 </body>
 </html>

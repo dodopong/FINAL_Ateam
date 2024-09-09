@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>join</title> 
+    <link rel="stylesheet" th:href="@{/fragment.css}">
     <link rel="stylesheet" th:href="@{/join.css}">
     <link rel="stylesheet" th:href="@{/bootstrap/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/custom.css}">
-    <link rel="stylesheet" th:href="@{/fragment.css}">
     <script src="https://kit.fontawesome.com/86c06c2025.js" crossorigin="anonymous"></script>
     
 </head>
@@ -17,7 +17,7 @@
 
     <!-- level-1 -->
     <!--문자데이터와 사진파일을 같이 넘기므로 enctype="multipart/form-data-->
-    <form th:action="@{/user/join}" th:object = "${memberForm}" method="post" enctype="multipart/form-data">
+    <form th:action="@{/user/join}" th:object = "${memberForm}" method="post" enctype="multipart/form-data" name="joinform" class="joinform">
     <div th:replace="~{form_errors :: formErrorsFragment}"></div> 
     <!--정보 잘못 입력했을 때 뜨는 에러박스-->
         <div>
