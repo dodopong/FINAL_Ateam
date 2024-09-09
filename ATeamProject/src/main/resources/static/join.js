@@ -1,27 +1,32 @@
 /////////////////////////////////////////////////////////////////
 //약관동의 하지 않을 시 회원가입 불가능
-// const promise = () => {
-//   $('form').submit((ev) => {
-//     if(!$('agree').is(':checked')){
-//       alert('필수 약관에 동의하세요.');
-//       ev.preventDefault();
-//       return;
-//     }
-//   })
-// }
 
-// function AlertCheckbox(){
-//   const checkPart = document.querySelector('.checkbox-part');
-//   const checkboxes = checkPart.querySelectorAll('input');
+function AlertCheckbox(){
+   
+	const checkboxes = document.querySelectorAll('.agree');
+	alert("으하하하");
+	if(checkboxes.unchecked == true){ // 조건문 안먹음 checkboxes 벨류?
+		alert('약관 동의는 필수입니다.');
+	return false;	
+	}		
+}
 
-//   for( let i = 0; i < checkboxes.length; i ++){
-//       if(checkboxes[i].checked === true) return;	
-//       // 체크박스 돌다가 checked가 있으면 바로 return!!
-//   }
-//   alert('검색할 파일 형태를 선택하세요.'); 
-//   // 체크없으면 바로 return해서 alert 띄우기!
-// }
+let nBtns = document.querySelector(".next-btn");
+nBtns.addEventListener("click", function(e){
+	e.preventDefault();
+	AlertCheckbox();
+	//document.(폼name).submit();
+})
+    
+//문제 : 
+/*	const checkboxes = document.querySelectorAll('.agree');
 
+	if(checkboxes.checked === true){
+		return;	
+       //checked가 있으면 바로 return!!
+	}
+	// 체크없으면 바로 return해서 alert 띄우기
+	alert('약관 동의는 필수입니다.');  */
 
 
 /////////////////////////////////////////////////////////////////
@@ -34,12 +39,13 @@ domainListEl.addEventListener('change', (event) => {
   // option에 있는 도메인 선택 시
   if(event.target.value !== "type") {
     // 선택한 도메인을 input에 입력하고 disabled
+    console.log(event.target.value)
     domainInputEl.value = event.target.value
-    domainInputEl.disabled = true
+    //domainInputEl.disabled = true
   } else { // 직접 입력 시
     // input 내용 초기화 & 입력 가능하도록 변경
     domainInputEl.value = ""
-    domainInputEl.disabled = false
+    //domainInputEl.disabled = false
   }
 });
 ////////////////////////////////////////////////////////////////
@@ -69,3 +75,5 @@ btnss.addEventListener('click', function(){
       ins.classList.remove('on');
 
 })
+
+

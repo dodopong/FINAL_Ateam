@@ -24,7 +24,8 @@ public class SecurityConfig {
 	      http
 	      .authorizeHttpRequests(
 	            (authorizeHttpRequests) -> authorizeHttpRequests
-	           .requestMatchers(new AntPathRequestMatcher("/**")).permitAll())
+	           .requestMatchers(new AntPathRequestMatcher("/**")).permitAll()
+	      	   .requestMatchers("/main").authenticated()) 
 	        .csrf((csrf) -> csrf
 	                .ignoringRequestMatchers(new AntPathRequestMatcher("/h2-console/**")))
 	        .headers((headers) -> headers
