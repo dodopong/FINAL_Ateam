@@ -11,6 +11,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.member.Member;
+
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -28,6 +30,7 @@ public class CourseService {
 	public List<Course> getCourseAll(){
 		return this.cr.findAll();
 	}
+	
 	
 //	public List<Course> search(String keyword){
 //		return this.cr.findByTitleContaining(keyword);

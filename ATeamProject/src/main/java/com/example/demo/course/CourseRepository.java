@@ -9,6 +9,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import com.example.demo.member.Member;
+
 
 
 	public interface CourseRepository extends JpaRepository<Course, Integer> {
@@ -16,6 +18,7 @@ import org.springframework.data.repository.query.Param;
 		
 		List<Course> findByCourseKeyIn(List<String> courseKeys);
 //		9월 9일 박호선 결제페이지 정보 출력 목적으로 추가
+		
 		Page<Course> findAll(Pageable pageable);
 		
 		@Query("select "
