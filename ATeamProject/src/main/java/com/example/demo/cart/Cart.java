@@ -13,6 +13,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -28,7 +29,7 @@ public class Cart {
 	@ManyToOne
 	private Course courseKey;
 	
-	@ManyToOne
+	@OneToOne
 	private Member memberKey;
 	
 	private LocalDateTime updateDate;

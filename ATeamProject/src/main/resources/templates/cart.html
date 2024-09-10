@@ -3,100 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>장바구니</title>
+        <link rel="stylesheet" th:href="@{/CartPage.css}">
+        <link rel="stylesheet" th:href="@{/fragment.css}">
     <script src="https://kit.fontawesome.com/86c06c2025.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="CartPage.css">
 </head>
 <body>
+    <!-- ***************************************************** MODAL
+     ***************************************************** -->
+<div th:replace="~{modal :: modalFragment}"></div>
      <!-- ***************************************************** Header_Content 
      ***************************************************** -->
-     <div class="header ">
-        <!--*-*-*-*-*-*-*-*-* headerUp_Contents *-*-*-*-*-*-*-*-*-->
-        <div class="headerUp">
-            <div class="headerLogo">
-                <a href="#">
-                    <i class="fa-brands fa-blogger-b"></i>
-                </a>
-            </div>
-            <div class="headerSearchBar">
-                <input type="text" class="search" placeholder="찾는 강의를 검색하세요">
-                <div class="searchBtn">
-                    <a href="#">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="headerRightCon">
-                <a href="#" class="cart">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                </a>
-                <a href="#" class="loginBtn">
-                    <i class="fa-regular fa-user"></i>
-                </a>
-            </div>
-        </div>
-        <!--*-*-*-*-*-*-*-*-* headerDown_Contents *-*-*-*-*-*-*-*-*-->
-        <div class="headerDown">
-            <ul>
-                <li class="categoryBtn">
-                    <a href="#">
-                        <i class="fa-solid fa-bars"></i> 카테고리
-                    </a>
-                </li>
-                <li>
-                    <a href="#">할인특가</a>
-                </li>
-                <li>
-                    <a href="#">이벤트</a>
-                </li>
-                <li>
-                    <a href="#">고객센터</a>
-                </li>
-                <li>
-                    <a href="#">공지사항</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="categoryContainer">
-        <ul class="category">
-            <li>
-                <p>Html</p>
-                <a href="#">content</a>
-                <a href="#">content</a>
-                <a href="#">content</a>
-                <a href="#">content</a>
-            </li>
-            <li>
-                <p>Css</p>
-                <a href="#">content</a>
-                <a href="#">content</a>
-                <a href="#">content</a>
-                <a href="#">content</a>
-                <a href="#">content</a>
-            </li>
-            <li>
-                <p>Javascript</p>
-                <a href="#">content</a>
-                <a href="#">content</a>
-                <a href="#">content</a>
-                <a href="#">content</a>
-                <a href="#">content</a>
-                <a href="#">content</a>
-                <a href="#">content</a>
-            </li>
-            <li>
-                <p>Java</p>
-                <a href="#">content</a>
-                <a href="#">content</a>
-                <a href="#">content</a>
-                <a href="#">content</a>
-                <a href="#">content</a>
-                <a href="#">content</a>
-            </li>
-        </ul>
-    </div>
-
+     <nav th:replace="~{navbar :: navbarFragment}"></nav>
     <!-- 섹션 시작 -->
     <section>
         <div class="cartContainer">
@@ -113,8 +31,6 @@
                 <div class="cartImage">
                     <img th:each="file : ${course.fileList}" th:if ="${#strings.contains(file.fileurl,'Thumbnail')}" th:src="@{|/image/Thumbnail/${file.filename}|}">
                     <img th:each="file : ${course.fileList}" th:if ="${#strings.isEmpty(file.fileOriName)}" src="/image/noimage.png"></div>
-                    <!-- ERROR 5288 - [io-8080-exec-10] s.e.ErrorMvcAutoConfiguration$StaticView : Cannot render error page for request [/cart] and exception [An error happened during template parsing (template: "class path resource [templates/cart.html]")] as the response has already been committed. As a result, the response may have the wrong status code.
-                    장바구니 페이지에 접속하면 위의 에러가 발생하는데 여기에 있는 img 태그나 밑의 form 태그를 삭제했다가 재실행하면 문제가 없는 경우가 있는데 원인을 모르겠음 -->
                 <div th:text="${course.title}" class="cartName"></div>
                 <div th:text="${course.category}" class="cartCategory"></div>
                 <div class="cartPrice">5000003213421</div>
@@ -125,96 +41,21 @@
 
         <div class="btn">
             <button class="keepbtn">쇼핑 계속하기</button>
-            <form id="myForm" th:action="@{/payment}" method="post">
-                <!-- 주소 타임리프로 -->
-                <input type="hidden" th:name="_csrf" th:value="${_csrf.token}"/>
+            <form id="myForm" action="/payment" method="get">
+        <!--   <input type="hidden" th:name="_csrf" th:value="${_csrf.token}"/> -->
+        <!-- 일단 지금 csrf 쓰면 안 될 것 같아서 여기 메서드랑 Payment 컨트롤러쪽도 get으로 변경 -->
                 <input type="hidden" name="data" id="jsonData">
                 <button type="submit" class="orderbtn">구매하기</button>
             </form>
         </div>
     </section>
 
-    <!-- ***************************************************** Footer_Content 
-    ***************************************************** -->
-    <div class="footer">
-        <div class="footerTop">
-            <div class="footerLogo">
-                <a href="#">
-                    <i class="fa-brands fa-blogger-b"></i>
-                    <!-- BROWNIE -->
-                </a>
-            </div>
-            <ul class="footerNav">
-                <li>
-                    <a href="#">ABOUT</a>
-                </li>
-                <li>
-                    <a href="#">BLOG</a>
-                </li>
-                <li>
-                    <a href="#">SERVICE</a>
-                </li>
-                <li>
-                    <a href="#">CONTACTS</a>
-                </li>
-            </ul>
-            <ul class="footerSns">
-                <li>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                </li>
-            </ul>
-        </div>
-        <div class="footerbottom">
-            <div class="textBox">
-                <p>주식회사 BROWNIE</p>
-                <p>대표 : Julian</p>
-                <p>사업자 등록번호 : 000-00-00000</p>
-                <p>대표전화 : 1234-1234</p>
-                <p>통신판매업신고 : 2024-경기안산-00000</p>
-                <p>Email : abc01@naver.com</p>
-                <p>주소 : 경기 안산시 단원구 145 3층</p>
-            </div>
-        </div>
-    </div>
-    <!-- ***************************************************** Modal_Content 
-    ***************************************************** -->
-    <div class="modal loginModal">
-        <div class="loginContainer">
-            <div class="closeBtn">
-                <i class="fa-solid fa-xmark"></i>
-            </div>
-            <div class="loginContent loginContent_left">
-                <p>Hello Again</p>
-                <p>email</p>
-                <input type="text" placeholder="email">
-                <p>password</p>
-                <input type="password" placeholder="password">
-                <button>Login</button>
-                <div class="signContainer">
-                    <div class="sign">
-                        <a href="#">
-                            signIN
-                        </a>
-                    </div>
-                    <div class="find">
-                        <a href="#">
-                            Find ID/Password
-                        </a>
+   <!-- ***************************************************** FOOTER
+     ***************************************************** -->
+    <footer th:replace="~{footer :: footerFragment}"></footer>
+ 
 
-                    </div>
-                </div>
-            </div>
-            <div class="loginContent loginContent_right"></div>
-        </div>
-    </div>
-
-    <script th:src="@{/CartPage.js}">
-    </script>
+    <script th:src="@{/CartPage.js}"></script>
+    <script th:src="@{/fragment.js}"></script>
 </body>
 </html>
