@@ -11,11 +11,13 @@
 </head>
 
 <body>
+	<div th:replace="~{modal :: modalFragment}"></div>
     <!-- ************** Header_Content********************** -->
     <nav th:replace="~{navbar :: navbarFragment}"></nav>
+
+	 <!--*****************강의 상세 내용 부분***************************-->  
     <!-- Main banner -->
-    <main class="whole">
-        <div class="section-body">
+    <div class="whole">
             <section class="promo">
             	<img th:each="file : ${course.fileList}" th:if ="${#strings.contains(file.fileurl,'banner')}" th:src="@{|/image/banner/${file.filename}|}">
 	            <img th:each="file : ${course.fileList}" th:if ="${#strings.isEmpty(file.fileOriName)}" src="/image/noimage.png">
@@ -24,102 +26,114 @@
                 </div>
             </section>
 
-			<!--강좌 상세페이지 금액 -->
-			
-            <!-- Text Header -->
-            <div class="text-header">
-                <ul class="text-headerNav">
-                    <li><a href="#title1">강의 소개</a></li>
-                    <li><a href="#title2">강사 소개</a></li>
-                    <li><a href="#title3">커리큘럼</a></li>
-                    <li><a href="#title4">수강평</a></li>
-                </ul>
-            </div>
-
-            <!-- Main description -->
-            <section class="descript">
-                <h2 id="title1" th:text="${course.title}"></h2>
-                <p class="subheading" th:text="${course.title}"></p>
-                <h3 th:text="${course.mainContent}"></h3>
-                <h2>강의 목표</h2>
-                <ol>
-                    <li th:text="${course.Objective}"></li>
-                </ol>
-
-                <h2 id="title2">강사 소개</h2>
-                <div>
-                    <img src="image/chefloopy.JPG" alt="loopy icon" class="instructor-img">
-                </div>
-
-                <p class="instructor-introduction">
-                <h3>루피</h3>
-                </p>
-                <br>
-                <p><strong>[경력사항]</strong></p>
-                <ul>
-                    <li>- 교육자</li>
-                    <li>- 전: 우아한형제들 기술이사, 카카오, SK플래닛</li>
-                    <li>- 저서: 자바 ORM 표준 JPA 프로그래밍</li>
-                </ul>
-				
-                <h2 id="title3">강의 커리큘럼</h2>
-                <ol th:each="lecture : ${course.lectureList}" style="list-style-type:decimal" start="1">
-                    <a th:href="@{|/course/${course.courseKey}/view/${lecture.lectureKey}|}"><li th:text ="${lecture.title}"></li></a>
-                </ol>
-
-				<div class = "review-header">
-					<h2 id="title4">수강평</h2>
-					<div class="rate-button">
-						<div class="rate-btn">
-							<a th:href="@{|/course/${course.courseKey}/reviewcreate|}">
-                				리뷰 작성하기
-                			</a>
-						</div>
-					</div>
-				</div>
-				
-
-                <div class="star-rate">
-                    <div class="point"></div>
-                    <div class="starimg">
-                        ☆☆☆☆☆
-                        <div class="starcolor">★★★★★</div>
-                    </div>
-                </div>
             
-                <div class="reviewContainer">
-                    <ul th:each="review : ${course.courseReviewList}">
-                    	<div class="review-el">
-                    		<h3 th:text="${review.title}"></h3>
-                    		<div class="review-rate-container">
-                    			 <div class="review-rate-star">
-                    			 	 ☆☆☆☆☆
-                    			 	 <div class="review-rate-color" th:style="'width:' + (${review.rate} / 5 * 100) + '%'">★★★★★</div>
-                                  </div>
-                                  <li class="review-rate" th:text="${review.rate}"></li> <!-- 별점 표시 -->
-                             </div>
-                             <li th:text="${review.content}"></li>
-                       </div>
-                    </ul>
-                </div>
-            </section>
-
-            <!-- Button -->
-            <div class="button">
-                <a href="http://localhost:8080/cart"><div class="signBtn">수강신청 하기</div></a>
-                <a th:href="@{|/course/${course.courseKey}/addLecture|}"><div class="lecBtn">영상 추가</div></a>
-            </div>
-        
-    </main>
-
-
+            <!--*****************본문***************************-->   
+    	<main>
+	        <div class="left-screen">		
+	            <!-- Text Header -->
+	            <div class="text-header">
+	                <ul class="text-headerNav">
+	                    <li><a href="#title1">강의 소개</a></li>
+	                    <li><a href="#title2">강사 소개</a></li>
+	                    <li><a href="#title3">커리큘럼</a></li>
+	                    <li><a href="#title4">수강평</a></li>
+	                </ul>
+	            </div>
+	
+	            <!-- Main description -->
+	            <section class="descript">
+	                <p class="subheading" th:text="${course.title}"></p>
+	                <h3 th:text="${course.mainContent}"></h3>
+	                <h2>강의 목표</h2>
+	                <ol>
+	                    <li th:text="${course.Objective}"></li>
+	                </ol>
+	
+	                <h2 id="title2">강사 소개</h2>
+	                <div>
+	                    <img src="image/chefloopy.JPG" alt="loopy icon" class="instructor-img">
+	                </div>
+	
+	                <p class="instructor-introduction">
+	                <h3>루피</h3>
+	                </p>
+	                <br>
+	                <p><strong>[경력사항]</strong></p>
+	                <ul>
+	                    <li>- 교육자</li>
+	                    <li>- 전: 우아한형제들 기술이사, 카카오, SK플래닛</li>
+	                    <li>- 저서: 자바 ORM 표준 JPA 프로그래밍</li>
+	                </ul>
+	                    
+	                <h2 id="title3">강의 커리큘럼</h2>
+	                <ol th:each="lecture : ${course.lectureList}" style="list-style-type:decimal" start="1">
+	                    <a th:href="@{|/course/${course.courseKey}/view/${lecture.lectureKey}|}"><li th:text ="${lecture.title}"></li></a>
+	                 </ol>
+	                 
+	                <div class = "review-header">
+	                    <h2 id="title4">수강평</h2>
+	                    <div class="rate-button">
+	                        <div class="rate-btn">
+	                            <a th:href="@{|/course/${course.courseKey}/reviewcreate|}">
+	                                리뷰 작성하기
+	                            </a>
+	                        </div>
+	                    </div>
+	                </div>
+	                    
+	
+	                <div class="star-rate">
+	                    <div class="point"></div>
+	                    <div class="starimg">
+	                        ☆☆☆☆☆
+	                        <div class="starcolor">★★★★★</div>
+	                    </div>
+	                    </div>
+	                
+	                <div class="reviewContainer">
+	                    <ul th:each="review : ${course.courseReviewList}">
+	                        <div class="review-el">
+	                            <h3 th:text="${review.title}"></h3>
+	                            <div class="review-rate-container">
+	                                <div class="review-rate-star">
+	                                    ☆☆☆☆☆
+	                                    <div class="review-rate-color" th:style="'width:' + (${review.rate} / 5 * 100) + '%'">★★★★★</div>
+	                                </div>
+	                                <li class="review-rate" th:text="${review.rate}"></li> <!-- 별점 표시 -->
+	                            </div>
+	                            <li th:text="${review.content}"></li>
+	                    </div>
+	                    </ul>
+	                </div>
+	            </section>
+	
+	            
+	        </div>
+	
+	        <!--*****************강의 고정형 부분******************* -->
+	        <div class="right-screen">
+	            <div class="right-con">
+	                <h2 id="title1" th:text="${course.title}"></h2> <!--강의 제목-->
+	                <ul class="lecture-pay-Nav"> <!--강의 가격 -->
+	                    <li>220,000원</li>
+	                </ul>
+	                <!-- Button -->
+	                <div class="button">
+	                    <a href="http://localhost:8080/cart"><div class="signBtn">수강신청 하기</div></a>
+	                    <a th:href="@{|/course/${course.courseKey}/addLecture|}"><div class="lecBtn">영상 추가</div></a>
+	                </div>
+	                
+	            </div>
+	        </div>
+    	</main>    
+    </div>
 
     <!-- ***************************************************** FOOTER
      ***************************************************** -->
     <footer th:replace="~{footer :: footerFragment}"></footer>
     <!-- ***************************************************** MODAL
      ***************************************************** -->
-    <div th:replace="~{modal :: modalFragment}"></div>
+
 	
     <script th:src="@{/CourseRegistrationModule.js}"></script>
     <script th:src="@{/CourseRegistartion.js}"></script>

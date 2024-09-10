@@ -13,26 +13,58 @@
     overflow: hidden;
 }
 
+main{
+    display: flex;
+    width: 100vw;
+     justify-content:  center;
+}
 
 /**************** Main Banner Styles ****************/
 .whole {
     color: #333;
-    margin-top: 20px;
     width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.section-body{
-    padding-left: 15rem;
-    padding-right: 15rem;
+.left-screen{
+    width: 60rem;
+}
+
+.right-screen{
+    width: 40rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.right-screen h2 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 1.0rem
+}
+
+.right-con {
+   position: sticky;
+    top: 0px;
+    width: 500px;
+    height: 350px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
 .promo {
 	position: relative;
-	width: 100%;
+	width: 100rem;
 	height: 30rem;
     display: flex;
     align-items: flex-end;
-    margin: 20px 0;
+    margin-left: 15rem;
+    margin-right: 15rem;
 }
 .promo>img{
 	position: absolute;
@@ -54,6 +86,25 @@
 .banner-text {
     z-index: 1;
 }
+
+/**************** 강좌 금액 ****************/
+
+.lecture-pay-Nav {
+    background-color: #f7f7f7;
+    height: 40px;
+    margin: 1.3rem;
+    padding: 10px 30px;
+    font-size: 1.5rem;
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.lecture-pay-Nav li {
+    margin: 0 15px; 
+}
+
 /**************** Text Header Styles ****************/
 .text-header {
     background-color: #f7f7f7;
@@ -228,6 +279,12 @@
     border-radius: 5px;
     cursor: pointer;
     margin-bottom: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+.rate-btn:hover {
+    transform: translateY(-3px);
 }
 
 .rate-btn>a{
@@ -261,7 +318,7 @@
 /**************** Button Styles ****************/
 .button {
     text-align: center;
-    margin-top: 40px;
+    margin-top: 4rem;
     display: flex;
     justify-content: space-evenly;
 }
@@ -269,6 +326,7 @@
 .signBtn {
     display: inline-block;
     background-color: #c2a2b4;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     color:white;
     padding: 15px 50px;
     border-radius: 50px;
@@ -287,6 +345,7 @@
 .lecBtn {
     display: inline-block;
     background-color: #c2a2b4;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     color:white;
     padding: 15px 50px;
     border-radius: 50px;
