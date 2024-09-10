@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/Mypage.css}">
+    <link rel="stylesheet" th:href="@{/fragment.css}">
+    <script src="https://kit.fontawesome.com/86c06c2025.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+     <!-- ***************************************************** Navbar
+     ***************************************************** -->
+    <nav th:replace="~{navbar :: navbarFragment}"></nav>
+    <!-- ****************************** login_modal
+    ***************************************************** -->
+    <div th:replace = "~{modal :: modalFragment}"></div >
+    <!-- ****************************** main
+    ***************************************************** -->
+    
+    
+    
+
+        <!-- ***************************************************** FOOTER
+     ***************************************************** -->
+        <footer th:replace = "~{footer :: footerFragment}"></footer>
+        
+  <script th:src="@{/MypageModule.js}"></script>
+  <script th:src="@{/fragment.js}"></script>
+
+</body>
+</html>

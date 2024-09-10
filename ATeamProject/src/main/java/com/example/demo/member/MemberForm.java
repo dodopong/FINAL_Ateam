@@ -1,6 +1,9 @@
 package com.example.demo.member;
 
 import org.hibernate.validator.constraints.Length;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.example.demo.file.Files;
 
 import jakarta.persistence.Convert;
 import jakarta.validation.constraints.NotEmpty;
@@ -41,7 +44,7 @@ public class MemberForm {
 	@NotEmpty(message = "닉네임을 입력해주세요.")
 	private String nickname;
 	
-	private String profileImg;
+	private MultipartFile profileImg;
 	
 	//@NotEmpty(message = "카테고리를 선택해주세요")
 	private String category;

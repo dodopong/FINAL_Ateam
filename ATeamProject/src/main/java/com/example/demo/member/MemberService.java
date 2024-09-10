@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.course.Course;
 import com.example.demo.course.NotFoundException;
+import com.example.demo.file.Files;
 
 import lombok.RequiredArgsConstructor;
 
@@ -20,7 +21,7 @@ public class MemberService { //회원정보를 저장
 	
 	public void create(String email1, String email2, String password, String mname 
 			, String telno, String nickname, String birth 
-			, String profileimg, String category
+			, String category
 			, String instructoryn) {
 		
 		
@@ -32,12 +33,33 @@ public class MemberService { //회원정보를 저장
 		m.setBirth(birth);
 		m.setNickname(nickname);
 		m.setCreateDate(LocalDateTime.now());
-		m.setProfileImg(profileimg);
 		m.setCategory(category);
 		m.setInstructorYn(instructoryn);
 		m.setLastUpdateDate(LocalDateTime.now());
 		
 		this.mr.save(m);
+	}
+	public Member returncreate(String email1, String email2, String password, String mname 
+			, String telno, String nickname, String birth 
+			, String category
+			, String instructoryn) {
+		
+		
+		Member m = new Member();
+		m.setMemberId(email1+'@'+email2);
+		m.setPassword(passwordEncoder.encode(password));
+		m.setMname(mname);
+		m.setTelNo(telno);
+		m.setBirth(birth);
+		m.setNickname(nickname);
+		m.setCreateDate(LocalDateTime.now());
+		m.setCategory(category);
+		m.setInstructorYn(instructoryn);
+		m.setLastUpdateDate(LocalDateTime.now());
+		
+		this.mr.save(m);
+		
+		return m;
 	}
 	
 	//예외처리 : 존재하지 않는 유저

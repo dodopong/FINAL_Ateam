@@ -84,6 +84,22 @@ select{
     /* appearance: none; */
     width: 10rem;
 }
+
+.nofree{
+    display: none;
+}
+.nofree.on{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+.nofree>input::placeholder{
+	text-align: end;
+}
+.price{
+	padding: 1rem;
+}
+
 textarea{
     background-color: rgb(246, 246, 246);
     font-size: 1rem;
@@ -100,6 +116,7 @@ textarea{
 .banner>textarea{
     height: 5rem;
 }
-.main>textarea{
+#maincontent{
     height: 10rem;
+    
 }

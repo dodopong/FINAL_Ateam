@@ -74,3 +74,6 @@ function callDisplayStar(){
 
 // 페이지가 로드되면 평점 평균 계산 함수 호출
 document.addEventListener('DOMContentLoaded', callDisplayStar);
+
+
+// 수강료 금액별에 따른 함수 호출

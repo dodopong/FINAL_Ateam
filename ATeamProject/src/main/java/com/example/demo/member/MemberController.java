@@ -4,9 +4,16 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.example.demo.file.FileController;
+import com.example.demo.file.FilesService;
+
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
@@ -15,11 +22,17 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/user")
 public class MemberController {
 	
-	private final MemberService ms;	
+	private final MemberService ms;
+	private final FilesService fs;
 	
-    @GetMapping("/login") //로그인 버튼 누르면 에러남
+	@GetMapping("/logintest")
+	public String logintest() {
+		return "login";
+	}
+	
+    @GetMapping("/login") //로그인
     public String login() {
-        return "modal";
+        return "login";
     }
 	
 	@GetMapping(value = "/join") //회원가입
@@ -28,7 +41,8 @@ public class MemberController {
 	}
 	
 	@PostMapping("/join")
-	public String signup(@Valid MemberForm memberForm, BindingResult bindingResult) {
+	public String signup(@Valid MemberForm memberForm, BindingResult bindingResult,
+			HttpServletRequest request,@RequestParam(value = "profileImg") MultipartFile file1) throws Exception {
 
 		if(bindingResult.hasErrors()) {
 			return "join";
@@ -42,25 +56,34 @@ public class MemberController {
 		}
 		
 		try { //잘 안먹는거 같음 같은 이메일로 회원가입 두번 됨
-			this.ms.create(memberForm.getEmail1(),
+			Member m = this.ms.returncreate(memberForm.getEmail1(),
 						   memberForm.getEmail2(),
 						   memberForm.getPassword1(),
 						   memberForm.getMname(),
 						   memberForm.getTelNo(),
 						   memberForm.getNickname(),
 						   memberForm.getBirth(),
-						   memberForm.getProfileImg(),
 						   memberForm.getCategory(),
 						   memberForm.getInstructorYn());
+			
+			fs.save(request, file1, m);// 프로필 이미지 사진 저장
+			
 		} catch (DataIntegrityViolationException e) {
 			e.printStackTrace();
 			bindingResult.reject("signupFailed", "이미 등록된 사용자입니다.");
 			return "join"; //에러가 있는경우 반환할 뷰
-		}
+		} catch(Exception e) {
+            e.printStackTrace();
+            bindingResult.reject("signupFailed", e.getMessage()); //그 밖에 다른 예외들은 해당 예외에 관한 구체적인 오류 메시지를 출력
+            return "join";
+        }
 
 		return "redirect:/main"; //변경필요
 	}
 	
-	
+	@GetMapping("/mypage")
+	public String mypage() {
+		return "Mypage";
+	}
 	
 }

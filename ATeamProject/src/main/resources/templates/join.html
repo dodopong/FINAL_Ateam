@@ -12,6 +12,8 @@
     
 </head>
 <body>
+    <!-- 로그인 모달창 타임리프-->
+    <div th:replace = "~{modal :: modalFragment}"></div >
 	<!--메인 네비바 타임리프-->
 	<nav th:replace = "~{navbar :: navbarFragment}"></nav>
 
@@ -79,9 +81,7 @@
             <input th:field="*{nickname}" type="text" class="text" maxlength="10">
 
             <div class="article">프로필 사진(선택)</div>
-            <!-- 파일쪽 추후 수정 필요
-            <div><input th:field="*{profileImg}" type="file" name="myprofile"></div>           
-            -->
+            <div><input th:field="*{profileImg}" type="file" name="myprofile"></div>         
         </div>
         
         <!-- level-3 : 강사만-->
@@ -127,11 +127,8 @@
         
     <!-- 메인 footer 타임리프-->
     <footer th:replace = "~{footer :: footerFragment}"></footer>
-    <!-- 로그인 모달창 타임리프-->
-    <div th:replace = "~{modal :: modalFragment}"></div >
             
-            
-    
+                
     <script th:src="@{/join.js}"></script>
     <script th:src="@{/fragment.js}"></script>
     

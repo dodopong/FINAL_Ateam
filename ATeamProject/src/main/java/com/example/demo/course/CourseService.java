@@ -56,13 +56,14 @@ public class CourseService {
 	}
 	
 	public Course returnCreate(String title, String main_content, String banner_text,String category,String level
-			,String Objective) {
+			,String Objective, String price) {
 		Course c = new Course();
 		c.setTitle(title);
 		c.setMainContent(main_content);
 		c.setBannerText(banner_text);
 		c.setCategory(category);
 		c.setLevel(level);
+		c.setPrice(price);
 		c.setObjective(Objective);
 		c.setLastUpdateDate(LocalDateTime.now());
 		
@@ -71,13 +72,14 @@ public class CourseService {
 	}
 	
 	public void create(String title, String main_content, String banner_text,String category,String level
-			,String Objective) {
+			,String Objective, String price) {
 		Course c = new Course();
 		c.setTitle(title);
 		c.setMainContent(main_content);
 		c.setBannerText(banner_text);
 		c.setCategory(category);
 		c.setLevel(level);
+		c.setPrice(price);
 		c.setObjective(Objective);
 		c.setLastUpdateDate(LocalDateTime.now());
 		
