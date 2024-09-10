@@ -55,10 +55,11 @@ let orderbtn = document.querySelector('.orderbtn');
 // 구매하기 버튼 누르면 체크한 항목 courseKey 가져와서 저장
 
         orderbtn.addEventListener('click', ()=>{
+	
           const checkedbox = document.querySelectorAll('input[name="cartbox"]:checked');
           const keyarr = new Array;
-          checkedbox.forEach((checkedbox1) => {
-            keyarr.push(checkedbox1.value);
+          checkedbox.forEach((checkedbox2) => {
+            keyarr.push(checkedbox2.value);
           })
           document.getElementById('jsonData').value = JSON.stringify(keyarr);
           // cart.html 구매하기 버튼 위의 hidden input의 밸류를 keyarr로

@@ -1,18 +1,4 @@
-/* ***************************************************** Reset_Style 
-***************************************************** */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    list-style: none;
-    text-decoration: none;
-}
-
-.stopScolling {
-    height: 100vh;
-    overflow: hidden;
-}
 
 /************* Section Style ************/
 
@@ -42,12 +28,12 @@
 #searchoption{
     margin-right: 0.2rem;
 }
-.category{
+.categoryFilter{
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.category select, p{
+.categoryFilter select, p{
     margin-left: 0.3rem;
     font-size: 0.7rem;
 }

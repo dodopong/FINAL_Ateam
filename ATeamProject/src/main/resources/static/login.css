@@ -7,7 +7,7 @@
 }
 
 .loginbody{
-	font-family: "Noto Sans KR", sans-serif;
+   font-family: "Noto Sans KR", sans-serif;
 }
 
 
@@ -21,8 +21,8 @@
     padding: 1rem;
 }
 .loginmaincon{
-	height:80vh;
-	border-bottom: 2px solid white;
+   height:80vh;
+   border-bottom: 2px solid white;
 }
 
 .Content {
@@ -43,16 +43,16 @@
     padding-bottom: 2rem;
 }
 .p2{
-	font-size: 2rem;
-	padding-bottom: 2rem;
+   font-size: 2rem;
+   padding-bottom: 2rem;
 }
 
 .loginBtn.style{
-	border-radius: 10px;
-	border : 2px solid white;
-	background-color: #d9bbb8;
-	font-size : 1rem;
-	margin : 1rem;
-	padding : 0.5rem 1rem 0.5rem 1rem;
-	cursor: pointer;
+   border-radius: 10px;
+   border : 2px solid white;
+   background-color: #d9bbb8;
+   font-size : 1rem;
+   margin : 1rem;
+   padding : 0.5rem 1rem 0.5rem 1rem;
+   cursor: pointer;
 }

@@ -9,6 +9,7 @@
     <script src="https://kit.fontawesome.com/86c06c2025.js" crossorigin="anonymous"></script>
 
 </head>
+
 <body class="loginbody">
     <!-- 로그인 모달창 타임리프-->
     <div th:replace = "~{modal :: modalFragment}"></div >
@@ -21,16 +22,15 @@
                     <p class="p1">Hello Again</p>
                     <p class="p2">로그인이 필요한 서비스입니다.</p>
                     <button class="loginBtn style">LogIn / SignIn</button>
-                    
             </div>
         </div>
-    </main>
-     
+  </main>
         <!--메인 FOOTER-->
         <footer th:replace = "~{footer :: footerFragment}"></footer>
      
       
     <script th:src="@{/fragment.js}"></script>
+
 
 </body>
 </html>

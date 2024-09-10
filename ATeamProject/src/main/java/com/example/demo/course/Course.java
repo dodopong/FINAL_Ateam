@@ -44,6 +44,8 @@ public class Course {
 	@Column(columnDefinition = "TEXT")
 	private String Objective;
 	
+	private String price;
+	
 	private LocalDateTime lastUpdateDate;
 	
 	@OneToMany(mappedBy = "course", cascade = CascadeType.ALL)

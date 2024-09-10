@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.example.demo.course.Course;
 import com.example.demo.course.NotFoundException;
 import com.example.demo.member.Member;
+import com.example.demo.member.MemberRepository;
 import com.example.demo.member.nosignException;
 
 import lombok.RequiredArgsConstructor;
@@ -17,15 +18,16 @@ import lombok.RequiredArgsConstructor;
 public class CartService {
 	
 	private final CartRepository car;
+	private final MemberRepository mer;
 	
-//	public List<Cart> checkCart(Member id) {
-//		return car.findByMemberKey(id);
+//	public List<Cart> checkCart(Integer cartKey) {
+//		return this.car.findByCartKey(cartKey);
 //	}
 	
-	
-	public void create(Course course) {
+	public void addCart(Course courseKey, Member memberKey) {
 		Cart cart = new Cart();
-//		cart.setCourseList();
+		cart.setCourseKey(courseKey);
+		cart.setMemberKey(memberKey);
 		cart.setUpdateDate(LocalDateTime.now());
 		this.car.save(cart);
 	}
@@ -39,6 +41,8 @@ public class CartService {
 			throw new NotFoundException("데이터를 찾을 수 없습니다.");
 		}
 	}
+	
+	
 	
 	
 	
