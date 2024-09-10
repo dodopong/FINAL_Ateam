@@ -28,8 +28,6 @@
                 </div>
             </section>
 
-            
-
             <!--*****************본문***************************-->   
     	<main>
 	        <div class="left-screen">		
@@ -70,6 +68,7 @@
 	                    
 	                <h2 id="title3">강의 커리큘럼</h2>
 	                <ol th:each="lecture : ${course.lectureList}" style="list-style-type:decimal" start="1">
+						<!--<div id="test2" th:text="${lecture.lectureKey}"style="visibility: hidden;"></div>-->
 	                    <a th:href="@{|/course/${course.courseKey}/view/${lecture.lectureKey}|}"><li th:text ="${lecture.title}"></li></a>
 	                 </ol>
 	                 
@@ -82,8 +81,7 @@
 	                            </a>
 	                        </div>
 	                    </div>
-	                </div>
-	                    
+	                </div>         
 	
 	                <div class="star-rate">
 	                    <div class="point"></div>
@@ -91,7 +89,7 @@
 	                        ☆☆☆☆☆
 	                        <div class="starcolor">★★★★★</div>
 	                    </div>
-	                    </div>
+	                 </div>
 	                
 	                <div class="reviewContainer">
 	                    <ul th:each="review : ${course.courseReviewList}">
@@ -109,24 +107,27 @@
 	                    </ul>
 	                </div>
 	            </section>
-	
-	            
 	        </div>
 	
 	        <!--*****************강의 고정형 부분******************* -->
 	        <div class="right-screen">
 	            <div class="right-con">
 	                <h2 id="title1" th:text="${course.title}"></h2> <!--강의 제목-->
-	                <ul class="lecture-pay-Nav"> <!--강의 가격 -->
-	                    <li>220,000원</li>
+	                <ul class="lecture-pay-Nav"> <!--강의 가격 -->             
+	                    <li th:if ="${not #strings.isEmpty(course.price)}"  th:text="|월 ${#numbers.formatInteger(course.price, 0, 'COMMA')}원|"></li> <!--금액 천단위 콤마 설정-->
+						<li th:if ="${#strings.isEmpty(course.price)}" th:text="|무료|">
 	                </ul>
-	                <!-- Button -->
-	                <div class="button">
-                <a th:href="@{|/course/${course.courseKey}/addcart|}"><div class="signBtn">수강신청 하기</div></a>
-                <!-- 9월 10일 박호선 장바구니 추가 만드려고 바꿔보는 중 -->
-                <a th:href="@{|/course/${course.courseKey}/addLecture|}"><div class="lecBtn">영상 추가</div></a>
-            </div>
+	                <!-- Button  -->
 	                
+	                <div class="button">
+						
+						<!--div class="free" id="test1" th:text="${course.courseKey}">임시확인</div>-->
+	                
+
+               			<a th:href="@{|/course/${course.courseKey}/addcart|}"><div class="signBtn">수강신청 하기</div></a>
+                		<!-- 9월 10일 박호선 장바구니 추가 만드려고 바꿔보는 중 -->
+                		<a th:href="@{|/course/${course.courseKey}/addLecture|}"><div class="lecBtn">영상 추가</div></a>
+            		</div>     
 	            </div>
 	        </div>
     	</main>    

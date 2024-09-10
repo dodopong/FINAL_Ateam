@@ -3,6 +3,7 @@ package com.example.demo.course;
 
 import java.util.List;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -38,6 +39,7 @@ public class CourseController {
 	}
 	
 //-------------------------------------create-------------
+	@PreAuthorize("isAuthenticated()") // 로그인 한 경우에만 요청 처리
 	@GetMapping("/create")
 	public String createCoure(CourseForm courseForm) {
 		return "CreateCourse";
