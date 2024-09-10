@@ -28,12 +28,23 @@ public class CartController {
 	private final CourseService cos;
 	private final MemberService mes;
 	
-//	@PreAuthorize("isAuthenticated()")
-//	시큐리티에 로그인 페이지 지정시 넣기
-	@GetMapping("/cart")
-	public String cart(Model model) throws NotFoundException {
-		List<Course> coList = this.cos.getCourseAll();
-		model.addAttribute("courseList", coList);
+	@PreAuthorize("isAuthenticated()")
+	@GetMapping("/cart/{memberKey}")
+	public String cart(@PathVariable("memberKey") Integer memberKey, Model model,
+			           Principal principal) throws NotFoundException, nosignException {
+		
+		Member m2 = this.mes.getUser(principal.getName());
+		
+//		m2.getMemberKey();
+		
+//		int xInt = Long.valueOf(m2.getMemberKey()).intValue();
+		
+//		List<Course> coList = this.cos.getCourseByMemberKey(T);
+//		파라미터를 멤버키 타입에 맞게 Long으로 바꾸면 key를 못찾는다고 에러나고
+//		파라미터 타입을 다른 걸로 하면 Long이 아니라고 에러나고
+//		어떻게 해야 잘 굴러가지?
+		
+//		model.addAttribute("courseList", coList);
 		
 		return "cart";
 	}
@@ -46,11 +57,12 @@ public class CartController {
 		
 		Course co1 = this.cos.getCourse(course_key);
 		Member m1 = this.mes.getUser(principal.getName());
-
-		co1.getCourseKey();
-		m1.getMemberKey();
-		this.cas.addCart(co1, m1);
-		return String.format("redirect:/course/%s", co1.getCourseKey());
+		
+			co1.getCourseKey();
+			m1.getMemberKey();
+			this.cas.addCart(co1, m1);
+			
+			return String.format("redirect:/course/%s", co1.getCourseKey());
 		
 	}
 	
