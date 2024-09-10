@@ -1,5 +1,8 @@
 package com.example.demo.courseReview;
 
+import java.security.Principal;
+
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,6 +25,7 @@ public class CourseReviewController {
 	private final  CourseReviewService crs;
 	private final CourseService cs;
 	
+	@PreAuthorize("isAuthenticated()") // 로그인 한 경우에만 요청 처리
 	@GetMapping("/course/{course_key}/reviewcreate")
 		public String createCourseReview(Model model, CourseReviewForm courseReviewForm, 
 				@PathVariable("course_key")Integer course_key) throws NotFoundException{

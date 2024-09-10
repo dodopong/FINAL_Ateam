@@ -1,5 +1,8 @@
 package com.example.demo.lecture;
 
+import java.security.Principal;
+
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -28,7 +31,7 @@ public class LectureController {
 	private final CourseService cs;
 	private final FileController fc;
 	
-	
+	@PreAuthorize("isAuthenticated()") // 로그인 한 경우에만 요청 처리
 	@GetMapping("/course/{courseKey}/view/{lectureKey}")
 	public String viewLecture(Model model, @PathVariable("courseKey")Integer coursekey, 
 			@PathVariable("lectureKey") long lectureKey, LectureForm lectureForm) throws SsakException, NotFoundException{
@@ -41,6 +44,7 @@ public class LectureController {
 	
 	
 //	------------------------addLecture-----------------
+	@PreAuthorize("isAuthenticated()") // 로그인 한 경우에만 요청 처리
 	@GetMapping("/course/{course_key}/addLecture")
 	public String addLecture(Model model, LectureForm lectureForm,
 			@PathVariable("course_key")Integer course_key) throws NotFoundException{

@@ -76,4 +76,31 @@ function callDisplayStar(){
 document.addEventListener('DOMContentLoaded', callDisplayStar);
 
 
-// 수강료 금액별에 따른 함수 호출
+// 수강료 무료인 경우 함수 호출
+
+// let free = document.querySelector('.free');
+
+// free.addEventListener('click', function(){
+//     alert("수강신청이 완료되었습니다.");
+//     location.href = "/course/"+test.textContent + "/view/"+ test2.textContent;
+// })
+
+
+// var test = document.getElementById('test1');
+// var test2 = document.getElementById('test2');
+// console.log(test.textContent);
+// console.log(test2.textContent);
+// location.href = "/course/"+test.textContent + "/view/"+ test2.textContent;
+
+
+
+
+
+
+
+
+
+
+
+
+

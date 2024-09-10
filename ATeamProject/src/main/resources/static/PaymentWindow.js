@@ -31,8 +31,10 @@ function totalPrice(){
     let priceelement = document.querySelectorAll('.price');
     let totalPricePrint = document.querySelector('.totalPrice');
     priceelement.forEach((priceelements) =>{
-      let price = parseInt(priceelements.innerHTML, 10);
+	  let price = parseInt(priceelements.innerHTML, 10);
       totalPrice += price;
+      console.log(totalPrice);	
+
 })
 totalPricePrint.innerHTML = totalPrice;
 }

@@ -33,7 +33,7 @@
                     <img th:each="file : ${course.fileList}" th:if ="${#strings.isEmpty(file.fileOriName)}" src="/image/noimage.png"></div>
                 <div th:text="${course.title}" class="cartName"></div>
                 <div th:text="${course.category}" class="cartCategory"></div>
-                <div class="cartPrice">5000003213421</div>
+                <div th:text="${course.price}" class="cartPrice"></div>
                 <div th:text="${course.level}" class="cartLevel"></div>
             </div>
             
