@@ -26,13 +26,6 @@ public class PaymentController {
 	private final CourseService cos;
 	
 	@GetMapping("/payment")
-	public String payment() {
-		
-		
-		return "PaymentWindow";
-	}
-	
-	@PostMapping("/payment")
     public String receiveData(@RequestParam(value="data") String data, Model model)
     		throws JsonMappingException, JsonProcessingException, NotFoundException {
         List<String> coursekeyList = new ObjectMapper().readValue(data, new TypeReference<List<String>>() {});
