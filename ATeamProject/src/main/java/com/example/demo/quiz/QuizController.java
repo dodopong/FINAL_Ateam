@@ -10,11 +10,11 @@ import lombok.RequiredArgsConstructor;
 @Controller
 public class QuizController {
 
-	private final QuizService qs;
+	//private final QuizService quizservice;
 	
 	@PreAuthorize("isAuthenticated()")
 	@GetMapping(value = "/quiz") //퀴즈풀기 페이지(수강생)
-	public String quiz(QuizForm quizForm) {
+	public String quiz(QuizStudentForm quizStudent) {
 		return "quiz";  
 	}
 	
