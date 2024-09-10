@@ -9,59 +9,28 @@
     <script src="https://kit.fontawesome.com/86c06c2025.js" crossorigin="anonymous"></script>
 
 </head>
-<body>
-    <!-- ***************************************************** Header_Content 
-     ***************************************************** -->
+
+<body class="loginbody">
+    <!-- 로그인 모달창 타임리프-->
+    <div th:replace = "~{modal :: modalFragment}"></div >
+    <!-- 네비바 타임리프-->
    <nav th:replace = "~{navbar :: navbarFragment}"></nav>
-   
-       <!-- ***************************************************** MODAL
-     ***************************************************** -->
-     
+        
 		<main>
-        <div class="Container">
+        <div class="Container loginmaincon">
             <div class="Content">
-                    <p>Hello Again</p>
-                    <p>email</p>
-                    <form action="/user/login"  method="post">
-
-                        <div th:if="${param.error}">
-                            <div class="alert alert-danger">
-                                사용자ID 또는 비밀번호를 확인해 주세요.
-                            </div>
-                        </div>
-
-                        <input name="username" id="username" type="text" placeholder="email">
-                        <p>password</p>
-                        <input name="password" id="password" type="password" placeholder="password">
-                        <button type="submit">Login</button>
-                    </form>
-
-                    <div class="signCon">
-                        <div class="signbtn">
-                            <a th:href="@{/user/join}">
-                                signIN
-                            </a>
-                        </div>
-                        <div class="findbtn">
-                            <a href="#">
-                                Find ID/Password
-                            </a>
-    
-                        </div>
-                    </div>
+                    <p class="p1">Hello Again</p>
+                    <p class="p2">로그인이 필요한 서비스입니다.</p>
+                    <button class="loginBtn style">LogIn / SignIn</button>
             </div>
         </div>
-    </main>
-     
-        <!-- ***************************************************** FOOTER
-     ***************************************************** -->
-     
+  </main>
+        <!--메인 FOOTER-->
         <footer th:replace = "~{footer :: footerFragment}"></footer>
-     <!-- ***************************************************** MODAL
-     ***************************************************** -->
-    	<div th:replace = "~{modal :: modalFragment}"></div >
      
-     
+      
     <script th:src="@{/fragment.js}"></script>
+
+
 </body>
 </html>

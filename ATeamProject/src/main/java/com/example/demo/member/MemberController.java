@@ -30,9 +30,9 @@ public class MemberController {
 		return "login";
 	}
 	
-    @GetMapping("/login") //로그인 버튼 누르면 에러남
+    @GetMapping("/login") //로그인
     public String login() {
-        return "modal";
+        return "login";
     }
 	
 	@GetMapping(value = "/join") //회원가입
@@ -72,7 +72,11 @@ public class MemberController {
 			e.printStackTrace();
 			bindingResult.reject("signupFailed", "이미 등록된 사용자입니다.");
 			return "join"; //에러가 있는경우 반환할 뷰
-		}
+		} catch(Exception e) {
+            e.printStackTrace();
+            bindingResult.reject("signupFailed", e.getMessage()); //그 밖에 다른 예외들은 해당 예외에 관한 구체적인 오류 메시지를 출력
+            return "join";
+        }
 
 		return "redirect:/main"; //변경필요
 	}

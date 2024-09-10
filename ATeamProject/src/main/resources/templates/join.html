@@ -12,6 +12,8 @@
     
 </head>
 <body>
+    <!-- 로그인 모달창 타임리프-->
+    <div th:replace = "~{modal :: modalFragment}"></div >
 	<!--메인 네비바 타임리프-->
 	<nav th:replace = "~{navbar :: navbarFragment}"></nav>
 
@@ -125,11 +127,8 @@
         
     <!-- 메인 footer 타임리프-->
     <footer th:replace = "~{footer :: footerFragment}"></footer>
-    <!-- 로그인 모달창 타임리프-->
-    <div th:replace = "~{modal :: modalFragment}"></div >
             
-            
-    
+                
     <script th:src="@{/join.js}"></script>
     <script th:src="@{/fragment.js}"></script>
     
