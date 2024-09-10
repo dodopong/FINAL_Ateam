@@ -1,3 +1,78 @@
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: #e9e1da;
+}
+
+
+/*-*-*-*-*-*-*-* board style *-*-*-*-*-*-*-*-*/
+
 .container {
-    border: 1px solid blue;
+    width: 100vw;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+}
+
+
+/* 보드 헤드 */
+
+.row {
+    border: 1px solid red;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+
+/* 보드 메인 내용  */
+
+table {
+    width: 100%;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    height: 80vh;
+    border: 1px solid;
+}
+
+table>thead {
+    background-color: red;
+    border-color: red;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+td {
+    border-bottom: 1px solid white;
+}
+
+
+/* 페이징 처리  */
+
+.pagingNav {
+    border: 1px solid green;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+}
+
+.pagination>li {
+    border: 1px solid red;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+
+/*-*-*-*-*-*-*-* footer style *-*-*-*-*-*-*-*-*/
+
+.footer {
+    border-top: 2px solid white;
 }

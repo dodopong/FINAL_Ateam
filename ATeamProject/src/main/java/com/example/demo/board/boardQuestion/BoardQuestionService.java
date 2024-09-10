@@ -35,9 +35,9 @@ public class BoardQuestionService {
             public Predicate toPredicate(Root<BoardQuestion> q, CriteriaQuery<?> query, CriteriaBuilder cb) {
 				query.distinct(true);
 				Join<BoardQuestion, BoardAnswer> a = q.join("boardAnswerList",JoinType.LEFT);
-				 return cb.or(cb.like(q.get("subject"), "%" + kw + "%"), // 제목 
-	                        cb.like(q.get("content"), "%" + kw + "%"), // 내용 
-	                        cb.like(a.get("content"), "%" + kw + "%"));      // 답변 내용 
+				 return cb.or(cb.like(q.get("boardQuestionSubject"), "%" + kw + "%"), // 제목 
+	                        cb.like(q.get("boardQuestionContent"), "%" + kw + "%"), // 내용 
+	                        cb.like(a.get("boardAnswerContent"), "%" + kw + "%"));      // 답변 내용 
 			}
 		};
 	}
@@ -52,7 +52,7 @@ public class BoardQuestionService {
 		Pageable pageable = PageRequest.of(page, 10,Sort.by(sorts));
 		
 		Specification<BoardQuestion> spec = search(kw);
-		return this.boardQuestionRepository.findAll(pageable);
+		return this.boardQuestionRepository.findAll(spec,pageable);
 	}
 	
 	public BoardQuestion getBoardQuestion(Integer id) {
