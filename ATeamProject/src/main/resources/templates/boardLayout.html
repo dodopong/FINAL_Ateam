@@ -8,7 +8,7 @@
     <!-- board reset CSS -->
     <link rel="stylesheet" type="text/css" th:href="@{/boardResetStyle.css}">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" th:href="@{/bootstrap/bootstrap.min.css}">
+    <!-- <link rel="stylesheet" type="text/css" th:href="@{/bootstrap/bootstrap.min.css}"> -->
     <!-- header CSS -->
     <link rel="stylesheet" type="text/css" th:href="@{/fragment.css}">
     <!-- board list style CSS -->
@@ -18,19 +18,19 @@
 
 <body>
     <!-- 기본 템플릿 안에 삽입될 내용 Start -->
-
+    <!--   MODAL   -->
+    <div th:replace="~{modal :: modalFragment}"></div>
     <!--  HEADER   -->
     <nav th:replace="~{navbar :: navbarFragment}"></nav>
     <!--  Main   -->
     <th:block layout:fragment="content"></th:block>
     <!--  FOOTER   -->
     <footer th:replace="~{footer :: footerFragment}"></footer>
-    <!--   MODAL   -->
-    <div th:replace="~{modal :: modalFragment}"></div>
-    <div>123456789</div>
+
     <!-- 기본 템플릿 안에 삽입될 내용 End -->
     <script src="https://kit.fontawesome.com/86c06c2025.js" crossorigin="anonymous"></script>
     <script th:src="@{/fragment.js}"></script>
+    <script th:src="@{/boardList.js}"></script>
 </body>
 
 </html>
