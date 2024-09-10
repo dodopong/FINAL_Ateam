@@ -27,7 +27,8 @@ public class SecurityConfig {
 	      .authorizeHttpRequests(
 	            (authorizeHttpRequests) -> authorizeHttpRequests
 	           .requestMatchers(new AntPathRequestMatcher("/**")).permitAll()
-	      	   .requestMatchers("/main").authenticated()) 
+	      	   //.requestMatchers("/main").authenticated()
+	      	   )
 	        .csrf((csrf) -> csrf
 	                .ignoringRequestMatchers(new AntPathRequestMatcher("/h2-console/**")))
 	        .headers((headers) -> headers
@@ -39,7 +40,7 @@ public class SecurityConfig {
 	        .logout((logout) -> logout
 	              .logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
 	              .logoutSuccessUrl("/main")
-	              .invalidateHttpSession(true))
+	              .invalidateHttpSession(true)) //로그아웃 시 생성된 사용자 세션도 삭제
 	      ;
 	      return http.build();
 	   }
@@ -50,7 +51,7 @@ public class SecurityConfig {
 		return new BCryptPasswordEncoder();
 	}
 	@Bean
-	AuthenticationManager authenticationManager(
+	AuthenticationManager authenticationManager( //인증과 권한 부여 프로세스를 처리
 			AuthenticationConfiguration authenticationConfiguration) throws Exception {
 		return authenticationConfiguration.getAuthenticationManager();
 	}

@@ -49,18 +49,17 @@ categoryBtn.addEventListener('click', function() {
 });
 //*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* Modal 이벤트 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 
-
-const modalBtn = document.querySelector(".loginBtn");
+const modalBtn = document.querySelectorAll(".loginBtn");
 const modal = document.querySelector(".modal");
 const closeBtn = document.querySelector(".closeBtn");
 
-//*-*-*-*-*-*-*-*-* Modal 실행시 스크롤 비활성화 *-*-*-*-*-*-*-*-*
-//*-*-*-*-*-*-*-*-* Modal 실행 *-*-*-*-*-*-*-*-*
-modalBtn.addEventListener('click', function() {
+// Modal 실행시 스크롤 비활성화 
+modalBtn.forEach(btn =>{
+	btn.addEventListener('click', function() {
     modal.classList.add('on');
     document.querySelector('body').classList.add("stopScolling");
 });
-
+});
 
 closeBtn.addEventListener('click', function() {
     modal.classList.remove('on');

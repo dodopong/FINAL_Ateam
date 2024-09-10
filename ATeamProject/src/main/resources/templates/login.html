@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>강좌 등록</title>
+    <link rel="stylesheet" th:href="@{/login.css}">
+    <link rel="stylesheet" th:href="@{/fragment.css}">
+    <script src="https://kit.fontawesome.com/86c06c2025.js" crossorigin="anonymous"></script>
+
+</head>
+<body class="loginbody">
+    <!-- 로그인 모달창 타임리프-->
+    <div th:replace = "~{modal :: modalFragment}"></div >
+    <!-- 네비바 타임리프-->
+   <nav th:replace = "~{navbar :: navbarFragment}"></nav>
+        
+		<main>
+        <div class="Container loginmaincon">
+            <div class="Content">
+                    <p class="p1">Hello Again</p>
+                    <p class="p2">로그인이 필요한 서비스입니다.</p>
+                    <button class="loginBtn style">LogIn / SignIn</button>
+                    
+            </div>
+        </div>
+    </main>
+     
+        <!--메인 FOOTER-->
+        <footer th:replace = "~{footer :: footerFragment}"></footer>
+     
+      
+    <script th:src="@{/fragment.js}"></script>
+
+</body>
+</html>
