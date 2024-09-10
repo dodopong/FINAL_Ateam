@@ -1,0 +1,151 @@
+.sectionAll{
+	color: #333;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+/********************  상단 ***************************/
+.sectionTop{
+	width: 80rem;
+	height: 15rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-left: 2rem;
+	padding-right: 2rem;
+}
+
+.profile{
+	display: flex;
+}
+.name{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	align-self: center;
+	padding-left: 1rem;
+}
+.profile>img{
+	width: 6rem;
+	height:6rem;
+	border-radius: 50%;
+}
+
+#subscription{
+	font-size: 2rem;
+	color: gray;
+	font-weight: bold;
+}
+#profile{
+	font-size: 1.2rem;
+	color: gray;
+	font-weight: bold;
+}
+/********************  하단 ***************************/
+.sectionBottom{
+	width: 80rem;
+	height: 40rem;
+	display: flex;
+}
+/********************  네비바 ***************************/
+.sectionNav{
+	width: 30rem;
+	display: flex;
+	flex-direction: column;
+	align-self: center;
+}
+.navBtn{
+	width:80%;
+	height:5rem;
+	box-shadow:2px 2px 4px gray;
+	display: flex;
+  	align-items: center;
+  	padding-left:2rem; 
+  	font-size: 1.5rem;
+	color: gray;
+	font-weight: bold;
+  	border-radius: 10px;
+}
+
+/******************** 메인컨텐츠 ***************************/
+.sectionContent{
+	width: 70rem;
+	padding-left: 2rem;
+	display: flex;
+	flex-direction: column;
+}
+.sectionContent>form{
+	display: flex;
+	flex-direction: column;
+}
+
+.sectionContent>form>label{
+	width: 6rem;
+}
+#signout{
+	margin-top:2rem;
+	text-align: center;
+}
+.box{
+	border-radius: 10px;
+	border: 0.5px solid black;
+	height: 4rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-left: 2rem;
+	padding-right: 2rem;
+	margin-bottom: 2rem;
+}
+.box>input{
+	border: none;
+	height: 3rem;
+	width: 80%;
+	margin-right: 4rem;
+}
+.box>label{
+	font-size: 1.5rem;
+	color: gray;
+	font-weight: bold;
+}
+.sectionContent>form>button{
+	height: 3rem;
+	border-radius: 10px;
+	background-color: #e9e1da;
+	font-size: 1.5rem;
+	color: black;
+	font-weight: bold;
+}
+
+.mainImg{
+	position: relative;
+	width: 5rem;
+	height: 5rem;
+	box-shadow:2px 2px 4px gray;
+	margin-bottom: 1rem;
+}
+
+.subImg{
+	position: absolute;
+	width: 1.5rem;
+	height: 1.5rem;
+	bottom: 0rem;
+	right: 0rem;
+
+}
+
+#profileImg{
+	display: none;
+}
+.mainImg, .subImg{
+	border-radius: 50%;
+}
+
+.mainImg>img,.subImg>img {
+	width: 100%;
+  	height: 100%;
+  	border-radius: 50%;
+  	object-fit: cover;
+}
