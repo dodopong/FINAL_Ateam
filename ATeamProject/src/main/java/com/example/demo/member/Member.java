@@ -1,5 +1,6 @@
 package com.example.demo.member;
 import com.example.demo.course.Course;
+import com.example.demo.file.Files;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -11,6 +12,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -38,7 +40,9 @@ public class Member {
 	
 	private String nickname;
 	
-	private String profileImg;
+	
+	@OneToOne(mappedBy = "member", cascade = CascadeType.ALL)
+	private Files profileImg;
 	
 	private String category;
 	

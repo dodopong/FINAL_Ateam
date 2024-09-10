@@ -17,7 +17,9 @@
 
 	 <!--*****************강의 상세 내용 부분***************************-->  
     <!-- Main banner -->
+
     <div class="whole">
+
             <section class="promo">
             	<img th:each="file : ${course.fileList}" th:if ="${#strings.contains(file.fileurl,'banner')}" th:src="@{|/image/banner/${file.filename}|}">
 	            <img th:each="file : ${course.fileList}" th:if ="${#strings.isEmpty(file.fileOriName)}" src="/image/noimage.png">
