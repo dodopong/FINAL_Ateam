@@ -28,7 +28,7 @@
                 	LogOut
                 </a>
                 
-                <a sec:authorize="isAuthenticated()" href="#"> <!--마이페이지 추후 연결/로그인했을때만 보여줌-->
+                <a sec:authorize="isAuthenticated()" th:href="@{|/user/mypage|}"> <!--마이페이지 추후 연결/로그인했을때만 보여줌-->
                 	<i class="fa-regular fa-user"></i>
                 </a>
             </div>
