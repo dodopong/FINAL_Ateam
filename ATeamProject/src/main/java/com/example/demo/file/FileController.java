@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.example.demo.course.Course;
 import com.example.demo.course.CourseService;
 import com.example.demo.lecture.Lecture;
+import com.example.demo.member.Member;
 
 import jakarta.servlet.http.HttpServletRequest;
 

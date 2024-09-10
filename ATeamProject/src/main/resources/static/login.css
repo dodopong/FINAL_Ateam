@@ -1,0 +1,102 @@
+
+/* ***************************************************** main style
+***************************************************** */
+
+.Container {
+    width: 100%;
+    height: 100%;
+    background-color: #e9e1da;
+    position: relative;
+    display: flex;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    padding: 1rem;
+    justify-content: center;
+}
+
+.Content {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 7vw;
+    padding-right: 7vw;
+    align-items: baseline;
+}
+
+.Content>p {
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+    font-weight: 900;
+    font-size: 0.8rem;
+    color: rgb(59, 59, 59);
+}
+
+.Content>p:first-child {
+    font-size: 3rem;
+    font-weight: 600;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.Content>input {
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+    border-radius: 0.5rem;
+    border: none;
+    box-shadow: 1px 1px 2px gray;
+    padding-left: 1rem;
+}
+
+
+
+.Content>button:hover {
+    background-color: #c2acb4;
+}
+
+.signCon {
+    padding-top: 0.5rem;
+    padding-bottom: 8rem;
+    display: flex;
+    justify-content: start;
+}
+
+.signbtn>a {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 900;
+    color: gray;
+    padding-right: 1rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    position: relative;
+}
+
+.signbtn>a::after {
+    content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(0%, -40%);
+    height: 60%;
+    border-right: 1px solid;
+}
+
+.findbtn>a {
+    display: block;
+    padding-left: 1rem;
+    font-size: 0.8rem;
+    font-weight: 900;
+    color: gray;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+}
+
+.signbtn>a:hover,
+.findbtn>a:hover {
+    transition: .3s;
+    color: #aa5e7a;
+    text-shadow: 1px 1px 2px white;
+}

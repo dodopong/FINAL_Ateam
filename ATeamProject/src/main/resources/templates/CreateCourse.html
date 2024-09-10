@@ -65,12 +65,25 @@
                         </div>
                     </div>
                     <div class="section main">
-                        <textarea th:field="*{mainContent}" id="content"  placeholder="강의에 대해 설명해주세요." required></textarea>
+                        <textarea th:field="*{mainContent}" id="maincontent"  placeholder="강의에 대해 설명해주세요." required></textarea>
                     </div>
                     <div class="section objective">
                         <div id="in_content">
                             <textarea th:field="*{objective}" id="ucontent"  placeholder="강의 목표를 입력해주세요." required></textarea>
                         </div>
+                    </div>
+                    <div class="section price">
+                    	<span>수강료를 설정해주세요.</span>
+                    	<div class="price checkbox">
+               				<input type="radio" value="0" name="payment" id="free" checked>
+                			<label class="checkbtn" for="free">무료</label>
+                			<input type="radio" name="payment" id="nofree">
+                			<label class="checkbtn" for="nofree">유료</label>
+            			</div>
+            			<div class = "nofree">
+                				<span>1개월&nbsp/&nbsp</span>
+                				<input type="text" th:field="*{price}" placeholder="원">
+                		</div>
                     </div>
                 </form>
             </div>

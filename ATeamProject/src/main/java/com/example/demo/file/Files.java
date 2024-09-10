@@ -2,6 +2,7 @@ package com.example.demo.file;
 
 import com.example.demo.course.Course;
 import com.example.demo.lecture.Lecture;
+import com.example.demo.member.Member;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,6 +27,8 @@ public class Files {
 	private Course course;
 	@OneToOne
 	private Lecture lecture;
+	@OneToOne
+	private Member member;
 	
 
 }

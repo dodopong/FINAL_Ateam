@@ -27,6 +27,8 @@ public class CourseForm {
 	@NotEmpty(message = "레벨을 선택해주세요")
 	private String level;
 	
+	private String price;
+	
 	private String Objective;
 	
 	private MultipartFile file1;

@@ -15,6 +15,7 @@
     <nav th:replace="~{navbar :: navbarFragment}"></nav>
     <!-- Main banner -->
     <main class="whole">
+    	
         <div class="section-body">
             <section class="promo">
             	<img th:each="file : ${course.fileList}" th:if ="${#strings.contains(file.fileurl,'banner')}" th:src="@{|/image/banner/${file.filename}|}">
