@@ -76,31 +76,28 @@ function callDisplayStar(){
 document.addEventListener('DOMContentLoaded', callDisplayStar);
 
 
-// 수강료 무료인 경우 함수 호출
+// **********************수강료 무료/유료 함수 호출*********************
 
-// let free = document.querySelector('.free');
+var free = document.querySelector('.free');
+var free2 = document.getElementById('free2'); // id값(free2) 기준으로 요소노드에 바로 접근
 
-// free.addEventListener('click', function(){
-//     alert("수강신청이 완료되었습니다.");
-//     location.href = "/course/"+test.textContent + "/view/"+ test2.textContent;
-// })
+free.addEventListener('click', function() { // freeCourseKey 클릭 이벤트 생성
+    var freeCourseKey = free.getAttribute('freeCourseKey'); // getAttribute(요소의 속성)
 
-
-// var test = document.getElementById('test1');
-// var test2 = document.getElementById('test2');
-// console.log(test.textContent);
-// console.log(test2.textContent);
-// location.href = "/course/"+test.textContent + "/view/"+ test2.textContent;
-
-
-
-
-
-
-
-
-
-
+    // 강의 가격 요소를 가져오기 (무료 여부 확인)
+    var priceElement = document.querySelector('.lecture-pay-Nav li');
+    
+    // 무료 여부 판단하기
+    if (priceElement && priceElement.textContent.includes('무료')) {
+        // 무료일 때
+        alert("무료 강의입니다. 수강신청이 완료되었습니다.");
+        location.href = "/course/" + freeCourseKey + "/view/" + free2.textContent;
+    } else {
+        // 유료일 때
+        alert("유료 강의입니다. 결제가 필요합니다.");
+        location.href = "/course/" + freeCourseKey + "/payment"; // 결제 페이지로 이동
+    }
+});
 
 
 

@@ -31,6 +31,13 @@ public class CourseService {
 		return this.cr.findAll();
 	}
 	
+
+
+//	public List<Course> getCourseCart(Integer memberKey){
+//		return this.cr.findByMemberKey(memberKey);
+//	}
+//	박호선 장바구니 페이지 구현 용으로 추가
+	
 	
 //	public List<Course> search(String keyword){
 //		return this.cr.findByTitleContaining(keyword);
@@ -59,7 +66,7 @@ public class CourseService {
 	}
 	
 	public Course returnCreate(String title, String main_content, String banner_text,String category,String level
-			,String Objective, String price) {
+			,String Objective, String price, Member m) {
 		Course c = new Course();
 		c.setTitle(title);
 		c.setMainContent(main_content);
@@ -69,6 +76,7 @@ public class CourseService {
 		c.setPrice(price);
 		c.setObjective(Objective);
 		c.setLastUpdateDate(LocalDateTime.now());
+		c.setMember(m);
 		
 		this.cr.save(c);
 		return c;

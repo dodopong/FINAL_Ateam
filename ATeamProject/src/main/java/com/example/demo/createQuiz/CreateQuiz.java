@@ -1,13 +1,11 @@
-package com.example.demo.quiz;
+package com.example.demo.createQuiz;
 
-import com.example.demo.member.Member;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,9 +16,11 @@ public class CreateQuiz {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long createQuizKey;
+	private Integer createQuizKey;
 
-	private String title; //강의course 제목
+	private String category; //카테고리 선택
+	
+	private Integer quizlevel; //퀴즈 난이도 1~5
 	
 	@Column(unique = true)
 	private String quizTitle; //문제 제목
@@ -33,13 +33,13 @@ public class CreateQuiz {
 	
 	private String ioExplanation; //입출력 예 설명
 	
-	private String present; //제시코드
+	private String presentcode; //제시코드
 	
-	private String solution; //정답코드
+	private String solutioncode; //정답코드
 	
 	private String quizFile; //문제 참고파일(강사가 업로드하는 파일)
-	
-	@ManyToOne
-	private Member author; //Member정보를 가져오기 위함
+							 //추후 타입 변경 필요
+//	@ManyToOne
+//	private Member author; //Member정보를 가져오기 위함
 
 }

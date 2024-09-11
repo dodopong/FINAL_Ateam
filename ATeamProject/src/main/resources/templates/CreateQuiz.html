@@ -21,72 +21,83 @@
     <div class="main">
         <div class="sectionBody">
                 <div id="write_area">
-                    <form enctype="" method="post">
+                    <form th:action="@{/createquiz}" th:object = "${createQuizForm}" method="post"><!--enctype="multipart/form-data"-->
+                        <div th:replace="~{form_errors :: formErrorsFragment}"></div>
                         <div class="sectionHeader">
                             <h4>퀴즈 등록</h4>
                             <button type="submit">다음</button>
                         </div>
                         <div class="section title">
                             <div class="selectBar">
-                                <div class="title category">
-                                    <select name="language" id="language">
-                                        <option value="">-- 강의 선택 --</option>
-                                        <option value="java">등록한 강의1</option>
-                                        <option value="js">등록한 강의2</option>
-                                        <option value="python">등록한 강의3</option>
-                                        <option value="C">등록한 강의4</option>
+                                <div class="quizcategory">
+                                    <select th:field="*{category}">
+                                        <option value="">-- 카테고리 선택 --</option>
+                                        <option value="java">자바</option>
+                                        <option value="js">자바스크립트</option>
+                                        <option value="python">파이썬</option>
+                                        <option value="C">C언어</option>
+                                    </select>
+                                </div>
+                                <div class="quizlevel">
+                                    <select th:field="*{quizlevel}">
+                                        <option value="">-- 난이도 선택 --</option>
+                                        <option value="level1">1</option>
+                                        <option value="level2">2</option>
+                                        <option value="level3">3</option>
+                                        <option value="level4">4</option>
+                                        <option value="level5">5</option>
                                     </select>
                                 </div>
                             </div>
                         
                             <div class="inTitle">
                                 <div class="sectiontitle">제목*</div>
-                                <textarea name="title" id="utitle" placeholder="제목을 입력해주세요" maxlength="100" required></textarea>
+                                <textarea th:field="*{quizTitle}" name="title" id="utitle" placeholder="제목을 입력해주세요" maxlength="100" required></textarea>
                             </div>
                         </div>
 
                         <div class="section main">
                             <div class="sectiontitle">문제 설명*</div>
-                            <textarea name="main_Text" id="ucontent"  placeholder="제한사항을 입력해주세요." required></textarea>
+                            <textarea th:field="*{explanation}" name="main_Text" id="ucontent"  placeholder="제한사항을 입력해주세요." required></textarea>
                         </div>                        
 
                         <div class="section main">
                             <div class="sectiontitle">제한사항*</div>
-                            <textarea name="main_Text" id="ucontent"  placeholder="제한사항을 입력해주세요." required></textarea>
+                            <textarea th:field="*{limitation}" name="main_Text" id="ucontent"  placeholder="제한사항을 입력해주세요." required></textarea>
                         </div>
 
                         <div class="section objective">
                             <div id="in_content">
                                 <div class="sectiontitle">입출력 예*</div>
-                                <textarea name="content" id="ucontent"  placeholder="입출력 예를 입력해주세요." required></textarea>
+                                <textarea th:field="*{ioEx}" name="content" id="ucontent"  placeholder="입출력 예를 입력해주세요." required></textarea>
                             </div>
                         </div>
 
                         <div class="section objective">
                             <div id="in_content">
                                 <div class="sectiontitle">입출력 예 설명*</div>
-                                <textarea name="content" id="ucontent"  placeholder="입출력 예에 대한 설명을 입력해주세요." required></textarea>
+                                <textarea th:field="*{ioExplanation}" name="content" id="ucontent"  placeholder="입출력 예에 대한 설명을 입력해주세요." required></textarea>
                             </div>
                         </div>
 
                         <div class="section objective">
                             <div id="in_content">
                                 <div class="sectiontitle">제시 코드*</div>
-                                <textarea name="content" id="ucontent"  placeholder="미리 입력되어야 할 코드를 입력해주세요." required></textarea>
+                                <textarea th:field="*{presentcode}" name="content" id="ucontent"  placeholder="미리 입력되어야 할 코드를 입력해주세요." required></textarea>
                             </div>
                         </div>
 
                         <div class="section objective">
                             <div id="in_content">
                                 <div class="sectiontitle">정답 코드*</div>
-                                <textarea name="content" id="ucontent"  placeholder="채점에 사용될 정답 코드를 입력해주세요." required></textarea>
+                                <textarea th:field="*{solutioncode}" name="content" id="ucontent"  placeholder="채점에 사용될 정답 코드를 입력해주세요." required></textarea>
                             </div>
                         </div>
 
                         <div class="section banner">
                             <div class="banner img">
                                 <div class="sectiontitle">파일 업로드</div>
-                                <input type="file" name="SelectFile bannerImg" />
+                                <input th:field="*{quizFile}" type="file">
                             </div>
                         </div>
                     </form>

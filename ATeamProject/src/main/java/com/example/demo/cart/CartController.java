@@ -35,16 +35,17 @@ public class CartController {
 		
 		Member m2 = this.mes.getUser(principal.getName());
 		
-//		m2.getMemberKey();
+//		int T = Long.valueOf(m2.getMemberKey()).intValue();
+//		왜 타입을 바꿔도 안 되지?
 		
-//		int xInt = Long.valueOf(m2.getMemberKey()).intValue();
-		
-//		List<Course> coList = this.cos.getCourseByMemberKey(T);
+//		List<Course> courseList = this.cos.getCourseCart(memberKey);
 //		파라미터를 멤버키 타입에 맞게 Long으로 바꾸면 key를 못찾는다고 에러나고
 //		파라미터 타입을 다른 걸로 하면 Long이 아니라고 에러나고
 //		어떻게 해야 잘 굴러가지?
 		
-//		model.addAttribute("courseList", coList);
+		List<Course> courseList = this.cos.getCourseAll();
+		
+		model.addAttribute("courseList", courseList);
 		
 		return "cart";
 	}

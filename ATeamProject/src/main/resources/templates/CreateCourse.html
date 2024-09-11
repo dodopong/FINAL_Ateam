@@ -10,6 +10,7 @@
 
 </head>
 <body>
+	<div th:replace = "~{modal :: modalFragment}"></div >
     <!-- ***************************************************** Header_Content 
      ***************************************************** -->
    <nav th:replace = "~{navbar :: navbarFragment}"></nav>
@@ -94,9 +95,7 @@
      ***************************************************** -->
         <footer th:replace = "~{footer :: footerFragment}"></footer>
        <!-- ***************************************************** MODAL
-     ***************************************************** -->
-     <div th:replace = "~{modal :: modalFragment}"></div >
-     
+     ***************************************************** -->    
      
     <script th:src="@{/CreateCourseModule.js}"></script>
     <script th:src="@{/fragment.js}"></script>

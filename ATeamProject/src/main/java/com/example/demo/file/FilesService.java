@@ -60,6 +60,28 @@ public class FilesService {
 		file.setMember(m);
 		filesRepository.save(file);
 	}
+	
+	public void modifyProfileImg(Files f, HttpServletRequest request, MultipartFile files) throws Exception {
+		Member m = f.getMember();
+		String sourceFileName = files.getOriginalFilename();
+		String sourceFileNameExtension = FilenameUtils.getExtension(sourceFileName).toLowerCase();
+		File destinationFile;
+		String destinationFileName;
+		String fileUrl = "C:\\Users\\504호\\git\\FINAL_Ateam\\ATeamProject\\src\\main\\resources\\static\\image\\profileImg\\";
+		do {
+			destinationFileName = RandomStringUtils.randomAlphabetic(32) + "." + sourceFileNameExtension;
+			destinationFile = new File(fileUrl + destinationFileName);
+		} while (destinationFile.exists());
+			
+		destinationFile.getParentFile().mkdirs();
+		files.transferTo(destinationFile);
+			
+		f.setFilename(destinationFileName);
+		f.setFileOriName(sourceFileName);
+		f.setFileurl(fileUrl);
+		f.setMember(m);
+		filesRepository.save(f);
+	}
 
 
 }

@@ -5,11 +5,6 @@ import java.util.Optional;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import com.example.demo.course.Course;
-import com.example.demo.course.NotFoundException;
-import com.example.demo.file.Files;
 
 import lombok.RequiredArgsConstructor;
 
@@ -39,6 +34,16 @@ public class MemberService { //회원정보를 저장
 		
 		this.mr.save(m);
 	}
+	
+	public void modify(Member m, String nickname) {
+		
+		
+		m.setNickname(nickname);
+		m.setLastUpdateDate(LocalDateTime.now());
+		
+		this.mr.save(m);
+	}
+	
 	public Member returncreate(String email1, String email2, String password, String mname 
 			, String telno, String nickname, String birth 
 			, String category
@@ -74,8 +79,5 @@ public class MemberService { //회원정보를 저장
 	}
 	
 
-
-	
-	
 	
 }
