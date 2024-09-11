@@ -2,6 +2,7 @@ package com.example.demo.member;
 
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.example.demo.course.Course;
+import com.example.demo.course.CourseForm;
+import com.example.demo.course.NotFoundException;
 import com.example.demo.file.FileController;
 import com.example.demo.file.FilesService;
 
@@ -85,5 +89,6 @@ public class MemberController {
 	public String mypage() {
 		return "Mypage";
 	}
-	
+
+
 }

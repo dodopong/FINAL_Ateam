@@ -323,39 +323,39 @@ main{
     justify-content: space-evenly;
 }
 
-.signBtn {
+.Btn:hover {
+    background-color: #608fb7;
+    transform: translateY(-3px);
+}
+
+.Btn  {
     display: inline-block;
     background-color: #c2a2b4;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     color:white;
-    padding: 15px 50px;
+    font-size: 0.7rem;
+    padding: 15px 40px;
     border-radius: 50px;
     cursor: pointer;
     margin-bottom: 25px;
     transition: 0.3s;
 }
 
-.signBtn:hover {
+.free:hover {
     background-color: #608fb7;
     transform: translateY(-3px);
 }
 
-
-
-.lecBtn {
+.free  {
     display: inline-block;
     background-color: #c2a2b4;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     color:white;
-    padding: 15px 50px;
+    padding: 15px 40px;
+    font-size: 0.7rem;
+    height: 45px;
     border-radius: 50px;
     cursor: pointer;
     margin-bottom: 25px;
     transition: 0.3s;
 }
-
-.lecBtn:hover {
-    background-color: #608fb7;
-    transform: translateY(-3px);
-}
-

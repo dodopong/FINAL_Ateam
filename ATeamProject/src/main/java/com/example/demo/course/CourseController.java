@@ -1,6 +1,7 @@
 package com.example.demo.course;
 
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -48,7 +49,7 @@ public class CourseController {
 	@PostMapping("/create")
 	public String createCoure(CourseForm courseForm, BindingResult bindingResult,
 			HttpServletRequest request, @RequestParam(value = "file1") MultipartFile file1,
-			@RequestParam(value = "file2") MultipartFile file2) throws Exception{
+			@RequestParam(value = "file2") MultipartFile file2, Principal principal) throws Exception{
 		 if (bindingResult.hasErrors()) {
 		        for (FieldError error : bindingResult.getFieldErrors()) {
 		            System.out.println("Field: " + error.getField());
