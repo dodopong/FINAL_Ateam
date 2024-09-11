@@ -18,6 +18,9 @@ import com.example.demo.member.Member;
 		
 		List<Course> findByCourseKeyIn(List<String> courseKeys);
 //		9월 9일 박호선 결제페이지 정보 출력 목적으로 추가
+			
+//		List<Course> findByMemberKey(Integer memberKey);
+//		박호선 장바구니 페이지 구현 용으로 추가
 		
 		Page<Course> findAll(Pageable pageable);
 		

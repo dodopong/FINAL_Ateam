@@ -1,5 +1,5 @@
 <html layout:decorate="~{boardLayout}">
-
+    <!-- board list style CSS -->
 <div layout:fragment="content" class="container my-3">
     <!-- 질문 -->
     <h2 class="border-bottom py-2" th:text="${boardQuestion.boardQuestionSubject}"></h2>
@@ -16,7 +16,7 @@
     <!-- 답변의 갯수 표시 -->
     <h5 class="border-bottom my-3 py-2" th:text="|${#lists.size(boardQuestion.boardAnswerList)}개의 답변이 있습니다.|"></h5>
     <!-- 답변 반복 시작 -->
-    <div class="card my-3" th:each="answer : ${boardQuestion.boardAnswerList}">
+    <div class="card my-3 answer" th:each="answer : ${boardQuestion.boardAnswerList}">
         <div class="card-body">
           <div class="card-text" style="white-space: pre-line;" th:text="${answer.boardAnswerContent}"></div>
             <div class="d-flex justify-content-end">

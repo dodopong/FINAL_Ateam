@@ -1,6 +1,5 @@
 package com.example.demo.lecture;
 
-import java.security.Principal;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;

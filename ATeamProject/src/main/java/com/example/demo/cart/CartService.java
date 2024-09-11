@@ -20,10 +20,6 @@ public class CartService {
 	private final CartRepository car;
 	private final MemberRepository mer;
 	
-//	public List<Cart> checkCart(Integer cartKey) {
-//		return this.car.findByCartKey(cartKey);
-//	}
-	
 	public void addCart(Course courseKey, Member memberKey) {
 		Cart cart = new Cart();
 		cart.setCourseKey(courseKey);

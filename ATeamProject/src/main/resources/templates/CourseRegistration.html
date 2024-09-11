@@ -66,7 +66,9 @@
 	                    
 	                <h2 id="title3">강의 커리큘럼</h2>
 	                <ol th:each="lecture : ${course.lectureList}" style="list-style-type:decimal" start="1">
-						<!--<div id="test2" th:text="${lecture.lectureKey}"style="visibility: hidden;"></div>-->
+						<!-- lecture.lectureKey가 each문때문에 ol에서만 인식하므로 어쩔 수 없이 ol 태그 내에 하기 div 삽입함.. -->
+						<div id="free2" th:text="${lecture.lectureKey}"style="visibility: hidden;"></div>
+						<!--강의 제목 클릭 시 강의화면으로 전환-->
 	                    <a th:href="@{|/course/${course.courseKey}/view/${lecture.lectureKey}|}"><li th:text ="${lecture.title}"></li></a>
 	                 </ol>
 	                 
@@ -92,7 +94,7 @@
 	                <div class="reviewContainer">
 	                    <ul th:each="review : ${course.courseReviewList}">
 	                        <div class="review-el">
-	                            <h3 th:text="${review.title}"></h3>
+	                            <h3 th:text="${review.title}"></h3> <!--리뷰 제목-->
 	                            <div class="review-rate-container">
 	                                <div class="review-rate-star">
 	                                    ☆☆☆☆☆
@@ -100,7 +102,7 @@
 	                                </div>
 	                                <li class="review-rate" th:text="${review.rate}"></li> <!-- 별점 표시 -->
 	                            </div>
-	                            <li th:text="${review.content}"></li>
+	                            <li th:text="${review.content}"></li> <!--리뷰 내용 작성-->
 	                    </div>
 	                    </ul>
 	                </div>
@@ -111,33 +113,35 @@
 	        <div class="right-screen">
 	            <div class="right-con">
 	                <h2 id="title1" th:text="${course.title}"></h2> <!--강의 제목-->
-	                <ul class="lecture-pay-Nav"> <!--강의 가격 -->             
+	                <ul class="lecture-pay-Nav"> <!--강의 가격 -->
+	                	<!-- 가격이 null값이 아닐 경우 금액 반환-->             
 	                    <li th:if ="${not #strings.isEmpty(course.price)}"  th:text="|월 ${#numbers.formatInteger(course.price, 0, 'COMMA')}원|"></li> <!--금액 천단위 콤마 설정-->
-						<li th:if ="${#strings.isEmpty(course.price)}" th:text="|무료|">
+						<li th:if ="${#strings.isEmpty(course.price)}" th:text="|무료|"> <!-- 가격이 null값일 경우 ''무료' 반환'-->
 	                </ul>
-	                <!-- Button  -->
-	                
-	                <div class="button">
-						
-						<!--div class="free" id="test1" th:text="${course.courseKey}">임시확인</div>-->
-	                
 
-               			<a th:href="@{|/course/${course.courseKey}/addcart|}"><div class="signBtn">수강신청 하기</div></a>
-                		<!-- 9월 10일 박호선 장바구니 추가 만드려고 바꿔보는 중 -->
-                		<a th:href="@{|/course/${course.courseKey}/addLecture|}"><div class="lecBtn">영상 추가</div></a>
+	                <!--**********************Button*************************-->
+	                <div class="button">
+	                <!--th:text 사용 시 "${course.courseKey}" 형태의 값이 그대로 들어가므로 th:attr 사용
+	                	   th:attr -> HTML 요소에 속성을 추가하거나 변경하는데 사용되는 속성-->
+				    	<a><div class="free" id="free1" th:attr="freeCourseKey=${course.courseKey}">수강신청</div></a>
+               			<a th:href="@{|/course/${course.courseKey}/addcart|}"><div class="Btn">장바구니 추가</div></a>
+                		 <!--9월 10일 박호선 장바구니 추가 만드려고 바꿔보는 중-->
+                		
+                		 <!--th:if = "${member.instructorYn == Y}"-->
+                			<a  th:href="@{|/course/${course.courseKey}/addLecture|}"><div class="Btn">영상 추가</div></a>
+                		 
             		</div>     
 	            </div>
 	        </div>
     	</main>    
     </div>
-
+    
 
     <!-- ***************************************************** FOOTER
      ***************************************************** -->
     <footer th:replace="~{footer :: footerFragment}"></footer>
     <!-- ***************************************************** MODAL
      ***************************************************** -->
-
 	
     <script th:src="@{/CourseRegistrationModule.js}"></script>
     <script th:src="@{/CourseRegistartion.js}"></script>

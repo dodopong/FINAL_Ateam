@@ -14,9 +14,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+
 import com.example.demo.career.Career;
 import com.example.demo.career.CareerForm;
 import com.example.demo.career.CareerService;
+
+import com.example.demo.course.Course;
+import com.example.demo.course.CourseForm;
+import com.example.demo.course.NotFoundException;
+
 import com.example.demo.file.FileController;
 import com.example.demo.file.Files;
 import com.example.demo.file.FilesService;
@@ -102,7 +108,7 @@ public class MemberController {
 		model.addAttribute("member",m);
 		return "mypage/Mypage";
 	}
-    
+
     @PreAuthorize(value = "isAuthenticated()")
 	@PostMapping("/mypage/modify")
 	public String Modifymypage(@Valid MemberForm memberform,BindingResult bindingResult, Principal principal,
@@ -156,4 +162,5 @@ public class MemberController {
 		}
     	return "redirect:/user/mypage/mycareer"; 
     }
+
 }
