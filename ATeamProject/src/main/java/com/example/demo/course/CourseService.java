@@ -31,6 +31,13 @@ public class CourseService {
 		return this.cr.findAll();
 	}
 	
+
+
+//	public List<Course> getCourseCart(Integer memberKey){
+//		return this.cr.findByMemberKey(memberKey);
+//	}
+//	박호선 장바구니 페이지 구현 용으로 추가
+	
 	
 //	public List<Course> search(String keyword){
 //		return this.cr.findByTitleContaining(keyword);
