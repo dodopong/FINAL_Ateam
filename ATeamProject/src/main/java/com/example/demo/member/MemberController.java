@@ -1,6 +1,9 @@
 package com.example.demo.member;
 
+import java.security.Principal;
+
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -11,10 +14,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+
+import com.example.demo.career.Career;
+import com.example.demo.career.CareerForm;
+import com.example.demo.career.CareerService;
+
 import com.example.demo.course.Course;
 import com.example.demo.course.CourseForm;
 import com.example.demo.course.NotFoundException;
+
 import com.example.demo.file.FileController;
+import com.example.demo.file.Files;
 import com.example.demo.file.FilesService;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -28,6 +38,7 @@ public class MemberController {
 	
 	private final MemberService ms;
 	private final FilesService fs;
+	private final CareerService cs;
 	
 	@GetMapping("/logintest")
 	public String logintest() {
@@ -39,11 +50,13 @@ public class MemberController {
         return "login";
     }
 	
+    
 	@GetMapping(value = "/join") //회원가입
 	public String userCreate(MemberForm memberForm) {
 		return "join";
 	}
 	
+    
 	@PostMapping("/join")
 	public String signup(@Valid MemberForm memberForm, BindingResult bindingResult,
 			HttpServletRequest request,@RequestParam(value = "profileImg") MultipartFile file1) throws Exception {
@@ -82,13 +95,72 @@ public class MemberController {
             return "join";
         }
 
-		return "redirect:/main"; //변경필요
+		return "redirect:/main"; //변경필요 
 	}
 	
+		/////////////////////////MyPage 내정보 관리///	//////////////
+    @PreAuthorize(value = "isAuthenticated()")
 	@GetMapping("/mypage")
-	public String mypage() {
-		return "Mypage";
+	public String mypage(Model model, Principal principal, MemberForm memberForm) throws nosignException {
+		System.out.println("떳냐@@@@@@@");
+		Member m = this.ms.getUser(principal.getName());
+		System.out.println(principal.getName());
+		model.addAttribute("member",m);
+		return "mypage/Mypage";
 	}
 
+    @PreAuthorize(value = "isAuthenticated()")
+	@PostMapping("/mypage/modify")
+	public String Modifymypage(@Valid MemberForm memberform,BindingResult bindingResult, Principal principal,
+			HttpServletRequest request,@RequestParam(value = "profileImg") MultipartFile file1,Model model) {
+		if(bindingResult.hasErrors()) {
+			return "mypage/Mypage";
+		}
+		try {
+			System.out.println("떳냐?");
+			Member m = this.ms.getUser(principal.getName());
+			Files f = m.getProfileImg();
+			model.addAttribute("member",m);
+			this.ms.modify(m, memberform.getNickname());
+			System.out.println("떳냐???????");
+			this.fs.modifyProfileImg(f, request, file1);
+			System.out.println("떳냐??!!??!!??!!");
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return "redirect:/mypage/Mypage";
+	}
+    		/////////////////////////MyPage 내 강의 관리(강사계정) //////////////////
+    @PreAuthorize(value = "isAuthenticated()")
+	@GetMapping("/mypage/mycourse")
+	public String mycourse(Model model, Principal principal) throws nosignException {
+		Member m = this.ms.getUser(principal.getName());
+		model.addAttribute("member",m);
+		return "mypage/Mycourse";
+	}
+    		/////////////////////////MyPage 내 이력 관리(강사계정) //////////////////
+    @GetMapping("/mypage/mycareer")
+	public String mycareer(Model model, Principal principal,CareerForm careerForm) throws nosignException {
+		Member m = this.ms.getUser(principal.getName());
+		model.addAttribute("member",m);
+		return "mypage/Mycareer";
+	}
+    
+    @PostMapping("/mypage/mycareer")
+    public String mycareer(Principal principal,@Valid CareerForm careerForm,BindingResult bindingResult) {
+    	if(bindingResult.hasErrors()) {
+			return "mypage/Mycareer";
+		}
+    	try {
+    		Member m = this.ms.getUser(principal.getName());
+    		this.cs.create(careerForm.getCareerText(), careerForm.getYear(), m);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+    	return "redirect:/user/mypage/mycareer"; 
+    }
 
 }
