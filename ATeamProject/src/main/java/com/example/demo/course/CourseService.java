@@ -59,7 +59,7 @@ public class CourseService {
 	}
 	
 	public Course returnCreate(String title, String main_content, String banner_text,String category,String level
-			,String Objective, String price) {
+			,String Objective, String price, Member m) {
 		Course c = new Course();
 		c.setTitle(title);
 		c.setMainContent(main_content);
@@ -69,6 +69,7 @@ public class CourseService {
 		c.setPrice(price);
 		c.setObjective(Objective);
 		c.setLastUpdateDate(LocalDateTime.now());
+		c.setMember(m);
 		
 		this.cr.save(c);
 		return c;

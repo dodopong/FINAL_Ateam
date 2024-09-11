@@ -21,12 +21,13 @@
     
     <div class = "sectionAll">
     	<div class="sectionTop">
-    		<a id="profile" href="#">
+    		<a id="profile" th:href="@{|/user/mypage|}">
     			<div class="profile">
-    				<img src="/image/profileImg/FydJdeaqVboaAQJEYELvfRHdOwNkiyim.jpg">
+    				<img th:if ="${#strings.contains(member.profileImg.fileurl,'profileImg')}" th:src="@{|/image/profileImg/${member.profileImg.filename}|}">
+    				<img th:if ="${#strings.isEmpty(member.profileImg.fileOriName)}" src="/image/noimage.png">
     				<div class="name">
-    					<span>군침이</span>
-    					<span>ksl0718@nate.com</span>
+    					<span th:text="${member.nickname}"></span>
+    					<span th:text="${member.memberId}"></span>
     				</div>
     			</div>
     		</a>
@@ -41,12 +42,21 @@
     					<span>구독 관리</span>
     				</div>
     			</a>
-    			<a>
+    			<a th:href="@{|/user/mypage|}">
     				<div class="navBtn">
     					<span>회원 정보 관리</span>
     				</div>
+    			<a th:href="@{|/user/mypage/mycareer|}"
+    			sec:authorize="isAuthenticated()"
+	         	th:if="${#authentication.getPrincipal().getUsername() == member.memberId && #strings.contains(member.instructorYn,'Y')}">
+    				<div class="navBtn">
+    					<span>내 이력 관리</span>
+    				</div>
     			</a>
-    			<a>
+    			</a>
+    			<a th:href="@{|/user/mypage/mycourse|}" 
+    			sec:authorize="isAuthenticated()"
+	         	th:if="${#authentication.getPrincipal().getUsername() == member.memberId && #strings.contains(member.instructorYn,'Y')}">
     				<div class="navBtn">
     					<span>내 강의 관리</span>
     				</div>
@@ -63,28 +73,13 @@
     			</a>
     		</div>
     		<div class = "sectionContent">
-    		<h3>내 정보 관리</h3>
-    			<form>
-    				<label for="profileImg">
-    					<div class="mainImg">
-    						<img src="/image/profileImg/basicImg02.jpg">
-    						<div class="subImg">
-    							<img src="/image/modifyicon.jpg">
-    						</div>
-    					</div>
-    				</label>
-    				<input type="file" id="profileImg">
-    				<div class="box">
-  						<label for="nickname">닉네임</label>
- 	 					<input type="text" id="nickname" name="nicknamename">
-					</div>
-    				<div class="box">
-  						<label for="email">아이디</label>
- 	 					<input type="text" id="email" name="email">
-					</div>
-    				<button type="submit">저장하기</button>
-    			</form>	
-    			<a id="signout">회원&nbsp탈퇴</a>
+    			<div class="contentTop">
+    				<h3>내 강의 관리</h3>
+    				<a th:href="@{|/create|}"><button>새 강의 생성</button></a>
+    			</div>
+    			<div th:each="course : ${member.courseList}"> 
+    				<a th:href="@{|/course/${course.courseKey}|}" th:text="${course.title}"></a>
+    			</div>
     		</div>
     	</div>
     </div>

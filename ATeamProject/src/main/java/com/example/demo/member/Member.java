@@ -1,5 +1,7 @@
 package com.example.demo.member;
+import com.example.demo.career.Career;
 import com.example.demo.course.Course;
+import com.example.demo.courseReview.CourseReview;
 import com.example.demo.file.Files;
 
 import java.time.LocalDateTime;
@@ -52,10 +54,14 @@ public class Member {
 	
 	private LocalDateTime lastUpdateDate;
 	
+	
 	@OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
 	private List<Course> courseList;
 	
 	@OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
-	private List<Course> CourseReviewList;
+	private List<CourseReview> CourseReviewList;
+	
+	@OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
+	private List<Career> careerList;
 	
 }

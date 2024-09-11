@@ -69,7 +69,7 @@
 	                <a th:href="@{|/course/${course.courseKey}|}">
 	               		<!--<img th:if ="${#strings.contains(file.fileurl,'Thumbnail')}" src="/image/noimage.png">-->
 	                	<img th:each="file : ${course.fileList}" th:if ="${#strings.contains(file.fileurl,'Thumbnail')}" th:src="@{|/image/Thumbnail/${file.filename}|}">
-	                	<img th:each="file : ${course.fileList}" th:if ="${#strings.isEmpty(file.fileOriName)}" src="/image/noimage.png">
+	                	<img th:each="file : ${course.fileList}" th:if ="${#strings.contains(file.fileurl,'Thumbnail')&&#strings.isEmpty(file.fileOriName)}" src="/image/noimage.png">
 	                    <div class="conText">
 	                        <div class="conInfo">
 	                            <p th:text ="${course.title}"></p>
@@ -82,12 +82,12 @@
 	            </li>
 	        </ul>
 	    </div>
-	    <div class="section section02">
+	    <!-- <div class="section section02">
 	        <div class="text">
 	            <a href="#">실시간 강좌</a>
 	            <a href="#">show more +</a>
 	        </div>
-	        <ul class="sectionCon sectionCon02">
+	     	<ul class="sectionCon sectionCon02">
 	            <li class="con">
 	                <a href="#">
 	                    <img src="img/dounerwelcome.jpg" alt="">
@@ -136,7 +136,7 @@
 	                    </div>
 	                </a>
 	            </li>
-	        </ul>
+	        </ul> --->
 	    </div>
 	</div>
      <!-- ***************************************************** FOOTER
