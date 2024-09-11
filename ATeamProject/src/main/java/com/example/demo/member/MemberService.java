@@ -5,11 +5,6 @@ import java.util.Optional;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import com.example.demo.course.Course;
-import com.example.demo.course.NotFoundException;
-import com.example.demo.file.Files;
 
 import lombok.RequiredArgsConstructor;
 

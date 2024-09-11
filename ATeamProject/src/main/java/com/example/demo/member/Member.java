@@ -25,10 +25,10 @@ public class Member {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long memberKey;
+	private Integer memberKey;
 
 	@Column(unique = true)
-	private String memberId; //기존 member_id에서 memberId로 변경(09.02이민지)
+	private String memberId;
 	
 	private String password;
 	

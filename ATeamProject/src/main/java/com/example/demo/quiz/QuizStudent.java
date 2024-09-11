@@ -1,12 +1,9 @@
 package com.example.demo.quiz;
 
-import com.example.demo.member.Member;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -18,7 +15,7 @@ public class QuizStudent { //맴버의 정보 필요
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long quizStudentKey;
+	private Integer quizStudentKey;
 	
 	private String submitCode; //(수강생)제출코드
 	
@@ -28,8 +25,8 @@ public class QuizStudent { //맴버의 정보 필요
 	
 	private Integer run; //(수강생)총 실행 횟수
 	
-	@ManyToOne
-	private Member author; //Member정보를 가져오기 위함
+//	@ManyToOne
+//	private Member author; //Member정보를 가져오기 위함
 	
 	
 //  private String delYn; 현업에서는 관리자 삭제권한 필요
