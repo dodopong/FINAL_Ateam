@@ -53,21 +53,16 @@
                 <li>
                     <a href="#">공지사항</a>
                 </li>
+                <li>
+                    <a sec:authorize="isAuthenticated()" th:href="@{/quiz}">문제풀기</a> <!--로그인했을때만 보여줌-->
+                </li>
             </ul>
         </div>
     </div>
     <div class="categoryContainer">
         <ul class="category">
             <li>
-                <p>Html</p>
-                <a href="#">content</a>
-                <a href="#">content</a>
-                <a href="#">content</a>
-                <a href="#">content</a>
-            </li>
-            <li>
-                <p>Css</p>
-                <a href="#">content</a>
+                <p>Java</p>
                 <a href="#">content</a>
                 <a href="#">content</a>
                 <a href="#">content</a>
@@ -80,11 +75,19 @@
                 <a href="#">content</a>
                 <a href="#">content</a>
                 <a href="#">content</a>
+            </li>
+            <li>
+                <p>Python</p>
+                <a href="#">content</a>
+                <a href="#">content</a>
+                <a href="#">content</a>
+                <a href="#">content</a>
+                <a href="#">content</a>
                 <a href="#">content</a>
                 <a href="#">content</a>
             </li>
             <li>
-                <p>Java</p>
+                <p>C</p>
                 <a href="#">content</a>
                 <a href="#">content</a>
                 <a href="#">content</a>
