@@ -171,7 +171,11 @@ main{
 }
 
 .descript .instructor-img{
-    margin : 15px;
+	
+    width: 8rem;
+    height: 8rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     border-radius: 50%;
 }
 

@@ -24,9 +24,15 @@
         <!--*-*-*-*-*-*-*-*-* banner Slide *-*-*-*-*-*-*-*-*-->
         <div class="slideContainer">
             <ul class="slides">
-                <li class="slide slide01"></li>
-                <li class="slide slide02"></li>
-                <li class="slide slide03"></li>
+                <li class="slide" th:each = "course : ${courseList}">
+                	<a th:href="@{|course/${course.courseKey}|}">
+                		<img th:each="file : ${course.fileList}" th:if ="${#strings.contains(file.fileurl,'banner')&& !#strings.isEmpty(file.fileOriName)}" th:src="@{|/image/banner/${file.filename}|}">
+	           			<img th:each="file : ${course.fileList}" th:if ="${#strings.contains(file.fileurl,'banner')&& #strings.isEmpty(file.fileOriName)}" src="/image/noimage.png">
+                		<div class="banner-text">
+                    		<h1 th:text="${course.bannerText}"></h1>
+                		</div>
+                	</a>
+                </li>
             </ul>
             <div class="slideBtn preBtn">
                 <i class="fa-solid fa-chevron-left"></i>
@@ -43,39 +49,14 @@
             </div>
             <div class="sectionContainer">
                 <ul class="sectionSlides">
-                    <li class="sectionSlide">
-                        <a href="#" class="sectionSlideContent">
-                            <img src="img/sectioncon01.jpg" alt="">
-                        </a>
-                    </li>
-                    <li class="sectionSlide">
-                        <a href="#" class="sectionSlideContent">
-                            <img src="img/sectioncon02.jpg" alt="">
-                        </a>
-                    </li>
-                    <li class="sectionSlide">
-                        <a href="#" class="sectionSlideContent">
-                            <img src="img/sectioncon03.jpg" alt="">
-                        </a>
-                    </li>
-                    <li class="sectionSlide">
-                        <a href="#" class="sectionSlideContent">
-                            <img src="img/sectioncon04.jpg" alt="">
-                        </a>
-                    </li>
-                    <li class="sectionSlide">
-                        <a href="#" class="sectionSlideContent">
-                            <img src="img/sectioncon05.jpg" alt="">
-                        </a>
-                    </li>
-                    <li class="sectionSlide">
-                        <a href="#" class="sectionSlideContent">
-                            <img src="img/sectioncon04.jpg" alt="">
-                        </a>
-                    </li>
-                    <li class="sectionSlide">
-                        <a href="#" class="sectionSlideContent">
-                            <img src="img/sectioncon03.jpg" alt="">
+                	<li class="sectionSlide" th:each = "course : ${courseList}">
+                        <a class="sectionSlideContent" th:href="@{|course/${course.courseKey}|}">
+                            <img th:each="file : ${course.fileList}" 
+                            th:if ="${#strings.contains(file.fileurl,'Thumbnail')&& !#strings.isEmpty(file.fileOriName)}" th:src="@{|/image/Thumbnail/${file.filename}|}">
+	           				<img th:each="file : ${course.fileList}" 
+	           				th:if ="${#strings.contains(file.fileurl,'Thumbnail')&& #strings.isEmpty(file.fileOriName)}" src="/image/noimage.png">
+	           				<span th:text ="${course.title}"></span>
+	           				<span th:text="${course.member.nickname}"></span>
                         </a>
                     </li>
                 </ul>
@@ -96,39 +77,14 @@
             </div>
             <div class="sectionContainer">
                 <ul class="sectionSlides">
-                    <li class="sectionSlide">
-                        <a href="#" class="sectionSlideContent">
-                            <img src="img/sectioncon01.jpg" alt="">
-                        </a>
-                    </li>
-                    <li class="sectionSlide">
-                        <a href="#" class="sectionSlideContent">
-                            <img src="img/sectioncon02.jpg" alt="">
-                        </a>
-                    </li>
-                    <li class="sectionSlide">
-                        <a href="#" class="sectionSlideContent">
-                            <img src="img/sectioncon03.jpg" alt="">
-                        </a>
-                    </li>
-                    <li class="sectionSlide">
-                        <a href="#" class="sectionSlideContent">
-                            <img src="img/sectioncon04.jpg" alt="">
-                        </a>
-                    </li>
-                    <li class="sectionSlide">
-                        <a href="#" class="sectionSlideContent">
-                            <img src="img/sectioncon05.jpg" alt="">
-                        </a>
-                    </li>
-                    <li class="sectionSlide">
-                        <a href="#" class="sectionSlideContent">
-                            <img src="img/sectioncon04.jpg" alt="">
-                        </a>
-                    </li>
-                    <li class="sectionSlide">
-                        <a href="#" class="sectionSlideContent">
-                            <img src="img/sectioncon03.jpg" alt="">
+                    <li class="sectionSlide" th:each = "course : ${courseList}">
+                        <a class="sectionSlideContent" th:href="@{|course/${course.courseKey}|}">
+                            <img th:each="file : ${course.fileList}" 
+                            th:if ="${#strings.contains(file.fileurl,'Thumbnail')&& !#strings.isEmpty(file.fileOriName)}" th:src="@{|/image/Thumbnail/${file.filename}|}">
+	           				<img th:each="file : ${course.fileList}" 
+	           				th:if ="${#strings.contains(file.fileurl,'Thumbnail')&& #strings.isEmpty(file.fileOriName)}" src="/image/noimage.png">
+	           				<span th:text ="${course.title}"></span>
+	           				<span th:text="${course.member.nickname}"></span>
                         </a>
                     </li>
                 </ul>

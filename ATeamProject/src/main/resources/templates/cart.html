@@ -26,17 +26,21 @@
                 <div class="cartPrice">가격</div>
                 <div class="cartLevel">난이도</div>
             </div>
-            <div th:each="course : ${courseList}" class="cartItem">
-                <div class="cartCheck"><input type="checkbox" name="cartbox" onclick="checkSelectAll(this)" th:value="${course.courseKey}"></div>
+           <div th:each="cart : ${member.cartList}" class="cartItem">
+                <div class="cartCheck"><input type="checkbox" name="cartbox" onclick="checkSelectAll(this)" th:value="${cart.course.courseKey}"></div>
                 <div class="cartImage">
-                    <img th:each="file : ${course.fileList}" th:if ="${#strings.contains(file.fileurl,'Thumbnail')}" th:src="@{|/image/Thumbnail/${file.filename}|}">
-                    <img th:each="file : ${course.fileList}" th:if ="${#strings.isEmpty(file.fileOriName)}" src="/image/noimage.png"></div>
-                <div th:text="${course.title}" class="cartName"></div>
-                <div th:text="${course.category}" class="cartCategory"></div>
-                <div th:text="${course.price}" class="cartPrice"></div>
-                <div th:text="${course.level}" class="cartLevel"></div>
+                    <img th:each="file : ${cart.course.fileList}" th:if ="${#strings.contains(file.fileurl,'Thumbnail')}" th:src="@{|/image/Thumbnail/${file.filename}|}">
+                    <img th:each="file : ${cart.course.fileList}" th:if ="${#strings.isEmpty(file.fileOriName)}" src="/image/noimage.png"></div>
+                <div th:text="${cart.course.title}" class="cartName"></div>
+                <div th:text="${cart.course.category}" class="cartCategory"></div>
+                <div th:text="${cart.course.price}" class="cartPrice"></div>
+                <div th:text="${cart.course.level}" class="cartLevel"></div>
+               	<div>
+               		<a class="delete" href="javascript:void(0);" th:data-uri="@{|/cart/delete/${cart.cartKey}|}">
+               			<button >X</button>
+               		</a>
+               	</div>
             </div>
-            
         </div>
 
         <div class="btn">
@@ -54,7 +58,16 @@
      ***************************************************** -->
     <footer th:replace="~{footer :: footerFragment}"></footer>
  
-
+	<script>
+		let del = document.querySelectorAll(".delete")
+		for(let el of del){
+			el.addEventListener('click', function(){
+				if(confirm("진짜?")){
+					location.href = this.dataset.uri;
+				}
+			});
+		}
+	</script>
     <script th:src="@{/CartPage.js}"></script>
     <script th:src="@{/fragment.js}"></script>
 </body>

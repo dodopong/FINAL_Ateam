@@ -68,12 +68,16 @@
 	            <li th:if ="${courseList != null}" th:each="course : ${courseList}" class="con">
 	                <a th:href="@{|/course/${course.courseKey}|}">
 	               		<!--<img th:if ="${#strings.contains(file.fileurl,'Thumbnail')}" src="/image/noimage.png">-->
-	                	<img th:each="file : ${course.fileList}" th:if ="${#strings.contains(file.fileurl,'Thumbnail')}" th:src="@{|/image/Thumbnail/${file.filename}|}">
-	                	<img th:each="file : ${course.fileList}" th:if ="${#strings.contains(file.fileurl,'Thumbnail')&&#strings.isEmpty(file.fileOriName)}" src="/image/noimage.png">
+	               		<div class="conImg" th:each="file : ${course.fileList}">
+	               			<img th:if ="${#strings.contains(file.fileurl,'Thumbnail')&& !#strings.isEmpty(file.fileOriName) }" th:src="@{|/image/Thumbnail/${file.filename}|}">
+	               			<img th:if ="${#strings.contains(file.fileurl,'Thumbnail')&&#strings.isEmpty(file.fileOriName)}" src="/image/noimage.png">
+	               		</div>
 	                    <div class="conText">
+	              			<img th:if ="${#strings.contains(course.member.profileImg.fileurl,'profileImg')}" th:src="@{|/image/profileImg/${course.member.profileImg.filename}|}">
+    						<img th:if ="${#strings.isEmpty(course.member.profileImg.fileOriName)}" src="/image/noimage.png">
 	                        <div class="conInfo">
 	                            <p th:text ="${course.title}"></p>
-	                            <span class="creater"></span> <!-- 타임리프 받아야함 (사용자 닉네임) -->
+	                            <span th:text="${course.member.nickname}" class="creater"></span> <!-- 타임리프 받아야함 (사용자 닉네임) -->
 	                        </div>
 	                    </div>
 	                </a>

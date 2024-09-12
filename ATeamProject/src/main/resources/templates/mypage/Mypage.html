@@ -78,7 +78,8 @@
     			<div th:replace="~{form_errors :: formErrorsFragment}"></div>
     				<label for="profileImg">
     					<div class="mainImg">
-    						<img src="/image/profileImg/basicImg02.jpg">
+    						<img th:if ="${#strings.contains(member.profileImg.fileurl,'profileImg')}" th:src="@{|/image/profileImg/${member.profileImg.filename}|}">
+    						<img th:if ="${#strings.isEmpty(member.profileImg.fileOriName)}" src="/image/profileImg/basicImg02.jpg">
     						<div class="subImg">
     							<img src="/image/modifyicon.jpg">
     						</div>

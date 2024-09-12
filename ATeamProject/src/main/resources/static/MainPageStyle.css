@@ -38,19 +38,24 @@
     width: 100vw;
     overflow: hidden;
 }
-
-.slide01 {
-    background-color: red;
+.slide>a>img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover	
+}
+.banner-text h1 {
+	margin-left: 5rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 3rem;
 }
 
-.slide02 {
-    background-color: blue;
+.banner-text p {
+    font-size: 1.5rem;
 }
-
-.slide03 {
-    background-color: green;
+.banner-text {
+    z-index: 1;
 }
-
 .slideBtn {
     position: absolute;
     top: 50%;
@@ -127,8 +132,7 @@
 .sectionSlides {
     display: flex;
     position: absolute;
-    top: 0;
-    left: 0;
+    right: 100;
 }
 
 .sectionSlides>li {
