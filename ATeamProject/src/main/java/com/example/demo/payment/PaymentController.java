@@ -2,6 +2,7 @@ package com.example.demo.payment;
 
 import java.util.List;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,6 +35,13 @@ public class PaymentController {
         model.addAttribute("selectedCourses", selectedCourses);
 
         return "PaymentWindow";
+	}
+	
+	// -----------강좌상세페이지 내 수강신청 버튼쪽-------------------
+	@PreAuthorize("isAuthenticated()") // 로그인 한 경우에만 요청 처리
+	@GetMapping("/course/{course_key}/payment")
+	public String payment() {
+		return "PaymentWindow";
 	}
 
 }
