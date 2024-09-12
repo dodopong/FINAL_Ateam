@@ -20,11 +20,10 @@
                     <i class="fa-solid fa-cart-shopping"></i>
                 </a>
    
-                <a sec:authorize="isAnonymous()"><!--로그인 안했을때만 보여줌-->
+                <a sec:authorize="isAnonymous()" class="logincheck"><!--로그인 안했을때만 보여줌-->
                 	<p class="loginBtn">LogIn</p>
                 </a>
-                
-                <a sec:authorize="isAuthenticated()" th:href="@{/user/logout}"><!--로그인했을때만 보여줌-->
+                <a sec:authorize="isAuthenticated()" th:href="@{/user/logout}" class="logincheck"><!--로그인했을때만 보여줌-->
                 	LogOut
                 </a>
                 
