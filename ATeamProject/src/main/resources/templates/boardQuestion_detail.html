@@ -8,6 +8,9 @@
             <div class="card-text" style="white-space: pre-line;" th:text="${boardQuestion.boardQuestionContent}"></div>
             <div class="d-flex justify-content-end">
                 <div class="badge bg-light text-dark p-2 text-start">
+                    <div class="mb-2">
+                    	<span th:if="${boardQuestion.author != null}" th:text="${boardQuestion.author.nickname}"></span>
+                	</div>
                     <div th:text="${#temporals.format(boardQuestion.createDate, 'yyyy-MM-dd HH:mm')}"></div>
                 </div>
             </div>
@@ -21,17 +24,20 @@
           <div class="card-text" style="white-space: pre-line;" th:text="${answer.boardAnswerContent}"></div>
             <div class="d-flex justify-content-end">
                 <div class="badge bg-light text-dark p-2 text-start">
-                <div th:text="${#temporals.format(answer.createDate, 'yyyy-MM-dd HH:mm')}"></div> 
+                	 <!--<div class="mb-2">
+                    	<span th:if="${boardAnswer.author != null}" th:text="${boardAnswer.author.nickname}"></span>
+                	</div>-->
+                	<div th:text="${#temporals.format(answer.createDate, 'yyyy-MM-dd HH:mm')}"></div> 
                 </div>
             </div>
         </div>
     </div>
     <!-- 답변 반복 끝  -->
     <!-- 답변 작성 -->
-    <form th:action="@{|/boardAnswer/create/${boardQuestion.boardQuestionId}|}" th:object="${boardAnswerForm}" method="post" class="my-3">
+    <form  sec:authorize="isAuthenticated()" th:action="@{|/boardAnswer/create/${boardQuestion.boardQuestionId}|}" th:object="${boardAnswerForm}" method="post" class="my-3">
         <div th:replace="~{boardForm_errors :: formErrorsFragment}"></div>
         <textarea th:field="*{content}" rows="10" class="form-control"></textarea>
-        <input type="submit" value="답변등록" class="btn btn-primary my-2">
+        <input type="submit" value="답변등록" class="btn btn-primary my-2" >
     </form>
 </div>
 
