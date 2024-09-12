@@ -16,19 +16,19 @@
                 </div>
             </form>
             <div class="headerRightCon">
-                <a th:href="@{/cart}" class="cart">
+                <a sec:authorize="isAuthenticated()" th:href="@{/cart}" class="cart"><!--로그인 안했을때만 보여줌-->
                     <i class="fa-solid fa-cart-shopping"></i>
                 </a>
-   
-                <a sec:authorize="isAnonymous()"><!--로그인 안했을때만 보여줌-->
+
+                <a sec:authorize="isAnonymous()" class="logincheck"><!--로그인 안했을때만 보여줌-->
                 	<p class="loginBtn">LogIn</p>
                 </a>
-                
-                <a sec:authorize="isAuthenticated()" th:href="@{/user/logout}"><!--로그인했을때만 보여줌-->
+
+                <a sec:authorize="isAuthenticated()" th:href="@{/user/logout}" class="logincheck"><!--로그인했을때만 보여줌-->
                 	LogOut
                 </a>
                 
-                <a sec:authorize="isAuthenticated()" th:href="@{|/user/mypage|}"> <!--마이페이지 추후 연결/로그인했을때만 보여줌-->
+                <a sec:authorize="isAuthenticated()" th:href="@{|/user/mypage|}"> <!--로그인했을때만 보여줌-->
                 	<i class="fa-regular fa-user"></i>
                 </a>
             </div>
@@ -54,7 +54,7 @@
                     <a href="#">공지사항</a>
                 </li>
                 <li>
-                    <a sec:authorize="isAuthenticated()" th:href="@{/quiz}">문제풀기</a> <!--로그인했을때만 보여줌-->
+                    <a th:href="@{/quiz}">문제풀기</a>
                 </li>
             </ul>
         </div>

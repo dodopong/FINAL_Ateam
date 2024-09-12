@@ -89,7 +89,6 @@ public class CourseController {
 //-----------------------------------------------------------------------------------------
 //-------------------------------SearchCourse-----------------------------
 	@GetMapping("/searchcourse")
-	
 	public String searchCourse(@RequestParam(value ="keyword")String keyword, Model model,CourseForm courForm) throws PpakchimException {
 		List<Course> clist = this.cs.search(keyword);
 		model.addAttribute("courseList", clist);
@@ -101,18 +100,21 @@ public class CourseController {
 	@GetMapping("/search")
 	public String search(Model model,CourseForm courForm) {
 		
-		
 		return "SearchCourse";
 	}
-//---------------------------------CourseRegistration------------------
+	
+//---------------------------------CourseRegistration------------------------------------------------
 	@GetMapping(value = "/course/{course_key}")
 	   public String detail(Model model, @PathVariable("course_key") Integer course_key, CourseForm courseForm) throws NotFoundException {
 	      Course c = this.cs.getCourse(course_key);
 	      Member m = c.getMember();
+	      
 	      model.addAttribute("course", c);
 	      model.addAttribute("member",m);
+	      
 	      return "CourseRegistration";
 	   }
+
 	//------------------------------------장바구니 관련-----------------
 	
 	@GetMapping("/course/{courseKey}/addcart")
@@ -143,4 +145,5 @@ public class CourseController {
 		
 		return "Cart";
 	}
+
 } 

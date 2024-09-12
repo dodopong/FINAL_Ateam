@@ -67,3 +67,8 @@ closeBtn.addEventListener('click', function() {
         document.querySelector('body').classList.remove("stopScolling");
     }
 });
+
+
+
+
+

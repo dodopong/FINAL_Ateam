@@ -26,16 +26,20 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+// 총 가격 표기
 function totalPrice(){
     let totalPrice = 0;
     let priceelement = document.querySelectorAll('.price');
     let totalPricePrint = document.querySelector('.totalPrice');
     priceelement.forEach((priceelements) =>{
 	  let price = parseInt(priceelements.innerHTML, 10);
-      totalPrice += price;
-      console.log(totalPrice);	
-
+	  if(isNaN(price)){
+		priceelements.innerHTML += 0+"원";
+	}else{
+	  totalPrice += price;
+	  priceelements.innerHTML += "원";
+	}	
 })
-totalPricePrint.innerHTML = totalPrice;
+	totalPricePrint.innerHTML = totalPrice+"원";
 }
 totalPrice();

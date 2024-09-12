@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.board.DataNotFoundException;
 import com.example.demo.board.boardAnswer.BoardAnswer;
+import com.example.demo.member.Member;
 
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
@@ -65,11 +66,12 @@ public class BoardQuestionService {
 	}
 	
 	
-	public void boardQuestionCreate(String subject ,String content) {
+	public void boardQuestionCreate(String subject ,String content, Member member) {
 		BoardQuestion q = new BoardQuestion();
 		q.setBoardQuestionSubject(subject);
 		q.setBoardQuestionContent(content);
 		q.setCreateDate(LocalDateTime.now());
+		q.setAuthor(member);
 		this.boardQuestionRepository.save(q);
 	}
 	
