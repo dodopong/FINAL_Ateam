@@ -23,11 +23,11 @@
             <div> <h1>주문 정보</h1>
                 <div th:each="course : ${selectedCourses}" class="option">
                 수강 옵션 | <span th:text="${course.title}"></span>
-                <p>가격 : <strong th:text="${course.price}" class="price"></strong>원</p>
+                <p>가격 : <strong th:text="${course.price}" class="price"></strong></p>
             </div>
 
             <div>
-                총 가격 : <span class="totalPrice"></span>원
+                총 가격 : <span class="totalPrice"></span>
             </div>
         </section>
         

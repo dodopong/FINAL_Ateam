@@ -29,7 +29,7 @@ public class Cart {
 	@ManyToOne
 	private Course courseKey;
 	
-	@OneToOne
+	@ManyToOne
 	private Member memberKey;
 	
 	private LocalDateTime updateDate;
