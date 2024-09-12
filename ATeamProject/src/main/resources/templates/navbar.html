@@ -16,7 +16,7 @@
                 </div>
             </form>
             <div class="headerRightCon">
-                <a th:href="@{/cart}" class="cart">
+                <a sec:authorize="isAuthenticated()" th:href="@{/cart}" class="cart"><!--로그인 안했을때만 보여줌-->
                     <i class="fa-solid fa-cart-shopping"></i>
                 </a>
 

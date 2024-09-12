@@ -35,13 +35,8 @@ public class CartController {
 		
 		Member m2 = this.mes.getUser(principal.getName());
 		
-//		int T = Long.valueOf(m2.getMemberKey()).intValue();
-//		왜 타입을 바꿔도 안 되지?
-		
-//		List<Course> courseList = this.cos.getCourseCart(memberKey);
-//		파라미터를 멤버키 타입에 맞게 Long으로 바꾸면 key를 못찾는다고 에러나고
-//		파라미터 타입을 다른 걸로 하면 Long이 아니라고 에러나고
-//		어떻게 해야 잘 굴러가지?
+//		List<Course> courseList = this.cos.getCourseCart(m2.getMemberKey());
+//		이제 Integer로 해도 빨간줄은 안 생기는데 똑같은 오류
 		
 		List<Course> courseList = this.cos.getCourseAll();
 		
@@ -61,6 +56,7 @@ public class CartController {
 		
 			co1.getCourseKey();
 			m1.getMemberKey();
+
 			this.cas.addCart(co1, m1);
 			
 			return String.format("redirect:/course/%s", co1.getCourseKey());

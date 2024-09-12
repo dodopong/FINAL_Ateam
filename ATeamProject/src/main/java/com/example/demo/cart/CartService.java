@@ -26,6 +26,8 @@ public class CartService {
 		cart.setMemberKey(memberKey);
 		cart.setUpdateDate(LocalDateTime.now());
 		this.car.save(cart);
+		
+		
 	}
 	
 	public Cart getCart(Integer id) throws NotFoundException {
