@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.PpakchimException;
+import com.example.demo.cart.Cart;
+import com.example.demo.cart.CartService;
 import com.example.demo.file.FileController;
 import com.example.demo.member.Member;
 import com.example.demo.member.MemberService;
@@ -32,10 +34,14 @@ public class CourseController {
 	private final CourseService cs;
 	private final FileController fc;
 	private final MemberService ms;
+	private final CartService carts;
+	
 	
 //---------------------MAIN PAGE--------------------------
 	@GetMapping("/main")
-	public String viewMain() {
+	public String viewMain(Model model) {
+		List<Course> clist = this.cs.getCourseAll();
+		model.addAttribute("courseList",clist);
 		return "MainPage";
 	}
 //---------------------------------------------------------
@@ -107,4 +113,34 @@ public class CourseController {
 	      model.addAttribute("member",m);
 	      return "CourseRegistration";
 	   }
+	//------------------------------------장바구니 관련-----------------
+	
+	@GetMapping("/course/{courseKey}/addcart")
+	public String addcart(@PathVariable(value = "courseKey")Integer courseKey, Model model, Principal principal) throws Exception {
+		Member m = this.ms.getUser(principal.getName());
+		Course c = this.cs.getCourse(courseKey);
+		
+		try {
+			Cart ct = this.carts.getCart(m.getMemberKey(), courseKey);
+			if(!m.getCartList().contains(ct)) {
+				this.carts.createCart(m, c);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			this.carts.createCart(m, c);
+		}
+		
+		model.addAttribute("member", m);
+		
+		return "Cart";
+	}
+	
+	@GetMapping("/cart")
+	public String viewcart(Model model, Principal principal) throws Exception {
+		Member m = this.ms.getUser(principal.getName());
+		
+		model.addAttribute("member", m);
+		
+		return "Cart";
+	}
 } 

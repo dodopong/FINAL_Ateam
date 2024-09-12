@@ -179,10 +179,16 @@ select{
     display: flex;
     flex-direction: column;
 }
-.con>a>img{
-    border-radius:1rem;
+.conImg{
     width: 100%;
     height: 80%;
+    border-radius:1rem;
+}
+.conImg>img{
+	width: 100%;
+  	height: 100%;
+  	border-radius:1rem;
+	object-fit: cover
 }
 
 .conText{

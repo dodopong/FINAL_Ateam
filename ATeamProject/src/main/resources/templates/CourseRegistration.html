@@ -21,8 +21,8 @@
     <div class="whole">
 
             <section class="promo">
-            	<img th:each="file : ${course.fileList}" th:if ="${#strings.contains(file.fileurl,'banner')}" th:src="@{|/image/banner/${file.filename}|}">
-	            <img th:each="file : ${course.fileList}" th:if ="${#strings.isEmpty(file.fileOriName)}" src="/image/noimage.png">
+            	<img th:each="file : ${course.fileList}" th:if ="${#strings.contains(file.fileurl,'banner')&& !#strings.isEmpty(file.fileOriName)}" th:src="@{|/image/banner/${file.filename}|}">
+	            <img th:each="file : ${course.fileList}" th:if ="${#strings.contains(file.fileurl,'banner')&& #strings.isEmpty(file.fileOriName)}" src="/image/noimage.png">
                 <div class="banner-text">
                     <h1 th:text="${course.bannerText}"></h1>
                 </div>
@@ -51,9 +51,8 @@
 	                </ol>
 	
 	                <h2 id="title2">강사 소개</h2>
-	                <div>
-	                    <img src="image/chefloopy.JPG" alt="loopy icon" class="instructor-img">
-	                </div>
+	                    <img class="instructor-img" th:if ="${#strings.contains(member.profileImg.fileurl,'profileImg')}" th:src="@{|/image/profileImg/${member.profileImg.filename}|}">
+    					<img class="instructor-img" th:if ="${#strings.isEmpty(member.profileImg.fileOriName)}" src="/image/noimage.png">
 	
 	                <p class="instructor-introduction">
 	                <h3 th:text="${member.mname}"></h3>

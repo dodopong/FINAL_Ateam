@@ -2,7 +2,6 @@ package com.example.demo.course;
 
 import java.time.LocalDateTime;
 import java.util.List;
-
 import com.example.demo.cart.Cart;
 import com.example.demo.courseReview.CourseReview;
 import com.example.demo.file.Files;
@@ -28,6 +27,7 @@ public class Course {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer courseKey;
+	
 	@Column(length = 200)
 	private String title;
 	
@@ -56,7 +56,7 @@ public class Course {
 	@OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
 	private List<Files> fileList;
 	
-	@OneToMany(cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy = "course", cascade = CascadeType.REMOVE)
 	private List<Cart> cartList;
 	
 	@OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
