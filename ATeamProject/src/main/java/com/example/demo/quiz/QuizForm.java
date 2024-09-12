@@ -1,4 +1,4 @@
-package com.example.demo.createQuiz;
+package com.example.demo.quiz;
 
 
 import jakarta.validation.constraints.NotEmpty;
@@ -8,13 +8,13 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CreateQuizForm {
+public class QuizForm {
 	
 	@NotEmpty(message="카테고리를 선택해주세요")
 	private String category;
 
 	@NotEmpty(message="난이도를 선택해주세요")
-	private Integer quizlevel;
+	private String quizLevel;
 	
 	@NotEmpty(message="제목을 입력해주세요")
 	@Size(max=50)
@@ -33,10 +33,10 @@ public class CreateQuizForm {
 	private String ioExplanation;
 	
 	@NotEmpty(message="제시코드를 입력해주세요")
-	private String presentcode;
+	private String presentCode;
 	
 	@NotEmpty(message="정답코드를 입력해주세요")
-	private String solutioncode;
+	private String solutionCode;
 	
 	
 	private String quizFile; //추후 타입 변경 필요
