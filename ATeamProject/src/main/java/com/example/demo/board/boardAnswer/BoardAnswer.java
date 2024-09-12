@@ -35,7 +35,7 @@ public class BoardAnswer {
 	
 	
 	@ManyToOne
-	private Member nickname;
+	private Member author;
 	
 	
 	
