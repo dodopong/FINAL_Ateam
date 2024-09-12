@@ -21,8 +21,8 @@
     <div class="whole">
 
             <section class="promo">
-            	<img th:each="file : ${course.fileList}" th:if ="${#strings.contains(file.fileurl,'banner')}" th:src="@{|/image/banner/${file.filename}|}">
-	            <img th:each="file : ${course.fileList}" th:if ="${#strings.isEmpty(file.fileOriName)}" src="/image/noimage.png">
+            	<img th:each="file : ${course.fileList}" th:if ="${#strings.contains(file.fileurl,'banner')&& !#strings.isEmpty(file.fileOriName)}" th:src="@{|/image/banner/${file.filename}|}">
+	            <img th:each="file : ${course.fileList}" th:if ="${#strings.contains(file.fileurl,'banner')&& #strings.isEmpty(file.fileOriName)}" src="/image/noimage.png">
                 <div class="banner-text">
                     <h1 th:text="${course.bannerText}"></h1>
                 </div>
@@ -51,9 +51,8 @@
 	                </ol>
 	
 	                <h2 id="title2">강사 소개</h2>
-	                <div>
-	                    <img src="image/chefloopy.JPG" alt="loopy icon" class="instructor-img">
-	                </div>
+	                    <img class="instructor-img" th:if ="${#strings.contains(member.profileImg.fileurl,'profileImg')}" th:src="@{|/image/profileImg/${member.profileImg.filename}|}">
+    					<img class="instructor-img" th:if ="${#strings.isEmpty(member.profileImg.fileOriName)}" src="/image/noimage.png">
 	
 	                <p class="instructor-introduction">
 	                <h3 th:text="${member.mname}"></h3>
@@ -121,14 +120,16 @@
 
 	                <!--**********************Button*************************-->
 	                <div class="button">
-	                <!--th:text 사용 시 "${course.courseKey}" 형태의 값이 그대로 들어가므로 th:attr 사용
+	                	<!--th:text 사용 시 "${course.courseKey}" 형태의 값이 그대로 출력되어서 th:attr 사용함.
 	                	   th:attr -> HTML 요소에 속성을 추가하거나 변경하는데 사용되는 속성-->
-				    	<a><div class="free" id="free1" th:attr="freeCourseKey=${course.courseKey}">수강신청</div></a>
+				    	<a><div class="free" id="free1" th:attr="freeCourseKey=${course.courseKey}">수강 신청</div></a>
+
+				    	<!--9월 10일 박호선 장바구니 추가 만드려고 바꿔보는 중-->
                			<a th:href="@{|/course/${course.courseKey}/addcart|}"><div class="Btn">장바구니 추가</div></a>
-                		 <!--9월 10일 박호선 장바구니 추가 만드려고 바꿔보는 중-->
-                		
-                		 <!--th:if = "${member.instructorYn == Y}"-->
-                			<a  th:href="@{|/course/${course.courseKey}/addLecture|}"><div class="Btn">영상 추가</div></a>
+               			<!--강사일 경우에만 영상추가 버튼 표시-->
+                		<a  th:href="@{|/course/${course.courseKey}/addLecture|}" 
+    					sec:authorize="isAuthenticated()"
+	         			th:if="${#authentication.getPrincipal().getUsername() == member.memberId && #strings.contains(member.instructorYn,'Y')}"><div class="Btn">영상 추가</div></a>
                 		 
             		</div>     
 	            </div>

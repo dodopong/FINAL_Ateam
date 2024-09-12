@@ -25,12 +25,12 @@ public class BoardAnswerService {
 	
 	
 	
-    public BoardAnswer create(BoardQuestion boardquestion, String content, Member member) {
+    public BoardAnswer create(BoardQuestion boardquestion, String content, Member author) {
         BoardAnswer answer = new BoardAnswer();
         answer.setBoardAnswerContent(content);
         answer.setCreateDate(LocalDateTime.now());
         answer.setBoardQuestion(boardquestion);
-        answer.setNickname(member);
+        answer.setAuthor(author);
         this.boardAnswerRepository.save(answer);
         return answer;
     }

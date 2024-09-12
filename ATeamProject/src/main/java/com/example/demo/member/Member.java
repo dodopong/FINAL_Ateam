@@ -1,12 +1,12 @@
 package com.example.demo.member;
 import com.example.demo.career.Career;
+import com.example.demo.cart.Cart;
 import com.example.demo.course.Course;
 import com.example.demo.courseReview.CourseReview;
 import com.example.demo.file.Files;
 
 import java.time.LocalDateTime;
 import java.util.List;
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -14,7 +14,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-import lombok.AllArgsConstructor;
 import jakarta.persistence.OneToOne;
 
 import lombok.Getter;
@@ -54,6 +53,8 @@ public class Member {
 	
 	private LocalDateTime lastUpdateDate;
 	
+	@OneToMany(mappedBy = "member", cascade = CascadeType.ALL )
+	private List<Cart> cartList;
 	
 	@OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
 	private List<Course> courseList;
@@ -63,5 +64,7 @@ public class Member {
 	
 	@OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
 	private List<Career> careerList;
-	
+
+
 }
+

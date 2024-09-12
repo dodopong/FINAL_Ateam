@@ -79,9 +79,17 @@
     			<ul th:each="career : ${member.careerList}"> 
     				<li th:text="|${career.year}  ${career.careerText}|"></li>
     			</ul>
-    			<form th:action="@{/user/mypage/mycareer}" th:object = "${careerForm}" method="post">
-    				<input th:field="*{year}" type="text">
-    				<input th:field="*{careerText}" type="text">
+    			<form th:action="@{/user/mypage/mycareer}" th:object = "${careerForm}" method="post" class="careerform">
+    				<div class="careerinput">
+	    				<div class="careerinput1">
+	    					<span>연도</span>
+	    					<input th:field="*{year}" type="text" id="year">
+	    				</div>
+	    				<div class="careerinput2">
+	    					<span>이력</span>
+	    					<input th:field="*{careerText}" type="text" id="careertext">
+	    				</div>
+    				</div>
     				<button type="submit">이력 추가</button>
     			</form>
     		</div>

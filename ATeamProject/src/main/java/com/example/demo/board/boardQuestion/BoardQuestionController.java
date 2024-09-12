@@ -1,5 +1,6 @@
 package com.example.demo.board.boardQuestion;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
@@ -13,6 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.board.boardAnswer.BoardAnswerForm;
+import com.example.demo.member.Member;
+import com.example.demo.member.MemberService;
+import com.example.demo.member.nosignException;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -23,6 +27,7 @@ import lombok.RequiredArgsConstructor;
 public class BoardQuestionController {
 	
 	private final BoardQuestionService boardQuestionService;
+	private final MemberService memberService;
 	
 	@GetMapping("/list")
 	public String list(Model model, @RequestParam(value = "page", defaultValue = "0")int page, @RequestParam(value = "kw",defaultValue = "")String kw) {
@@ -46,11 +51,12 @@ public class BoardQuestionController {
 	}
 	
 	@PostMapping("/create")
-	public String boardQuestionCreate(@Valid BoardQuestionForm boardQuestionForm, BindingResult bindingResult) {
+	public String boardQuestionCreate(@Valid BoardQuestionForm boardQuestionForm, BindingResult bindingResult, Principal principal) throws nosignException {
 		if(bindingResult.hasErrors()) {
 			return "boardQuestion_form";
 		}
-		this.boardQuestionService.boardQuestionCreate(boardQuestionForm.getSubject(),boardQuestionForm.getContent() );
+		Member member = this.memberService.getUser(principal.getName());
+		this.boardQuestionService.boardQuestionCreate(boardQuestionForm.getSubject(),boardQuestionForm.getContent(),member);
 		return "redirect:/boardQuestion/list";
 	}
 	

@@ -88,6 +88,15 @@
 	margin-top:2rem;
 	text-align: center;
 }
+.contentTop{
+	display:flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.contentTop>a>button{
+	border-radius: 5px;
+	font-weight: bold;
+}
 .box{
 	border-radius: 10px;
 	border: 0.5px solid black;
@@ -109,6 +118,16 @@
 	font-size: 1.5rem;
 	color: gray;
 	font-weight: bold;
+}
+.box>img{
+	width: 20%;
+	height: 90%;
+	border-radius: 10px;
+}
+.box>span{
+	height: 3rem;
+	width: 60%;
+	margin-right: 4rem;
 }
 .sectionContent>form>button{
 	height: 3rem;
@@ -135,7 +154,9 @@
 	right: 0rem;
 
 }
-
+#profileImg{
+	display: none;
+}
 
 .mainImg, .subImg{
 	border-radius: 50%;
@@ -146,4 +167,22 @@
   	height: 100%;
   	border-radius: 50%;
   	object-fit: cover;
+}
+/******************** 커리어 ***************************/
+.careerform{
+	display: flex;
+}
+.careerinput{
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 1rem;
+}
+.careerinput1{
+	width: 20%;
+}
+.careerinput2{
+	width: 80%;
+}
+#year,#careertext{
+	width: 70%;
 }

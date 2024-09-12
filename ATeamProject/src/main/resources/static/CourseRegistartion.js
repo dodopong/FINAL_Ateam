@@ -72,32 +72,51 @@ function callDisplayStar(){
     fillMainStar(averageRate);
 }
 
-// 페이지가 로드되면 평점 평균 계산 함수 호출
+// 페이지가 로드되면 평점 평균계산 함수 호출
 document.addEventListener('DOMContentLoaded', callDisplayStar);
 
 
-// **********************수강료 무료/유료 함수 호출*********************
+
+// **********************수강신청 시 로그인 여부 + 수강료 무료/유료 관련 함수 호출*********************
 
 var free = document.querySelector('.free');
 var free2 = document.getElementById('free2'); // id값(free2) 기준으로 요소노드에 바로 접근
 
-free.addEventListener('click', function() { // freeCourseKey 클릭 이벤트 생성
-    var freeCourseKey = free.getAttribute('freeCourseKey'); // getAttribute(요소의 속성)
+// *************로그인 체크 여부***********************
+let logincheck = document.querySelector(".logincheck");
+const hasPTag = logincheck ? logincheck.querySelector('p') !== null : false; // navbar.html 로그인 정보 관련 p태그 값을 가지고 있으면 true, 없으면 false 반환
 
+
+free.addEventListener('click', function() { // freeCourseKey 클릭 이벤트 생성
+
+    var freeCourseKey = free.getAttribute('freeCourseKey'); // getAttribute(요소의 속성)
     // 강의 가격 요소를 가져오기 (무료 여부 확인)
     var priceElement = document.querySelector('.lecture-pay-Nav li');
-    
-    // 무료 여부 판단하기
+ 	
+ 	// 로그인 여부 확인(로그인이 안되어 있을 경우)
+ 	if (hasPTag == true) {
+        alert("로그인이 필요합니다. 로그인 페이지로 이동합니다.");
+        location.href = "/user/login";  // 로그인 페이지로 이동
+        return;
+    }  else { // 로그인 되어있을 경우
+		 // 수강료 무료 여부 판단하기
     if (priceElement && priceElement.textContent.includes('무료')) {
-        // 무료일 때
+		// 무료일때
         alert("무료 강의입니다. 수강신청이 완료되었습니다.");
         location.href = "/course/" + freeCourseKey + "/view/" + free2.textContent;
-    } else {
-        // 유료일 때
+    } else { // 유료일때
         alert("유료 강의입니다. 결제가 필요합니다.");
         location.href = "/course/" + freeCourseKey + "/payment"; // 결제 페이지로 이동
     }
+}
+
+
 });
+ 
+ 
+ 
+
+
 
 
 

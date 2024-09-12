@@ -3,7 +3,9 @@
 <div layout:fragment="content" class="container my-3">
     <div class="row my-3">
         <div class="col-6">
-            <a th:href="@{/boardQuestion/create}" class="btn btn-primary">질문 등록하기</a>
+                <a sec:authorize="isAuthenticated()" th:href="@{/boardQuestion/create}" class="btn btn-primary"><!--로그인했을때만 보여줌-->
+                	질문등록하기
+                </a>
         </div>
         <div class="col-6">
             <div class="input-group">
@@ -20,7 +22,8 @@
             <tr>
                 <th>번호</th>
                 <th>제목</th>
-                <th>작성일시</th>
+                <th>글쓴이</th>
+                <th>작성일자</th>
             </tr>
         </thead>
         <tbody>
@@ -29,6 +32,7 @@
                 <td>
                     <a th:href="@{|/boardQuestion/detail/${boardQuestion.boardQuestionId}|}" th:text="${boardQuestion.boardQuestionSubject}"></a>
                 </td>
+                <td><span th:if="${boardQuestion.author != null}" th:text="${boardQuestion.author.nickname}"></span></td>
                 <td th:text="${#temporals.format(boardQuestion.createDate,'yyyy-MM-dd HH:mm')}"></td>
             </tr>
         </tbody>
