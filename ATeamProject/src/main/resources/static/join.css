@@ -1,66 +1,92 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
 }
+
+a {
+    text-decoration: none;
+}
+
+
 /*글씨체 적용
 .joinform{
     font-family: "Noto Sans KR", sans-serif;
 }*/
+
+
 /*************************************/
+
+
 /* level-1 : 약관동의 메인 */
-.container{
+
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100vw;
 }
-.promise{
+
+.promise {
     border-style: double;
     margin: 0.5rem;
     padding: 0.5rem;
 }
 
+body>form {
+    background-color: #e9e1da;
+    border-bottom: 2px solid white;
+}
+
 
 /*************************************/
+
+
 /* level-2: 정보입력1 메인 */
-.container.two{
+
+.container.two {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.title{
+.title {
     margin: 50px 0 20px 0;
     font-size: 40px;
 }
-.article{
+
+.article {
     width: 460px;
     margin: 10px;
 }
 
-.email , .box-1{
+.email,
+.box-1 {
     width: 150px;
     height: 32px;
     font-size: 15px;
     border: 0;
     border-color: lightgray;
-    border-radius: 15px;
+    border-radius: 0.3rem;
     outline: none;
     padding-left: 10px;
-    background-color: rgb(233,233,233);
+    background-color: white;
 }
+
 .text {
     width: 460px;
     height: 32px;
     font-size: 15px;
     border: 0;
-    border-radius: 15px;
+    border-radius: 0.3rem;
     outline: none;
     padding-left: 10px;
-    background-color: rgb(233,233,233);
+    background-color: white;
+    box-shadow: 1px 1px 3px gray;
 }
+
 select {
     width: 130px;
     height: 32px;
@@ -71,10 +97,16 @@ select {
     outline: none;
     padding-left: 10px;
 }
+
+
 /* 강사,수강생 선택 버튼 */
+
+
 /* -> custom.css 에서 조정 */
 
+
 /* 다음 버튼 */
+
 .next-btn {
     width: 460px;
     height: 32px;
@@ -83,37 +115,56 @@ select {
     border-radius: 15px;
     outline: none;
     margin: 30px 0 30px 0;
-    background-color: #e7c2bf;
-}
-.next-btn:active {
-    padding-left: 10px;
-    background-color: rgb(231, 227, 227);
+    background-color: white;
+    box-shadow: 1px 1px 3px gray;
+    transition: .2s;
 }
 
+.next-btn:hover {
+    background-color: #e7c2bf;
+    color: white;
+}
+
+.next-btn:active {
+    background-color: #e7c2bf;
+    color: white;
+}
+
+
 /*************************************/
+
+
 /* level-3: 정보입력2 _강사 */
-.doc{
+
+.doc {
     width: 500px;
     border-style: double;
     margin: 1rem;
     padding: 0.7rem;
-    border : 1px solid #e7c2bf;
+    border: 1px solid #e7c2bf;
 }
 
+
 /* 이벤트 */
-.instructor{
+
+.instructor {
     display: none;
 }
-.instructor.on{
+
+.instructor.on {
     display: flex;
 }
 
+
 /* level-3: 정보입력2 _수강생 */
-.like-container{
+
+.like-container {
     width: 500px;
     display: flex;
     align-content: center;
-    justify-content: center;    
+    justify-content: center;
     flex-wrap: wrap;
 }
+
+
 /***************************************/

@@ -1,43 +1,63 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
     color: inherit;
-
 }
+
+body {
+    background-color: #e9e1da;
+}
+
+
 /*폰트 설정*/
-.maintitle, .QuizSearchBar, .dropboxstyle, div[class*="body-root"], .main3{
+
+.maintitle,
+.QuizSearchBar,
+.dropboxstyle,
+div[class*="body-root"],
+.main3 {
     font-family: "Noto Sans KR", sans-serif;
 }
+
+
 /* 퀴즈 title******************************************* */
-.maintitle{
+
+.maintitle {
     height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 3rem;
     background-color: #e9e1da;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
 }
-.maintitle span{
+
+.maintitle span {
     margin-left: 1rem;
     color: white;
     text-shadow: 5px 5px #d9bbb8;
 }
-.maintitle i{
+
+.maintitle i {
     color: white;
     text-shadow: 5px 5px #d9bbb8;
 }
 
+
 /* 퀴즈 제목 검색 폼*****************************************/
-.QuizSearchBar{
+
+.QuizSearchBar {
     background-color: #e9e1da;
     padding: 1rem 0 0.5rem 0;
     display: flex;
     justify-content: center;
 }
-.QuizSearchform{
+
+.QuizSearchform {
     padding: 0px 1.0625rem 0px 1.0625rem;
     margin: 0 1rem 0 1rem;
     border: 0;
@@ -51,45 +71,60 @@
     justify-content: space-between;
 }
 
-.QuizSearchform>input{
+.QuizSearchform>input {
     border: 0;
     width: 98%;
     height: 100%;
-    background-color: transparent; /*투명*/
+    background-color: transparent;
+    /*투명*/
     padding: 0 1rem 0 1rem;
 }
-.QuizSearchform>.QuizSearchBtn{
-    margin: 0.5rem;
 
+.QuizSearchform>.QuizSearchBtn {
+    margin: 0.5rem;
 }
-.QuizSearchBtn>button{ /*버튼스타일 제거*/
+
+.QuizSearchBtn>button {
+    /*버튼스타일 제거*/
     border: 0;
     background-color: transparent;
 }
-.QuizSearchBtn>button>i{ /*검색 아이콘*/
+
+.QuizSearchBtn>button>i {
+    /*검색 아이콘*/
     line-height: 100%;
     text-align: center;
     font-size: 1.5rem;
     color: #d9bbb8;
 }
+
+
 /* body-root ************************************************ */
-.body-root{
+
+.body-root {
     background-color: #e9e1da;
     display: flex;
     justify-content: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
+
 /* 드롭박스 스타일 ************************************************ */
-.dropboxstyle{
+
+.dropboxstyle {
     display: flex;
     flex-direction: row;
     line-height: 100%;
     padding-left: 1.3rem;
 }
-.dropbox{
+
+.dropbox {
     position: relative;
 }
-.dropbox>button{ /*드롭박스 버튼 공통 스타일*/
+
+.dropbox>button {
+    /*드롭박스 버튼 공통 스타일*/
     background-color: white;
     border: 0;
     border-radius: 10px;
@@ -105,7 +140,8 @@
     justify-content: space-around;
 }
 
-.droplist{ /*드롭리스트 공통 스타일*/
+.droplist {
+    /*드롭리스트 공통 스타일*/
     background-color: white;
     border: 0;
     border-radius: 10px;
@@ -115,29 +151,32 @@
     width: 130px;
 }
 
-.lv, .categoryitem{
+.lv,
+.categoryitem {
     margin: 0.4rem 0 0.4rem 0.7rem;
     font-size: 1rem;
 }
 
-
-.droplist{ /*난이도 선택박스 위치*/
+.droplist {
+    /*난이도 선택박스 위치*/
     position: absolute;
     top: 81%;
 }
-.droplist.off{
+
+.droplist.off {
     display: none;
 }
 
 
 /* 메인영역 : 진도율*********************************************** */
-.body-root2{
+
+.body-root2 {
     display: flex;
     justify-content: center;
     background-color: #e9e1da;
-
 }
-.root_container2{
+
+.root_container2 {
     border: 2px solid #ddd;
     background-color: white;
     height: 150px;
@@ -147,23 +186,25 @@
     border-radius: 0.5rem;
     padding: 0.5rem;
     margin-bottom: 0.9rem;
-
 }
-.root_container2 .subtitle{
+
+.root_container2 .subtitle {
     font-size: 1.2rem;
     font-weight: 400;
     margin: 0.5rem;
 }
-.progressrate{
+
+.progressrate {
     display: flex;
     justify-content: space-around;
     font-size: 1.2rem;
 }
-.rate1 i{
+
+.rate1 i {
     font-size: 1.5rem;
 }
 
-.root_container2 .rate1{
+.root_container2 .rate1 {
     box-shadow: 3px 3px 2px rgb(231, 227, 227);
     background-color: #e7c2bf;
     border-radius: 0.5rem;
@@ -174,17 +215,20 @@
     justify-content: space-around;
     color: white;
 }
-.root_container2 .rate1 i{
+
+.root_container2 .rate1 i {
     /* border: 1px solid rgb(92, 205, 126); */
     margin: 0.5rem;
-
 }
-.root_container2 .rate1 >div{
+
+.root_container2 .rate1>div {
     /* border: 1px solid rgb(92, 160, 205); */
     margin: 0.5rem;
 }
 
+
 /* 메인영역 : 문제 리스트(게시판)*********************************************** */
+
 table {
     border-collapse: collapse;
     background-color: white;
@@ -192,13 +236,18 @@ table {
     width: 62vw;
 }
 
-th, td {
+th,
+td {
     padding: 10px;
     border-bottom: 1px solid #ddd;
     text-align: center;
 }
 
-tr:hover { 
+tr:hover {
     background-color: #e7c2bf;
     cursor: pointer;
+}
+
+body>.body-root:nth-child(6) {
+    border-top: 2px solid white;
 }

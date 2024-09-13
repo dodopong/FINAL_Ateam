@@ -1,34 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/094d6e4a71.js" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/86c06c2025.js" crossorigin="anonymous"></script><!--네비바,모달-->
-    <link rel="preconnect" href="https://fonts.googleapis.com"> <!--구글폰트-->
+    <script src="https://kit.fontawesome.com/86c06c2025.js" crossorigin="anonymous"></script>
+    <!--네비바,모달-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!--구글폰트-->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" th:href="@{/fragment.css}"><!--네비바,모달-->
+    <link rel="stylesheet" th:href="@{/fragment.css}">
+    <!--네비바,모달-->
     <link rel="stylesheet" th:href="@{/quiz.css}">
     <title>quiz</title>
 </head>
+
 <body>
     <!-- 로그인 모달창 타임리프-->
-    <div th:replace = "~{modal :: modalFragment}"></div>
-    
+    <div th:replace="~{modal :: modalFragment}"></div>
+
     <!--메인 네비바 타임리프-->
-	<nav th:replace = "~{navbar :: navbarFragment}"></nav>
-    
+    <nav th:replace="~{navbar :: navbarFragment}"></nav>
+
     <!-- 퀴즈 title 시작-->
     <div class="maintitle">
         <i class="fa-solid fa-scroll"></i><span>Quiz</span>
-    </div><!-- 퀴즈 title 끝-->
+    </div>
+    <!-- 퀴즈 title 끝-->
 
     <div class="body-root">
         <div>
             <!-- 퀴즈 제목 검색 -->
-            <div class="QuizSearchBar">        
-                <form method="get" class="QuizSearchform"> <!-- th:action="@{/}" -->
+            <div class="QuizSearchBar">
+                <form method="get" class="QuizSearchform">
+                    <!-- th:action="@{/}" -->
                     <input name="QuizKeyword" type="text" class="QuizSearch" placeholder="문제 제목을 검색하세요">
                     <div class="QuizSearchBtn">
                         <button type="submit">
@@ -37,7 +44,7 @@
                     </div>
                 </form>
             </div>
-        
+
             <!-- 드론다운 전체 div-->
             <div class="dropboxstyle">
                 <!-- 난이도 선택 드롭박스 -->
@@ -107,15 +114,16 @@
                         </li>
                     </ul>
                 </div>
-        
-        
+
+
             </div>
 
         </div>
     </div>
-    
-    <!-- 메인영역 : 진도율 시작 --><!--로그인했을때만 보여줌-->
-    <div sec:authorize="isAuthenticated()" class="body-root2"> 
+
+    <!-- 메인영역 : 진도율 시작 -->
+    <!--로그인했을때만 보여줌-->
+    <div sec:authorize="isAuthenticated()" class="body-root2">
         <div class="root_container2">
             <div class="subtitle">문제 풀이 활동 기록</div>
             <div class="progressrate">
@@ -134,11 +142,13 @@
                     <div>총 실행 횟수</div>
                     <div>- 개</div>
                 </div>
-            </div>               
+            </div>
         </div>
-    </div><!-- 메인영역 : 진도율 끝 -->
-    
-    <div class="body-root"><!-- 메인영역 : 문제 리스트(게시판) 시작 -->
+    </div>
+    <!-- 메인영역 : 진도율 끝 -->
+
+    <div class="body-root">
+        <!-- 메인영역 : 문제 리스트(게시판) 시작 -->
         <table class="table">
             <thead class="table-dark">
                 <tr>
@@ -150,7 +160,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="quizList : ${quizList}"> 
+                <tr th:each="quizList : ${quizList}">
                     <!-- a링크 클릭범위 너무 작음 위치 조정필 -->
                     <td><a th:href="@{|/quiz/solve/${quizList.quizKey}|}" th:text="${quizList.quizLevel}"></a></td>
                     <td><a th:href="@{|/quiz/solve/${quizList.quizKey}|}" th:text="${quizList.quizTitle}"></a></td>
@@ -162,11 +172,12 @@
         </table>
     </div>
 
-        
+
     <!-- 메인 footer 타임리프-->
-    <footer th:replace = "~{footer :: footerFragment}"></footer>
+    <footer th:replace="~{footer :: footerFragment}"></footer>
 
     <script th:src="@{/quiz.js}"></script>
     <script th:src="@{/fragment.js}"></script>
 </body>
+
 </html>

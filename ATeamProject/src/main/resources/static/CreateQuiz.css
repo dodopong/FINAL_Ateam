@@ -1,45 +1,55 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
 }
+
+
 /********************** Main_Content********************** */
-.sectionHeader{
+
+.main {
+    background: #e9e1da;
+}
+
+.sectionHeader {
     width: 40rem;
     font-size: 1.5rem;
-    color: #dbc3ad;
+    color: rgb(59, 58, 58);
     border-bottom: 1px solid lightgrey;
     padding: 1rem;
     display: flex;
     justify-content: space-between;
 }
-.sectionHeader>button{
+
+.sectionHeader>button {
     border-radius: 10px;
     width: 4rem;
     height: 2.5rem;
-    background-color:#e9e1da;
+    background-color: white;
     border: none;
     box-shadow: 1px 1px 1px gray;
 }
 
-.sectionHeader>button:hover{
+.sectionHeader>button:hover {
     /* border: 5px solid rgb(100,130,173); */
     cursor: pointer;
     box-shadow: 2px 2px 2px gray;
 }
-#write_area{
+
+#write_area {
     width: 40rem;
 }
 
-.section{
+.section {
     /* border: 1px solid lightgrey; */
     border-radius: 10px;
     padding: 1rem;
     justify-content: center;
 }
-.sectionBody{
+
+.sectionBody {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -50,19 +60,29 @@
     border: none;
 }
 
-
-.selectBar{
+.selectBar {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     margin: 10px;
-    padding: 1rem;
 }
-form{
+
+.selectBar>div {
+    width: 40%;
+}
+
+.selectBar select {
+    width: 100%;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 1px 1px 3px gray;
+}
+
+form {
     text-align: center;
 }
 
-select{
-    border:1px solid lightgrey;
+select {
+    border: 1px solid lightgrey;
     text-align: center;
     border-top: none;
     border-left: none;
@@ -71,24 +91,26 @@ select{
     width: 10rem;
 }
 
-.sectiontitle{
+.sectiontitle {
     text-align: left;
     text-shadow: #dbc3ad;
     font-weight: bold;
-    color: #b0957d;
+    color: rgb(59, 58, 58);
 }
 
-
-textarea{
+textarea {
     background-color: rgb(246, 246, 246);
     font-size: 1rem;
     border-radius: 10px;
-    border:1px solid rgb(247, 246, 246);
+    border: 1px solid rgb(247, 246, 246);
     resize: none;
     width: 95%;
     padding: 1rem;
     margin: 2%;
+    box-shadow: 1px 1px 3px gray;
 }
+
+
 /*
 .title>textarea{
     height: 3.5rem;
@@ -96,6 +118,7 @@ textarea{
 .banner>textarea{
     height: 5rem;
 }*/
-.main>textarea{
+
+.main>textarea {
     height: 10rem;
 }
