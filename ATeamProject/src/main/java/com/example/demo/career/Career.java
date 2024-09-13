@@ -14,7 +14,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class Career {
+public class Career { //강사 커리어 데이터 관리를 위함
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer careerKey;

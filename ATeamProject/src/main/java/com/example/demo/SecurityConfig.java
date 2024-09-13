@@ -22,7 +22,7 @@ public class SecurityConfig {
 	//실험
 	   @Bean
 	   SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
-	      // �씤利앸릺吏� �븡�� 紐⑤뱺 �럹�씠吏��쓽 �슂泥��쓣 �뿀�씫�븳�떎.
+	      // 인증되지 않은 모든 페이지의 요청을 허락
 	      http
 	      .authorizeHttpRequests(
 	            (authorizeHttpRequests) -> authorizeHttpRequests
@@ -36,7 +36,7 @@ public class SecurityConfig {
 	                    XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN)))
 	        .formLogin((formLogin) -> formLogin
 	              .loginPage("/user/login")
-	              .defaultSuccessUrl("/main"))
+	              .defaultSuccessUrl("/main")) //추후 보던 페이지로 돌아가게끔 수정
 	        .logout((logout) -> logout
 	              .logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
 	              .logoutSuccessUrl("/main")
@@ -44,10 +44,10 @@ public class SecurityConfig {
 	      ;
 	      return http.build();
 	   }
-	// �씠 �뙆�씪�� �봽濡쒖젥�듃�쓽 �떆�걧由ы떚 �꽕�젙�쓣 �떞�떦�븷 �삁�젙
+	// 
 	
 	@Bean
-	PasswordEncoder passwordEncoder() {
+	PasswordEncoder passwordEncoder() { //비밀번호 암,복호화
 		return new BCryptPasswordEncoder();
 	}
 	@Bean
@@ -55,13 +55,13 @@ public class SecurityConfig {
 			AuthenticationConfiguration authenticationConfiguration) throws Exception {
 		return authenticationConfiguration.getAuthenticationManager();
 	}
-	@Bean
-	public WebMvcConfigurer webMvcConfigurer() {
+	@Bean//영상 인코딩을 위한 빈 객체
+	public WebMvcConfigurer webMvcConfigurer() { //해당 인터페이스를 상속받는 클래스를 생성
 	    return new WebMvcConfigurer() {
 	        @Override
-	        public void addResourceHandlers(ResourceHandlerRegistry registry) {
-	            registry.addResourceHandler("/videos/**")
-	                    .addResourceLocations("classpath:/static/videos/");
+	        public void addResourceHandlers(ResourceHandlerRegistry registry) { //정적 파일들의 경로를 잡아주는(관리) 메소드
+	            registry.addResourceHandler("/videos/**") //어느 경로로 들어왔을때 매핑이 되어줄 것인지를 정의
+	                    .addResourceLocations("classpath:/static/videos/"); //실제 파일이 있는 경로 지정
 	        }
 	    };
 	}
