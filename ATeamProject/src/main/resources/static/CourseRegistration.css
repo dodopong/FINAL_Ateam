@@ -13,13 +13,15 @@
     overflow: hidden;
 }
 
-main{
-    display: flex;
+main {
     width: 100vw;
-     justify-content:  center;
+    justify-content: center;
+    position: relative;
 }
 
+
 /**************** Main Banner Styles ****************/
+
 .whole {
     color: #333;
     width: 100vw;
@@ -27,18 +29,22 @@ main{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: #e9e1da;
 }
 
-.left-screen{
-    width: 60rem;
+.left-screen {
+    width: 100vw;
+    padding-left: 10vw;
+    padding-right: 10vw;
 }
 
-.right-screen{
-    width: 40rem;
-    position: relative;
+.right-screen {
+    width: 30vw;
+    position: absolute;
     display: flex;
-    justify-content: center;
-    
+    justify-content: flex-end;
+    top: 30vh;
+    right: 10vw;
 }
 
 .right-screen h2 {
@@ -48,44 +54,47 @@ main{
 }
 
 .right-con {
-   position: sticky;
-    top: 0px;
+    background-color: white;
+    top: 50vh;
     width: 500px;
     height: 350px;
     border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
+    box-shadow: 1px 1px 3px gray;
 }
 
 .promo {
-	position: relative;
-	width: 100rem;
-	height: 30rem;
+    position: relative;
+    width: 100vw;
+    height: 30rem;
     display: flex;
     align-items: flex-end;
-    margin-left: 15rem;
-    margin-right: 15rem;
-}
-.promo>img{
-	position: absolute;
-	width: 100%;
-  	height: 100%;
-  	object-fit: cover;
+    border-bottom: 2px solid white;
+    opacity: 0.5;
 }
 
-.banner-text h1 {
-	margin-left: 5rem;
-    font-size: 2.5rem;
+.promo>img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.banner-text {
+    font-size: 2rem;
     font-weight: bold;
-    margin-bottom: 3rem;
+    margin-left: 10vw;
+    padding-bottom: 2rem;
 }
 
 .banner-text p {
     font-size: 1.5rem;
 }
+
 .banner-text {
     z-index: 1;
 }
+
 
 /**************** 강좌 금액 ****************/
 
@@ -102,15 +111,22 @@ main{
 }
 
 .lecture-pay-Nav li {
-    margin: 0 15px; 
+    margin: 0 15px;
 }
 
+
 /**************** Text Header Styles ****************/
+
 .text-header {
-    background-color: #f7f7f7;
+    background-color: white;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
     padding: 10px 20px;
     font-size: 20px;
     text-align: center;
+    border-radius: 0.3rem;
+    box-shadow: 1px 1px 2px gray;
+    width: 100%;
 }
 
 .text-headerNav {
@@ -120,7 +136,7 @@ main{
 }
 
 .text-headerNav li {
-    margin: 0 15px; 
+    margin: 0 15px;
 }
 
 .text-headerNav li a {
@@ -135,22 +151,23 @@ main{
     text-shadow: 2px 2px 2px #aec5d8;
 }
 
+
 /**************** Main Description Styles ****************/
-.descript {
-    padding: 20px;
+
+.descript>p:nth-child(1) {
+    font-size: 1.5rem;
+    font-weight: 900;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 0.3rem;
+    box-shadow: 1px 1px 3px gray;
 }
 
 .descript h2 {
-    margin-top: 50px;
     font-size: 1.8rem;
     font-weight: bold;
-}
-
-.descript .subheading {
-    font-size: 1.3rem;
-    margin-bottom: 30px;
-    text-align: center;
-    box-shadow: inset 0 -10px #def1d2;
 }
 
 .center-image {
@@ -164,14 +181,13 @@ main{
 .descript ul {
     margin: 10px;
     padding: 10px;
-} 
+}
 
 .descript ul li {
     margin: 10px 10px;
 }
 
-.descript .instructor-img{
-	
+.descript .instructor-img {
     width: 8rem;
     height: 8rem;
     margin-top: 1rem;
@@ -179,35 +195,50 @@ main{
     border-radius: 50%;
 }
 
-.descript .instructor-introduction{
+.descript .instructor-introduction {
     margin-top: 10px;
-    
 }
 
-.review-header{
-	margin:0px;
-	padding: 0px;
+.review-header {
+    margin: 0px;
+    padding: 0px;
     display: flex;
     align-items: baseline;
     justify-content: space-between;
 }
+
+
+/* 수정사항 */
+
+.descript>h3 {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.descript>ol {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    padding-left: 2rem;
+}
+
 
 /************** 강의추가 버튼 ***************/
 
-.curriculum{
-	margin:0px;
-	padding: 0px;
+.curriculum {
+    margin: 0px;
+    padding: 0px;
     display: flex;
     align-items: baseline;
     justify-content: space-between;
 }
 
-.cur-button{
-	margin-top:10px
+.cur-button {
+    margin-top: 10px
 }
 
-.cur-btn{
-	display: inline-block;
+.cur-btn {
+    display: inline-block;
     background-color: #d9bbb8;
     padding: 5px 10px;
     border-radius: 5px;
@@ -215,33 +246,36 @@ main{
     margin-bottom: 10px;
 }
 
-.cur-btn>a{
-	 color : white;
-	 font-weight: bold;
-     font-size: 0.8rem;
-	 
+.cur-btn>a {
+    color: white;
+    font-weight: bold;
+    font-size: 0.8rem;
 }
 
+
 /************** star rate****************/
-.star-rate{
-   display: flex;
+
+.star-rate {
+    display: flex;
     justify-content: start;
     margin-bottom: 10px;
 }
-.point{
-	font-size: 1rem;
-	font-weight: bold;
+
+.point {
+    font-size: 1rem;
+    font-weight: bold;
     padding-top: 0.5rem;
     padding-left: 1rem;
     padding-right: 0.5rem;
 }
-.starimg{
+
+.starimg {
     position: relative;
     padding-top: 0.5rem;
     color: rgba(211, 211, 211, 0.99);
-    
 }
-.starcolor{
+
+.starcolor {
     position: absolute;
     padding-top: 0.5rem;
     top: 0;
@@ -250,7 +284,9 @@ main{
     color: rgba(250, 208, 0, 0.99);
 }
 
+
 /*****************수강평*****************/
+
 .review-rate-container {
     display: flex;
     align-items: center;
@@ -258,26 +294,28 @@ main{
 
 .review-rate-star {
     position: relative;
-    width: 5rem; 
-    color: rgba(211, 211, 211, 0.99); 
+    width: 5rem;
+    color: rgba(211, 211, 211, 0.99);
 }
 
 .review-rate-color {
     position: absolute;
     top: 0;
     left: 0;
-    width: 0; 
+    width: 0;
     overflow: hidden;
-    color: rgba(250, 208, 0, 0.99); }
+    color: rgba(250, 208, 0, 0.99);
+}
+
 
 /************** 리뷰작성 버튼 ***************/
 
-.rate-button{
-	margin-top:10px
+.rate-button {
+    margin-top: 10px
 }
 
-.rate-btn{
-	display: inline-block;
+.rate-btn {
+    display: inline-block;
     background-color: #d9bbb8;
     padding: 5px 10px;
     border-radius: 5px;
@@ -291,35 +329,35 @@ main{
     transform: translateY(-3px);
 }
 
-.rate-btn>a{
-	 color : white;
-	 font-weight: bold;
-     font-size: 0.8rem;
-	 
+.rate-btn>a {
+    color: white;
+    font-weight: bold;
+    font-size: 0.8rem;
 }
 
 .reviewContainer ul {
-	border-top: #e9e1da solid 0.5px;
+    border-top: #e9e1da solid 0.5px;
     border-bottom: #e9e1da solid 0.5px;
-    margin:0px;
+    margin: 0px;
     display: flex;
     align-items: baseline;
     justify-content: space-between;
     flex-direction: column;
 }
 
-.review-el{
-	display: flex;
+.review-el {
+    display: flex;
     align-items: baseline;
-    flex-direction: column;   
+    flex-direction: column;
 }
 
-.review-el h3{
-	margin-right: 10px
+.review-el h3 {
+    margin-right: 10px
 }
 
 
 /**************** Button Styles ****************/
+
 .button {
     text-align: center;
     margin-top: 4rem;
@@ -332,11 +370,11 @@ main{
     transform: translateY(-3px);
 }
 
-.Btn  {
+.Btn {
     display: inline-block;
     background-color: #c2a2b4;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    color:white;
+    color: white;
     font-size: 0.7rem;
     padding: 15px 40px;
     border-radius: 50px;
@@ -350,11 +388,11 @@ main{
     transform: translateY(-3px);
 }
 
-.free  {
+.free {
     display: inline-block;
     background-color: #c2a2b4;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    color:white;
+    color: white;
     padding: 15px 40px;
     font-size: 0.7rem;
     height: 45px;

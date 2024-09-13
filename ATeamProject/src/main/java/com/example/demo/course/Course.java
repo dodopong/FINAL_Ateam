@@ -7,6 +7,7 @@ import com.example.demo.courseReview.CourseReview;
 import com.example.demo.file.Files;
 import com.example.demo.lecture.Lecture;
 import com.example.demo.member.Member;
+import com.example.demo.registration.Registration;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -52,6 +53,9 @@ public class Course {
 	
 	@ManyToOne
 	private Member member;
+	
+	@OneToMany(mappedBy = "course", cascade = CascadeType.REMOVE)
+	private List<Registration> regiList;
 	
 	@OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
 	private List<Files> fileList;

@@ -61,6 +61,7 @@
 	        </div>
 	
 	        <div class="text">
+	        	<p th:if="${#strings.equals(kw,'')}" th:text="|전체검색결과|"></p>
 	            <p th:text="|${kw} 검색결과|"></p>
 	        </div>
 	

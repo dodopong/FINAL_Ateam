@@ -20,58 +20,17 @@
     ***************************************************** -->
     
     <div class = "sectionAll">
-    	<div class="sectionTop">
-    		<a id="profile" th:href="@{|/user/mypage|}">
-    			<div class="profile">
-    				<img th:if ="${#strings.contains(member.profileImg.fileurl,'profileImg')}" th:src="@{|/image/profileImg/${member.profileImg.filename}|}">
-    				<img th:if ="${#strings.isEmpty(member.profileImg.fileOriName)}" src="/image/noimage.png">
-    				<div class="name">
-    					<span th:text="${member.nickname}"></span>
-    					<span th:text="${member.memberId}"></span>
-    				</div>
-    			</div>
-    		</a>
-    		<a id="subscription">
-    			<span>정기권<br>구독하기</span>
-    		</a>
-    	</div>
+    	<!-- ****************************** section_top
+    ***************************************************** -->
+    	<div th:replace="~{SectionTopfg :: sectionTopFragment}"></div>
+    	<!-- ****************************** 
+    ***************************************************** -->
     	<div class = "sectionBottom">
-    		<div class = "sectionNav">
-    			<a>
-    				<div class="navBtn">
-    					<span>구독 관리</span>
-    				</div>
-    			</a>
-    			<a th:href="@{|/user/mypage|}">
-    				<div class="navBtn">
-    					<span>회원 정보 관리</span>
-    				</div>
-    			<a th:href="@{|/user/mypage/mycareer|}"
-    			sec:authorize="isAuthenticated()"
-	         	th:if="${#authentication.getPrincipal().getUsername() == member.memberId && #strings.contains(member.instructorYn,'Y')}">
-    				<div class="navBtn">
-    					<span>내 이력 관리</span>
-    				</div>
-    			</a>
-    			</a>
-    			<a th:href="@{|/user/mypage/mycourse|}" 
-    			sec:authorize="isAuthenticated()"
-	         	th:if="${#authentication.getPrincipal().getUsername() == member.memberId && #strings.contains(member.instructorYn,'Y')}">
-    				<div class="navBtn">
-    					<span>내 강의 관리</span>
-    				</div>
-    			</a>
-    			<a>
-    				<div class="navBtn">
-    					<span>설정</span>
-    				</div>
-    			</a>
-    			<a>
-    				<div class="navBtn">
-    					<span>로그아웃</span>
-    				</div>
-    			</a>
-    		</div>
+    	<!-- ****************************** section-nav
+    ***************************************************** -->
+    		<div th:replace="~{SectionNavfg :: sectionNavFragment}"></div>
+    		<!-- ****************************** 
+    ***************************************************** -->
     		<div class = "sectionContent">
     			<div class="contentTop">
     				<h3>내 이력 관리</h3>

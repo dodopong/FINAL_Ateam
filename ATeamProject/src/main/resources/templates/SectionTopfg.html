@@ -1,0 +1,19 @@
+<div th:fragment="sectionTopFragment">
+	<div class="sectionTop">
+    	<a id="profile" th:href="@{|/user/mypage|}">
+    		<div class="profile">
+    			<img th:if ="${#strings.contains(member.profileImg.fileurl,'profileImg') && !#strings.isEmpty(member.profileImg.fileOriName)}"
+    			th:src="@{|/image/profileImg/${member.profileImg.filename}|}">
+    			<img th:if ="${#strings.contains(member.profileImg.fileurl,'profileImg') && #strings.isEmpty(member.profileImg.fileOriName)}"
+    			src="/image/profileImg/basicImg02.jpg">
+    			<div class="name">
+    				<span th:text="${member.nickname}"></span>
+    				<span th:text="${member.memberId}"></span>
+    			</div>
+    		</div>
+    	</a>
+    	<a id="subscription">
+    		<span>정기권<br>구독하기</span>
+    	</a>
+    </div>
+</div>

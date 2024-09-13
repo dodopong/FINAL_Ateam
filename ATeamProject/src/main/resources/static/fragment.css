@@ -1,6 +1,18 @@
 /* ***************************************************** Header_Style 
 ***************************************************** */
 
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+}
+
 .header {
     position: sticky;
     width: 100vw;
@@ -8,7 +20,7 @@
     padding-right: 10vw;
     background-color: #e9e1da;
     top: 0;
-    left:0;
+    left: 0;
     transition: .3s;
     z-index: 10;
     border-bottom: 2px solid white;
@@ -65,12 +77,18 @@
     height: 65%;
 }
 
-.searchBtn>a {
-    display: block;
-    font-size: 1.3rem;
+.searchBtn>button {
+    margin-left: 0.5rem;
+    font-size: 0.9rem;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
     color: rgb(73, 73, 73);
+    border: none;
+    box-shadow: 1px 1px 3px gray;
+    border-radius: 0.3rem;
+    background-color: white;
 }
 
 .header.color>.headerUp>.headerSearchBar>.searchBtn>a {
@@ -91,6 +109,7 @@
     color: rgb(73, 73, 73);
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+    cursor: pointer;
 }
 
 .header.color>.headerUp>.headerRightCon>a {
@@ -316,7 +335,7 @@
 /* ***************************************************** Modal_Style 
 ***************************************************** */
 
-.modal {
+.modalpage {
     position: absolute;
     top: 0;
     left: 0;
@@ -332,7 +351,7 @@
     transition: .5s;
 }
 
-.modal.on {
+.modalpage.on {
     opacity: 1;
     z-index: 100;
 }
@@ -355,6 +374,7 @@
     font-size: 1.7rem;
     color: white;
     cursor: pointer;
+    z-index: 999;
 }
 
 .loginContent_left {
@@ -373,28 +393,32 @@
     font-weight: 900;
     font-size: 0.8rem;
     color: rgb(59, 59, 59);
+    text-align: center;
 }
 
 .loginContent_left>p:first-child {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 600;
     padding-top: 2rem;
     padding-bottom: 2rem;
 }
 
-.loginContent_left>input {
+.loginContent_left>form>input {
+    width: 100%;
+    display: block;
     padding-top: 0.7rem;
     padding-bottom: 0.7rem;
     border-radius: 0.5rem;
     border: none;
     box-shadow: 1px 1px 2px gray;
     padding-left: 1rem;
+    margin-bottom: 1rem;
 }
 
-.loginContent_left>button {
-    margin-top: 1.5rem;
-    padding-top: 0.7rem;
-    padding-bottom: 0.7rem;
+.loginContent_left>form>button {
+    width: 100%;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
     background-color: #608fb7;
     border: none;
     border-radius: 0.5rem;
@@ -405,9 +429,15 @@
     box-shadow: 1px 1px 2px gray;
 }
 
-.loginContent_left>button:hover {
+.loginContent_left>form>button:hover {
     background-color: #c2acb4;
 }
+
+
+/*변경사항 시작*/
+
+
+/*변경사항 종료*/
 
 .signContainer {
     padding-top: 0.5rem;
@@ -456,8 +486,18 @@
 }
 
 .loginContent_right {
-    background: url(img/loginBanner.jpg) center/cover no-repeat;
     width: 50%;
     height: 100%;
     border-radius: 0.5rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.loginContent_right>img {
+    height: 100%;
+    border-radius: 0.5rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

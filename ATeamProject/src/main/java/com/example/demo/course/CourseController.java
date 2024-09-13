@@ -19,6 +19,8 @@ import com.example.demo.file.FileController;
 import com.example.demo.member.Member;
 import com.example.demo.member.MemberService;
 import com.example.demo.member.nosignException;
+import com.example.demo.registration.Registration;
+import com.example.demo.registration.RegistrationService;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -35,6 +37,7 @@ public class CourseController {
 	private final FileController fc;
 	private final MemberService ms;
 	private final CartService carts;
+	private final RegistrationService rs;
 	
 	
 //---------------------MAIN PAGE--------------------------
@@ -96,7 +99,7 @@ public class CourseController {
 		model.addAttribute("kw",keyword);
 		return "SearchCourse";
 	}
-	
+
 	@GetMapping("/search")
 	public String search(Model model,CourseForm courForm) {
 		
@@ -105,10 +108,9 @@ public class CourseController {
 	
 //---------------------------------CourseRegistration------------------------------------------------
 	@GetMapping(value = "/course/{course_key}")
-	   public String detail(Model model, @PathVariable("course_key") Integer course_key, CourseForm courseForm) throws NotFoundException {
+	   public String detail(Model model, @PathVariable("course_key") Integer course_key, CourseForm courseForm) throws Exception {
 	      Course c = this.cs.getCourse(course_key);
 	      Member m = c.getMember();
-	      
 	      model.addAttribute("course", c);
 	      model.addAttribute("member",m);
 	      
@@ -117,7 +119,7 @@ public class CourseController {
 
 	//------------------------------------장바구니 관련-----------------
 	
-	@GetMapping("/course/{courseKey}/addcart")
+	@GetMapping("/course/{courseKey}/addcart") // 장바구니 추가 & 장바구니 전체보기
 	public String addcart(@PathVariable(value = "courseKey")Integer courseKey, Model model, Principal principal) throws Exception {
 		Member m = this.ms.getUser(principal.getName());
 		Course c = this.cs.getCourse(courseKey);
@@ -137,7 +139,7 @@ public class CourseController {
 		return "Cart";
 	}
 	
-	@GetMapping("/cart")
+	@GetMapping("/cart") // 장바구니 전체보기
 	public String viewcart(Model model, Principal principal) throws Exception {
 		Member m = this.ms.getUser(principal.getName());
 		
@@ -145,5 +147,29 @@ public class CourseController {
 		
 		return "Cart";
 	}
+	
+	//------------------------------------강의 수강 관련-----------------
+	
+	@GetMapping("/course/registration/{courseKey}")
+	public String registration(Model model, @PathVariable(value = "courseKey")Integer courseKey,Principal principal) throws Exception {
+		Member m = this.ms.getUser(principal.getName());
+		Course c = this.cs.getCourse(courseKey);
+		String errm = "수강신청이 완료되었습니다.";
+	
+		try {
+			Registration r = this.rs.getRegistration(m.getMemberKey(), courseKey);
+			if(!m.getRegiList().contains(r)) {
+				this.rs.create(m, c);
+			}
+			else {
+				errm = "이미 수강중인 강의 입니다.";
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			this.rs.create(m, c);
+		}
+			model.addAttribute("errM",errm);
 
+		return "redirect:/course/"+Integer.toString(courseKey);
+	}
 } 
