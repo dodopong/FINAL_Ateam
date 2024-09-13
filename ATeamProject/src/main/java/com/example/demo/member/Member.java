@@ -4,6 +4,7 @@ import com.example.demo.cart.Cart;
 import com.example.demo.course.Course;
 import com.example.demo.courseReview.CourseReview;
 import com.example.demo.file.Files;
+import com.example.demo.registration.Registration;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -58,6 +59,9 @@ public class Member {
 	
 	@OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
 	private List<Course> courseList;
+	
+	@OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
+	private List<Registration> regiList;
 	
 	@OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
 	private List<CourseReview> CourseReviewList;

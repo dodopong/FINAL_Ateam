@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.example.demo.course.Course;
 import com.example.demo.course.CourseService;
 import com.example.demo.course.NotFoundException;
+import com.example.demo.member.Member;
+import com.example.demo.member.MemberService;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -24,6 +26,7 @@ public class CourseReviewController {
 	
 	private final  CourseReviewService crs;
 	private final CourseService cs;
+	private final MemberService ms;
 	
 	@PreAuthorize("isAuthenticated()") // 로그인 한 경우에만 요청 처리
 	@GetMapping("/course/{course_key}/reviewcreate")
@@ -36,14 +39,15 @@ public class CourseReviewController {
 	
 	@PostMapping("/course/{course_key}/reviewcreate")
 	public String createCourseReview(Model model, @PathVariable("course_key") Integer course_key,
-			@Valid CourseReviewForm courseReviewForm, BindingResult bindingResult) throws NotFoundException {
+			@Valid CourseReviewForm courseReviewForm, BindingResult bindingResult,Principal principal) throws Exception {
 		Course c = this.cs.getCourse(course_key);
+		Member m = this.ms.getUser(principal.getName());
 		
 		if(bindingResult.hasErrors()) {
 			model.addAttribute("course",c);
 			return "CreateCourseReview";
 		}
-		this.crs.create(c, courseReviewForm.getTitle(), courseReviewForm.getContent(), courseReviewForm.getRate());	
+		this.crs.create(c, courseReviewForm.getTitle(), courseReviewForm.getContent(), courseReviewForm.getRate(),m);	
 		return String.format("redirect:/course/%s", course_key);
 		
 	}

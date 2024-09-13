@@ -85,7 +85,7 @@ var free2 = document.getElementById('free2'); // id값(free2) 기준으로 요�
 // *************로그인 체크 여부***********************
 let logincheck = document.querySelector(".logincheck");
 const hasPTag = logincheck ? logincheck.querySelector('p') !== null : false; // navbar.html 로그인 정보 관련 p태그 값을 가지고 있으면 true, 없으면 false 반환
-
+let regi = document.querySelector(".regi");
 
 free.addEventListener('click', function() { // freeCourseKey 클릭 이벤트 생성
 
@@ -98,15 +98,16 @@ free.addEventListener('click', function() { // freeCourseKey 클릭 이벤트 �
         alert("로그인이 필요합니다. 로그인 페이지로 이동합니다.");
         location.href = "/user/login";  // 로그인 페이지로 이동
         return;
-    }  else { // 로그인 되어있을 경우
-		 // 수강료 무료 여부 판단하기
-    if (priceElement && priceElement.textContent.includes('무료')) {
+    } else { // 로그인 되어있을 경우
+			 // 수강료 무료 여부 판단하기
+  		 if (priceElement && priceElement.textContent.includes('무료')) {
 		// 무료일때
-        alert("무료 강의입니다. 수강신청이 완료되었습니다.");
-        location.href = "/course/" + freeCourseKey + "/view/" + free2.textContent;
-    } else { // 유료일때
-        alert("유료 강의입니다. 결제가 필요합니다.");
-        location.href = "/course/" + freeCourseKey + "/payment"; // 결제 페이지로 이동
+       		location.href = regi.dataset.uri; //{course/registration/courseKey}
+       		alert("수강신청이 완료되었습니다.");
+        //location.href = "/course/" + freeCourseKey + "/view/" + free2.textContent;
+        	} else { // 유료일때
+			alert("유료 강의입니다. 결제가 필요합니다.");
+       		location.href = "/course/" + freeCourseKey + "/payment"; // 결제 페이지로 이동
     }
 }
 
