@@ -1,0 +1,44 @@
+<div th:fragment="sectionNavFragment">
+	<div class = "sectionNav">
+    	<a>
+    		<div class="navBtn">
+    			<span>구독 관리</span>
+    		</div>
+    	</a>
+    	<a th:href="@{|/user/mypage|}"
+    	sec:authorize="isAuthenticated()">
+    		<div class="navBtn">
+    			<span>회원 정보 관리</span>
+    		</div>
+    	<a th:href="@{|/user/mypage/mycareer|}"
+    	sec:authorize="isAuthenticated()"
+	    th:if="${#authentication.getPrincipal().getUsername() == member.memberId && #strings.contains(member.instructorYn,'Y')}">
+    		<div class="navBtn">
+    			<span>내 이력 관리</span>
+    		</div>
+    	</a>
+    	<a th:href="@{|/user/mypage/myregistration|}" 
+    	sec:authorize="isAuthenticated()">
+    		<div class="navBtn">
+    			<span>수강중인 강의</span>
+    		</div>
+    	</a>
+    	<a th:href="@{|/user/mypage/mycourse|}" 
+    	sec:authorize="isAuthenticated()"
+	    th:if="${#authentication.getPrincipal().getUsername() == member.memberId && #strings.contains(member.instructorYn,'Y')}">
+    		<div class="navBtn">
+    			<span>내 강의 관리</span>
+    		</div>
+  		</a>
+    	<a>
+    		<div class="navBtn">
+    			<span>설정</span>
+    		</div>
+    	</a>
+    	<a th:href="@{/user/logout}">
+    		<div class="navBtn">
+    			<span>로그아웃</span>
+    		</div>
+    	</a>
+	</div>
+</div>

@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.course.Course;
+import com.example.demo.member.Member;
 
 import lombok.RequiredArgsConstructor;
 
@@ -26,13 +27,14 @@ public class CourseReviewService {
 		
 	}
 	
-	public void create(Course course, String title, String content, String rate) {
+	public void create(Course course, String title, String content, String rate, Member m) {
 		CourseReview rev = new CourseReview();
 		rev.setTitle(title);
 		rev.setContent(content);
 		rev.setRate(rate);
 		rev.setLastUpdateDate(LocalDateTime.now());
 		rev.setCourse(course);
+		rev.setMember(m);
 		
 		this.cv.save(rev);
 		
