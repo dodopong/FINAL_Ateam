@@ -20,7 +20,7 @@ public class QuizController {
 	public final QuizService qs;
 	private final QuizRepository qr;
 	//private final QuizQuestionRepository qqr;
-	//private final MemberService ms; //필요한가?
+	//private final MemberService ms; 
 	
 //------------퀴즈만들기 페이지(강사)--------------------------------------------
 	@PreAuthorize("isAuthenticated()") //로그인해야 이용 가능

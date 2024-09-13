@@ -150,7 +150,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="quizList : ${quizList}"> 
+                <tr th:each="quizList : ${quizList}" class="eventtr"> 
                     <!-- a링크 클릭범위 너무 작음 위치 조정필 -->
                     <td><a th:href="@{|/quiz/solve/${quizList.quizKey}|}" th:text="${quizList.quizLevel}"></a></td>
                     <td><a th:href="@{|/quiz/solve/${quizList.quizKey}|}" th:text="${quizList.quizTitle}"></a></td>

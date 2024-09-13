@@ -29,7 +29,7 @@ public class BoardQuestionController {
 	private final BoardQuestionService boardQuestionService;
 	private final MemberService memberService;
 	
-	@GetMapping("/list")
+	@GetMapping("/list") //FQA/문의 메인 페이지 주소(게시판 형태)
 	public String list(Model model, @RequestParam(value = "page", defaultValue = "0")int page, @RequestParam(value = "kw",defaultValue = "")String kw) {
 		Page<BoardQuestion> paging = this.boardQuestionService.getList(page,kw);
 		model.addAttribute("paging",paging);
@@ -37,7 +37,7 @@ public class BoardQuestionController {
 		return "boardQuestion_list";
 	}
 	
-	@GetMapping(value = "/detail/{id}")
+	@GetMapping(value = "/detail/{id}") //특정 질문 클릭시 보여주는 상세페이지 주소
 	public String detail(Model model , @PathVariable("id") Integer id, BoardAnswerForm boardAnswerForm) {
 		BoardQuestion boardQuestion = this.boardQuestionService.getBoardQuestion(id);
 		model.addAttribute("boardQuestion",boardQuestion);
@@ -45,19 +45,20 @@ public class BoardQuestionController {
 	}
 	
 	
-	@GetMapping("/create")
+	@GetMapping("/create") //FQA/문의 질문작성 주소
 	public String boardQuestionCreate(BoardQuestionForm boardQuestionForm) {
 		return "boardQuestion_form";
 	}
 	
-	@PostMapping("/create")
+	@PostMapping("/create") 
 	public String boardQuestionCreate(@Valid BoardQuestionForm boardQuestionForm, BindingResult bindingResult, Principal principal) throws nosignException {
 		if(bindingResult.hasErrors()) {
-			return "boardQuestion_form";
+			return "boardQuestion_form"; //오류가 있다면 리파지토리저장 없이 기존의 데이터를 boardQuestion_form.html에 표시
 		}
-		Member member = this.memberService.getUser(principal.getName());
+		Member member = this.memberService.getUser(principal.getName()); //글쓴이 정보를 보여주기 위한 코드
 		this.boardQuestionService.boardQuestionCreate(boardQuestionForm.getSubject(),boardQuestionForm.getContent(),member);
 		return "redirect:/boardQuestion/list";
+		//오류가 없다면 boardQuestionService의 boardQuestionCreate로 리파지토리에 값을 저장하고 FQA/문의 게시판 화면으로 넘어간다
 	}
 	
 	

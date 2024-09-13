@@ -29,21 +29,24 @@ public class BoardAnswerController {
 	private final MemberService memberService;
 	
 	
-	@PostMapping("/create/{id}")
+	@PostMapping("/create/{id}") //FQA/문의 답변을 작성하는 주소
 	public String createBoardAnswer(Model model,@PathVariable("id") Integer id , @Valid BoardAnswerForm boardAnswerForm,BindingResult bindingResult,Principal principal) throws nosignException {
+		//사용자가 입력한 내용을 BoardAnswerForm에 넘겨 (유효성)검사한 값을 BindingResult에 담는 구조
 		BoardQuestion boardQuestion = this.boardQuestionService.getBoardQuestion(id);
+		//boardQuestionService의 getBoardQuestion을 통해 id값을 준 boardQuestion 인스턴스를 생성
 		Member member = this.memberService.getUser(principal.getName());
 		
 		if(bindingResult.hasErrors()) {
 			model.addAttribute("boardQuestion",boardQuestion);
 			return "boardQuestion_detail"; 
+			//오류가 있다면 리파지토리저장 없이 기존의 데이터를 boardQuestion_detail.html에 표시
 		}
 		
 		
 		this.boardAnswerService.create(boardQuestion, boardAnswerForm.getContent(), member);
 		
 		return String.format("redirect:/boardQuestion/detail/%s", id);
-		
+		//오류가 없다면 boardAnswerService의 create로 리파지토리에 값을 저장하고 질문에 종속시킨다
 	}
 	
 	
