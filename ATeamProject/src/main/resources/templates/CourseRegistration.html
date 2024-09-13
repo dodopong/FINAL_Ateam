@@ -126,17 +126,19 @@
 	                <div class="button">
 	                	<!--th:text 사용 시 "${course.courseKey}" 형태의 값이 그대로 출력되어서 th:attr 사용함.
 	                	   th:attr -> HTML 요소에 속성을 추가하거나 변경하는데 사용되는 속성-->
-				    	<a class="regi" th:data-uri="@{|/course/registration/${course.courseKey}|}">
-				    		<div class="free" id="free1" th:attr="freeCourseKey=${course.courseKey}">수강 신청</div>
-				    	</a>
-
-				    	<!--9월 10일 박호선 장바구니 추가 만드려고 바꿔보는 중-->
-               			<a th:href="@{|/course/${course.courseKey}/addcart|}"><div class="Btn">장바구니 추가</div></a>
-               			<!--강사일 경우에만 영상추가 버튼 표시-->
-                		<a  th:href="@{|/course/${course.courseKey}/addLecture|}" 
-    					sec:authorize="isAuthenticated()"
-	         			th:if="${#authentication.getPrincipal().getUsername() == member.memberId && #strings.contains(member.instructorYn,'Y')}"><div class="Btn">영상 추가</div></a>
-                		 
+	               		<div class="button-top">
+	               			<a class="regi" th:data-uri="@{|/course/registration/${course.courseKey}|}">
+				    			<div class="free" id="free1" th:attr="freeCourseKey=${course.courseKey}">수강 신청</div>
+				    		</a>
+               				<a th:href="@{|/course/${course.courseKey}/addcart|}">
+               					<div class="Btn">장바구니 추가</div>
+               				</a>
+	               		</div>
+				    	<div class="button-bot" th:if="${firstLecture.lectureKey != null}">
+				    		<a th:href="@{|/course/${course.courseKey}/view/${firstLecture.lectureKey}}">
+				    			<span>영상시청</span>
+				    		</a>
+				    	</div>
             		</div>     
 	            </div>
 	        </div>

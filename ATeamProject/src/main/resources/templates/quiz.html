@@ -162,21 +162,11 @@
             <tbody>
                 <tr th:each="quizList : ${quizList}">
                     <!-- a링크 클릭범위 너무 작음 위치 조정필 -->
-                    <td>
-                        <a th:href="@{|/quiz/solve/${quizList.quizKey}|}" th:text="${quizList.quizLevel}"></a>
-                    </td>
-                    <td>
-                        <a th:href="@{|/quiz/solve/${quizList.quizKey}|}" th:text="${quizList.quizTitle}"></a>
-                    </td>
-                    <td>
-                        <a th:href="@{|/quiz/solve/${quizList.quizKey}|}" th:text="${quizList.quizLevel}"></a>
-                    </td>
-                    <td>
-                        <a th:href="@{|/quiz/solve/${quizList.quizKey}|}" th:text="${quizList.quizLevel}"></a>
-                    </td>
-                    <td>
-                        <a th:href="@{|/quiz/solve/${quizList.quizKey}|}" th:text="${quizList.quizLevel}"></a>
-                    </td>
+                    <td><a th:href="@{|/quiz/solve/${quizList.quizKey}|}" th:text="${quizList.quizLevel}"></a></td>
+                    <td><a th:href="@{|/quiz/solve/${quizList.quizKey}|}" th:text="${quizList.quizTitle}"></a></td>
+                    <td><a th:href="@{|/quiz/solve/${quizList.quizKey}|}" th:text="${quizList.quizLevel}"></a></td>
+                    <td><a th:href="@{|/quiz/solve/${quizList.quizKey}|}" ></a>0</td>
+                    <td><a th:href="@{|/quiz/solve/${quizList.quizKey}|}" ></a>0%</td>
                 </tr>
             </tbody>
         </table>

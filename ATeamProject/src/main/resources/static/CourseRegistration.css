@@ -40,6 +40,7 @@ main {
 
 .right-screen {
     width: 30vw;
+    height:120vh;
     position: absolute;
     display: flex;
     justify-content: flex-end;
@@ -50,14 +51,16 @@ main {
 .right-screen h2 {
     font-size: 1.3rem;
     font-weight: bold;
-    padding: 1.0rem
+    padding: 1.0rem;
+    text-align: center;
 }
 
 .right-con {
     background-color: white;
-    top: 50vh;
+    position:sticky;
+    top: 0vh;
     width: 500px;
-    height: 350px;
+    height: 280px;
     border-radius: 15px;
     transition: all 0.3s ease;
     box-shadow: 1px 1px 3px gray;
@@ -359,45 +362,61 @@ main {
 /**************** Button Styles ****************/
 
 .button {
-    text-align: center;
-    margin-top: 4rem;
-    display: flex;
-    justify-content: space-evenly;
+    margin-top: 2rem;
+    display:flex;
+    flex-direction: column;
+    height: 40%;
+    
 }
 
-.Btn:hover {
-    background-color: #608fb7;
-    transform: translateY(-3px);
+.button-top{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	height: 50%;
 }
 
-.Btn {
-    display: inline-block;
+.button-top>a{
+	display: flex;
+	align-items: center;
+	justify-content: center;
     background-color: #c2a2b4;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     color: white;
     font-size: 0.7rem;
-    padding: 15px 40px;
     border-radius: 50px;
     cursor: pointer;
-    margin-bottom: 25px;
     transition: 0.3s;
+    height: 60%;
+    width: 45%;
 }
 
-.free:hover {
-    background-color: #608fb7;
-    transform: translateY(-3px);
+.button-bot{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	height: 50%;
 }
-
-.free {
-    display: inline-block;
+.button-bot>a{
+	display: flex;
+	align-items: center;
+	justify-content: center;
     background-color: #c2a2b4;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     color: white;
-    padding: 15px 40px;
+    width: 95%;
+    height: 60%;
     font-size: 0.7rem;
-    height: 45px;
     border-radius: 50px;
     cursor: pointer;
-    margin-bottom: 25px;
     transition: 0.3s;
+}
+
+
+.button-top>a:hover {
+    background-color: #608fb7;
+    transform: translateY(-3px);
+}
+.review-header>a{
+	z-index: 100;
 }

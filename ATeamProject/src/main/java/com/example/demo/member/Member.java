@@ -4,6 +4,7 @@ import com.example.demo.cart.Cart;
 import com.example.demo.course.Course;
 import com.example.demo.courseReview.CourseReview;
 import com.example.demo.file.Files;
+import com.example.demo.quiz.Quiz;
 import com.example.demo.registration.Registration;
 
 import java.time.LocalDateTime;
@@ -46,7 +47,7 @@ public class Member {
 	
 	
 	@OneToOne(mappedBy = "member", cascade = CascadeType.ALL)
-	private Files profileImg;
+	private Files profileImg; // 프로필이미지
 	
 	private String category;
 	
@@ -55,20 +56,21 @@ public class Member {
 	private LocalDateTime lastUpdateDate;
 	
 	@OneToMany(mappedBy = "member", cascade = CascadeType.ALL )
-	private List<Cart> cartList;
+	private List<Cart> cartList; //장바구니
 	
 	@OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
-	private List<Course> courseList;
+	private List<Course> courseList; // (강사) 생성한 강좌
 	
 	@OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
-	private List<Registration> regiList;
+	private List<Registration> regiList; // 수강중인 강의
 	
 	@OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
-	private List<CourseReview> CourseReviewList;
+	private List<CourseReview> CourseReviewList; // 강의 리뷰
 	
 	@OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
-	private List<Career> careerList;
+	private List<Career> careerList; // (강사) 이력
 
-
+	@OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
+	private List<Quiz> createQuizList;
 }
 
