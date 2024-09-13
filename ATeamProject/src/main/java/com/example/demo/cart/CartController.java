@@ -30,10 +30,10 @@ public class CartController {
 	
 
 	
-	@GetMapping("/cart/delete/{id}")
+	@GetMapping("/cart/delete/{id}") 
 	public String delcart(@PathVariable(value = "id")Integer cartKey) {
 		try {
-			Cart c = this.cas.getCart(cartKey);
+			Cart c = this.cas.getCart(cartKey); //선택한 강의 삭제
 			this.cas.delete(c);
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -16,6 +16,7 @@ import com.example.demo.PpakchimException;
 import com.example.demo.cart.Cart;
 import com.example.demo.cart.CartService;
 import com.example.demo.file.FileController;
+import com.example.demo.lecture.Lecture;
 import com.example.demo.member.Member;
 import com.example.demo.member.MemberService;
 import com.example.demo.member.nosignException;
@@ -47,18 +48,18 @@ public class CourseController {
 		model.addAttribute("courseList",clist);
 		return "MainPage";
 	}
-//---------------------------------------------------------
+//---------------------리뷰 작성-----------------------------
 	@GetMapping("/createReview")
 	public String createCoureReview() {
 		return "CreateCourseReview";
 	}
 	
-//-------------------------------------create-------------
+//----------------------강의 생성---------------------------
 	@PreAuthorize("isAuthenticated()") // 로그인 한 경우에만 요청 처리
 	@GetMapping("/create")
 	public String createCoure(CourseForm courseForm, Principal principal) throws nosignException {
-		Member m = this.ms.getUser(principal.getName());
-		if(m.getInstructorYn().equals("N") || m.getInstructorYn()==null) {
+		Member m = this.ms.getUser(principal.getName()); //강의 생성자 정보(이름) 저장을 위함
+		if(m.getInstructorYn().equals("N") || m.getInstructorYn()==null) { //InstructorYn 컬럼값이 N(학생)인 경우 메인화면으로 돌아감
 			return "redirect:/main";
 		}
 		else {
@@ -66,17 +67,17 @@ public class CourseController {
 		}
 	}
 	
-	@PreAuthorize(value = "isAuthenticated()")
+	@PreAuthorize(value = "isAuthenticated()") // 로그인 한 경우에만 요청 처리
 	@PostMapping("/create")
 	public String createCoure(CourseForm courseForm, BindingResult bindingResult,
 			HttpServletRequest request, @RequestParam(value = "file1") MultipartFile file1,
 			@RequestParam(value = "file2") MultipartFile file2, Principal principal) throws Exception{
 		 if (bindingResult.hasErrors()) {
-		        for (FieldError error : bindingResult.getFieldErrors()) {
-		            System.out.println("Field: " + error.getField());
-		            System.out.println("Error Code: " + error.getCode());
-		            System.out.println("Default Message: " + error.getDefaultMessage());
-		        }
+//		        for (FieldError error : bindingResult.getFieldErrors()) {
+//		            System.out.println("Field: " + error.getField());
+//		            System.out.println("Error Code: " + error.getCode());
+//		            System.out.println("Default Message: " + error.getDefaultMessage());
+//		        }
 		        return "CreateCourse"; // 에러가 있는 경우 반환할 뷰
 		    }
 		 Member m = this.ms.getUser(principal.getName());
@@ -84,14 +85,29 @@ public class CourseController {
 	    		   ,courseForm.getCategory(),courseForm.getLevel(),courseForm.getObjective(),courseForm.getPrice(),m);
 	      
 	       
-	     fc.thumbfileInsert(request, file1, c);
-	     fc.bannerfileInsert(request, file2, c);
-	     return "redirect:/user/mypage/mycourse";
+	     fc.thumbfileInsert(request, file1, c);  //썸네일 이미지 저장 메소드
+	     fc.bannerfileInsert(request, file2, c); //배너 이미지 저장 메소드
+	     return "redirect:/user/mypage/mycourse"; //마이페이지 강의관리페이지로 넘어감
 	}
-
+	//-----------------------------------------------------------------------------------------
+	//-------------------------------modify course-----------------------------
+	@PreAuthorize(value = "isAuthenticated()")
+	@GetMapping("/course/{courseKey}/modify")
+	public String modifyCourse(@PathVariable(value = "courseKey")Integer courseKey,Principal principal) throws Exception {
+		Member m = this.ms.getUser(principal.getName());
+		Course c = this.cs.getCourse(courseKey);
+		
+		return "gongsajoong";
+	}
+	
+	
+	
+	
+	
+	
 //-----------------------------------------------------------------------------------------
 //-------------------------------SearchCourse-----------------------------
-	@GetMapping("/searchcourse")
+	@GetMapping("/searchcourse") //강의 검색
 	public String searchCourse(@RequestParam(value ="keyword")String keyword, Model model,CourseForm courForm) throws PpakchimException {
 		List<Course> clist = this.cs.search(keyword);
 		model.addAttribute("courseList", clist);
@@ -110,9 +126,18 @@ public class CourseController {
 	@GetMapping(value = "/course/{course_key}")
 	   public String detail(Model model, @PathVariable("course_key") Integer course_key, CourseForm courseForm) throws Exception {
 	      Course c = this.cs.getCourse(course_key);
+	      if(!c.getLectureList().isEmpty()) {
+	    	  Lecture l = c.getLectureList().get(0);
+	    	  model.addAttribute("firstLecture",l);
+	      }
+	      else {
+	    	  Lecture l = new Lecture();
+	    	  model.addAttribute("firstLecture",l);
+	      }
 	      Member m = c.getMember();
 	      model.addAttribute("course", c);
 	      model.addAttribute("member",m);
+	     
 	      
 	      return "CourseRegistration";
 	   }
@@ -121,22 +146,22 @@ public class CourseController {
 	
 	@GetMapping("/course/{courseKey}/addcart") // 장바구니 추가 & 장바구니 전체보기
 	public String addcart(@PathVariable(value = "courseKey")Integer courseKey, Model model, Principal principal) throws Exception {
-		Member m = this.ms.getUser(principal.getName());
-		Course c = this.cs.getCourse(courseKey);
+		Member m = this.ms.getUser(principal.getName()); //장바구니는 개인별로 가지고 있기 때문에 유저 정보가 필요함
+		Course c = this.cs.getCourse(courseKey);         //선택한 강의의 정보가 필효함
 		
 		try {
 			Cart ct = this.carts.getCart(m.getMemberKey(), courseKey);
-			if(!m.getCartList().contains(ct)) {
-				this.carts.createCart(m, c);
+			if(!m.getCartList().contains(ct)) { //선택한 강의가 카트에 없다면
+				this.carts.createCart(m, c);    //카트에 강의 추가
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
-			this.carts.createCart(m, c);
+			// 
+			this.carts.createCart(m, c);  
 		}
 		
-		model.addAttribute("member", m);
+		model.addAttribute("member", m); 
 		
-		return "Cart";
+		return "Cart";  
 	}
 	
 	@GetMapping("/cart") // 장바구니 전체보기
@@ -158,14 +183,14 @@ public class CourseController {
 	
 		try {
 			Registration r = this.rs.getRegistration(m.getMemberKey(), courseKey);
-			if(!m.getRegiList().contains(r)) {
-				this.rs.create(m, c);
+			if(!m.getRegiList().contains(r)) { //특정 강의를 수강하지 않는 상태라면
+				this.rs.create(m, c);          //맴버 별로 수강하는 강의 정보를 저장하는 메소드를 호출
 			}
 			else {
-				errm = "이미 수강중인 강의 입니다.";
+				errm = "이미 수강중인 강의 입니다."; //수강 중이라면 띄우는 메세지
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+			//
 			this.rs.create(m, c);
 		}
 			model.addAttribute("errM",errm);

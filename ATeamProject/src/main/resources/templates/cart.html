@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>장바구니</title>
-        <link rel="stylesheet" th:href="@{/CartPage.css}">
-        <link rel="stylesheet" th:href="@{/fragment.css}">
+    <link rel="stylesheet" th:href="@{/CartPage.css}">
+    <link rel="stylesheet" th:href="@{/fragment.css}">
     <script src="https://kit.fontawesome.com/86c06c2025.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
     <!-- ***************************************************** MODAL
      ***************************************************** -->
-<div th:replace="~{modal :: modalFragment}"></div>
-     <!-- ***************************************************** Header_Content 
+    <div th:replace="~{modal :: modalFragment}"></div>
+    <!-- ***************************************************** Header_Content 
      ***************************************************** -->
-     <nav th:replace="~{navbar :: navbarFragment}"></nav>
+    <nav th:replace="~{navbar :: navbarFragment}"></nav>
     <!-- 섹션 시작 -->
     <section>
         <div class="cartContainer">
@@ -26,27 +28,27 @@
                 <div class="cartPrice">가격</div>
                 <div class="cartLevel">난이도</div>
             </div>
-           <div th:each="cart : ${member.cartList}" class="cartItem">
+            <div th:each="cart : ${member.cartList}" class="cartItem">
                 <div class="cartCheck"><input type="checkbox" name="cartbox" onclick="checkSelectAll(this)" th:value="${cart.course.courseKey}"></div>
                 <div class="cartImage">
-                    <img th:each="file : ${cart.course.fileList}" th:if ="${#strings.contains(file.fileurl,'Thumbnail')}" th:src="@{|/image/Thumbnail/${file.filename}|}">
-                    <img th:each="file : ${cart.course.fileList}" th:if ="${#strings.isEmpty(file.fileOriName)}" src="/image/noimage.png"></div>
+                    <img th:each="file : ${cart.course.fileList}" th:if="${#strings.contains(file.fileurl,'Thumbnail')}" th:src="@{|/image/Thumbnail/${file.filename}|}">
+                    <img th:each="file : ${cart.course.fileList}" th:if="${#strings.isEmpty(file.fileOriName)}" src="/image/noimage.png"></div>
                 <div th:text="${cart.course.title}" class="cartName"></div>
                 <div th:text="${cart.course.category}" class="cartCategory"></div>
                 <div th:text="${cart.course.price}" class="cartPrice"></div>
                 <div th:text="${cart.course.level}" class="cartLevel"></div>
-               	<div>
-               		<a class="delete" href="javascript:void(0);" th:data-uri="@{|/cart/delete/${cart.cartKey}|}">
-               			<button >X</button>
-               		</a>
-               	</div>
+                <div>
+                    <a class="delete" href="javascript:void(0);" th:data-uri="@{|/cart/delete/${cart.cartKey}|}">
+                        <button>X</button>
+                    </a>
+                </div>
             </div>
         </div>
 
         <div class="btn">
-        	<a th:href="@{|/searchcourse?keyword=|}">
-        		<button class="keepbtn">쇼핑 계속하기</button>
-        	</a>
+            <a th:href="@{|/searchcourse?keyword=|}">
+                <button class="keepbtn">쇼핑 계속하기</button>
+            </a>
             <form id="myForm" action="/payment" method="get">
                 <input type="hidden" name="data" id="jsonData">
                 <button type="submit" class="orderbtn">구매하기</button>
@@ -54,21 +56,22 @@
         </div>
     </section>
 
-   <!-- ***************************************************** FOOTER
+    <!-- ***************************************************** FOOTER
      ***************************************************** -->
     <footer th:replace="~{footer :: footerFragment}"></footer>
- 
-	<script>
-		let del = document.querySelectorAll(".delete")
-		for(let el of del){
-			el.addEventListener('click', function(){
-				if(confirm("진짜?")){
-					location.href = this.dataset.uri;
-				}
-			});
-		}
-	</script>
+
+    <script>
+        let del = document.querySelectorAll(".delete")
+        for (let el of del) {
+            el.addEventListener('click', function() {
+                if (confirm("진짜?")) {
+                    location.href = this.dataset.uri;
+                }
+            });
+        }
+    </script>
     <script th:src="@{/CartPage.js}"></script>
     <script th:src="@{/fragment.js}"></script>
 </body>
+
 </html>

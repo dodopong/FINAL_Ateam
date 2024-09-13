@@ -17,14 +17,17 @@
 }
 
 .searchContainer {
-    width: 30rem;
+    width: 100vw;
     /* background-color: #aec5d8;
     border: 3px solid #608fb7; */
     border-radius: 10px;
+    padding-left: 10vw;
+    padding-right: 10vw;
 }
 
 .searchContainer>div {
-    padding: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 }
 
 .searchTop {
@@ -34,7 +37,20 @@
 }
 
 #searchoption {
-    margin-right: 0.2rem;
+    margin-right: 1rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    border-radius: 0.2rem;
+    box-shadow: 1px 1px 3px gray;
+}
+
+.searchTop>input {
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+    padding-left: 0.5rem;
+    border-radius: 0.2rem;
+    border: none;
+    box-shadow: 1px 1px 3px gray;
 }
 
 .categoryFilter {
@@ -45,8 +61,15 @@
 
 .categoryFilter select,
 p {
-    margin-left: 0.3rem;
-    font-size: 0.7rem;
+    margin-right: 1rem;
+    font-size: 0.9rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    border-radius: 0.3rem;
+}
+
+.categoryFilter>p {
+    line-height: 10px;
 }
 
 .filter {
@@ -63,18 +86,27 @@ p {
 }
 
 .filterul li {
-    border-bottom: 1px solid lightgray;
     font-size: 0.8rem;
-    margin-left: 0.5rem;
-    padding: 2px;
+    padding: 0.3rem 1rem 0.3rem 1rem;
+    margin-right: 1rem;
+    border-radius: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    font-weight: 900;
+    box-shadow: 1px 1px 3px gray;
+    color: rgb(66, 66, 66);
+    transition: .3s;
 }
 
 .filterselect.active {
-    text-shadow: 1px 1px 1px gray;
+    text-shadow: 1px 1px 1px white;
 }
 
 .filterul li:hover {
-    text-shadow: 1px 1px 1px gray;
+    background-color: #d9bbb8;
+}
+
+.filterul li:active {
+    background-color: #d9bbb8;
 }
 
 label {

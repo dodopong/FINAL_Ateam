@@ -25,7 +25,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Controller
 
-public class LectureController {
+public class LectureController { //강의 영상(동영상) 페이지 관련
 	private final LectureService ls;
 	private final CourseService cs;
 	private final FileController fc;
@@ -53,7 +53,7 @@ public class LectureController {
 	}
 		
 	
-	@PostMapping("/course/{course_key}/addlecture")
+	@PostMapping("/course/{course_key}/addlecture") //강의 만든사람만 영상 추가 가능
 	public String addlecture(Model model, @PathVariable("course_key") Integer course_key,  HttpServletRequest request,
 			@Valid LectureForm lectureForm, BindingResult bindingResult, @RequestParam(value = "file") MultipartFile file) throws Exception{
 		Course c = this.cs.getCourse(course_key);

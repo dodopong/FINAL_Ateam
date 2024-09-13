@@ -29,7 +29,9 @@ public class PaymentController {
 	@GetMapping("/payment")
     public String receiveData(@RequestParam(value="data") String data, Model model)
     		throws JsonMappingException, JsonProcessingException, NotFoundException {
+		//카트에서 선택한 강의의 벨류값을 배열에 저장한 것을 (json데이터 형태로) 구매 페이지로 전달
         List<String> coursekeyList = new ObjectMapper().readValue(data, new TypeReference<List<String>>() {});
+        																	//전달받은 정보를 string타입으로 변환
         List<Course> selectedCourses = cos.getListCourse(coursekeyList);
         model.addAttribute("selectedCourses", selectedCourses);
 
