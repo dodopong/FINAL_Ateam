@@ -73,13 +73,16 @@
 	                 
 	                <div class = "review-header">
 	                    <h2 id="title4">수강평</h2>
-	                    <div class="rate-button">
-	                        <div class="rate-btn">
-	                            <a th:href="@{|/course/${course.courseKey}/reviewcreate|}">
-	                                리뷰 작성하기
-	                            </a>
-	                        </div>
-	                    </div>
+	                    <a th:href="@{|/course/${course.courseKey}/reviewcreate|}"
+	                     sec:authorize="isAuthenticated()"
+	                     th:each="regi : ${course.regiList}"
+	                     th:if="${#authentication.getPrincipal().getUsername()== regi.member.memberId}">
+	                    	<div class="rate-button">
+	                        	<div class="rate-btn">
+	                        	리뷰 작성하기   
+	                        	</div>
+	                    	</div> 
+	                    </a>
 	                </div>         
 	
 	                <div class="star-rate">
@@ -94,6 +97,7 @@
 	                    <ul th:each="review : ${course.courseReviewList}">
 	                        <div class="review-el">
 	                            <h3 th:text="${review.title}"></h3> <!--리뷰 제목-->
+	                            <span th:text="${review.member.nickname}"></span>
 	                            <div class="review-rate-container">
 	                                <div class="review-rate-star">
 	                                    ☆☆☆☆☆
@@ -101,8 +105,8 @@
 	                                </div>
 	                                <li class="review-rate" th:text="${review.rate}"></li> <!-- 별점 표시 -->
 	                            </div>
-	                            <li th:text="${review.content}"></li> <!--리뷰 내용 작성-->
-	                    </div>
+	                         	<li th:text="${review.content}"></li> <!--리뷰 내용 작성-->
+	                    	</div>
 	                    </ul>
 	                </div>
 	            </section>
@@ -122,7 +126,9 @@
 	                <div class="button">
 	                	<!--th:text 사용 시 "${course.courseKey}" 형태의 값이 그대로 출력되어서 th:attr 사용함.
 	                	   th:attr -> HTML 요소에 속성을 추가하거나 변경하는데 사용되는 속성-->
-				    	<a><div class="free" id="free1" th:attr="freeCourseKey=${course.courseKey}">수강 신청</div></a>
+				    	<a class="regi" th:data-uri="@{|/course/registration/${course.courseKey}|}">
+				    		<div class="free" id="free1" th:attr="freeCourseKey=${course.courseKey}">수강 신청</div>
+				    	</a>
 
 				    	<!--9월 10일 박호선 장바구니 추가 만드려고 바꿔보는 중-->
                			<a th:href="@{|/course/${course.courseKey}/addcart|}"><div class="Btn">장바구니 추가</div></a>
@@ -144,7 +150,6 @@
     <!-- ***************************************************** MODAL
      ***************************************************** -->
 	
-    <script th:src="@{/CourseRegistrationModule.js}"></script>
     <script th:src="@{/CourseRegistartion.js}"></script>
     <script th:src="@{/fragment.js}"></script>
 </body>

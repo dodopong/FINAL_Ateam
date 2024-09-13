@@ -20,81 +20,39 @@
     ***************************************************** -->
     
     <div class = "sectionAll">
-    	<div class="sectionTop">
-    		<a id="profile" th:href="@{|/user/mypage|}">
-    			<div class="profile">
-    				<img th:if ="${#strings.contains(member.profileImg.fileurl,'profileImg')}" th:src="@{|/image/profileImg/${member.profileImg.filename}|}">
-    				<img th:if ="${#strings.isEmpty(member.profileImg.fileOriName)}" src="/image/noimage.png">
-    				<div class="name">
-    					<span th:text="${member.nickname}"></span>
-    					<span th:text="${member.memberId}"></span>
-    				</div>
-    			</div>
-    		</a>
-    		<a id="subscription">
-    			<span>정기권<br>구독하기</span>
-    		</a>
-    	</div>
+    	<!-- ****************************** section_top
+    ***************************************************** -->
+    	<div th:replace="~{SectionTopfg :: sectionTopFragment}"></div>
+    	<!-- ****************************** 
+    ***************************************************** -->
     	<div class = "sectionBottom">
-    		<div class = "sectionNav">
-    			<a>
-    				<div class="navBtn">
-    					<span>구독 관리</span>
-    				</div>
-    			</a>
-    			<a th:href="@{|/user/mypage|}">
-    				<div class="navBtn">
-    					<span>회원 정보 관리</span>
-    				</div>
-    			<a th:href="@{|/user/mypage/mycareer|}"
-    			sec:authorize="isAuthenticated()"
-	         	th:if="${#authentication.getPrincipal().getUsername() == member.memberId && #strings.contains(member.instructorYn,'Y')}">
-    				<div class="navBtn">
-    					<span>내 이력 관리</span>
-    				</div>
-    			</a>
-    			</a>
-    			<a th:href="@{|/user/mypage/mycourse|}" 
-    			sec:authorize="isAuthenticated()"
-	         	th:if="${#authentication.getPrincipal().getUsername() == member.memberId && #strings.contains(member.instructorYn,'Y')}">
-    				<div class="navBtn">
-    					<span>내 강의 관리</span>
-    				</div>
-    			</a>
-    			<a>
-    				<div class="navBtn">
-    					<span>설정</span>
-    				</div>
-    			</a>
-    			<a>
-    				<div class="navBtn">
-    					<span>로그아웃</span>
-    				</div>
-    			</a>
-    		</div>
+    	<!-- ****************************** section-nav
+    ***************************************************** -->
+    		<div th:replace="~{SectionNavfg :: sectionNavFragment}"></div>
+    		<!-- ****************************** 
+    ***************************************************** -->
     		<div class = "sectionContent">
     		<h3>내 정보 관리</h3>
-    			<form th:action="@{/user/mypage/modify}" th:object = "${memberForm}" method="post" enctype="multipart/form-data">
-    			<div th:replace="~{form_errors :: formErrorsFragment}"></div>
+    			<div class="myinfo">
     				<label for="profileImg">
     					<div class="mainImg">
-    						<img th:if ="${#strings.contains(member.profileImg.fileurl,'profileImg')}" th:src="@{|/image/profileImg/${member.profileImg.filename}|}">
-    						<img th:if ="${#strings.isEmpty(member.profileImg.fileOriName)}" src="/image/profileImg/basicImg02.jpg">
-    						<div class="subImg">
-    							<img src="/image/modifyicon.jpg">
-    						</div>
+    						<img th:if ="${#strings.contains(member.profileImg.fileurl,'profileImg') && !#strings.isEmpty(member.profileImg.fileOriName)}"
+    						 th:src="@{|/image/profileImg/${member.profileImg.filename}|}">
+    						<img th:if ="${#strings.contains(member.profileImg.fileurl,'profileImg') && #strings.isEmpty(member.profileImg.fileOriName)}"
+    						 src="/image/profileImg/basicImg02.jpg">
     					</div>
     				</label>
-    				<input th:field="*{profileImg}"  type="file" id="profileImg">
     				<div class="box">
   						<label for="nickname">닉네임</label>
- 	 					<input th:field="*{nickname}" type="text" th:placeholder="${member.nickname}" id="nickname" name="nicknamename">
+ 	 					<input type="text" th:placeholder="${member.nickname}" id="nickname" name="nicknamename"disabled>
 					</div>
     				<div class="box">
   						<label for="email">아이디</label>
  	 					<input type="text" id="email" th:placeholder="${member.memberId}" name="email" disabled>
 					</div>
-    				<button type="submit">저장하기</button>
+					<a th:href="@{/user/mypage/edit}">
+						<button>수정하기</button>
+					</a>
     			</form>	
     			<a id="signout">회원&nbsp탈퇴</a>
     		</div>

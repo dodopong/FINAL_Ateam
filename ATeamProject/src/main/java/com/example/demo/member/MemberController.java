@@ -102,35 +102,37 @@ public class MemberController {
     @PreAuthorize(value = "isAuthenticated()")
 	@GetMapping("/mypage")
 	public String mypage(Model model, Principal principal, MemberForm memberForm) throws nosignException {
-		System.out.println("떳냐@@@@@@@");
 		Member m = this.ms.getUser(principal.getName());
 		System.out.println(principal.getName());
 		model.addAttribute("member",m);
 		return "mypage/Mypage";
 	}
+    
+    ///////////내 정보 수정///////////////////////
 
     @PreAuthorize(value = "isAuthenticated()")
-	@PostMapping("/mypage/modify")
-	public String Modifymypage(@Valid MemberForm memberform,BindingResult bindingResult, Principal principal,
-			HttpServletRequest request,@RequestParam(value = "profileImg") MultipartFile file1,Model model) {
-		if(bindingResult.hasErrors()) {
-			return "mypage/Mypage";
-		}
-		try {
-			System.out.println("떳냐?");
-			Member m = this.ms.getUser(principal.getName());
-			Files f = m.getProfileImg();
-			model.addAttribute("member",m);
+	@GetMapping("/mypage/edit")
+	public String modifymypage(MemberForm memberForm,Principal principal,Model model) throws Exception {
+    	Member m = this.ms.getUser(principal.getName());
+    	model.addAttribute("member", m);
+    	return "mypage/MypageEdit";
+    }
+    
+    @PreAuthorize(value = "isAuthenticated()")
+	@PostMapping("/mypage/edit")
+	public String Modifymypage(MemberForm memberform, Principal principal,
+			HttpServletRequest request,@RequestParam(value = "profileImg") MultipartFile file1,Model model) throws Exception {
+    	Member m = this.ms.getUser(principal.getName());
+    	model.addAttribute("member",m);
+		Files f = m.getProfileImg();
+		if(!memberform.getNickname().isEmpty()) {
 			this.ms.modify(m, memberform.getNickname());
-			System.out.println("떳냐???????");
-			this.fs.modifyProfileImg(f, request, file1);
-			System.out.println("떳냐??!!??!!??!!");
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
 		}
-		return "redirect:/mypage/Mypage";
+		if(!file1.getOriginalFilename().isEmpty()) {
+			this.fs.modifyProfileImg(f, request, file1);
+		}
+			
+		return "redirect:/user/mypage";
 	}
     		/////////////////////////MyPage 내 강의 관리(강사계정) //////////////////
     @PreAuthorize(value = "isAuthenticated()")
@@ -140,14 +142,24 @@ public class MemberController {
 		model.addAttribute("member",m);
 		return "mypage/Mycourse";
 	}
+    
+	/////////////////////////MyPage 수강중인 강의관리 //////////////////
+    @PreAuthorize(value = "isAuthenticated()")
+    @GetMapping("/mypage/myregistration")
+    public String myregistration(Model model, Principal principal) throws nosignException {
+    	Member m = this.ms.getUser(principal.getName());
+    	model.addAttribute("member",m);
+    	return "mypage/Myregistration";
+    }
     		/////////////////////////MyPage 내 이력 관리(강사계정) //////////////////
+    @PreAuthorize(value = "isAuthenticated()")
     @GetMapping("/mypage/mycareer")
 	public String mycareer(Model model, Principal principal,CareerForm careerForm) throws nosignException {
 		Member m = this.ms.getUser(principal.getName());
 		model.addAttribute("member",m);
 		return "mypage/Mycareer";
 	}
-    
+    @PreAuthorize(value = "isAuthenticated()")
     @PostMapping("/mypage/mycareer")
     public String mycareer(Principal principal,@Valid CareerForm careerForm,BindingResult bindingResult) {
     	if(bindingResult.hasErrors()) {

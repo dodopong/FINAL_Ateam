@@ -1,3 +1,11 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
 .sectionAll{
 	color: #333;
     width: 100vw;
@@ -185,4 +193,31 @@
 }
 #year,#careertext{
 	width: 70%;
+}
+/******************** edit ***************************/
+.myinfo{
+	display: flex;
+	flex-direction: column;
+}
+.myinfo>a{
+	height: 3rem;
+}
+.myinfo>a>button{
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+	background-color: #e9e1da;
+	font-size: 1.5rem;
+	color: black;
+	font-weight: bold;
+}
+.canclebtn{
+	margin-top: 1rem;
+	width: 100%;
+	height: 3rem;
+	border-radius: 10px;
+	background-color: rgb(185, 160, 138);
+	font-size: 1.5rem;
+	color: black;
+	font-weight: bold;
 }
