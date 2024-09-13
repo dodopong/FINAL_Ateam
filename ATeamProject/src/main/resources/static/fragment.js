@@ -50,15 +50,15 @@ categoryBtn.addEventListener('click', function() {
 //*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* Modal 이벤트 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 
 const modalBtn = document.querySelectorAll(".loginBtn");
-const modal = document.querySelector(".modal");
+const modal = document.querySelector(".modalpage");
 const closeBtn = document.querySelector(".closeBtn");
 
 // Modal 실행시 스크롤 비활성화 
-modalBtn.forEach(btn =>{
-	btn.addEventListener('click', function() {
-    modal.classList.add('on');
-    document.querySelector('body').classList.add("stopScolling");
-});
+modalBtn.forEach(btn => {
+    btn.addEventListener('click', function() {
+        modal.classList.add('on');
+        document.querySelector('body').classList.add("stopScolling");
+    });
 });
 
 closeBtn.addEventListener('click', function() {
@@ -67,8 +67,3 @@ closeBtn.addEventListener('click', function() {
         document.querySelector('body').classList.remove("stopScolling");
     }
 });
-
-
-
-
-

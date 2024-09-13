@@ -6,25 +6,38 @@
     text-decoration: none;
 }
 
+
 /* header 끝 */
 
+
 /* section */
-.section{
+
+.section {
     /* 섹션 크기 잡기 */
     width: 100vw;
     /* height: 40rem; */
-    display: flex;
+    position: relative;
+    background-color: #e9e1da;
 }
+
+
 /* section 왼쪽 */
-.main{
+
+.main {
     /* 좌측 div 크기 잡기 */
-    width: 70vw;
+    width: 100%;
     /* height: 40rem; */
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
+    border-bottom: 3px solid white;
 }
+
+
 /* 제목 파트 시작 */
-.titlecontainer{
+
+.titlecontainer {
     padding-top: 1rem;
     width: 67.5vw;
     /* height: 5rem; */
@@ -32,17 +45,23 @@
     align-items: center;
     justify-content: center;
 }
-.title{
+
+.title {
     /* height: 5rem; */
     width: 55vw;
     padding: 1rem;
-    border: 1px solid black;
+    background-color: white;
+    box-shadow: 1px 1px 3px gray;
     border-radius: 10px;
 }
+
+
 /* 제목 파트 끝 */
 
+
 /* 설명 파트 시작 */
-.discontainer{
+
+.discontainer {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -50,17 +69,23 @@
     padding-top: 1rem;
     /* height: 10rem; */
 }
-.discontainer .text{
+
+.discontainer .text {
     /* height: 8rem; */
     width: 55vw;
     padding: 1rem;
-    border: 1px solid black;
+    background-color: white;
+    box-shadow: 1px 1px 3px gray;
     border-radius: 10px;
 }
+
+
 /* 설명 파트 끝 */
 
+
 /* 영상 파트 시작 */
-.moviecontainer{
+
+.moviecontainer {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -68,77 +93,113 @@
     padding-top: 1rem;
     /* height: 30rem; */
 }
-.movie{
+
+.movie {
     /* display: flex; */
     /* align-items: center; */
     /* justify-content: center; */
     width: 55vw;
     padding: 1rem;
     margin-bottom: 0.5rem;
-    border: 1px solid black;
+    background-color: white;
+    box-shadow: 1px 1px 3px gray;
     border-radius: 10px;
     /* height: 25rem; */
 }
-.movie video{
+
+.movie video {
     width: 50vw;
-    height: 36rem;
+    height: 25rem;
 }
+
+.movie>video {
+    padding-left: 2rem;
+}
+
+
 /* 영상 파트 끝 */
+
+
 /* section 왼쪽 끝 */
 
+
 /* section 오른쪽 */
-.side{
+
+.side {
     /* 우측 div 크기 잡기 */
-    width: 30vw;
+    width: 20vw;
     /* height: 40rem; */
+    position: absolute;
+    top: 0;
+    right: 0;
 }
+
+
 /* 목차 시작 */
-.ahrck{
+
+.ahrck {
     margin-top: 1rem;
     margin-right: 2.5rem;
     display: flex;
     flex-direction: column;
 }
-.ahrckbtn{
+
+.ahrckbtn {
     /* 목차 버튼 크기 잡기 */
     /* height: 5rem; */
     width: 15vw;
 }
-.ahrckbtn{
+
+.ahrckbtn {
     /* background-color: #608fb7; */
     /* color: white; */
-    border: 1px solid black;
+    box-shadow: 1px 1px 3px gray;
     border-radius: 5px;
     cursor: pointer;
     height: 3rem;
     width: 10vw;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 900;
+    border: none;
 }
-.ahrckli{
+
+.ahrckli {
     overflow: hidden;
     transition: 0.5s;
     max-height: 0;
 }
-.ahrckli li{
-    border: 1px solid black;
+
+.ahrckli li {
+    background-color: white;
+    box-shadow: 1px 1px 3px gray;
     /* background-color: #aec5d8; */
     border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: 900;
+    padding-left: 1rem;
 }
 
+
 /* 목차 끝 */
+
+
 /* section 오른쪽 끝 */
 
+
 /* footer 시작 */
-.footer{
+
+
+/* .footer{
     width: 100vw;
     height: 4.2rem;
     background-color: #0C4876;
-}
+} */
 
-a:visited{
+a:visited {
     color: black;
 }
-.text{
+
+.text {
     width: 100%;
     display: flex;
     justify-content: space-between;

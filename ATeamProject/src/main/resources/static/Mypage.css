@@ -1,199 +1,277 @@
 * {
-    margin: 0;
     padding: 0;
+    margin: 0;
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
 }
 
-.sectionAll{
-	color: #333;
+
+.sectionAll {
+    color: #333;
     width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    border-bottom: 3px solid white;
+    background-color: #e9e1da;
 }
+
+
 /********************  상단 ***************************/
-.sectionTop{
-	width: 80rem;
-	height: 15rem;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding-left: 2rem;
-	padding-right: 2rem;
+
+.sectionTop {
+    width: 80rem;
+    height: 8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
-.profile{
-	display: flex;
-}
-.name{
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	align-self: center;
-	padding-left: 1rem;
-}
-.profile>img{
-	width: 6rem;
-	height:6rem;
-	border-radius: 50%;
+.profile {
+    display: flex;
 }
 
-#subscription{
-	font-size: 2rem;
-	color: gray;
-	font-weight: bold;
+.name {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: center;
+    padding-left: 1rem;
 }
-#profile{
-	font-size: 1.2rem;
-	color: gray;
-	font-weight: bold;
+
+.profile>img {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
 }
+
+#subscription {
+    font-size: 1.5rem;
+    color: rgb(59, 59, 59);
+    font-weight: bold;
+    text-align: center;
+}
+
+#profile {
+    font-size: 1.2rem;
+    color: rgb(61, 61, 61);
+    font-weight: bold;
+}
+
+
 /********************  하단 ***************************/
-.sectionBottom{
-	width: 80rem;
-	height: 40rem;
-	display: flex;
+
+.sectionBottom {
+    width: 80rem;
+    height: 40rem;
+    display: flex;
 }
+
+
 /********************  네비바 ***************************/
-.sectionNav{
-	width: 30rem;
-	display: flex;
-	flex-direction: column;
-	align-self: center;
+
+.sectionNav {
+    width: 30rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
-.navBtn{
-	width:80%;
-	height:5rem;
-	box-shadow:2px 2px 4px gray;
-	display: flex;
-  	align-items: center;
-  	padding-left:2rem; 
-  	font-size: 1.5rem;
-	color: gray;
-	font-weight: bold;
-  	border-radius: 10px;
+
+.sectionNav>a {
+    display: block;
+    width: 80%;
+    height: 5rem;
+    margin-bottom: 2rem;
 }
+
+.navBtn {
+    width: 100%;
+    height: 100%;
+    box-shadow: 2px 2px 4px gray;
+    display: flex;
+    align-items: center;
+    padding-left: 2rem;
+    font-size: 1.3rem;
+    color: rgb(66, 66, 66);
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: white;
+}
+
 
 /******************** 메인컨텐츠 ***************************/
-.sectionContent{
-	width: 70rem;
-	padding-left: 2rem;
-	display: flex;
-	flex-direction: column;
-}
-.sectionContent>form{
-	display: flex;
-	flex-direction: column;
+
+.sectionContent {
+    width: 70rem;
+    display: flex;
+    flex-direction: column;
 }
 
-.sectionContent>form>label{
-	width: 6rem;
-}
-#signout{
-	margin-top:2rem;
-	text-align: center;
-}
-.contentTop{
-	display:flex;
-	justify-content: space-between;
-	align-items: center;
-}
-.contentTop>a>button{
-	border-radius: 5px;
-	font-weight: bold;
-}
-.box{
-	border-radius: 10px;
-	border: 0.5px solid black;
-	height: 4rem;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding-left: 2rem;
-	padding-right: 2rem;
-	margin-bottom: 2rem;
-}
-.box>input{
-	border: none;
-	height: 3rem;
-	width: 80%;
-	margin-right: 4rem;
-}
-.box>label{
-	font-size: 1.5rem;
-	color: gray;
-	font-weight: bold;
-}
-.box>img{
-	width: 20%;
-	height: 90%;
-	border-radius: 10px;
-}
-.box>span{
-	height: 3rem;
-	width: 60%;
-	margin-right: 4rem;
-}
-.sectionContent>form>button{
-	height: 3rem;
-	border-radius: 10px;
-	background-color: #e9e1da;
-	font-size: 1.5rem;
-	color: black;
-	font-weight: bold;
+.sectionContent>h3 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
-.mainImg{
-	position: relative;
-	width: 5rem;
-	height: 5rem;
-	box-shadow:2px 2px 4px gray;
-	margin-bottom: 1rem;
+.sectionContent>form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 
-.subImg{
-	position: absolute;
-	width: 1.5rem;
-	height: 1.5rem;
-	bottom: 0rem;
-	right: 0rem;
-
-}
-#profileImg{
-	display: none;
+.sectionContent>form>label {
+    width: 6rem;
+    height: 100%;
 }
 
-.mainImg, .subImg{
-	border-radius: 50%;
+#signout {
+    margin-top: 2rem;
+    text-align: center;
 }
 
-.mainImg>img,.subImg>img {
-	width: 100%;
-  	height: 100%;
-  	border-radius: 50%;
-  	object-fit: cover;
+.contentTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
+.contentTop>a>button {
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.box {
+    border-radius: 10px;
+    border: none;
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 2rem;
+    /*padding-right: 2rem; */
+    margin-bottom: 1.5rem;
+    width: 70%;
+    box-shadow: 1px 1px 3px gray;
+    background-color: white;
+}
+
+.box>input {
+    border: none;
+    height: 3rem;
+    width: 80%;
+}
+
+.box>label {
+    font-size: 1rem;
+    color: rgb(63, 63, 63);
+    font-weight: 900;
+    width: 20%;
+}
+
+.box>img {
+    width: 20%;
+    height: 90%;
+    border-radius: 10px;
+}
+
+.box>span {
+    height: 3rem;
+    width: 60%;
+    margin-right: 4rem;
+}
+
+.sectionContent>form>button {
+    width: 80%;
+    height: 3rem;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    color: rgb(61, 61, 61);
+    font-weight: bold;
+    background-color: white;
+    border: none;
+    box-shadow: 1px 1px 3px gray;
+}
+
+.mainImg {
+    position: relative;
+    width: 5rem;
+    height: 5rem;
+    box-shadow: 2px 2px 4px gray;
+    margin-bottom: 1rem;
+}
+
+.subImg {
+    position: absolute;
+    width: 1.5rem;
+    height: 1.5rem;
+    bottom: 0rem;
+    right: 0rem;
+}
+
+#profileImg {
+    display: none;
+}
+
+.mainImg,
+.subImg {
+    border-radius: 50%;
+}
+
+.mainImg>img,
+.subImg>img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+/* 수정사항*/
+
+form>.box {
+    background-color: white;
+    padding-right: 2rem;
+    width: 80%;
+}
+
+.sectionContent>a {
+    font-size: 0.9rem;
+    font-weight: 900;
+    opacity: 0.5;
+}
+
+
 /******************** 커리어 ***************************/
-.careerform{
-	display: flex;
+
+.careerform {
+    display: flex;
 }
-.careerinput{
-	display: flex;
-	justify-content: space-between;
-	margin-bottom: 1rem;
+
+.careerinput {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
 }
-.careerinput1{
-	width: 20%;
+
+.careerinput1 {
+    width: 20%;
 }
-.careerinput2{
-	width: 80%;
+
+.careerinput2 {
+    width: 80%;
 }
-#year,#careertext{
-	width: 70%;
-}
+
+#year,
+#careertext {
+    width: 70%;
+=======
 /******************** edit ***************************/
 .myinfo{
 	display: flex;
