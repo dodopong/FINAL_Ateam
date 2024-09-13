@@ -1,45 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>join</title> 
+    <title>join</title>
     <link rel="stylesheet" th:href="@{/fragment.css}">
     <link rel="stylesheet" th:href="@{/join.css}">
     <link rel="stylesheet" th:href="@{/bootstrap/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/custom.css}">
     <script src="https://kit.fontawesome.com/86c06c2025.js" crossorigin="anonymous"></script>
-    
+
 </head>
+
 <body>
     <!-- 로그인 모달창 타임리프-->
-    <div th:replace = "~{modal :: modalFragment}"></div >
-	<!--메인 네비바 타임리프-->
-	<nav th:replace = "~{navbar :: navbarFragment}"></nav>
+    <div th:replace="~{modal :: modalFragment}"></div>
+    <!--메인 네비바 타임리프-->
+    <nav th:replace="~{navbar :: navbarFragment}"></nav>
 
     <!-- level-1 -->
     <!--문자데이터와 사진파일을 같이 넘기므로 enctype="multipart/form-data-->
-    <form th:action="@{/user/join}" th:object = "${memberForm}" method="post" enctype="multipart/form-data" name="joinform" class="joinform">
-    <div th:replace="~{form_errors :: formErrorsFragment}"></div> 
-    <!--정보 잘못 입력했을 때 뜨는 에러박스-->
+    <form th:action="@{/user/join}" th:object="${memberForm}" method="post" enctype="multipart/form-data" name="joinform" class="joinform">
+        <div th:replace="~{form_errors :: formErrorsFragment}"></div>
+        <!--정보 잘못 입력했을 때 뜨는 에러박스-->
         <div>
             <div class="container on">
                 <div class="title">01. 약관동의</div>
-                <div class="promise">귀하의 개인정보를 소중하게 여깁니다<br>
-                    당사는 개인정보 보호 규정을 준수하여 귀하의 데이터를 처리합니다
+                <div class="promise">귀하의 개인정보를 소중하게 여깁니다<br> 당사는 개인정보 보호 규정을 준수하여 귀하의 데이터를 처리합니다
                 </div>
                 <div><input class="agree" type="checkbox" name="" value=""> 약관동의*</div>
             </div>
         </div>
 
         <!-- level-2 -->
-        <div class="container two">       
+        <div class="container two">
             <div class="title">02. 회원가입</div>
 
             <div class="article">이메일*</div>
             <div>
-                <input th:field="*{email1}" type="text" class="email"> @ 
-                <input th:field="*{email2}" class="box-1" id="domain-txt" type="text"/>
+                <input th:field="*{email1}" type="text" class="email"> @
+                <input th:field="*{email2}" class="box-1" id="domain-txt" type="text" />
                 <select class="box-2" id="domain-list">
                     <option value="type">직접 입력</option>
                     <option value="naver.com">naver.com</option>
@@ -47,7 +48,7 @@
                     <option value="hanmail.net">hanmail.net</option>
                     <option value="nate.com">nate.com</option>
                     <option value="kakao.com">kakao.com</option>
-              </select>  
+              </select>
             </div>
 
             <div class="article">비밀번호*</div>
@@ -74,30 +75,27 @@
                 <label class="btn btn-secondary" for="student">수강생</label>
 
                 <input th:field="*{instructorYn}" value="Y" type="radio" class="btn-check" name="options" id="instructor">
-                <label class="btn btn-secondary" for="instructor">강 사</label> 
+                <label class="btn btn-secondary" for="instructor">강 사</label>
             </div>
 
             <div class="article">닉네임*</div>
             <input th:field="*{nickname}" type="text" class="text" maxlength="10">
 
             <div class="article">프로필 사진(선택)</div>
-            <div><input th:field="*{profileImg}" type="file" name="myprofile"></div>         
+            <div><input th:field="*{profileImg}" type="file" name="myprofile"></div>
         </div>
-        
+
         <!-- level-3 : 강사만-->
         <div class="container instructor">
             <div class="title">02-1. 서류 제출</div>
             <div class="doc">
-                제출 서류 안내<br><br>
-                강사 발급확인서 (정부24에서 발급 가능) 또는<br>
-                프리랜서 사업자 등록증 제출<br><br>
-                가입 승인 시 가입하신 이메일로 승인 완료 메일을 발송 드립니다
+                제출 서류 안내<br><br> 강사 발급확인서 (정부24에서 발급 가능) 또는<br> 프리랜서 사업자 등록증 제출<br><br> 가입 승인 시 가입하신 이메일로 승인 완료 메일을 발송 드립니다
             </div>
             <!-- 파일쪽 추후 수정 필요
             <div><input type="file" name="confirm"></div>
             -->
         </div>
-        
+
         <!-- level-3 : 수강생/강사 모두-->
         <div class="container">
             <div class="title">03. 관심 분야 선택</div>
@@ -119,18 +117,19 @@
                 
             </div>
             <div></div> -->
-            
+
             <!-- 다음버튼 -->
             <input type="submit" value="회원가입 완료" class="next-btn">
-        </div>    
+        </div>
     </form>
-        
+
     <!-- 메인 footer 타임리프-->
-    <footer th:replace = "~{footer :: footerFragment}"></footer>
-            
-                
+    <footer th:replace="~{footer :: footerFragment}"></footer>
+
+
     <script th:src="@{/join.js}"></script>
     <script th:src="@{/fragment.js}"></script>
-    
+
 </body>
+
 </html>
