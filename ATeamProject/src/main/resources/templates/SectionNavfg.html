@@ -30,6 +30,13 @@
     			<span>내 강의 관리</span>
     		</div>
   		</a>
+  		<a th:href="@{|/user/mypage/myquiz|}" 
+    	sec:authorize="isAuthenticated()"
+	    th:if="${#authentication.getPrincipal().getUsername() == member.memberId && #strings.contains(member.instructorYn,'Y')}">
+    		<div class="navBtn">
+    			<span>내 퀴즈 관리</span>
+    		</div>
+  		</a>
     	<a>
     		<div class="navBtn">
     			<span>설정</span>

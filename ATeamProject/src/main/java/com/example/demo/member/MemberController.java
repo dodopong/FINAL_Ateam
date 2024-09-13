@@ -142,6 +142,14 @@ public class MemberController {
 		model.addAttribute("member",m);
 		return "mypage/Mycourse";
 	}
+    /////////////////////////내 퀴즈 관리 (강사계정)//////////////////
+    @PreAuthorize(value = "isAuthenticated()")
+	@GetMapping("/mypage/myquiz")
+	public String myquiz(Model model, Principal principal) throws nosignException {
+		Member m = this.ms.getUser(principal.getName());
+		model.addAttribute("member",m);
+		return "mypage/Myquiz";
+	}
     
 	/////////////////////////MyPage 수강중인 강의관리 //////////////////
     @PreAuthorize(value = "isAuthenticated()")

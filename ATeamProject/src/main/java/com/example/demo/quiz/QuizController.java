@@ -1,5 +1,6 @@
 package com.example.demo.quiz;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -9,6 +10,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import com.example.demo.member.Member;
+import com.example.demo.member.MemberService;
+import com.example.demo.member.nosignException;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +25,7 @@ public class QuizController {
 	public final QuizService qs;
 	private final QuizRepository qr;
 	//private final QuizQuestionRepository qqr;
-	//private final MemberService ms; 
+	private final MemberService ms; 
 	
 //------------퀴즈만들기 페이지(강사)--------------------------------------------
 	@PreAuthorize("isAuthenticated()") //로그인해야 이용 가능
@@ -32,18 +37,18 @@ public class QuizController {
 	
 	@PreAuthorize("isAuthenticated()") //로그인해야 이용 가능
 	@PostMapping("/createquiz")
-	public String createQuiz(@Valid QuizForm createQuizForm, BindingResult bindingResult) {
+	public String createQuiz(@Valid QuizForm createQuizForm, BindingResult bindingResult, Principal principal) throws Exception {
 		
 		if(bindingResult.hasErrors()) {
 			return "CreateQuiz"; // 에러가 있는 경우 반환할 뷰
 		}
 		
-		//Member m = this.ms.getUser(principal.getName());
+		Member m = this.ms.getUser(principal.getName());
 		
 		this.qs.create(createQuizForm.getCategory(),createQuizForm.getQuizLevel(),
 				createQuizForm.getQuizTitle(), createQuizForm.getExplanation(), createQuizForm.getLimitation(),
 				createQuizForm.getIoEx(), createQuizForm.getIoExplanation(), createQuizForm.getPresentCode(),
-				createQuizForm.getSolutionCode(), createQuizForm.getQuizFile()
+				createQuizForm.getSolutionCode(), createQuizForm.getQuizFile(),m
 				);
 		return "redirect:/quiz"; //퀴즈 생성 후 이동할 페이지
 	}
