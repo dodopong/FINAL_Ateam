@@ -114,7 +114,9 @@
     display: flex;
     flex-direction: column;
 }
-
+.sectionContent>a {
+    width: 80%;
+}
 .sectionContent>h3 {
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -123,12 +125,10 @@
 .sectionContent>form {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
 }
 
 .sectionContent>form>label {
     width: 6rem;
-    height: 100%;
 }
 
 #signout {
@@ -137,9 +137,11 @@
 }
 
 .contentTop {
+	width: 80%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 2rem;
 }
 
 .contentTop>a>button {
@@ -157,7 +159,7 @@
     padding-left: 2rem;
     /*padding-right: 2rem; */
     margin-bottom: 1.5rem;
-    width: 70%;
+    width: 80%;
     box-shadow: 1px 1px 3px gray;
     background-color: white;
 }
@@ -271,20 +273,23 @@ form>.box {
 #year,
 #careertext {
     width: 70%;
-=======
+}
 /******************** edit ***************************/
+
 .myinfo{
 	display: flex;
 	flex-direction: column;
 }
+
 .myinfo>a{
 	height: 3rem;
+	width: 80%;
 }
+
 .myinfo>a>button{
 	width: 100%;
 	height: 100%;
 	border-radius: 10px;
-	background-color: #e9e1da;
 	font-size: 1.5rem;
 	color: black;
 	font-weight: bold;
@@ -298,4 +303,56 @@ form>.box {
 	font-size: 1.5rem;
 	color: black;
 	font-weight: bold;
+}
+/******************** edit ***************************/
+.courseBox {
+    border-radius: 10px;
+    border: none;
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 2rem;
+    /*padding-right: 2rem; */
+    margin-bottom: 1.5rem;
+    width: 80%;
+    box-shadow: 1px 1px 3px gray;
+    background-color: white;
+}
+.courseBox>a {
+    width: 70%;
+    height: 90%;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    
+}
+.courseBox>a>img {
+    width: 30%;
+    height:100%;
+    border-radius: 10px;
+    margin-right: 1rem;
+}
+.courseBox>div{
+	width: 30%;
+	height: 90%;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.courseBox>div>a {
+	background-color: #c2a2b4;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    color: white;
+    width: 40%;
+    height: 50%;
+    font-size: 0.7rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content:center;
 }

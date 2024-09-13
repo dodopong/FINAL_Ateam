@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.board.DataNotFoundException;
+import com.example.demo.member.Member;
 
 import lombok.RequiredArgsConstructor;
 
@@ -33,7 +34,7 @@ public class QuizService { //강사가 업로드한 퀴즈 정보를 저장
 	public void create(String category, String quizLevel, String quizTitle,
 					   String explanation, String limitation, String ioEx,
 					   String ioExplanation, String presentCode, String solutionCode,
-					   String quizFile) {
+					   String quizFile, Member m) {
 		Quiz cq = new Quiz();
 		cq.setCategory(category);
 		cq.setQuizLevel(quizLevel);
@@ -45,7 +46,7 @@ public class QuizService { //강사가 업로드한 퀴즈 정보를 저장
 		cq.setPresentCode(presentCode);
 		cq.setSolutionCode(solutionCode);
 		cq.setQuizFile(quizFile);
-
+		cq.setMember(m);
 		this.qr.save(cq);
 	}
 	
@@ -53,7 +54,7 @@ public class QuizService { //강사가 업로드한 퀴즈 정보를 저장
 					(String category, String quizlevel, String quizTitle,
 			   		 String explanation, String limitation, String ioEx,
 			   		 String ioExplanation, String presentcode, String solutioncode,
-			   		 String quizFile) {
+			   		 String quizFile, Member m) {
 		Quiz cq = new Quiz();
 		cq.setCategory(category);
 		cq.setQuizLevel(quizlevel);
@@ -65,7 +66,7 @@ public class QuizService { //강사가 업로드한 퀴즈 정보를 저장
 		cq.setPresentCode(presentcode);
 		cq.setSolutionCode(solutioncode);
 		cq.setQuizFile(quizFile);
-
+		cq.setMember(m);
 		this.qr.save(cq);
 		return cq;
 }	

@@ -16,6 +16,7 @@ import com.example.demo.PpakchimException;
 import com.example.demo.cart.Cart;
 import com.example.demo.cart.CartService;
 import com.example.demo.file.FileController;
+import com.example.demo.lecture.Lecture;
 import com.example.demo.member.Member;
 import com.example.demo.member.MemberService;
 import com.example.demo.member.nosignException;
@@ -88,7 +89,22 @@ public class CourseController {
 	     fc.bannerfileInsert(request, file2, c);
 	     return "redirect:/user/mypage/mycourse";
 	}
-
+	//-----------------------------------------------------------------------------------------
+	//-------------------------------modify course-----------------------------
+	@PreAuthorize(value = "isAuthenticated()")
+	@GetMapping("/course/{courseKey}/modify")
+	public String modifyCourse(@PathVariable(value = "courseKey")Integer courseKey,Principal principal) throws Exception {
+		Member m = this.ms.getUser(principal.getName());
+		Course c = this.cs.getCourse(courseKey);
+		
+		return "gongsajoong";
+	}
+	
+	
+	
+	
+	
+	
 //-----------------------------------------------------------------------------------------
 //-------------------------------SearchCourse-----------------------------
 	@GetMapping("/searchcourse")
@@ -110,9 +126,18 @@ public class CourseController {
 	@GetMapping(value = "/course/{course_key}")
 	   public String detail(Model model, @PathVariable("course_key") Integer course_key, CourseForm courseForm) throws Exception {
 	      Course c = this.cs.getCourse(course_key);
+	      if(!c.getLectureList().isEmpty()) {
+	    	  Lecture l = c.getLectureList().get(0);
+	    	  model.addAttribute("firstLecture",l);
+	      }
+	      else {
+	    	  Lecture l = new Lecture();
+	    	  model.addAttribute("firstLecture",l);
+	      }
 	      Member m = c.getMember();
 	      model.addAttribute("course", c);
 	      model.addAttribute("member",m);
+	     
 	      
 	      return "CourseRegistration";
 	   }
